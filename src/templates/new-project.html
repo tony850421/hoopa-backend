@@ -1,0 +1,16 @@
+<div class="row" ng-controller="ProjectCtrl">
+
+    <form class="new-product">
+        <h2 class="new-product-heading">发布一个新商品</h2>
+        <label for="product-title" class="sr-only">商品名称</label>
+        <input ng-model="title" type="title" id="inputTitle" class="form-control" placeholder="商品名称" required autofocus>
+        <label for="inputPrice" class="sr-only">价格</label>
+        <input ng-model="price" type="price" id="inputPrice" class="form-control" placeholder="价格" required>
+        <label for="inputDescription" class="sr-only">商品描述</label>
+        <textarea ng-model="description" type="description" id="inputDescription" class="form-control" placeholder="商品描述" required></textarea>
+        <label for="inputFile" class="sr-only">上传图片</label>
+        <input type="file" id="inputFile" class="form-control" placeholder="文件" required>
+        <button class="btn btn-lg btn-primary btn-block" ng-click="releaseNewProject()">发布</button>
+    </form>
+</div>
+<!-- /container -->
