@@ -160,3 +160,6 @@
   .page{
     cursor: pointer;
   }
+  .imgLogo{
+    width: 100px;
+  }
