@@ -3,23 +3,26 @@
         <nav>
             <ul class="nav nav-tabs pull-right">
                 <li role="presentation" class="active">
-                    <a href="#login">Login</a>
+                    <a href="#login">登录</a>
                 </li>
                 <li role="presentation">
-                    <a href="#signup">Sign Up</a>
+                    <a href="#signup">登记</a>
                 </li>
             </ul>
         </nav>
         <!-- <h3 class="text-muted">宝贝出售</h3> -->
     </div>
 
-    <form class="form-signin">
-        <h2 class="form-signin-heading">Login</h2>
-        <label for="inputUsername" class="sr-only">username</label>
-        <input ng-model="username" type="username" id="inputUsername" class="form-control" placeholder="username" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input ng-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <button class="btn btn-lg btn-primary btn-block" ng-click="login()">登录</button>
-    </form>
+    <div class="loginBox">
+        <form class="form-signin">
+            <h2 class="form-signin-heading margin-top-0">登录</h2>
+            <label for="inputUsername" class="sr-only">用户</label>
+            <input ng-model="username" type="username" id="inputUsername" class="form-control" placeholder="用户" required autofocus>
+            <label for="inputPassword" class="sr-only">密码</label>
+            <input ng-model="password" type="password" id="inputPassword" class="form-control" placeholder="密码" required>
+            <button class="btn btn-lg btn-primary btn-block" ng-click="login()">登录</button>
+        </form>
+    </div>
+    
 </div>
 <!-- /container -->

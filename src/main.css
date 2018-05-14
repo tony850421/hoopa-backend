@@ -74,7 +74,7 @@
   .new-product {
     max-width: 430px;
     padding: 15px;
-    margin: 0 auto;
+    margin-left: 3%;
   }
   .new-product .new-product-heading,
   .new-product .checkbox {
@@ -100,4 +100,63 @@
   }
   .new-product textarea {
       margin-bottom: 20px;
+  }
+  .notification-image{
+    height: 120px !important;
+    margin-left: 20% !important;
+    width: 120px !important;
+    object-fit: cover;
+  }
+  .no-padding {
+    padding: 0 !important;
+  }
+  .notification-author{
+    font-weight: 600;
+    line-height: normal;
+  }
+  .dropdown-user{
+    text-align: inherit !important;
+    vertical-align: middle;
+  }
+  .marginLeft{
+    margin-right: 10px;
+  }
+  .lineHeight{
+    line-height: normal !important;
+  }
+  .loginBox{
+    background-color: #EFEFEF;
+    padding: 15px;
+    width: 320px;
+    margin-left: 36%;
+    margin-top: 10%;
+    border: 1px #D4D4D4 solid;
+    border-radius: 5px;
+  }
+  .margin-top-0{
+    margin-top: 0px
+  }
+  .registerBox{
+    background-color: #EFEFEF;
+    padding: 15px;
+    width: 350px;
+    margin-left: 36%;
+    margin-top: 10%;
+    border: 1px #D4D4D4 solid;
+    border-radius: 5px;
+  }
+  .newProject{
+    background-color: #EFEFEF;
+    padding: 15px;
+    width: 450px;
+    margin-left: 32%;
+    margin-top: 10%;
+    border: 1px #D4D4D4 solid;
+    border-radius: 5px;
+  }
+  .no-resize{
+    resize: none !important;
+  }
+  .page{
+    cursor: pointer;
   }

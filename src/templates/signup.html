@@ -3,25 +3,27 @@
     <nav>
       <ul class="nav nav-tabs pull-right">
         <li role="presentation">
-          <a href="#login">Login</a>
+          <a href="#login">登录</a>
         </li>
         <li role="presentation" class="active">
-          <a href="#">Sign Up</a>
+          <a href="#">登记</a>
         </li>
       </ul>
     </nav>
     <!-- <h3 class="text-muted">宝贝出售</h3> -->
   </div>
 
-  <form class="form-signup">
-    <h2 class="form-signup-heading">New User</h2>
-    <label for="inputUsername" class="sr-only">username</label>
-    <input ng-model="username" type="username" id="inputUsername" class="form-control" placeholder="username" required autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input ng-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input ng-model="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
-    <button class="btn btn-lg btn-primary btn-block" ng-click="signup()">Register</button>
-  </form>
+  <div class="registerBox">
+    <form class="form-signup">
+        <h2 class="form-signup-heading margin-top-0">登记</h2>
+        <label for="inputUsername" class="sr-only">用户</label>
+        <input ng-model="username" type="username" id="inputUsername" class="form-control" placeholder="用户" required autofocus>
+        <label for="inputPassword" class="sr-only">密码</label>
+        <input ng-model="password" type="password" id="inputPassword" class="form-control" placeholder="密码" required>
+        <label for="inputEmail" class="sr-only">电子邮件</label>
+        <input ng-model="email" type="email" id="inputEmail" class="form-control" placeholder="电子邮件" required>
+        <button class="btn btn-lg btn-primary btn-block" ng-click="signup()">登记</button>
+      </form>
+  </div>  
 </div>
 <!-- /container -->
