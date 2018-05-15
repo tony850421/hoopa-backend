@@ -38,6 +38,10 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             .state('signup', {
                 url: '/signup',
                 templateUrl: 'templates/signup.html'
+            })
+            .state('inbox', {
+                url: '/inbox',
+                templateUrl: 'templates/inbox.html'
             });
     }
 ]);

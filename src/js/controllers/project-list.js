@@ -13,8 +13,6 @@ function ProjectListCtrl($scope, $window, $timeout) {
 
     $scope.listAllProjects = function () {
       var email = 'kk@qq.com';
-      console.log(email);
-
 
         var role = new AV.Role();
         role.setName('official'); 
@@ -25,16 +23,12 @@ function ProjectListCtrl($scope, $window, $timeout) {
         currentUser.save();
 
         if (currentUser) {
-            console.log('ok: ' + currentUser.getUsername());
 
             var roleQuery = new AV.Query(AV.Role);
             roleQuery.equalTo('users', AV.User.current());
             roleQuery.find().then(function (results) {
-                console.log('roleQuery');
-                console.log(results.length);
                 if(results.length > 0) {
                     var role = results[0];
-                    console.log(role.getName());
                 }
             }).then(function (administratorRole) {
               //此时 administratorRole 已经包含了当前用户
@@ -49,8 +43,7 @@ function ProjectListCtrl($scope, $window, $timeout) {
             query.descending('createdAt');
             query.limit(10);
             query.find().then(function (products) {
-              products.forEach(function(product) {
-                console.log(product);
+              products.forEach(function(product) {                
                 var productTitle = product.get('title');
                 var productDescription = product.get('description');
                 var releaseTime = (product.createdAt.getMonth() + 1) + '/' + product.createdAt.getDate() + '/' +  product.createdAt.getFullYear();
@@ -78,7 +71,6 @@ function ProjectListCtrl($scope, $window, $timeout) {
             });
 
         } else {
-            console.log('ups');
             $window.location.href = '#/login';
         }
     };

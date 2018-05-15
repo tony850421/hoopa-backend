@@ -163,3 +163,112 @@
   .imgLogo{
     width: 100px;
   }
+
+  .nav {
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+    flex-wrap: wrap !important;
+    padding-left: 0 !important;
+    margin-bottom: 0 !important;
+    list-style: none !important;
+  }
+
+  .nav-link {
+    display: block !important;
+    padding: 0.5rem 1rem !important;
+  }
+  
+  .nav-link:hover, .nav-link:focus {
+    text-decoration: none !important;
+  }
+  
+  .nav-link.disabled {
+    color: #6c757d !important;
+  }
+  
+  .nav-tabs {
+    border-bottom: 1px solid #dee2e6 !important;
+  }
+  
+  .nav-tabs .nav-item {
+    margin-bottom: -1px !important;
+  }
+  
+  .nav-tabs .nav-link {
+    border: 1px solid transparent !important;
+    border-top-left-radius: 0.25rem !important;
+    border-top-right-radius: 0.25rem !important;
+  }
+  
+  .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    border-color: #e9ecef #e9ecef #dee2e6 !important;
+  }
+  
+  .nav-tabs .nav-link.disabled {
+    color: #6c757d !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+  }
+  
+  .nav-tabs .nav-link.active,
+  .nav-tabs .nav-item.show .nav-link {
+    color: #495057 !important;
+    background-color: #fff !important;
+    border-color: #dee2e6 #dee2e6 #fff !important;
+  }
+  
+  .nav-tabs .dropdown-menu {
+    margin-top: -1px !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+  }
+  
+  .nav-pills .nav-link {
+    border-radius: 0.25rem !important;
+  }
+  
+  .nav-pills .nav-link.active,
+  .nav-pills .show > .nav-link {
+    color: #fff !important;
+    background-color: #007bff !important;
+  }
+  
+  .nav-fill .nav-item {
+    -ms-flex: 1 1 auto !important;
+    flex: 1 1 auto !important;
+    text-align: center !important;
+  }
+  
+  .nav-justified .nav-item {
+    -ms-flex-preferred-size: 0 !important;
+    flex-basis: 0 !important;
+    -ms-flex-positive: 1 !important;
+    flex-grow: 1 !important;
+    text-align: center !important;
+  }
+
+  .inboxPadding{
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .inboxBox{
+    width: 100%;
+    height: 100%;
+  }
+
+  .messagesInbox{
+    background-color: white;
+    border-bottom: 1px #EFEFF4 solid;
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+  }
+
+  .imgAvatar{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-top: 5px;
+  }
