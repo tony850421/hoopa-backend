@@ -4,6 +4,11 @@ angular
     .controller('InboxCtrl', ['$scope', '$window', '$timeout', InboxCtrl]);
 
 function InboxCtrl($scope, $window, $timeout) {
+    
+    var query = new AV.Query(AV.User);
+    query.find().then(function(usuarios){
+        console.log(usuarios);
+    })
 
     $scope.inbox = [];
     $scope.send = [];
@@ -27,7 +32,13 @@ function InboxCtrl($scope, $window, $timeout) {
                     }
                 }
                 if (!flag) {
-                    $scope.usersAux.push(messageSend[i].attributes.receiver.id);
+
+                    // console.log(messageSend[i].attributes.receiver.id);
+                    // query.get(messageSend[i].attributes.receiver.id).then(function(user) {
+                    //     console.log(user);
+                    // }).catch(function (error) {
+                    //     alert(JSON.stringify(error));
+                    // })
                 }
             }
 
@@ -35,37 +46,41 @@ function InboxCtrl($scope, $window, $timeout) {
             alert(JSON.stringify(error));
         });
 
-        var queryInbox = new AV.Query('Message');
-        queryInbox.equalTo('receiver', user);
-        queryInbox.find().then(function (messageInbox) {
-            $scope.inbox = messageInbox;
-            $scope.$apply();
+        // var queryInbox = new AV.Query('Message');
+        // queryInbox.equalTo('receiver', user);
+        // queryInbox.find().then(function (messageInbox) {
+        //     $scope.inbox = messageInbox;
+        //     $scope.$apply();
 
-            for (var i = 0; i < messageInbox.length; i++) {
-                var flag = false;
-                for (var x = 0; x < $scope.usersAux.length; x++) {
-                    if (messageInbox[i].attributes.sender.id == $scope.usersAux[x]) {
-                        flag = true;
-                    }
-                }
-                if (!flag) {
-                    $scope.usersAux.push(messageInbox[i].attributes.sender.id);
-                }
-            }
+        //     for (var i = 0; i < messageInbox.length; i++) {
+        //         var flag = false;
+        //         for (var x = 0; x < $scope.usersAux.length; x++) {
+        //             if (messageInbox[i].attributes.sender.id == $scope.usersAux[x]) {
+        //                 flag = true;
+        //             }
+        //         }
+        //         if (!flag) {
+        //             var query = new AV.Query('_User');
+        //             console.log(messageInbox[i].attributes.sender.id);
+        //             query.get(messageInbox[i].attributes.sender.id).then(function(user) {
+        //                 console.log(user);
+        //             }).catch(function (error) {
+        //                 alert(JSON.stringify(error));
+        //             })
+        //             // $scope.usersAux.push();
+        //         }
+        //     }
 
 
-        }).catch(function (error) {
-            alert(JSON.stringify(error));
-        });
+        // }).catch(function (error) {
+        //     alert(JSON.stringify(error));
+        // });
     };
 
     $scope.init();
 
     $scope.getImageUrl = function (id) {
-        var query = new AV.Query('_User');
-        query.get(id).then(function(user) {
-            console.log(user);
-        })
+        
         return '../img/avatar.jpg';
     };
 

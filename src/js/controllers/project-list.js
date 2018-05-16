@@ -12,7 +12,7 @@ function ProjectListCtrl($scope, $window, $timeout) {
     $scope.products = [];
 
     $scope.listAllProjects = function () {
-      var email = 'kk@qq.com';
+      var email = 'pp@qq.com';
 
         var role = new AV.Role();
         role.setName('official'); 

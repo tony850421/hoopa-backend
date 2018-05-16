@@ -11,7 +11,7 @@
         <div class="inboxBox" ng-if="showInbox">
             <div ng-repeat="i in inbox" class="messagesInbox col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
-                    <img class="imgAvatar" ng-src="{{getImageUrl(i.attributes.sender.id)}}" />
+                    <img class="imgAvatar" ng-src="{{getImageUrl()}}" />
                 </div>
                 <h4 class="col-xs-4 col-sm-4 col-md-4 col-lg-4">Alejandro Ravelo Julian</h4>
                 <h4 class="col-xs-7 col-sm-7 col-md-7 col-lg-7">{{i.attributes.content}}</h4>
@@ -20,7 +20,7 @@
         <div class="inboxBox" ng-if="!showInbox">
             <div ng-repeat="i in send" class="messagesInbox col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
-                    <img class="imgAvatar" ng-src="{{getImageUrl(i.attributes.sender.id)}}" />
+                    <img class="imgAvatar" ng-src="{{getImageUrl()}}" />
                 </div>
                 <h4 class="col-xs-4 col-sm-4 col-md-4 col-lg-4">Alejandro Ravelo Julian</h4>
                 <h4 class="col-xs-7 col-sm-7 col-md-7 col-lg-7">{{i.attributes.content}}</h4>
