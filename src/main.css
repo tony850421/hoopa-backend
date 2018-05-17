@@ -72,13 +72,13 @@
     border-top-right-radius: 0;
   }
   .new-product {
-    max-width: 430px;
-    padding: 15px;
-    margin-left: 3%;
+    max-width: 330px;
+    padding: 10px;
+    margin-left: 2%;
   }
   .new-product .new-product-heading,
   .new-product .checkbox {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   } 
   .new-product .checkbox {
     font-weight: normal;
@@ -89,17 +89,17 @@
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
-    padding: 10px;
-    font-size: 16px;
+    padding: 8px;
+    font-size: 12px;
   }
   .new-product .form-control:focus {
     z-index: 2;
   }
   .new-product input {
-      margin-bottom: 20px;
+      margin-bottom: 15px;
   }
   .new-product textarea {
-      margin-bottom: 20px;
+      margin-bottom: 15px;
   }
   .notification-image{
     height: 120px !important;
@@ -148,11 +148,13 @@
   .newProject{
     background-color: #EFEFEF;
     padding: 15px;
-    width: 450px;
-    margin-left: 32%;
-    margin-top: 10%;
+    /* width: 350px; */
+    margin-left: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-right: 10%;
     border: 1px #D4D4D4 solid;
-    border-radius: 5px;
+    border-radius: 3px;
   }
   .no-resize{
     resize: none !important;

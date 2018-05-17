@@ -12,15 +12,19 @@ function ProjectListCtrl($scope, $window, $timeout) {
     $scope.products = [];
 
     $scope.listAllProjects = function () {
-      var email = 'pp@qq.com';
 
-        var role = new AV.Role();
-        role.setName('official'); 
-        role.save();
+        // var query = new AV.Query('_User');
+        // query.find().then(function(users){
+        //     console.log(users);
+        // })
+
+        // var role = new AV.Role();
+        // role.setName('official'); 
+        // role.save();
 
         var currentUser = AV.User.current();
-        currentUser.setEmail(email);
-        currentUser.save();
+        // currentUser.setEmail(email);
+        // currentUser.save();
 
         if (currentUser) {
 

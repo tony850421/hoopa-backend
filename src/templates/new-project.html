@@ -1,17 +1,237 @@
 <div class="row" ng-controller="ProjectCtrl">
-    <div class="newProject">
-        <form class="new-product">
-            <h2 class="new-product-heading">发布一个新商品</h2>
-            <label for="product-title" class="sr-only">商品名称</label>
-            <input ng-model="title" type="title" id="inputTitle" class="form-control" placeholder="商品名称" required autofocus>
-            <label for="inputPrice" class="sr-only">价格</label>
-            <input ng-model="price" type="price" id="inputPrice" class="form-control" placeholder="价格" required>
-            <label for="inputDescription" class="sr-only">商品描述</label>
-            <textarea ng-model="description" type="description" id="inputDescription" class="form-control no-resize" placeholder="商品描述" required></textarea>
-            <label for="inputFile" class="sr-only">上传图片</label>
-            <input type="file" id="inputFile" class="form-control" placeholder="文件" required>
-            <button class="btn btn-lg btn-primary btn-block" ng-click="releaseNewProject()">发布</button>
-        </form>
-    </div>    
+    <form class="newProject">
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <h3 class="new-product-heading" translate="BASICINFO">Basic information</h2>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="product-title" translate="PTITLE">Title</label>
+                <input ng-model="package.title" type="title" id="inputTitle" class="form-control" required autofocus>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="companyName" translate="CNAME">Company Name</label>
+                <input ng-model="package.companyName" type="companyName" id="companyName" class="form-control" required>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="inputDescription" translate="PDESC">Description</label>
+            <textarea ng-model="package.description" type="description" id="inputDescription" class="form-control no-resize" required></textarea>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="comefrom" translate="CFROM">Come from</label>
+                <input ng-model="package.comefrom" type="comefrom" id="comefrom" class="form-control" required>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="debitAmount" translate="DAMOUNT">Debt amount</label>
+                <input ng-model="package.debitAmount" type="debitAmount" id="debitAmount" class="form-control" required>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="debitPricipalInterest" translate="DPRINCIPALI">Principal and interest of the debt</label>
+                <input ng-model="package.debitPricipalInterest" type="debitPricipalInterest" id="debitPricipalInterest" class="form-control"
+                    required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="plainAddress" translate="ADDRESS">Address</label>
+                <input ng-model="package.plainAddress" type="plainAddress" id="plainAddress" class="form-control" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="court" translate="COURT">Court of acceptance</label>
+                <input ng-model="package.court" type="court" id="court" class="form-control" required>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="creditHighlights" translate="CHIGHL">Credit Highlights</label>
+            <textarea ng-model="package.creditHighlights" type="creditHighlights" id="creditHighlights" class="form-control no-resize"
+                required></textarea>
+        </div>
+
+        <div class="form-group col-md-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="quotation" ng-model="package.quotation">
+                <label class="form-check-label" for="quotation" translate="QUOT">
+                    Whether there is a quotation
+                </label>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <h3 class="new-product-heading" translate="MANAGERINFO">Manager information</h2>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="managerName" translate="MANAGERNAME">Address</label>
+                <input ng-model="package.managerName" type="managerName" id="managerName" class="form-control" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="managerPhone" translate="MANAGERPHONE">Court of acceptance</label>
+                <input ng-model="package.managerPhone" type="managerPhone" id="managerPhone" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <h3 class="new-product-heading" translate="BORROINFO">Borrower information</h2>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="borrowerPrincipalDebit" translate="BORROPDEB">Principal of debt</label>
+                <input ng-model="package.borrowerPrincipalDebit" type="borrowerPrincipalDebit" id="borrowerPrincipalDebit" class="form-control"
+                    required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="borrowerInterestCreditor" translate="BORROINTER">Interest on creditor's rights</label>
+                <input ng-model="package.borrowerInterestCreditor" type="borrowerInterestCreditor" id="borrowerInterestCreditor" class="form-control"
+                    required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="borrowerTotalInterest" translate="BORROTOT">Total principal and interest</label>
+                <input ng-model="package.borrowerTotalInterest" type="borrowerTotalInterest" id="borrowerTotalInterest" class="form-control"
+                    required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <h3 class="new-product-heading" translate="ASSETS">Assets</h2>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="typeArrival" translate="TARRIVAL">Type of arrival</label>
+                <select id="typeArrival" class="form-control" ng-model="asset.typeArrival" ng-options="x.type for x in typeArrivalArray">
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="constructionArea" translate="CAREA">Construction area</label>
+                <input ng-model="asset.constructionArea" type="constructionArea" id="constructionArea" class="form-control">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="landArea" translate="LAREA">Land area</label>
+                <input ng-model="asset.landArea" type="landArea" id="landArea" class="form-control">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="asset.plainAddress" translate="ADDRESS">Address</label>
+                <input ng-model="asset.plainAddress" type="asset.plainAddress" id="asset.plainAddress" class="form-control">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="latitude" translate="LAT">Latitude</label>
+                <input ng-model="asset.latitude" type="latitude" id="latitude" class="form-control">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="longitude" translate="LONG">Longitude</label>
+                <input ng-model="asset.longitude" type="longitude" id="longitude" class="form-control">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-12">
+                <button type="button" class="btn btn-default btn-md pull-right" ng-click="addAsset()">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true" translate="BADD"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group col-md-12">
+            <div class="panel panel-default">
+                <ul class="list-group" ng-repeat="asset in assets">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-3">
+                                {{asset.typeArrival.type}}
+                            </div>
+                            <div class="col-md-3">
+                                {{asset.plainAddress}}
+                            </div>
+                            <div class="col-md-3">
+                                {{asset.constructionArea}}x{{asset.landArea}}
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-default btn-xs pull-right" ng-click="deleteAsset($index)">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true" translate="BDELETE"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <h3 class="new-product-heading" translate="SPONSORS">Sponsors</h2>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="sponsorName" translate="GUARA">Guarantor</label>
+                <input ng-model="sponsor.name" type="sponsorName" id="sponsorName" class="form-control">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="typeSponsor" translate="STYPE">Type</label>
+                <select id="typeSponsor" class="form-control" ng-model="sponsor.type" ng-options="x for x in typeSponsorArray">
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="amountSponsor" translate="GAMOUNT">Guarantee amount</label>
+                <input ng-model="sponsor.amount" type="amountSponsor" id="amountSponsor" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <button type="button" class="btn btn-default btn-md pull-right" ng-click="addSponsor()">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true" translate="BADD"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group col-md-12">
+            <div class="panel panel-default">
+                <ul class="list-group" ng-repeat="sponsor in sponsors">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-3">
+                                {{sponsor.type}}
+                            </div>
+                            <div class="col-md-3">
+                                {{sponsor.name}}
+                            </div>
+                            <div class="col-md-3">
+                                {{sponsor.amount}}
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-default btn-xs pull-right" ng-click="deleteSponsor($index)">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true" translate="BDELETE"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <h3 class="new-product-heading" translate="PHOTOS">Photos</h2>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="inputFile" translate="PFILE">Upload image</label>
+            <input type="file" id="inputFile" class="form-control" required>
+        </div>
+
+        <button class="btn btn-lg btn-primary" type="submit" ng-click="releaseNewProject()" translate="BPUBLISH">Publish</button>
+
+    </form>
 </div>
-<!-- /container -->

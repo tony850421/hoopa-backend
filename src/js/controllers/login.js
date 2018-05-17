@@ -5,20 +5,27 @@
 
 angular
     .module('RDash')
-    .controller('LoginCtrl', ['$scope', '$window', LoginCtrl]);
+    .controller('LoginCtrl', ['$scope', '$window', '$translate', LoginCtrl]);
 
-function LoginCtrl($scope, $window) {
+function LoginCtrl($scope, $window, $translate) {
 
-    // $scope.username = '';
-    // $scope.password = '';
-    // $scope.email = '';
+    $scope.ptitle = $translate.instant('PTITLE');
+
+    $scope.username = '';
+    $scope.password = '';
+    $scope.email = '';
+
+    $scope.changeLanguage = function (key) {
+        console.log('changeLanguage LoginCtrl'+ key);
+        $translate.use(key);
+    };
 
     $scope.login = function () {
         console.log('login:' + $scope.username + ' ' + $scope.password);
 
         AV.User.logIn($scope.username, $scope.password).then(function (loginedUser) {
             $window.location.href = '#/project-list';
-        }, function (error) {            
+        }, function (error) {
             $window.location.href = '#/signup';
         });
 
@@ -26,9 +33,6 @@ function LoginCtrl($scope, $window) {
 
     $scope.signup = function () {
         console.log('signup:' + $scope.username + ' ' + $scope.password + ' ' + $scope.email);
-
-        // var role = new AV.Role();
-        // role.setName('guest');
 
         var user = new AV.User();
         user.setUsername($scope.username);

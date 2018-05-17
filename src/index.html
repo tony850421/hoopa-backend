@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="en" ng-app="RDash">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Hoopa Backend</title>
+  <title>Hoopa Backend</title>
   <!-- STYLES -->
   <!-- build:css lib/css/main.min.css -->
   <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css">
@@ -19,10 +20,13 @@
   <script type="text/javascript" src="components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
   <script type="text/javascript" src="components/angular-cookies/angular-cookies.min.js"></script>
   <script type="text/javascript" src="components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="components/angular-translate/angular-translate.min.js"></script>
+
   <!-- endbuild -->
   <!-- Custom Scripts -->
   <script type="text/javascript" src="js/dashboard.min.js"></script>
 </head>
+
 <body ng-controller="MasterCtrl">
   <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
 
@@ -35,16 +39,22 @@
             <span class="menu-icon glyphicon glyphicon-transfer"></span>
           </a>
         </li>
-        <li class="sidebar-title" ng-if="getUser() != ' '"><span>导航</span></li>
-        <li class="sidebar-list" ng-if="getUser() != ' '">
-          <a href="#project-list">项目<span class="menu-icon fa fa-briefcase"></span></a>
+        <li class="sidebar-title" ng-if="getUser() != ' '">
+          <span translate="NAV">导航</span>
         </li>
         <li class="sidebar-list" ng-if="getUser() != ' '">
-          <a href="#inbox">电子邮件<span class="menu-icon fa fa-envelope"></span></a>
+          <a href="#project-list">项目
+            <span class="menu-icon fa fa-briefcase"></span>
+          </a>
+        </li>
+        <li class="sidebar-list" ng-if="getUser() != ' '">
+          <a href="#inbox">电子邮件
+            <span class="menu-icon fa fa-envelope"></span>
+          </a>
         </li>
       </ul>
       <div class="sidebar-footer">
-        
+
       </div>
     </div>
     <!-- End Sidebar -->
@@ -58,6 +68,20 @@
             <div class="user pull-right">
               <div class="item dropdown" uib-dropdown>
                 <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
+                  <i class="fa fa-language"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li>
+                    <a href="#" ng-click="changeLanguage('ch_CH')">Chinise</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#" ng-click="changeLanguage('en_US')">English</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="item dropdown" uib-dropdown>
+                <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
                   <img src="img/avatar.jpg">
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
@@ -65,7 +89,7 @@
                     <i class="fa fa-user marginLeft lineHeight"></i>{{getUser()}}
                   </li>
                   <li class="divider" ng-if="getUser() != ' '"></li>
-                  <li class="dropdown-header dropdown-user" ng-if="getUser() != ' '">                    
+                  <li class="dropdown-header dropdown-user" ng-if="getUser() != ' '">
                     <a href="#" class="no-padding" ng-click="logout()">
                       <i class="fa fa-sign-out lineHeight"></i>
                       注销
@@ -73,30 +97,17 @@
                   </li>
                   <li class="dropdown-header dropdown-user" ng-if="getUser() == ' '">
                     <a href="#login">
-                        <i class="fa fa-sign-in lineHeight"></i>
-                        登录
+                      <i class="fa fa-sign-in lineHeight"></i>
+                      登录
                     </a>
                   </li>
                 </ul>
               </div>
-              <!-- <div class="item dropdown" uib-dropdown>
-               <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
-                  <i class="fa fa-bell-o"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-right">
-                  <li class="dropdown-header">
-                    Notifications
-                  </li>
-                  <li class="divider"></li>
-                  <li>
-                    <a href="#">Server Down!</a>
-                  </li>
-                </ul>
-              </div> -->
+
             </div>
             <div class="meta">
               <div class="page">
-                  Hoopa 后端
+                Hoopa 后端
               </div>
               <!-- <div class="breadcrumb-links">
                 Simple is better
@@ -109,8 +120,12 @@
         <!-- Main Content -->
         <div ui-view></div>
 
-      </div><!-- End Page Content -->
-    </div><!-- End Content Wrapper -->
-  </div><!-- End Page Wrapper -->
+      </div>
+      <!-- End Page Content -->
+    </div>
+    <!-- End Content Wrapper -->
+  </div>
+  <!-- End Page Wrapper -->
 </body>
+
 </html>
