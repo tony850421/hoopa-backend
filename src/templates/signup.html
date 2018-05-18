@@ -3,10 +3,10 @@
     <nav>
       <ul class="nav nav-tabs pull-right">
         <li role="presentation">
-          <a href="#login">登录</a>
+          <a href="#login" translate="LOGIN">登录</a>
         </li>
         <li role="presentation" class="active">
-          <a href="#">登记</a>
+          <a href="#" translate="SIGNUP">登记</a>
         </li>
       </ul>
     </nav>
@@ -15,14 +15,14 @@
 
   <div class="registerBox">
     <form class="form-signup">
-        <h2 class="form-signup-heading margin-top-0">登记</h2>
-        <label for="inputUsername" class="sr-only">用户</label>
-        <input ng-model="username" type="username" id="inputUsername" class="form-control" placeholder="用户" required autofocus>
-        <label for="inputPassword" class="sr-only">密码</label>
-        <input ng-model="password" type="password" id="inputPassword" class="form-control" placeholder="密码" required>
-        <label for="inputEmail" class="sr-only">电子邮件</label>
-        <input ng-model="email" type="email" id="inputEmail" class="form-control" placeholder="电子邮件" required>
-        <button class="btn btn-lg btn-primary btn-block" ng-click="signup()">登记</button>
+        <h2 class="form-signup-heading margin-top-0" translate="SIGNUP">登记</h2>
+        <label for="inputUsername" translate="USERNAME">用户</label>
+        <input ng-model="username" type="username" id="inputUsername" class="form-control" required autofocus>
+        <label for="inputPassword" translate="PASSWORD">密码</label>
+        <input ng-model="password" type="password" id="inputPassword" class="form-control" required>
+        <label for="inputEmail" translate="EMAIL">电子邮件</label>
+        <input ng-model="email" type="email" id="inputEmail" class="form-control" required>
+        <button class="btn btn-lg btn-primary btn-block" ng-click="signup()" translate="SIGNUP">登记</button>
       </form>
   </div>  
 </div>

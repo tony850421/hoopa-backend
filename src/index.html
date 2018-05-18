@@ -43,13 +43,15 @@
           <span translate="NAV">导航</span>
         </li>
         <li class="sidebar-list" ng-if="getUser() != ' '">
-          <a href="#project-list">项目
+          <a href="#project-list">
             <span class="menu-icon fa fa-briefcase"></span>
+            {{'PACKAGES' | translate}}
           </a>
         </li>
         <li class="sidebar-list" ng-if="getUser() != ' '">
-          <a href="#inbox">电子邮件
+          <a href="#inbox">
             <span class="menu-icon fa fa-envelope"></span>
+            {{'MESSAGES' | translate}}
           </a>
         </li>
       </ul>
@@ -71,11 +73,13 @@
                   <i class="fa fa-language"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
-                  <li>
-                    <a href="#" ng-click="changeLanguage('ch_CH')">Chinise</a>
+                  <li ng-click="changeLanguage('ch_CH')">
+                      <!-- <img src="img/china_round_icon_64.png"> -->
+                    <a href="#" ng-click="changeLanguage('ch_CH')">简化中国</a>
                   </li>
                   <li class="divider"></li>
-                  <li>
+                  <li ng-click="changeLanguage('en_US')">
+                    <!-- <img src="img/united_kingdom_round_icon_64.png"> -->
                     <a href="#" ng-click="changeLanguage('en_US')">English</a>
                   </li>
                 </ul>
@@ -92,13 +96,13 @@
                   <li class="dropdown-header dropdown-user" ng-if="getUser() != ' '">
                     <a href="#" class="no-padding" ng-click="logout()">
                       <i class="fa fa-sign-out lineHeight"></i>
-                      注销
+                      {{'LOGOUT' | translate}}
                     </a>
                   </li>
                   <li class="dropdown-header dropdown-user" ng-if="getUser() == ' '">
                     <a href="#login">
                       <i class="fa fa-sign-in lineHeight"></i>
-                      登录
+                      {{'LOGIN' | translate}}
                     </a>
                   </li>
                 </ul>

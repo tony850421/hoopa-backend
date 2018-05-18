@@ -3,10 +3,10 @@
         <nav>
             <ul class="nav nav-tabs pull-right">
                 <li role="presentation" class="active">
-                    <a href="#login">登录</a>
+                    <a href="#login" translate="LOGIN">Login登录</a>
                 </li>
                 <li role="presentation">
-                    <a href="#signup">登记</a>
+                    <a href="#signup" translate="SIGNUP">Sign Up登记</a>
                 </li>
             </ul>
         </nav>
@@ -15,12 +15,12 @@
 
     <div class="loginBox">
         <form class="form-signin">
-            <h2 class="form-signin-heading margin-top-0">登录</h2>
-            <label for="inputUsername" class="sr-only">用户</label>
-            <input ng-model="username" type="username" id="inputUsername" class="form-control" placeholder="用户" required autofocus>
-            <label for="inputPassword" class="sr-only">密码</label>
-            <input ng-model="password" type="password" id="inputPassword" class="form-control" placeholder="密码" required>
-            <button class="btn btn-lg btn-primary btn-block" ng-click="login()">登录</button>
+            <h2 class="form-signin-heading margin-top-0" translate="LOGIN">Login 登录</h2>
+            <label for="inputUsername" translate="USERNAME">用户</label>
+            <input ng-model="username" type="username" id="inputUsername" class="form-control" required autofocus>
+            <label for="inputPassword" translate="PASSWORD">密码</label>
+            <input ng-model="password" type="password" id="inputPassword" class="form-control" required>
+            <button class="btn btn-lg btn-primary btn-block" ng-click="login()" translate="LOGIN">登录</button>
         </form>
     </div>
     

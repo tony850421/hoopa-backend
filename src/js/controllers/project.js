@@ -167,7 +167,7 @@ function ProjectCtrl($scope, $window) {
                     var address = new Address();
                     address.set('plain', obj.plainAddress);
     
-                    var location = new AV.GeoPoint(obj.latitude, obj.longitude);
+                    var location = new AV.GeoPoint(parseFloat(obj.latitude), parseFloat(obj.longitude));
                     address.set('location', location);
         
                     asset.set('address', address);

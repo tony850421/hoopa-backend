@@ -9,6 +9,12 @@ function MasterCtrl($scope, $cookieStore, $translate) {
     /**
      * Sidebar Toggle & Cookie Control
      */
+    
+    $scope.changeLanguage = function (key) {
+        console.log('changeLanguage LoginCtrl'+ key);
+        $translate.use(key);
+    };
+
     $scope.setLanguage = function () {
         console.log('changeLanguage MasterCtrl');
         $translate.use("ch_CH");

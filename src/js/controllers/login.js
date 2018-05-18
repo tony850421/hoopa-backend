@@ -15,10 +15,10 @@ function LoginCtrl($scope, $window, $translate) {
     $scope.password = '';
     $scope.email = '';
 
-    $scope.changeLanguage = function (key) {
-        console.log('changeLanguage LoginCtrl'+ key);
-        $translate.use(key);
-    };
+    // $scope.changeLanguage = function (key) {
+    //     console.log('changeLanguage LoginCtrl'+ key);
+    //     $translate.use(key);
+    // };
 
     $scope.login = function () {
         console.log('login:' + $scope.username + ' ' + $scope.password);
