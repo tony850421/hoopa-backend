@@ -54,6 +54,7 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "PACKAGES": "Packages",
         "MESSAGES": "Messages",
         "NEWPACKAGE": "New package",
+        "PROVINCE": "Province",
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -105,6 +106,7 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "PACKAGES": "项目",
         "MESSAGES": "消息",
         "NEWPACKAGE": "发布新包",
+        "PROVINCE": "省",
     });
     // Tell the module what language to use by default
     $translateProvider.preferredLanguage('en_US ');

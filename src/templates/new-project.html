@@ -20,9 +20,14 @@
             <textarea ng-model="package.description" type="description" id="inputDescription" class="form-control no-resize" required></textarea>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
                 <label for="comefrom" translate="CFROM">Come from</label>
                 <input ng-model="package.comefrom" type="comefrom" id="comefrom" class="form-control" required>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="province" translate="PROVINCE">Type of arrival</label>
+                <select id="province" class="form-control" ng-model="package.province" ng-options="x for x in provinces">
+                </select>
             </div>
             <div class="form-group col-md-3">
                 <label for="debitAmount" translate="DAMOUNT">Debt amount</label>
@@ -107,7 +112,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="typeArrival" translate="TARRIVAL">Type of arrival</label>
-                <select id="typeArrival" class="form-control" ng-model="asset.typeArrival" ng-options="x.type for x in typeArrivalArray">
+                <select id="typeArrival" class="form-control" ng-model="asset.typeArrival" ng-options="x for x in typeArrivalArray">
                 </select>
             </div>
             <div class="form-group col-md-3">
@@ -148,7 +153,7 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-md-3">
-                                {{asset.typeArrival.type}}
+                                {{asset.typeArrival}}
                             </div>
                             <div class="col-md-3">
                                 {{asset.plainAddress}}
