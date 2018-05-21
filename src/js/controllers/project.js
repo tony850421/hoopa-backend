@@ -20,13 +20,14 @@ function ProjectCtrl($scope, $window) {
         creditHighlights: '',
         court: '',
         comefrom: '',
-        quotation: true,
+        quotation: false,
         managerName: '',
         managerPhone: '',
         borrowerPrincipalDebit: '',
         borrowerInterestCreditor: '',
         borrowerTotalInterest: '',
         typeArrivalString: '',
+        recommended: false,
     };
 
     $scope.asset = {
@@ -157,6 +158,7 @@ function ProjectCtrl($scope, $window) {
                 project.set('borrowerInterestCreditor', $scope.package.borrowerInterestCreditor);
                 project.set('borrowerTotalInterest', $scope.package.borrowerTotalInterest);
 
+                project.set('recommended', $scope.package.recommended);
 
                 var file = $('#inputFile')[0].files[0];
                 if (file) {

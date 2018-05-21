@@ -76,6 +76,11 @@
     padding: 10px;
     margin-left: 2%;
   }
+
+  .custom-media-list {
+    margin-left: 5% !important;
+  }
+
   .new-product .new-product-heading,
   .new-product .checkbox {
     margin-bottom: 15px;
@@ -102,9 +107,9 @@
       margin-bottom: 15px;
   }
   .notification-image{
-    height: 120px !important;
-    margin-left: 20% !important;
-    width: 120px !important;
+    height: 100px !important;
+    /* margin-left: 20% !important; */
+    width: 100px !important;
     object-fit: cover;
   }
   .no-padding {
@@ -274,3 +279,11 @@
     border-radius: 50%;
     margin-top: 5px;
   }
+
+  .h-divider{
+    margin-top:5px;
+    margin-bottom:5px;
+    height:1px;
+    width:100%;
+    border-top:1px solid gray;
+   }

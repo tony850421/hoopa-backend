@@ -42,9 +42,9 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "GUARA": "Guarantor",
         "STYPE": "Type",
         "GAMOUNT": "Guarantee amount",
-        "BPUBLISH": "Publish",
-        "BADD": "Add",
-        "BDELETE": "DELETE",
+        "BPUBLISH": " Publish",
+        "BADD": " Add",
+        "BDELETE": " Delete",
         "LOGIN": "Login",
         "SIGNUP": "Sign Up",
         "USERNAME": "User Name",
@@ -55,6 +55,7 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "MESSAGES": "Messages",
         "NEWPACKAGE": "New package",
         "PROVINCE": "Province",
+        "RECOM": "Recommended project",
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -94,9 +95,9 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "GUARA": "担保人",
         "STYPE": "类型",
         "GAMOUNT": "保证金额",
-        "BPUBLISH": "发布",
-        "BADD": "添加",
-        "BDELETE": "删除",
+        "BPUBLISH": " 发布",
+        "BADD": " 添加",
+        "BDELETE": " 删除",
         "LOGIN": "登录",
         "SIGNUP": "登记",
         "USERNAME": "用户",
@@ -107,6 +108,7 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "MESSAGES": "消息",
         "NEWPACKAGE": "发布新包",
         "PROVINCE": "省",
+        "RECOM": "推荐项目",
     });
     // Tell the module what language to use by default
     $translateProvider.preferredLanguage('en_US ');

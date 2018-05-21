@@ -231,9 +231,20 @@
                 <h3 class="new-product-heading" translate="PHOTOS">Photos</h2>
             </div>
         </div>
-        <div class="form-group col-md-12">
-            <label for="inputFile" translate="PFILE">Upload image</label>
-            <input type="file" id="inputFile" class="form-control" required>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="quotation" ng-model="package.recommended">
+                    <label class="form-check-label" for="recommended" translate="RECOM">
+                        Recommended project
+                    </label>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputFile" translate="PFILE">Upload image</label>
+                <input type="file" id="inputFile" class="form-control" required>
+            </div>
+
         </div>
 
         <button class="btn btn-lg btn-primary" type="submit" ng-click="releaseNewProject()" translate="BPUBLISH">Publish</button>

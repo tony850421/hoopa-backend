@@ -1,7 +1,6 @@
 /**
  * Master Controller
  */
-
 angular.module('RDash')
     .controller('MasterCtrl', ['$scope', '$cookieStore', '$translate', MasterCtrl]);
 
@@ -9,7 +8,6 @@ function MasterCtrl($scope, $cookieStore, $translate) {
     /**
      * Sidebar Toggle & Cookie Control
      */
-    
     $scope.changeLanguage = function (key) {
         console.log('changeLanguage LoginCtrl'+ key);
         $translate.use(key);
@@ -44,7 +42,6 @@ function MasterCtrl($scope, $cookieStore, $translate) {
         } else {
             $scope.toggle = false;
         }
-
     });
 
     $scope.toggleSidebar = function() {

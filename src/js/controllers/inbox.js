@@ -18,28 +18,19 @@ function InboxCtrl($scope, $window, $timeout) {
         query.include('sender');
         query.include('receiver');
         query.equalTo('sender', user);
-        query.find().then(function (messageSend) {
-            $scope.send = messageSend;
+        query.find().then(function (messages) {
 
-            for (var i = 0; i < messageSend.length; i++) {
-                console.log( messageSend[i].get('sender').get('nickName'));
-                console.log( messageSend[i].get('receiver').get('nickName'));
-                var flag = false;
-                for (var x = 0; x < $scope.usersAux.length; x++) {
-                    if (messageSend[i].attributes.receiver.id == $scope.usersAux[x]) {
-                        flag = true;
-                    }
+            messages.forEach(function (message) {
+                if(message.get('receiver')) {
+                    var fullName = message.get('receiver').get('fullName');
+                    var releaseTime = (message.createdAt.getMonth() + 1) + '/' + message.createdAt.getDate() + '/' + message.createdAt.getFullYear();
+                    var avatar =  message.get('receiver').get('avatarUrl');
+                    var content = message.get('content');
+    
+                    $scope.send.push({fullName: fullName, releaseTime: releaseTime, avatar: avatar, content: content});
                 }
-                if (!flag) {
+            });
 
-                    // console.log(messageSend[i].attributes.receiver.id);
-                    // query.get(messageSend[i].attributes.receiver.id).then(function(user) {
-                    //     console.log(user);
-                    // }).catch(function (error) {
-                    //     alert(JSON.stringify(error));
-                    // })
-                }
-            }
             $scope.$apply();
 
         }).catch(function (error) {
@@ -50,30 +41,18 @@ function InboxCtrl($scope, $window, $timeout) {
         queryInbox.include('sender');
         queryInbox.include('receiver');
         queryInbox.equalTo('receiver', user);
-        queryInbox.find().then(function (messageInbox) {
-
-            for (var i = 0; i < messageInbox.length; i++) {
-                console.log( messageInbox[i].get('receiver').get('nickName'));
-                console.log( messageInbox[i].get('sender').get('nickName'));
-                $scope.inbox = messageInbox;
-
-                var flag = false;
-                for (var x = 0; x < $scope.usersAux.length; x++) {
-                    if (messageInbox[i].attributes.sender.id == $scope.usersAux[x]) {
-                        flag = true;
-                    }
+        queryInbox.find().then(function (messages) {
+    
+            messages.forEach(function (message) {
+                if(message.get('sender')) {
+                    var fullName = message.get('sender').get('fullName');
+                    var releaseTime = (message.createdAt.getMonth() + 1) + '/' + message.createdAt.getDate() + '/' + message.createdAt.getFullYear();
+                    var avatar =  message.get('sender').get('avatarUrl');
+                    var content = message.get('content');
+    
+                    $scope.inbox.push({fullName: fullName, releaseTime: releaseTime, avatar: avatar, content: content});
                 }
-                if (!flag) {
-                    // var query = new AV.Query('_User');
-                    // console.log(messageInbox[i].attributes.sender.id);
-                    // query.get(messageInbox[i].attributes.sender.id).then(function(user) {
-                    //     console.log(user);
-                    // }).catch(function (error) {
-                    //     alert(JSON.stringify(error));
-                    // })
-                    // $scope.usersAux.push();
-                }
-            }
+            });
 
             $scope.$apply();
 
