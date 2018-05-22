@@ -28,6 +28,7 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "MANAGERNAME": "Manager name",
         "MANAGERPHONE": "Manager phone number",
         "BORROINFO": "Borrower information",
+        "BORRONAME": "Name",
         "BORROPDEB": "Principal of debt",
         "BORROINTER": "Interest on creditor's rights",
         "BORROTOT": "Total principal and interest",
@@ -55,11 +56,17 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "MESSAGES": "Messages",
         "NEWPACKAGE": "New package",
         "PROVINCE": "Province",
-        "RECOM": "Recommended project",
+        "RECOM": "Recommended",
+        "FILTERS": "Filters",
+        "HOT": "Hot",
+        "HOUSE": "House",
+        "FACTORY": "Factory",
+        "ISDEBT": "Debt",
+        "SHOP": "Shop",
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
-        "TITLE": "Title",
+        "TITLE": "标题",
         "HEADER": "Header",
         "SUBHEADER": "Subheader",
         "NAV": "导航",
@@ -78,6 +85,7 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "CFROM": "来自",
         "QUOT": "是否有报价单",
         "MANAGERINFO": "经理信息",
+        "BORRONAME": "名字",
         "MANAGERNAME": "管理器名称",
         "MANAGERPHONE": "经理电话号码",
         "BORROINFO": "借款人信息",
@@ -108,7 +116,13 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "MESSAGES": "消息",
         "NEWPACKAGE": "发布新包",
         "PROVINCE": "省",
-        "RECOM": "推荐项目",
+        "RECOM": "推荐",
+        "FILTERS": "过滤 器",
+        "HOT": "热",
+        "HOUSE": "房子",
+        "FACTORY": "厂",
+        "ISDEBT": "债务",
+        "SHOP": "店",
     });
     // Tell the module what language to use by default
     $translateProvider.preferredLanguage('en_US ');

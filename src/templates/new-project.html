@@ -25,7 +25,7 @@
                 <input ng-model="package.comefrom" type="comefrom" id="comefrom" class="form-control" required>
             </div>
             <div class="form-group col-md-3">
-                <label for="province" translate="PROVINCE">Type of arrival</label>
+                <label for="province" translate="PROVINCE">Province</label>
                 <select id="province" class="form-control" ng-model="package.province" ng-options="x for x in provinces">
                 </select>
             </div>
@@ -86,22 +86,56 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
+                <label for="borrowerName" translate="BORRONAME">Name</label>
+                <input ng-model="borrower.name" type="borrowerName" id="borrowerName" class="form-control">
+            </div>
+            <div class="form-group col-md-3">
                 <label for="borrowerPrincipalDebit" translate="BORROPDEB">Principal of debt</label>
-                <input ng-model="package.borrowerPrincipalDebit" type="borrowerPrincipalDebit" id="borrowerPrincipalDebit" class="form-control"
-                    required>
+                <input ng-model="borrower.principalDebit" type="borrowerPrincipalDebit" id="borrowerPrincipalDebit" class="form-control">
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label for="borrowerInterestCreditor" translate="BORROINTER">Interest on creditor's rights</label>
-                <input ng-model="package.borrowerInterestCreditor" type="borrowerInterestCreditor" id="borrowerInterestCreditor" class="form-control"
-                    required>
+                <input ng-model="borrower.interestCreditor" type="borrowerInterestCreditor" id="borrowerInterestCreditor" class="form-control">
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label for="borrowerTotalInterest" translate="BORROTOT">Total principal and interest</label>
-                <input ng-model="package.borrowerTotalInterest" type="borrowerTotalInterest" id="borrowerTotalInterest" class="form-control"
-                    required>
+                <input ng-model="borrower.totalInterest" type="borrowerTotalInterest" id="borrowerTotalInterest" class="form-control">
             </div>
         </div>
+
+        <div class="row">
+                <div class="form-group col-md-12">
+                    <button type="button" class="btn btn-default btn-md pull-right" ng-click="addBorrower()">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true" translate="BADD"></span>
+                    </button>
+                </div>
+            </div>
+    
+            <div class="form-group col-md-12">
+                <div class="panel panel-default">
+                    <ul class="list-group" ng-repeat="borr in borrowers">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    {{borr.name}}
+                                </div>
+                                <div class="col-md-3">
+                                    {{borr.principalDebit}}
+                                </div>
+                                <div class="col-md-3">
+                                    {{borr.totalInterest}}
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-default btn-xs pull-right" ng-click="deleteBorrower($index)">
+                                        <span class="glyphicon glyphicon-remove" aria-hidden="true" translate="BDELETE"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
         <div class="form-row">
             <div class="form-group col-md-12">
@@ -110,7 +144,11 @@
         </div>
 
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
+                <label for="atitle" translate="TITLE">Title</label>
+                <input ng-model="asset.title" type="constructionArea" id="atitle" class="form-control">
+            </div>
+            <div class="form-group col-md-3">
                 <label for="typeArrival" translate="TARRIVAL">Type of arrival</label>
                 <select id="typeArrival" class="form-control" ng-model="asset.typeArrival" ng-options="x for x in typeArrivalArray">
                 </select>
@@ -125,10 +163,15 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
                 <label for="asset.plainAddress" translate="ADDRESS">Address</label>
                 <input ng-model="asset.plainAddress" type="asset.plainAddress" id="asset.plainAddress" class="form-control">
             </div>
+            <div class="form-group col-md-3">
+                    <label for="assetprovince" translate="PROVINCE">Province</label>
+                    <select id="assetprovince" class="form-control" ng-model="asset.province" ng-options="x for x in provinces">
+                    </select>
+                </div>
             <div class="form-group col-md-3">
                 <label for="latitude" translate="LAT">Latitude</label>
                 <input ng-model="asset.latitude" type="latitude" id="latitude" class="form-control">
@@ -228,26 +271,120 @@
 
         <div class="form-row">
             <div class="form-group col-md-12">
-                <h3 class="new-product-heading" translate="PHOTOS">Photos</h2>
+                <h3 class="new-product-heading" translate="FILTERS">Filter</h2>
             </div>
         </div>
+
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-2">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="quotation" ng-model="package.recommended">
-                    <label class="form-check-label" for="recommended" translate="RECOM">
-                        Recommended project
+                    <input class="form-check-input" type="checkbox" id="isRecommended" ng-model="package.isRecommended">
+                    <label class="form-check-label" for="isRecommended" translate="RECOM">
+                        Recommended
                     </label>
                 </div>
             </div>
+            <div class="form-group col-md-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="isHot" ng-model="package.isHot">
+                    <label class="form-check-label" for="isHot" translate="HOT">
+                        Hot
+                    </label>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="isHouse" ng-model="package.isHouse">
+                    <label class="form-check-label" for="isHouse" translate="HOUSE">
+                        House
+                    </label>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="isFactory" ng-model="package.isFactory">
+                    <label class="form-check-label" for="isFactory" translate="FACTORY">
+                        Factory
+                    </label>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="isDebt" ng-model="package.isDebt">
+                    <label class="form-check-label" for="isDebt" translate="ISDEBT">
+                        Debt
+                    </label>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="isShop" ng-model="package.isShop">
+                    <label class="form-check-label" for="isShop" translate="SHOP">
+                        Shop
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <h3 class="new-product-heading" translate="PHOTOS">Photos</h2>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputFile" translate="PFILE">Upload image</label>
+                <input type="file" id="inputFile" class="form-control" required>
+            </div>
+            <div class="form-group col-md-6">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <button type="button" class="btn btn-default btn-md pull-right" ng-click="addFile()">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true" translate="BADD"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group col-md-12">
+            <div class="panel panel-default">
+                <ul class="list-group" ng-repeat="f in files">
+                    <li class="list-group-item">
+                        <div class="row">
+                                
+                            <div class="col-md-3">
+                                {{f.get('image').get('name')}}
+                            </div>
+                            <div class="col-md-3">
+                                    {{f.get('image').size()}}
+                            </div>
+                            <div class="col-md-3">
+                                <!-- {{sponsor.amount}} -->
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-default btn-xs pull-right" ng-click="deleteFile($index)">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true" translate="BDELETE"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- <div class="form-row">
+
             <div class="form-group col-md-6">
                 <label for="inputFile" translate="PFILE">Upload image</label>
                 <input type="file" id="inputFile" class="form-control" required>
             </div>
 
-        </div>
+        </div> -->
+
 
         <button class="btn btn-lg btn-primary" type="submit" ng-click="releaseNewProject()" translate="BPUBLISH">Publish</button>
-
     </form>
 </div>

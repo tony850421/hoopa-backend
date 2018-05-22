@@ -9,6 +9,8 @@ angular
 
 function ProjectCtrl($scope, $window) {
 
+    $scope.project = {};
+
     $scope.package = {
         title: '',
         description: '',
@@ -23,14 +25,19 @@ function ProjectCtrl($scope, $window) {
         quotation: false,
         managerName: '',
         managerPhone: '',
-        borrowerPrincipalDebit: '',
-        borrowerInterestCreditor: '',
-        borrowerTotalInterest: '',
         typeArrivalString: '',
-        recommended: false,
+        provinceString: '',
+        isRecommended: false,
+        isHot: false,
+        isHouse: false,
+        isFactory: false,
+        isDebt: false,
+        isShop: false,
     };
 
     $scope.asset = {
+        title: '',
+        province: '',
         typeArrival: '',
         constructionArea: '',
         landArea: '',
@@ -62,6 +69,24 @@ function ProjectCtrl($scope, $window) {
         amount: '',
     };
 
+    $scope.borrowers = [];
+    $scope.borrower = {
+        name: '',
+        principalDebit: '',
+        interestCreditor: '',
+        totalInterest: '',
+    };
+
+    $scope.files = [];
+
+    $scope.initProject = function() {
+        console.log('initProject');
+        var Project = AV.Object.extend('Project');
+        $scope.project = new Project();
+    };
+
+    $scope.initProject();
+
     $scope.addSponsor = function () {
         if ($scope.sponsor.name != '' && $scope.sponsor.type != '' && $scope.sponsor.amount != '') {
 
@@ -78,11 +103,11 @@ function ProjectCtrl($scope, $window) {
     };
 
     $scope.addAsset = function () {
-        if ($scope.asset.typeArrival != '' && $scope.asset.constructionArea != '' && $scope.asset.landArea != ''
-            && $scope.asset.plainAddress != '' && $scope.asset.latitude != '' && $scope.asset.longitude != '') {
+        if ($scope.asset.title != '' &&  $scope.asset.typeArrival != '' && $scope.asset.constructionArea != '' && $scope.asset.landArea != ''
+            && $scope.asset.plainAddress != '' && $scope.asset.latitude != '' && $scope.asset.longitude != '' && $scope.asset.province != '') {
 
             if (!isNaN($scope.asset.constructionArea) && !isNaN($scope.asset.landArea) && !isNaN($scope.asset.latitude) && !isNaN($scope.asset.longitude)) {
-                $scope.assets.push({
+                $scope.assets.push({ title: $scope.asset.title, province: $scope.asset.province,
                     typeArrival: $scope.asset.typeArrival, constructionArea: $scope.asset.constructionArea, landArea: $scope.asset.landArea,
                     plainAddress: $scope.asset.plainAddress, latitude: $scope.asset.latitude, longitude: $scope.asset.longitude
                 });
@@ -95,6 +120,46 @@ function ProjectCtrl($scope, $window) {
             alert('Please, complete the asset information');
         }
     };
+
+    $scope.addFile = function () {
+        var file = $('#inputFile')[0].files[0];
+        if (file) {
+            var name = file.name;
+            var avFile = new AV.File(name, file);
+            // $scope.project.set('image', avFile);
+            var ProjectMedia = AV.Object.extend('ProjectMedia');
+            var media = new ProjectMedia();
+            media.set('image', avFile);
+            media.set('project', $scope.project);
+            $scope.files.push(media);
+        } else {
+            alert('Please, select an image file');
+        }
+    }
+
+    $scope.addBorrower = function () {
+        if ($scope.borrower.name != '' && $scope.borrower.principalDebit != '' && $scope.borrower.interestCreditor != '' && $scope.borrower.totalInterest != '') {
+
+            if (!isNaN($scope.borrower.principalDebit)) {
+                $scope.borrowers.push({ name: $scope.borrower.name, principalDebit: $scope.borrower.principalDebit, 
+                                        interestCreditor: $scope.borrower.interestCreditor,  totalInterest: $scope.borrower.totalInterest});
+                $scope.borrower.name = $scope.borrower.principalDebit = $scope.borrower.interestCreditor = $scope.borrower.totalInterest = '';
+            } else {
+                alert('Debt must be a number');
+            }
+
+        } else {
+            alert('Please, complete the sponsor information');
+        }
+    };
+    
+    $scope.deleteBorrower = function (index) {
+        $scope.borrowers.splice(index, 1);
+    }
+
+    $scope.deleteFile = function (index) {
+        $scope.files.splice(index, 1);
+    }
 
     $scope.deleteAsset = function (index) {
         $scope.assets.splice(index, 1);
@@ -119,9 +184,6 @@ function ProjectCtrl($scope, $window) {
         console.log('package.quotation:' + $scope.package.quotation);
         console.log('package.managerName:' + $scope.package.managerName);
         console.log('package.managerPhone:' + $scope.package.managerPhone);
-        console.log('package.borrowerPrincipalDebit:' + $scope.package.borrowerPrincipalDebit);
-        console.log('package.borrowerInterestCreditor:' + $scope.package.borrowerInterestCreditor);
-        console.log('package.borrowerTotalInterest:' + $scope.package.borrowerTotalInterest);
 
         //valitations
         if (!isNaN($scope.package.debitAmount) && ($scope.package.title != '')) {
@@ -129,54 +191,52 @@ function ProjectCtrl($scope, $window) {
             if (currentUser) {
                 console.log('ok: ' + currentUser.getUsername());
 
-                var Project = AV.Object.extend('Project');
+                $scope.project.set('title', $scope.package.title);
+                $scope.project.set('description', $scope.package.description);
+                $scope.project.set('creator', AV.User.current());
 
-                var project = new Project();
-                project.set('title', $scope.package.title);
-                project.set('description', $scope.package.description);
-                project.set('creator', AV.User.current());
+                $scope.project.set('companyName', $scope.package.companyName);
+                $scope.project.set('debitAmount', parseInt($scope.package.debitAmount));
+                $scope.project.set('debitPricipalInterest', $scope.package.debitPricipalInterest);
+                $scope.project.set('plainAddress', $scope.package.plainAddress);
+                $scope.project.set('province', $scope.package.province);
 
-                project.set('companyName', $scope.package.companyName);
-                project.set('debitAmount', parseInt($scope.package.debitAmount));
-                project.set('debitPricipalInterest', $scope.package.debitPricipalInterest);
-                project.set('plainAddress', $scope.package.plainAddress);
-                project.set('province', $scope.package.province);
+                $scope.project.set('creditHighlights', $scope.package.creditHighlights);
+                $scope.project.set('court', $scope.package.court);
+                $scope.project.set('comefrom', $scope.package.companyName);
+                $scope.project.set('quotation', $scope.package.quotation);
 
-                project.set('creditHighlights', $scope.package.creditHighlights);
-                project.set('court', $scope.package.court);
-                project.set('comefrom', $scope.package.companyName);
-                project.set('quotation', $scope.package.quotation | false);
 
                 var Manager = AV.Object.extend('ProjectManager');
                 var manager = new Manager();
                 manager.set('name', $scope.package.managerName);
                 manager.set('phone', $scope.package.managerPhone);
 
-                project.set('projectManager', manager);
+                $scope.project.set('projectManager', manager);
 
-                project.set('borrowerPrincipalDebit', $scope.package.borrowerPrincipalDebit);
-                project.set('borrowerInterestCreditor', $scope.package.borrowerInterestCreditor);
-                project.set('borrowerTotalInterest', $scope.package.borrowerTotalInterest);
+                $scope.project.set('isRecommended', $scope.package.isRecommended);
+                $scope.project.set('isHot', $scope.package.isHot);
+                $scope.project.set('isHouse', $scope.package.isHouse);
+                $scope.project.set('isFactory', $scope.package.isFactory);
+                $scope.project.set('isDebt', $scope.package.isDebt);
+                $scope.project.set('isShop', $scope.package.isShop);
 
-                project.set('recommended', $scope.package.recommended);
-
-                var file = $('#inputFile')[0].files[0];
-                if (file) {
-                    var name = file.name;
-                    var avFile = new AV.File(name, file);
-                    project.set('image', avFile);
-                }
+                // var file = $('#inputFile')[0].files[0];
+                // if (file) {
+                //     var name = file.name;
+                //     var avFile = new AV.File(name, file);
+                //     $scope.project.set('image', avFile);
+                // }
 
                 var Asset = AV.Object.extend('Asset');
-                // var Address = AV.Object.extend('Address');
                 var assetsArray = [];
-
-                //begin asset
                 $scope.assets.forEach(function (obj) {
 
                     $scope.package.typeArrivalString += ('+' + obj.typeArrival);
+                    $scope.package.provinceString += ('+' + obj.province);
 
                     var asset = new Asset();
+                    asset.set('title', obj.title);
                     asset.set('typeArrival', obj.typeArrival);
                     asset.set('constructionArea', obj.constructionArea);
                     asset.set('landArea', obj.landArea);
@@ -184,36 +244,50 @@ function ProjectCtrl($scope, $window) {
 
                     var location = new AV.GeoPoint(parseFloat(obj.latitude), parseFloat(obj.longitude));
                     asset.set('location', location);
+                    asset.set('project', $scope.project);
 
-                    asset.set('project', project);
-                    // asset.save();
                     assetsArray.push(asset);
                 });
-                //end asset
+
+                var Sponsor = AV.Object.extend('Sponsorship');
+                var sponsorsArray = [];
+                $scope.sponsors.forEach(function (obj) {
+                    var sponsor = new Sponsor();
+                    sponsor.set('name', obj.name);
+                    sponsor.set('type', obj.type);
+                    sponsor.set('amount', obj.amount);
+                    sponsor.set('project', $scope.project);
+
+                    sponsorsArray.push(sponsor);
+                });
+
+                var Borrower = AV.Object.extend('Borrower');
+                var borrowerArray = [];
+                $scope.borrowers.forEach(function (obj) {
+                    var borrower = new Borrower();
+                    borrower.set('name', obj.name);
+                    borrower.set('principalDebit', obj.principalDebit);
+                    borrower.set('interestCreditor', obj.interestCreditor);
+                    borrower.set('totalInterest',obj.totalInterest);
+                    borrower.set('project', $scope.project);
+
+                    borrowerArray.push(borrower);
+                });
 
                 //for filter
-                project.set('typeArrivalString', $scope.package.typeArrivalString);
+                $scope.project.set('typeArrivalString', $scope.package.typeArrivalString);
+                $scope.project.set('provinceString', $scope.package.provinceString);
 
-                project.save().then(function (project) {
+                // if($scope.files.length > 0){
+                //     $scope.project.set('mainMedia', $scope.files[0]);
+                // }
 
-                    //begin sponsor
-                    var Sponsor = AV.Object.extend('Sponsorship');
-                    var sponsorsArray = [];
-                    $scope.sponsors.forEach(function (obj) {
-                        var sponsor = new Sponsor();
-                        sponsor.set('name', obj.name);
-                        sponsor.set('type', obj.type);
-                        sponsor.set('amount', obj.amount);
-                        sponsor.set('project', project);
-                        // sponsor.save();
-                        sponsorsArray.push(sponsor);
-                    });
+                $scope.project.save().then(function (project) {
+
                     $scope.recursiveSponsorSave(sponsorsArray, 0);
-                    //end sponsor
-
-                    //begin asset
                     $scope.recursiveAssetSave(assetsArray, 0);
-                    //end asset
+                    $scope.recursiveMediaSave($scope.files, 0);
+                    $scope.recursiveBorrowerSave(borrowerArray, 0);
 
                     console.log('project inserted ok');
                     $window.location.href = '#/project-list';
@@ -228,9 +302,6 @@ function ProjectCtrl($scope, $window) {
         } else {
             alert('Please, cheack the input values');
         }
-
-
-
     };
 
     $scope.recursiveSponsorSave = function (arrayObj, index) {
@@ -254,4 +325,27 @@ function ProjectCtrl($scope, $window) {
             });
         }
     }
+
+    $scope.recursiveMediaSave = function (arrayObj, index) {
+        console.log('recursiveMediaSave:' + arrayObj.length + ' ' + index);
+        if (index < arrayObj.length) {
+            arrayObj[index].save().then(function (obj) {
+                $scope.recursiveMediaSave(arrayObj, index + 1);
+            }, function (error) {
+                alert(JSON.stringify(error));
+            });
+        }
+    }
+
+    $scope.recursiveBorrowerSave = function (arrayObj, index) {
+        console.log('recursiveMediaSave:' + arrayObj.length + ' ' + index);
+        if (index < arrayObj.length) {
+            arrayObj[index].save().then(function (obj) {
+                $scope.recursiveBorrowerSave(arrayObj, index + 1);
+            }, function (error) {
+                alert(JSON.stringify(error));
+            });
+        }
+    }
+
 }

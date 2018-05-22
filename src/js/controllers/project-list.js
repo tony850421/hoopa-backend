@@ -90,7 +90,7 @@ function ProjectListCtrl($scope, $window, $timeout) {
           if (productImage) {
             productImageUrl = productImage.get('url');
           } else {
-            productImageUrl = './../LogoHoopa.png'
+            productImageUrl = 'img/LogoHoopa.png'
             console.log('no image');
           }
           // handlebars context
