@@ -20,8 +20,8 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 templateUrl: 'templates/login.html'
             })
             .state('tables', {
-                url: '/tables',
-                templateUrl: 'templates/tables.html'
+                url: '/dashboard',
+                templateUrl: 'templates/dashboard.html'
             })
             .state('new-project', {
                 url: '/new-project',

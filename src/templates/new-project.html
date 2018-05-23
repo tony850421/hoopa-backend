@@ -1,5 +1,11 @@
 <div class="row" ng-controller="ProjectCtrl">
-    <form class="newProject">
+    <div  ng-if="loading">
+        <rd-loading></rd-loading>
+    </div>
+</div>
+
+<div class="row" ng-controller="ProjectCtrl">
+    <form class="newProject" ng-if="!loading">
         <div class="form-row">
             <div class="form-group col-md-12">
                 <h3 class="new-product-heading" translate="BASICINFO">Basic information</h2>

@@ -63,6 +63,16 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "FACTORY": "Factory",
         "ISDEBT": "Debt",
         "SHOP": "Shop",
+        "ALERT1": "Amount must be a number",
+        "ALERT2": "Please, complete the sponsor information",
+        "ALERT3": "Please, check the input values",
+        "ALERT4": "Please, complete the asset information",
+        "ALERT5": "Please, select an image file",
+        "ALERT6": "Debt must be a number",
+        "ALERT7": "Please, complete the borrower information",
+        "ALERT8": "Please, check the input values, upload one image at least",
+        "DASH": "Dashboard",
+        "OFFERS": "Offers",
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -123,6 +133,16 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "FACTORY": "厂",
         "ISDEBT": "债务",
         "SHOP": "店",
+        "ALERT1": "金额必须为数字",
+        "ALERT2": "请填写赞助商信息",
+        "ALERT3": "请检查输入值",
+        "ALERT4": "请完成资产信息",
+        "ALERT5": "请选择一个图像文件",
+        "ALERT6": "债务必须是一个数字",
+        "ALERT7": "请填写借款人信息",
+        "ALERT8": "请检查输入值, 至少上传一个图像",
+        "DASH": "仪表 板",
+        "OFFERS": "提供",
     });
     // Tell the module what language to use by default
     $translateProvider.preferredLanguage('en_US ');

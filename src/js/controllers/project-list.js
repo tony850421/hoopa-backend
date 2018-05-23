@@ -9,6 +9,8 @@ angular
 
 function ProjectListCtrl($scope, $window, $timeout) {
 
+  $scope.loading = false;
+  
   $scope.products = [];
 
   $scope.listAllProjects = function () {
@@ -58,6 +60,8 @@ function ProjectListCtrl($scope, $window, $timeout) {
 
     if (currentUser) {
 
+      $scope.loading = true;
+
       var roleQuery = new AV.Query(AV.Role);
       roleQuery.equalTo('users', AV.User.current());
       roleQuery.find().then(function (results) {
@@ -65,9 +69,7 @@ function ProjectListCtrl($scope, $window, $timeout) {
           var role = results[0];
         }
       }).then(function (administratorRole) {
-        //此时 administratorRole 已经包含了当前用户
       }).catch(function (error) {
-        // 输出错误
         console.log(error);
       });
 
@@ -107,7 +109,12 @@ function ProjectListCtrl($scope, $window, $timeout) {
           $scope.$apply();
         });
 
+        $scope.loading = false;
+
       }).catch(function (error) {
+        
+        $scope.loading = false;
+
         alert(JSON.stringify(error));
       });
 
@@ -125,7 +132,6 @@ function ProjectListCtrl($scope, $window, $timeout) {
     }).catch(function (error) {
       alert(JSON.stringify(error));
     });
-
   }
 
   $scope.listAllProjects();

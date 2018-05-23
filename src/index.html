@@ -42,6 +42,14 @@
         <li class="sidebar-title" ng-if="getUser() != ' '">
           <span translate="NAV">导航</span>
         </li>
+
+        <li class="sidebar-list" ng-if="getUser() != ' '">
+          <a href="#dashboard">
+            <span class="menu-icon fa fa-tachometer"></span>
+            {{'DASH' | translate}}
+          </a>
+        </li>
+
         <li class="sidebar-list" ng-if="getUser() != ' '">
           <a href="#project-list">
             <span class="menu-icon fa fa-briefcase"></span>
@@ -52,6 +60,12 @@
           <a href="#inbox">
             <span class="menu-icon fa fa-envelope"></span>
             {{'MESSAGES' | translate}}
+          </a>
+        </li>
+        <li class="sidebar-list" ng-if="getUser() != ' '">
+          <a href="#inbox">
+            <span class="menu-icon fa fa-bomb"></span>
+            {{'OFFERS' | translate}}
           </a>
         </li>
       </ul>

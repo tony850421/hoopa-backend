@@ -5,9 +5,11 @@
 
 angular
     .module('RDash')
-    .controller('ProjectCtrl', ['$scope', '$window', ProjectCtrl]);
+    .controller('ProjectCtrl', ['$scope', '$window', '$translate', ProjectCtrl]);
 
-function ProjectCtrl($scope, $window) {
+function ProjectCtrl($scope, $window, $translate) {
+
+    $scope.loading = false;
 
     $scope.project = {};
 
@@ -94,11 +96,13 @@ function ProjectCtrl($scope, $window) {
                 $scope.sponsors.push({ name: $scope.sponsor.name, type: $scope.sponsor.type, amount: $scope.sponsor.amount });
                 $scope.sponsor.name = $scope.sponsor.type = $scope.sponsor.amount = '';
             } else {
-                alert('Amount must be a number');
+                var alert = $translate.instant('ALERT1');
+                alert(alert);
             }
 
         } else {
-            alert('Please, complete the sponsor information');
+            var alert = $translate.instant('ALERT2');
+            alert(alert);
         }
     };
 
@@ -113,11 +117,13 @@ function ProjectCtrl($scope, $window) {
                 });
                 $scope.asset.typeArrival = $scope.asset.constructionArea = $scope.asset.landArea = $scope.asset.plainAddress = $scope.asset.latitude = $scope.asset.longitude = '';
             } else {
-                alert('Please, cheack the input values');
+                var alert = $translate.instant('ALERT3');
+                alert(alert);
             }
 
         } else {
-            alert('Please, complete the asset information');
+            var alert = $translate.instant('ALERT4');
+            alert(alert);
         }
     };
 
@@ -126,14 +132,14 @@ function ProjectCtrl($scope, $window) {
         if (file) {
             var name = file.name;
             var avFile = new AV.File(name, file);
-            // $scope.project.set('image', avFile);
             var ProjectMedia = AV.Object.extend('ProjectMedia');
             var media = new ProjectMedia();
             media.set('image', avFile);
             media.set('project', $scope.project);
             $scope.files.push(media);
         } else {
-            alert('Please, select an image file');
+            var alert = $translate.instant('ALERT5');
+            alert(alert);
         }
     }
 
@@ -145,11 +151,13 @@ function ProjectCtrl($scope, $window) {
                                         interestCreditor: $scope.borrower.interestCreditor,  totalInterest: $scope.borrower.totalInterest});
                 $scope.borrower.name = $scope.borrower.principalDebit = $scope.borrower.interestCreditor = $scope.borrower.totalInterest = '';
             } else {
-                alert('Debt must be a number');
+                var alert = $translate.instant('ALERT6');
+                alert(alert);
             }
 
         } else {
-            alert('Please, complete the sponsor information');
+            var alert = $translate.instant('ALERT7');
+            alert(alert);
         }
     };
     
@@ -173,22 +181,12 @@ function ProjectCtrl($scope, $window) {
 
         console.log('releaseNewProject');
 
-        console.log('package.title:' + $scope.package.title);
-        console.log('package.description:' + $scope.package.description);
-        console.log('package.companyName:' + $scope.package.companyName);
-        console.log('package.debitAmount:' + $scope.package.debitAmount);
-        console.log('package.debitPricipalInterest:' + $scope.package.debitPricipalInterest);
-        console.log('package.plainAddress:' + $scope.package.plainAddress);
-        console.log('package.creditHighlights:' + $scope.package.creditHighlights);
-        console.log('package.comefrom:' + $scope.package.comefrom);
-        console.log('package.quotation:' + $scope.package.quotation);
-        console.log('package.managerName:' + $scope.package.managerName);
-        console.log('package.managerPhone:' + $scope.package.managerPhone);
-
         //valitations
-        if (!isNaN($scope.package.debitAmount) && ($scope.package.title != '')) {
+        if (!isNaN($scope.package.debitAmount) && ($scope.package.title != '') && ($scope.files.length > 0)) {
             var currentUser = AV.User.current();
             if (currentUser) {
+
+                $scope.loading = true;
                 console.log('ok: ' + currentUser.getUsername());
 
                 $scope.project.set('title', $scope.package.title);
@@ -221,19 +219,12 @@ function ProjectCtrl($scope, $window) {
                 $scope.project.set('isDebt', $scope.package.isDebt);
                 $scope.project.set('isShop', $scope.package.isShop);
 
-                // var file = $('#inputFile')[0].files[0];
-                // if (file) {
-                //     var name = file.name;
-                //     var avFile = new AV.File(name, file);
-                //     $scope.project.set('image', avFile);
-                // }
-
                 var Asset = AV.Object.extend('Asset');
                 var assetsArray = [];
                 $scope.assets.forEach(function (obj) {
 
                     $scope.package.typeArrivalString += ('+' + obj.typeArrival);
-                    $scope.package.provinceString += ('+' + obj.province);
+                    $scope.package.provinceString += ('-' + obj.province);
 
                     var asset = new Asset();
                     asset.set('title', obj.title);
@@ -241,6 +232,7 @@ function ProjectCtrl($scope, $window) {
                     asset.set('constructionArea', obj.constructionArea);
                     asset.set('landArea', obj.landArea);
                     asset.set('plainAddress', obj.plainAddress);
+                    asset.set('province', obj.province);
 
                     var location = new AV.GeoPoint(parseFloat(obj.latitude), parseFloat(obj.longitude));
                     asset.set('location', location);
@@ -278,9 +270,9 @@ function ProjectCtrl($scope, $window) {
                 $scope.project.set('typeArrivalString', $scope.package.typeArrivalString);
                 $scope.project.set('provinceString', $scope.package.provinceString);
 
-                // if($scope.files.length > 0){
-                //     $scope.project.set('mainMedia', $scope.files[0]);
-                // }
+                if($scope.files.length > 0){
+                    $scope.project.set('image', $scope.files[0].get('image'));
+                }
 
                 $scope.project.save().then(function (project) {
 
@@ -290,8 +282,11 @@ function ProjectCtrl($scope, $window) {
                     $scope.recursiveBorrowerSave(borrowerArray, 0);
 
                     console.log('project inserted ok');
+                    $scope.loading = false;
+                    
                     $window.location.href = '#/project-list';
                 }, function (error) {
+                    $scope.loading = false;
                     alert(JSON.stringify(error));
                 });
 
@@ -300,7 +295,8 @@ function ProjectCtrl($scope, $window) {
                 $window.location.href = '#/login';
             }
         } else {
-            alert('Please, cheack the input values');
+            var alert = $translate.instant('ALERT8');
+            alert(alert);
         }
     };
 
@@ -347,5 +343,4 @@ function ProjectCtrl($scope, $window) {
             });
         }
     }
-
 }
