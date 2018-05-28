@@ -13,15 +13,17 @@
 
         <div class="media-body">
           <div class="row">
-            <div class="col-md-6">
-                <h4 class="media-heading"> {{project.title}} <small><i class="fa fa-clock-o"> Published on {{project.releaseTime}}</i></small></h4>
+            <div class="col-md-9">
+                <h4 class="media-heading"> {{project.title}} <small><i class="fa fa-clock-o"> 发表于->{{project.releaseTime}}</i></small></h4>
               {{project.description}}
             </div>
-            <div class="col-md-3">
-                <h5 class="media-heading"> <small><i class="fa fa-money"> </i></small> {{project.debitAmount}}</h5>
-                <h5 class="media-heading"> <small><i class="fa fa-credit-card"> </i></small> {{project.plainAddress}}</h5>
+            <div class="col-md-2">
+                <!-- <h5 class="media-heading"> <small><i class="fa fa-money"> </i></small> {{project.debitAmount}}</h5>
+                <h5 class="media-heading"> <small><i class="fa fa-credit-card"> </i></small> {{project.plainAddress}}</h5> -->
+                <h5 class="media-heading"> <small><i class="fa fa-user-secret" aria-hidden="true"> </i></small> {{project.ownerUsername}}</h5>
+                <h5 class="media-heading"> <small><i class="fa  fa-clock-o" aria-hidden="true"> </i></small> {{project.releaseTime}}</h5>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-1">
               <a class="btn btn-secundary fa fa-times pull-right" ng-click="deleteProduct(project.id)" translate="BDELETE"> DELETE </a>
             </div>
           </div>
