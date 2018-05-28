@@ -113,7 +113,7 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "CAREA": "建筑面积",
         "LAREA": "土地面积",
         "LAT": "纬度",
-        "LONGLAT":"经度和纬度(例子: 120.895509,35.044819 )",
+        "LONGLAT":"经度和纬度 (120.895509,35.044819)",
         "LONG": "经度",
         "GUARA": "保证人名字",
         "STYPE": "保证人类型",
