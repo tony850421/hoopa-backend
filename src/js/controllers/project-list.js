@@ -16,47 +16,36 @@ function ProjectListCtrl($scope, $window, $timeout) {
   $scope.listAllProjects = function () {
     $scope.products = [];
 
-    // var query = new AV.Query('_User');
-    // query.find().then(function(users){
-    //     console.log(users);
-    // })
-
-    // var role = new AV.Role();
-    // role.setName('official'); 
-    // role.save();
-    //var point1 = AV.GeoPoint(31.653973,120.253013);
-    var point1 = new AV.GeoPoint(30.653973, 119.253013);
-    var point2 = new AV.GeoPoint(32.653973, 121.253013);
-    console.log(point1.kilometersTo(point2));
-    var queryAsset = new AV.Query('Asset');
-    queryAsset.include('location');
-    queryAsset.withinGeoBox('location', point1, point2);
-    queryAsset.find().then(function (assets) {
-      console.log('Assets--->');
-      console.log(assets);
-    }).catch(function (error) {
-      alert(JSON.stringify(error));
-    });
+    // var point1 = new AV.GeoPoint(30.653973, 119.253013);
+    // var point2 = new AV.GeoPoint(32.653973, 121.253013);
+    // console.log(point1.kilometersTo(point2));
+    // var queryAsset = new AV.Query('Asset');
+    // queryAsset.include('location');
+    // queryAsset.withinGeoBox('location', point1, point2);
+    // queryAsset.find().then(function (assets) {
+    //   console.log('Assets--->');
+    //   console.log(assets);
+    // }).catch(function (error) {
+    //   alert(JSON.stringify(error));
+    // });
 
 
-    var query = new AV.Query('Project');
-    query.include('creator');
-    query.include('image');
-    query.include('address');
-    query.include('projectManager');
-    // query.equalTo('projectManager.name', 'tony');
-    query.descending('createdAt');
-    query.limit(10);
-    query.find().then(function (products) {
-      console.log('Query--->');
-      console.log(products);
-    }).catch(function (error) {
-      alert(JSON.stringify(error));
-    });
+    // var query = new AV.Query('Project');
+    // query.include('creator');
+    // query.include('image');
+    // query.include('address');
+    // query.include('projectManager');
+    // // query.equalTo('projectManager.name', 'tony');
+    // query.descending('createdAt');
+    // query.limit(10);
+    // query.find().then(function (products) {
+    //   console.log('Query--->');
+    //   console.log(products);
+    // }).catch(function (error) {
+    //   alert(JSON.stringify(error));
+    // });
 
     var currentUser = AV.User.current();
-    // currentUser.setEmail(email);
-    // currentUser.save();
 
     if (currentUser) {
 
@@ -135,4 +124,5 @@ function ProjectListCtrl($scope, $window, $timeout) {
   }
 
   $scope.listAllProjects();
+  
 }

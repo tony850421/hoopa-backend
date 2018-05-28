@@ -5,7 +5,15 @@
 </div>
 
 <div class="row" ng-controller="ProjectCtrl">
+
     <form class="newProject" ng-if="!loading">
+
+        <div class="row alerts-container" data-ng-show="alerts.length">
+            <div class="col-xs-12">
+                <uib-alert data-ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+            </div>
+        </div>
+
         <div class="form-row">
             <div class="form-group col-md-12">
                 <h3 class="new-product-heading" translate="BASICINFO">Basic information</h2>
@@ -61,14 +69,14 @@
                 required></textarea>
         </div>
 
-        <div class="form-group col-md-12">
+        <!-- <div class="form-group col-md-12">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="quotation" ng-model="package.quotation">
                 <label class="form-check-label" for="quotation" translate="QUOT">
                     Whether there is a quotation
                 </label>
             </div>
-        </div>
+        </div> -->
         <div class="form-row">
             <div class="form-group col-md-12">
                 <h3 class="new-product-heading" translate="MANAGERINFO">Manager information</h2>
@@ -91,23 +99,30 @@
                 <h3 class="new-product-heading" translate="BORROINFO">Borrower information</h2>
             </div>
         </div>
+
+        <div class="row alerts-container" data-ng-show="alertsBorrower.length">
+            <div class="col-xs-12">
+                <uib-alert data-ng-repeat="alert in alertsBorrower" type="{{alert.type}}" close="closeAlertBorrower($index)">{{alert.msg}}</uib-alert>
+            </div>
+        </div>
+
         <div class="form-row">
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4">
                 <label for="borrowerName" translate="BORRONAME">Name</label>
                 <input ng-model="borrower.name" type="borrowerName" id="borrowerName" class="form-control">
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4">
                 <label for="borrowerPrincipalDebit" translate="BORROPDEB">Principal of debt</label>
                 <input ng-model="borrower.principalDebit" type="borrowerPrincipalDebit" id="borrowerPrincipalDebit" class="form-control">
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4">
                 <label for="borrowerInterestCreditor" translate="BORROINTER">Interest on creditor's rights</label>
                 <input ng-model="borrower.interestCreditor" type="borrowerInterestCreditor" id="borrowerInterestCreditor" class="form-control">
             </div>
-            <div class="form-group col-md-3">
+            <!-- <div class="form-group col-md-3">
                 <label for="borrowerTotalInterest" translate="BORROTOT">Total principal and interest</label>
                 <input ng-model="borrower.totalInterest" type="borrowerTotalInterest" id="borrowerTotalInterest" class="form-control">
-            </div>
+            </div> -->
         </div>
 
         <div class="row">
@@ -149,9 +164,15 @@
             </div>
         </div>
 
+        <div class="row alerts-container" data-ng-show="alertsAsset.length">
+            <div class="col-xs-12">
+                <uib-alert data-ng-repeat="alert in alertsAsset" type="{{alert.type}}" close="closeAlertAsset($index)">{{alert.msg}}</uib-alert>
+            </div>
+        </div>
+
         <div class="form-row">
             <div class="form-group col-md-3">
-                <label for="atitle" translate="TITLE">Title</label>
+                <label for="atitle" translate="ATITLE">Title</label>
                 <input ng-model="asset.title" type="constructionArea" id="atitle" class="form-control">
             </div>
             <div class="form-group col-md-3">
@@ -178,13 +199,17 @@
                     <select id="assetprovince" class="form-control" ng-model="asset.province" ng-options="x for x in provinces">
                     </select>
                 </div>
-            <div class="form-group col-md-3">
+            <!-- <div class="form-group col-md-3">
                 <label for="latitude" translate="LAT">Latitude</label>
                 <input ng-model="asset.latitude" type="latitude" id="latitude" class="form-control">
             </div>
             <div class="form-group col-md-3">
                 <label for="longitude" translate="LONG">Longitude</label>
                 <input ng-model="asset.longitude" type="longitude" id="longitude" class="form-control">
+            </div> -->
+            <div class="form-group col-md-6">
+                <label for="stringLocation" translate="LONGLAT">Longitude</label>
+                <input ng-model="asset.stringLocation" type="stringLocation" id="stringLocation" class="form-control">
             </div>
         </div>
 
@@ -227,6 +252,12 @@
             </div>
         </div>
 
+        <div class="row alerts-container" data-ng-show="alertsSponsor.length">
+            <div class="col-xs-12">
+                <uib-alert data-ng-repeat="alert in alertsSponsor" type="{{alert.type}}" close="closeAlertSponsor($index)">{{alert.msg}}</uib-alert>
+            </div>
+        </div>
+            
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="sponsorName" translate="GUARA">Guarantor</label>
@@ -314,14 +345,14 @@
                     </label>
                 </div>
             </div>
-            <div class="form-group col-md-2">
+            <!-- <div class="form-group col-md-2">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="isDebt" ng-model="package.isDebt">
                     <label class="form-check-label" for="isDebt" translate="ISDEBT">
                         Debt
                     </label>
                 </div>
-            </div>
+            </div> -->
             <div class="form-group col-md-2">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="isShop" ng-model="package.isShop">
@@ -381,16 +412,8 @@
             </div>
         </div>
 
-        <!-- <div class="form-row">
-
-            <div class="form-group col-md-6">
-                <label for="inputFile" translate="PFILE">Upload image</label>
-                <input type="file" id="inputFile" class="form-control" required>
-            </div>
-
-        </div> -->
-
-
         <button class="btn btn-lg btn-primary" type="submit" ng-click="releaseNewProject()" translate="BPUBLISH">Publish</button>
+
     </form>
+
 </div>
