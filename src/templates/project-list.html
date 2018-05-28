@@ -1,8 +1,8 @@
 <div class="row" ng-controller="ProjectListCtrl">
-  <div class="custom-media-list">
-    <a class="btn btn-primary fa fa-plus" href="#new-project"> {{'NEWPACKAGE' | translate}} </a>
+  <!-- <div class="custom-media-list">
+    <a class="btn btn-primary fa fa-plus padding-0" href="#new-project"> {{'NEWPACKAGE' | translate}} </a>
   </div>
-  <div class="h-divider"></div>
+  <div class="h-divider"></div> -->
     <ul class="media-list custom-media-list" ng-repeat="project in products">
       <li class="media">
         <div class="media-left">
@@ -10,27 +10,34 @@
             <img class="media-object notification-image" ng-src="{{project.imageUrl}}">
           </a>
         </div>
-
         <div class="media-body">
           <div class="row">
             <div class="col-md-9">
-                <h4 class="media-heading"> {{project.title}} <small><i class="fa fa-clock-o"> 发表于->{{project.releaseTime}}</i></small></h4>
-              {{project.description}}
+                <h4 class="media-heading"> {{project.title}} 
+                  <!-- <small><i class="fa fa-clock-o"> 发表于->{{project.releaseTime}}</i></small> -->
+                </h4>
+                <h5>{{project.description}}</h5>
             </div>
             <div class="col-md-2">
                 <!-- <h5 class="media-heading"> <small><i class="fa fa-money"> </i></small> {{project.debitAmount}}</h5>
                 <h5 class="media-heading"> <small><i class="fa fa-credit-card"> </i></small> {{project.plainAddress}}</h5> -->
-                <h5 class="media-heading"> <small><i class="fa fa-user-secret" aria-hidden="true"> </i></small> {{project.ownerUsername}}</h5>
-                <h5 class="media-heading"> <small><i class="fa  fa-clock-o" aria-hidden="true"> </i></small> {{project.releaseTime}}</h5>
+                <h5 class="media-heading font-weight-unset">
+                    <i class="fa fa-user-secret" aria-hidden="true"> </i>
+                  {{project.ownerUsername}}
+                </h5>
+                <h5 class="media-heading font-weight-unset margin-top-10">
+                    <i class="fa  fa-clock-o" aria-hidden="true"> </i>
+                  {{project.releaseTime}}
+                </h5>
             </div>
             <div class="col-md-1">
-              <a class="btn btn-secundary fa fa-times pull-right" ng-click="deleteProduct(project.id)" translate="BDELETE"> DELETE </a>
+              <a class="btn btn-secundary fa fa-times pull-right buttonDelete" ng-click="deleteProduct(project.id)" translate="BDELETE"> DELETE </a>
             </div>
           </div>
 
         </div>
       </li>
-      <div class="h-divider"></div>
+      <!-- <div class="h-divider"></div> -->
     </ul>
   </div>
 </div>

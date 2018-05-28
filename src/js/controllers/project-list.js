@@ -72,6 +72,16 @@ function ProjectListCtrl($scope, $window, $timeout) {
           var productId = product.id;
           var productTitle = product.get('title');
           var productDescription = product.get('description');
+          var productDesc = productDescription;
+          if (productDescription.length > 170){
+            productDesc = ''
+            for (var i=0; i<170; i++){
+              productDesc += productDescription[i];
+            }
+            productDesc+="...";
+          }
+          productDescription = productDesc;
+          
           var releaseTime = (product.createdAt.getMonth() + 1) + '/' + product.createdAt.getDate() + '/' + product.createdAt.getFullYear();
           var ownerUsername = product.get('creator').get('username');
           var productImage = product.get('image');

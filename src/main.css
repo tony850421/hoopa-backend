@@ -78,7 +78,8 @@
   }
 
   .custom-media-list {
-    margin-left: 5% !important;
+    margin-left: 2% !important;
+    margin-right: 2% !important;
   }
 
   .new-product .new-product-heading,
@@ -135,7 +136,7 @@
     width: 320px;
     margin-left: 36%;
     margin-top: 10%;
-    border: 1px #D4D4D4 solid;
+    border: 1px #d6dadb solid;
     border-radius: 5px;
   }
   .margin-top-0{
@@ -147,19 +148,18 @@
     width: 350px;
     margin-left: 36%;
     margin-top: 10%;
-    border: 1px #D4D4D4 solid;
+    border: 1px #d6dadb solid;
     border-radius: 5px;
   }
   .newProject{
-    background-color: #EFEFEF;
+    background-color: white;
     padding: 15px;
-    /* width: 350px; */
-    margin-left: 10%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    margin-right: 10%;
-    border: 1px #D4D4D4 solid;
-    border-radius: 3px;
+    margin-left: 3%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-right: 3%;
+    border: 1px #d6dadb solid;
+    border-radius: 5px;
   }
   .no-resize{
     resize: none !important;
@@ -287,3 +287,128 @@
     width:100%;
     border-top:1px solid gray;
    }
+
+   .form-signin-heading,
+   .form-signup-heading{
+     text-align: center;
+   }
+
+   .page{
+     font-size: 28px !important;
+   }
+
+   #page-wrapper:not(.open) ul.sidebar .sidebar-title.separator, .sidebar-footer, ul.sidebar .sidebar-list a:hover, ul.sidebar .sidebar-main a {
+    background: #002370 !important;
+  }
+
+  #sidebar-wrapper {
+    background: #003580 !important;
+  }
+
+   ul.sidebar .sidebar-title {
+    color: white !important;
+    font-size: 16px !important;
+  }
+
+  ul.sidebar .sidebar-list a:hover {
+    border-left: 3px solid #804A00 !important;
+  }
+
+  .iconDashboard{
+    width: 40px;
+    margin-top: 10px;
+  }
+
+  .iconDashboardProjects{
+    width: 40px;
+    margin-top: 14px;
+  }
+
+  .iconDashboardOffers{
+    width: 40px;
+    margin-top: 14px;
+    margin-left: -2px;
+  }
+
+  .colorBlue{
+    background-color: #2f59b5;
+  }
+
+  .widget .widget-icon {
+    background: #2f59b5 !important;
+  }
+
+  .media{
+    background-color: white !important;
+    padding: 10px !important;
+    border-radius: 5px !important;
+    border: 1px #d6dadb solid !important;
+  }
+
+  .padding-0{
+    padding: 0px !important;
+  }
+
+  .dropdown-header {
+    color: black !important;
+  }
+
+  .row.header .user > .item a {
+    color: black !important;
+  }
+
+  .widget .widget-header {
+    color: black !important;
+  }
+
+  .widget{
+    border-radius: 5px !important;
+  }
+
+  .colorListActive{
+    background-color: #804A00 !important;
+  }
+
+  .media-heading{
+    font-weight: bold !important;
+  }
+
+  .font-size-16{
+    font-size: 16px !important;
+  }
+
+  .font-weight-unset{
+    font-weight: unset !important;
+  }
+
+  .margin-top-10{
+    margin-top: 10px;
+  }
+
+  .buttonDelete{
+    color: white !important;
+    background-color: #2f59b5 !important;
+  }
+
+  .form-controlInput {
+    width: 100%;
+    padding: 6px 12px;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+
+  .backgroundGray{
+    background-color: #F9F9F9;
+  }
+
+  .buttonProjects{
+    width: 25px;
+  }
+
+  .marginButtonProject{
+    margin-left: 1% !important;
+  }

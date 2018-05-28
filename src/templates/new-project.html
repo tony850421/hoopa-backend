@@ -22,50 +22,50 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="product-title" translate="PTITLE">Title</label>
-                <input ng-model="package.title" type="title" id="inputTitle" class="form-control" required autofocus>
+                <input ng-model="package.title" type="title" id="inputTitle" class="form-control backgroundGray" required autofocus>
             </div>
             <div class="form-group col-md-6">
                 <label for="companyName" translate="CNAME">Company Name</label>
-                <input ng-model="package.companyName" type="companyName" id="companyName" class="form-control" required>
+                <input ng-model="package.companyName" type="companyName" id="companyName" class="form-control backgroundGray" required>
             </div>
         </div>
         <div class="form-group col-md-12">
             <label for="inputDescription" translate="PDESC">Description</label>
-            <textarea ng-model="package.description" type="description" id="inputDescription" class="form-control no-resize" required></textarea>
+            <textarea ng-model="package.description" type="description" id="inputDescription" class="form-control no-resize backgroundGray" required></textarea>
         </div>
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="comefrom" translate="CFROM">Come from</label>
-                <input ng-model="package.comefrom" type="comefrom" id="comefrom" class="form-control" required>
+                <input ng-model="package.comefrom" type="comefrom" id="comefrom" class="form-control backgroundGray" required>
             </div>
             <div class="form-group col-md-3">
                 <label for="province" translate="PROVINCE">Province</label>
-                <select id="province" class="form-control" ng-model="package.province" ng-options="x for x in provinces">
+                <select id="province" class="form-control backgroundGray" ng-model="package.province" ng-options="x for x in provinces">
                 </select>
             </div>
             <div class="form-group col-md-3">
                 <label for="debitAmount" translate="DAMOUNT">Debt amount</label>
-                <input ng-model="package.debitAmount" type="debitAmount" id="debitAmount" class="form-control" required>
+                <input ng-model="package.debitAmount" type="debitAmount" id="debitAmount" class="form-control backgroundGray" required>
             </div>
             <div class="form-group col-md-3">
                 <label for="debitPricipalInterest" translate="DPRINCIPALI">Principal and interest of the debt</label>
-                <input ng-model="package.debitPricipalInterest" type="debitPricipalInterest" id="debitPricipalInterest" class="form-control"
+                <input ng-model="package.debitPricipalInterest" type="debitPricipalInterest" id="debitPricipalInterest" class="form-control backgroundGray"
                     required>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="plainAddress" translate="ADDRESS">Address</label>
-                <input ng-model="package.plainAddress" type="plainAddress" id="plainAddress" class="form-control" required>
+                <input ng-model="package.plainAddress" type="plainAddress" id="plainAddress" class="form-control backgroundGray" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="court" translate="COURT">Court of acceptance</label>
-                <input ng-model="package.court" type="court" id="court" class="form-control" required>
+                <input ng-model="package.court" type="court" id="court" class="form-control backgroundGray" required>
             </div>
         </div>
         <div class="form-group col-md-12">
             <label for="creditHighlights" translate="CHIGHL">Credit Highlights</label>
-            <textarea ng-model="package.creditHighlights" type="creditHighlights" id="creditHighlights" class="form-control no-resize"
+            <textarea ng-model="package.creditHighlights" type="creditHighlights" id="creditHighlights" class="form-control no-resize backgroundGray"
                 required></textarea>
         </div>
 
@@ -86,11 +86,11 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="managerName" translate="MANAGERNAME">Address</label>
-                <input ng-model="package.managerName" type="managerName" id="managerName" class="form-control" required>
+                <input ng-model="package.managerName" type="managerName" id="managerName" class="form-control backgroundGray" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="managerPhone" translate="MANAGERPHONE">Court of acceptance</label>
-                <input ng-model="package.managerPhone" type="managerPhone" id="managerPhone" class="form-control" required>
+                <input ng-model="package.managerPhone" type="managerPhone" id="managerPhone" class="form-control backgroundGray" required>
             </div>
         </div>
 
@@ -109,15 +109,15 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="borrowerName" translate="BORRONAME">Name</label>
-                <input ng-model="borrower.name" type="borrowerName" id="borrowerName" class="form-control">
+                <input ng-model="borrower.name" type="borrowerName" id="borrowerName" class="form-control backgroundGray">
             </div>
             <div class="form-group col-md-4">
                 <label for="borrowerPrincipalDebit" translate="BORROPDEB">Principal of debt</label>
-                <input ng-model="borrower.principalDebit" type="borrowerPrincipalDebit" id="borrowerPrincipalDebit" class="form-control">
+                <input ng-model="borrower.principalDebit" type="borrowerPrincipalDebit" id="borrowerPrincipalDebit" class="form-control backgroundGray">
             </div>
             <div class="form-group col-md-4">
                 <label for="borrowerInterestCreditor" translate="BORROINTER">Interest on creditor's rights</label>
-                <input ng-model="borrower.interestCreditor" type="borrowerInterestCreditor" id="borrowerInterestCreditor" class="form-control">
+                <input ng-model="borrower.interestCreditor" type="borrowerInterestCreditor" id="borrowerInterestCreditor" class="form-control backgroundGray">
             </div>
             <!-- <div class="form-group col-md-3">
                 <label for="borrowerTotalInterest" translate="BORROTOT">Total principal and interest</label>
@@ -173,30 +173,30 @@
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="atitle" translate="ATITLE">Title</label>
-                <input ng-model="asset.title" type="constructionArea" id="atitle" class="form-control">
+                <input ng-model="asset.title" type="constructionArea" id="atitle" class="form-control backgroundGray">
             </div>
             <div class="form-group col-md-3">
                 <label for="typeArrival" translate="TARRIVAL">Type of arrival</label>
-                <select id="typeArrival" class="form-control" ng-model="asset.typeArrival" ng-options="x for x in typeArrivalArray">
+                <select id="typeArrival" class="form-control backgroundGray" ng-model="asset.typeArrival" ng-options="x for x in typeArrivalArray">
                 </select>
             </div>
             <div class="form-group col-md-3">
                 <label for="constructionArea" translate="CAREA">Construction area</label>
-                <input ng-model="asset.constructionArea" type="constructionArea" id="constructionArea" class="form-control">
+                <input ng-model="asset.constructionArea" type="constructionArea" id="constructionArea" class="form-control backgroundGray">
             </div>
             <div class="form-group col-md-3">
                 <label for="landArea" translate="LAREA">Land area</label>
-                <input ng-model="asset.landArea" type="landArea" id="landArea" class="form-control">
+                <input ng-model="asset.landArea" type="landArea" id="landArea" class="form-control backgroundGray">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="asset.plainAddress" translate="ADDRESS">Address</label>
-                <input ng-model="asset.plainAddress" type="asset.plainAddress" id="asset.plainAddress" class="form-control">
+                <input ng-model="asset.plainAddress" type="asset.plainAddress" id="asset.plainAddress" class="form-control backgroundGray">
             </div>
             <div class="form-group col-md-3">
                     <label for="assetprovince" translate="PROVINCE">Province</label>
-                    <select id="assetprovince" class="form-control" ng-model="asset.province" ng-options="x for x in provinces">
+                    <select id="assetprovince" class="form-control backgroundGray" ng-model="asset.province" ng-options="x for x in provinces">
                     </select>
                 </div>
             <!-- <div class="form-group col-md-3">
@@ -209,7 +209,7 @@
             </div> -->
             <div class="form-group col-md-6">
                 <label for="stringLocation" translate="LONGLAT">Longitude</label> <a href="http://api.map.baidu.com/lbsapi/getpoint/index.html" target="_blank">Baidu</a>
-                <input ng-model="asset.stringLocation" type="stringLocation" id="stringLocation" class="form-control">
+                <input ng-model="asset.stringLocation" type="stringLocation" id="stringLocation" class="form-control backgroundGray">
             </div>
         </div>
 
@@ -261,16 +261,16 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="sponsorName" translate="GUARA">Guarantor</label>
-                <input ng-model="sponsor.name" type="sponsorName" id="sponsorName" class="form-control">
+                <input ng-model="sponsor.name" type="sponsorName" id="sponsorName" class="form-control backgroundGray">
             </div>
             <div class="form-group col-md-3">
                 <label for="typeSponsor" translate="STYPE">Type</label>
-                <select id="typeSponsor" class="form-control" ng-model="sponsor.type" ng-options="x for x in typeSponsorArray">
+                <select id="typeSponsor" class="form-control backgroundGray" ng-model="sponsor.type" ng-options="x for x in typeSponsorArray">
                 </select>
             </div>
             <div class="form-group col-md-3">
                 <label for="amountSponsor" translate="GAMOUNT">Guarantee amount</label>
-                <input ng-model="sponsor.amount" type="amountSponsor" id="amountSponsor" class="form-control">
+                <input ng-model="sponsor.amount" type="amountSponsor" id="amountSponsor" class="form-control backgroundGray">
             </div>
         </div>
         <div class="row">
@@ -315,7 +315,7 @@
         <div class="form-row">
             <div class="form-group col-md-2">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="isRecommended" ng-model="package.isRecommended">
+                    <input class="form-check-input backgroundGray" type="checkbox" id="isRecommended" ng-model="package.isRecommended">
                     <label class="form-check-label" for="isRecommended" translate="RECOM">
                         Recommended
                     </label>
@@ -323,7 +323,7 @@
             </div>
             <div class="form-group col-md-2">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="isHot" ng-model="package.isHot">
+                    <input class="form-check-input backgroundGray" type="checkbox" id="isHot" ng-model="package.isHot">
                     <label class="form-check-label" for="isHot" translate="HOT">
                         Hot
                     </label>
@@ -331,7 +331,7 @@
             </div>
             <div class="form-group col-md-2">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="isHouse" ng-model="package.isHouse">
+                    <input class="form-check-input backgroundGray" type="checkbox" id="isHouse" ng-model="package.isHouse">
                     <label class="form-check-label" for="isHouse" translate="HOUSE">
                         House
                     </label>
@@ -339,7 +339,7 @@
             </div>
             <div class="form-group col-md-2">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="isFactory" ng-model="package.isFactory">
+                    <input class="form-check-input backgroundGray" type="checkbox" id="isFactory" ng-model="package.isFactory">
                     <label class="form-check-label" for="isFactory" translate="FACTORY">
                         Factory
                     </label>
@@ -355,7 +355,7 @@
             </div> -->
             <div class="form-group col-md-2">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="isShop" ng-model="package.isShop">
+                    <input class="form-check-input backgroundGray" type="checkbox" id="isShop" ng-model="package.isShop">
                     <label class="form-check-label" for="isShop" translate="SHOP">
                         Shop
                     </label>
@@ -372,7 +372,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputFile" translate="PFILE">Upload image</label>
-                <input type="file" id="inputFile" class="form-control" required>
+                <input type="file" id="inputFile" class="form-controlInput backgroundGray" required>
             </div>
             <div class="form-group col-md-6">
 
@@ -387,11 +387,10 @@
         </div>
 
         <div class="form-group col-md-12">
-            <div class="panel panel-default">
+            <div class="panel panel-default col-md-12">
                 <ul class="list-group" ng-repeat="f in files">
                     <li class="list-group-item">
                         <div class="row">
-                                
                             <div class="col-md-3">
                                 {{f.get('image').get('name')}}
                             </div>
@@ -412,7 +411,7 @@
             </div>
         </div>
 
-        <button class="btn btn-lg btn-primary" type="submit" ng-click="releaseNewProject()" translate="BPUBLISH">Publish</button>
+        <button class="btn btn-lg btn-primary colorBlue marginButtonProject" ng-click="releaseNewProject()" translate="BPUBLISH"></button>
 
     </form>
 

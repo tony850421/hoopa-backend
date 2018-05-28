@@ -34,7 +34,7 @@
     <div id="sidebar-wrapper">
       <ul class="sidebar" ng-controller="LoginCtrl">
         <li class="sidebar-main">
-          <a ng-click="toggleSidebar()">
+          <a class="" ng-click="toggleSidebar()">
             <img ng-src="./img/LogoHoopa.png" class="imgLogo">
             <span class="menu-icon glyphicon glyphicon-transfer"></span>
           </a>
@@ -43,15 +43,15 @@
           <span translate="NAV">导航</span>
         </li>
 
-        <li class="sidebar-list" ng-if="getUser() != ' '">
-          <a href="#dashboard">
+        <li class="sidebar-list" ng-class="{'colorListActive': activeList == 'dashboard'}" ng-if="getUser() != ' '">
+          <a href="#dashboard" ng-click="changeActiveList('dashboard')">
             <span class="menu-icon fa fa-tachometer"></span>
             {{'DASH' | translate}}
           </a>
         </li>
 
-        <li class="sidebar-list" ng-if="getUser() != ' '">
-          <a href="#project-list">
+        <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'projects'}">
+          <a href="#project-list" ng-click="changeActiveList('projects')">
             <span class="menu-icon fa fa-briefcase"></span>
             {{'PACKAGES' | translate}}
           </a>
@@ -102,19 +102,24 @@
                 <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
                   <img src="img/avatar.jpg">
                 </a>
-                <ul class="dropdown-menu dropdown-menu-right">
+                <ul class="dropdown-menu dropdown-menu-right">                  
                   <li class="dropdown-header dropdown-user" ng-if="getUser() != ' '">
                     <i class="fa fa-user marginLeft lineHeight"></i>{{getUser()}}
                   </li>
                   <li class="divider" ng-if="getUser() != ' '"></li>
                   <li class="dropdown-header dropdown-user" ng-if="getUser() != ' '">
-                    <a href="#" class="no-padding" ng-click="logout()">
+                      <a href="#new-project" class="padding-0 font-size-16">
+                        <i class="fa fa-plus marginLeft lineHeight"></i>{{'NEWPACKAGE' | translate}}
+                      </a>
+                    </li>                  
+                  <li class="dropdown-header dropdown-user" ng-if="getUser() != ' '">
+                    <a href="#" class="no-padding font-size-16" ng-click="logout()">
                       <i class="fa fa-sign-out lineHeight"></i>
                       {{'LOGOUT' | translate}}
                     </a>
                   </li>
                   <li class="dropdown-header dropdown-user" ng-if="getUser() == ' '">
-                    <a href="#login">
+                    <a href="#login" class="no-padding font-size-16">
                       <i class="fa fa-sign-in lineHeight"></i>
                       {{'LOGIN' | translate}}
                     </a>

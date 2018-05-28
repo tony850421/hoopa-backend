@@ -11,6 +11,8 @@ function LoginCtrl($scope, $window, $translate) {
 
     $scope.ptitle = $translate.instant('PTITLE');
 
+    $scope.activeList = 'dashboard';
+
     $scope.username = '';
     $scope.password = '';
     $scope.email = '';
@@ -72,5 +74,9 @@ function LoginCtrl($scope, $window, $translate) {
         } else {
             return ' ';
         }
+    }
+
+    $scope.changeActiveList = function(text){
+        $scope.activeList = text;
     }
 }
