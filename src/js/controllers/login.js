@@ -3,9 +3,7 @@
  * Login and signup Controller
  */
 
-angular
-    .module('RDash')
-    .controller('LoginCtrl', ['$scope', '$window', '$translate', LoginCtrl]);
+app.controller('LoginCtrl', ['$scope', '$window', '$translate', LoginCtrl]);
 
 function LoginCtrl($scope, $window, $translate) {
 
@@ -30,7 +28,6 @@ function LoginCtrl($scope, $window, $translate) {
     };
 
     $scope.signup = function () {
-        console.log('signup:' + $scope.username + ' ' + $scope.password + ' ' + $scope.email);
 
         var user = new AV.User();
         user.setUsername($scope.username);
@@ -38,9 +35,6 @@ function LoginCtrl($scope, $window, $translate) {
         user.setEmail($scope.email);
 
         user.signUp().then(function (loginedUser) {
-
-            console.log("signedUser");
-            console.log(loginedUser);
 
             var roleQuery = new AV.Query(AV.Role);
             roleQuery.equalTo('name', 'guest');
@@ -50,7 +44,7 @@ function LoginCtrl($scope, $window, $translate) {
                 relation.add(AV.User.current());
                 return role.save();
             }).then(function (role) {
-                console.log("role asigned ok");
+
             }).catch(function (error) {
                 console.log(error);
             });

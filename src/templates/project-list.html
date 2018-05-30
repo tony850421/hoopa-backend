@@ -30,8 +30,10 @@
                   {{project.releaseTime}}
                 </h5>
             </div>
-            <div class="col-md-1">
-              <a class="btn btn-secundary fa fa-times pull-right buttonDelete" ng-click="deleteProduct(project.id)" translate="BDELETE"> DELETE </a>
+            <div class="col-md-1 margin-bottom-0">
+                <a class="btn btn-secundary fa fa-eye pull-right buttonShow" ng-disabled="true" ng-click="" translate="BSHOW"></a>
+                <a class="btn btn-secundary fa fa-edit pull-right buttonUpdate" ng-disabled="true" ng-click="" translate="BUPDATE"></a>
+                <a class="btn btn-secundary fa fa-times pull-right buttonDelete" ng-click="deleteProduct(project.id)" translate="BDELETE"></a>
             </div>
           </div>
 

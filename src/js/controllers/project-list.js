@@ -3,9 +3,7 @@
  * Login and signup Controller
  */
 
-angular
-  .module('RDash')
-  .controller('ProjectListCtrl', ['$scope', '$window', '$timeout', ProjectListCtrl]);
+app.controller('ProjectListCtrl', ['$scope', '$window', '$timeout', ProjectListCtrl]);
 
 function ProjectListCtrl($scope, $window, $timeout) {
 

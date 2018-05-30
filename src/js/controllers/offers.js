@@ -3,9 +3,7 @@
  * Login and signup Controller
  */
 
-angular
-  .module('RDash')
-  .controller('OffersCtrl', ['$scope', '$window', '$timeout', OffersCtrl]);
+app.controller('OffersCtrl', ['$scope', '$window', '$timeout', OffersCtrl]);
 
 function OffersCtrl($scope, $window, $timeout) {
 

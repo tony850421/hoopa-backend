@@ -21,7 +21,7 @@
   <script type="text/javascript" src="components/angular-cookies/angular-cookies.min.js"></script>
   <script type="text/javascript" src="components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script type="text/javascript" src="components/angular-translate/angular-translate.min.js"></script>
-
+  <script type="text/javascript" src="../node_modules/angular-local-storage/dist/angular-local-storage.min.js"></script>
   <!-- endbuild -->
   <!-- Custom Scripts -->
   <script type="text/javascript" src="js/dashboard.min.js"></script>
@@ -55,6 +55,13 @@
             <span class="menu-icon fa fa-briefcase"></span>
             {{'PACKAGES' | translate}}
           </a>
+          <ul class="padding-0 width100" ng-class="{'hiddeNewProjectButton': activeList != 'projects'}">
+            <li>
+              <a href="#new-project" style="padding-left: 10%;">
+                <span class="fa fa-plus menu-icon"></span>{{'NEWPACKAGE' | translate}}
+              </a>
+            </li>
+          </ul>
         </li>
         <!-- <li class="sidebar-list" ng-if="getUser() != ' '">
           <a href="#inbox">

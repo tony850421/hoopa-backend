@@ -388,6 +388,25 @@
   .buttonDelete{
     color: white !important;
     background-color: #2f59b5 !important;
+    width: 80px;
+    margin-top: 5px;
+  }
+
+  .buttonUpdate{
+    color: white !important;
+    background-color: #804A00 !important;
+    width: 80px;
+    margin-top: 5px;
+  }
+
+  .buttonShow{
+    color: white !important;
+    background-color: green !important;
+    width: 80px;
+  }
+
+  .margin-bottom-0{
+    margin-bottom: 0px !important;
   }
 
   .form-controlInput {
@@ -411,4 +430,58 @@
 
   .marginButtonProject{
     margin-left: 1% !important;
+  }
+
+  .buttonLogin{
+    margin-top: 25px;
+  }
+
+  .hiddeNewProjectButton{
+    display: none;
+  }
+
+  .width100{
+    width: 100%;
+  }
+
+  .MessagesUser{
+    background-color: green;
+    max-width: 320px;
+    padding: 15px;
+    margin-top: 20px;
+    margin-left: 10px;
+    border-radius: 5px;
+  }
+
+  .MessagesAdmin{
+    background-color: red;
+    max-width: 400px;
+    padding: 15px;
+    margin-top: 20px;
+    margin-left: 10px;
+    border-radius: 5px;
+  }
+
+  .messageBox{
+    width: 100%;
+  }
+
+  .sendBox{
+    width: 100%;
+    padding: 7px;
+    border-top: 1px #d6dadb solid;
+  }
+
+  .textareaMessageSend{
+    width: 95%;
+    height: 40px;
+    border-radius: 5px;
+    resize: none;
+    border: 0px;
+  }
+
+  .sendImage{
+    width: 40px;
+    margin-left: 1%;
+    margin-top: -23px;
   }

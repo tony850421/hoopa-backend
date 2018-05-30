@@ -3,9 +3,7 @@
  * Login and signup Controller
  */
 
-angular
-    .module('RDash')
-    .controller('ProjectCtrl', ['$scope', '$window', '$translate', ProjectCtrl]);
+app.controller('ProjectCtrl', ['$scope', '$window', '$translate', ProjectCtrl]);
 
 function ProjectCtrl($scope, $window, $translate) {
 

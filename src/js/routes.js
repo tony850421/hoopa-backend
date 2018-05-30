@@ -3,8 +3,8 @@
 /**
  * Route configuration for the RDash module.
  */
-angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
-    function ($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider',
+    function ($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
 
         // For unmatched routes
         $urlRouterProvider.otherwise('/');
@@ -46,6 +46,21 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             .state('inbox', {
                 url: '/inbox',
                 templateUrl: 'templates/inbox.html'
+            })
+            .state('update', {
+                url: '/update',
+                templateUrl: 'templates/update-project.html'
+            })
+            .state('messages', {
+                url: '/messages',
+                templateUrl: 'templates/messages.html'
             });
     }
 ]);
+
+app.config(['localStorageServiceProvider', function (localStorageServiceProvider) {
+    localStorageServiceProvider
+        .setPrefix('Hoopa')
+        .setStorageType('sessionStorage')
+        .setNotify(true, true)
+}]);

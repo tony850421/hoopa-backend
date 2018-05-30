@@ -1,0 +1,16 @@
+<div class="row" ng-controller="MessagesCtrl">
+    <div class="messageBox margin-bottom-0" style="overflow-y: scroll; height: {{height-130}}px;">        
+        <div ng-repeat="i in Messages">
+            <div class="MessagesUser" ng-show="i.type == 'sender'">
+                <label for="">{{i.content}}</label>
+            </div>
+            <div class="MessagesAdmin" ng-show="i.type == 'receiver'">
+                <label for="">{{i.content}}</label>                    
+            </div>
+        </div>
+    </div>
+    <div class="sendBox margin-bottom-0">
+        <textarea class="textareaMessageSend"></textarea>
+        <img ng-src="./img/send.png" class="sendImage"></img>
+    </div>
+</div>

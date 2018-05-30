@@ -1,1 +1,1 @@
-angular.module('RDash', ['ui.bootstrap', 'ui.router', 'ngCookies', 'pascalprecht.translate']);
+var app = angular.module('RDash', ['ui.bootstrap', 'ui.router', 'ngCookies', 'pascalprecht.translate', 'LocalStorageModule']);

@@ -76,6 +76,8 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "ALERT9": "Error on latitude and longitude",
         "DASH": "Dashboard",
         "OFFERS": "Offers",
+        "BUPDATE": "Update",
+        "BSHOW": "Show"
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -149,6 +151,8 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "ALERT9": "纬度和经度错误",
         "DASH": "仪表板",
         "OFFERS": "报价",
+        "BUPDATE": " 更新",
+        "BSHOW": " 显示"
     });
     $translateProvider.preferredLanguage('en_US ');
 }]);

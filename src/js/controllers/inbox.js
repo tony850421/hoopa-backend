@@ -1,12 +1,10 @@
 
-angular
-    .module('RDash')
-    .controller('InboxCtrl', ['$scope', '$window', '$timeout', InboxCtrl]);
+app.controller('InboxCtrl', ['$scope', '$state', '$window', '$timeout', 'localStorageService', InboxCtrl]);
 
-function InboxCtrl($scope, $window, $timeout) {
+function InboxCtrl($scope, $state, $window, $timeout, localStorageService) {
 
     $scope.inbox = [];
-    $scope.send = [];
+    // $scope.send = [];
     $scope.usersAux = [];
     $scope.showInbox = true;
 
@@ -14,33 +12,35 @@ function InboxCtrl($scope, $window, $timeout) {
 
         var user = AV.User.current();
 
-        var query = new AV.Query('Message');
-        query.include('sender');
-        query.include('receiver');
-        query.equalTo('sender', user);
-        query.find().then(function (messages) {
+        // var query = new AV.Query('Message');
+        // query.include('sender');
+        // query.include('receiver');
+        // query.equalTo('sender', user);
+        // query.descending('createdAt');
+        // query.find().then(function (messages) {
 
-            messages.forEach(function (message) {
-                if(message.get('receiver')) {
-                    var fullName = message.get('receiver').get('fullName');
-                    var releaseTime = (message.createdAt.getMonth() + 1) + '/' + message.createdAt.getDate() + '/' + message.createdAt.getFullYear();
-                    var avatar =  message.get('receiver').get('avatarUrl');
-                    var content = message.get('content');
+        //     messages.forEach(function (message) {
+        //         if(message.get('receiver')) {
+        //             var fullName = message.get('receiver').get('fullName');
+        //             var releaseTime = (message.createdAt.getMonth() + 1) + '/' + message.createdAt.getDate() + '/' + message.createdAt.getFullYear();
+        //             var avatar =  message.get('receiver').get('avatarUrl');
+        //             var content = message.get('content');
     
-                    $scope.send.push({fullName: fullName, releaseTime: releaseTime, avatar: avatar, content: content});
-                }
-            });
+        //             $scope.send.push({fullName: fullName, releaseTime: releaseTime, avatar: avatar, content: content});
+        //         }
+        //     });
 
-            $scope.$apply();
+        //     $scope.$apply();
 
-        }).catch(function (error) {
-            alert(JSON.stringify(error));
-        });
+        // }).catch(function (error) {
+        //     alert(JSON.stringify(error));
+        // });
 
         var queryInbox = new AV.Query('Message');
         queryInbox.include('sender');
         queryInbox.include('receiver');
-        queryInbox.equalTo('receiver', user);
+        queryInbox.equalTo('receiver', user);        
+        queryInbox.descending('createdAt');
         queryInbox.find().then(function (messages) {
     
             messages.forEach(function (message) {
@@ -49,8 +49,18 @@ function InboxCtrl($scope, $window, $timeout) {
                     var releaseTime = (message.createdAt.getMonth() + 1) + '/' + message.createdAt.getDate() + '/' + message.createdAt.getFullYear();
                     var avatar =  message.get('sender').get('avatarUrl');
                     var content = message.get('content');
-    
-                    $scope.inbox.push({fullName: fullName, releaseTime: releaseTime, avatar: avatar, content: content});
+                    var id = message.get('sender').get('id');
+
+                    var flagMessage = false;
+                    $scope.inbox.forEach(function(msg){
+                        if (msg.senderId == message.get('sender').get('id')){
+                            flagMessage = true;
+                        }
+                    })
+
+                    if (!flagMessage){
+                        $scope.inbox.push({fullName: fullName, releaseTime: releaseTime, avatar: avatar, content: content, senderId: id});
+                    }                    
                 }
             });
 
@@ -71,4 +81,9 @@ function InboxCtrl($scope, $window, $timeout) {
     $scope.changeFolder = function(){
         $scope.showInbox = !$scope.showInbox;
     };
+
+    $scope.goToConversation = function(message){
+        localStorageService.cookie.set('sender', message.senderId);
+        $state.go('messages');
+    }
 }

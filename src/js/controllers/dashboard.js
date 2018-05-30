@@ -1,6 +1,4 @@
-angular
-    .module('RDash')
-    .controller('DashBoardCtrl', ['$scope', '$window', '$timeout', DashBoardCtrl]);
+app.controller('DashBoardCtrl', ['$scope', '$window', '$timeout', DashBoardCtrl]);
 
 function DashBoardCtrl($scope, $window, $timeout) {
 

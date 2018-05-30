@@ -21,6 +21,7 @@
     "gulp-wrap": "^0.11.0"
   },
   "dependencies": {
+    "angular-local-storage": "^0.7.1",
     "gulp-cli": "^2.0.1"
   }
 }
