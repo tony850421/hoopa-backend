@@ -70,6 +70,20 @@
             {{'MESSAGES' | translate}}
           </a>
         </li>
+        <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'news'}">
+          <a href="#news" ng-click="changeActiveList('news')">
+            <span class="menu-icon fa fa-file"></span>
+            {{'NEWS' | translate}}
+          </a>
+          <ul class="padding-0 width100" ng-class="{'hiddeNewProjectButton': activeList != 'news'}">
+            <li>
+              <a href="#new-news" style="padding-left: 10%;">
+                <span class="fa fa-plus menu-icon"></span>
+                {{'NEWNEWS' | translate}}
+              </a>
+            </li>
+          </ul>
+        </li>
         <!-- <li class="sidebar-list" ng-if="getUser() != ' '">
           <a href="#offers">
             <span class="menu-icon fa fa-bomb"></span>
@@ -96,7 +110,7 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li ng-click="changeLanguage('ch_CH')">
-                      <!-- <img src="img/china_round_icon_64.png"> -->
+                    <!-- <img src="img/china_round_icon_64.png"> -->
                     <a href="#" ng-click="changeLanguage('ch_CH')">简化中国</a>
                   </li>
                   <li class="divider"></li>
@@ -110,16 +124,21 @@
                 <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
                   <img src="img/avatar.jpg">
                 </a>
-                <ul class="dropdown-menu dropdown-menu-right">                  
+                <ul class="dropdown-menu dropdown-menu-right">
                   <li class="dropdown-header dropdown-user" ng-if="getUser() != ' '">
                     <i class="fa fa-user marginLeft lineHeight"></i>{{getUser()}}
                   </li>
                   <li class="divider" ng-if="getUser() != ' '"></li>
                   <li class="dropdown-header dropdown-user" ng-if="getUser() != ' '">
-                      <a href="#new-project" class="padding-0 font-size-16">
-                        <i class="fa fa-plus marginLeft lineHeight"></i>{{'NEWPACKAGE' | translate}}
-                      </a>
-                    </li>                  
+                    <a href="#new-project" class="padding-0 font-size-16">
+                      <i class="fa fa-briefcase marginLeft lineHeight"></i>{{'NEWPACKAGE' | translate}}
+                    </a>
+                  </li>
+                  <li class="dropdown-header dropdown-user" ng-if="getUser() != ' '">
+                    <a href="#new-news" class="padding-0 font-size-16">
+                      <i class="fa fa-file marginLeft lineHeight"></i>{{'NEWNEWS' | translate}}
+                    </a>
+                  </li>
                   <li class="dropdown-header dropdown-user" ng-if="getUser() != ' '">
                     <a href="#" class="no-padding font-size-16" ng-click="logout()">
                       <i class="fa fa-sign-out lineHeight"></i>

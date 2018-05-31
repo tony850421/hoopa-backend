@@ -1,0 +1,48 @@
+<div class="row" ng-controller="NewNewsCtrl">
+  <form class="formNewNews col-md-12">
+    <div class="titleBox form-group padding-0 col-md-6">
+      <label>Title</label>
+      <input class="form-control backgroundGray" type="text">
+    </div>
+    <div class="mediaListBox col-md-12">
+      <div class="imageGroupBox">
+        <div class="imageBox form-group col-md-6">
+          <label>Select an image</label>
+          <input class="form-controlInput backgroundGray" type="file">
+        </div>
+        <div class="captionBox form-group col-md-6">
+          <label>Caption</label>
+          <input class="form-control backgroundGray" type="text">
+        </div>
+      </div>
+      <div class="col-md-12">
+        <textarea class="textAreaMediaList form-control backgroundGray"></textarea>
+      </div>
+      <div class="col-md-12 margin-top-10">
+        <a class="btn btn-primary pull-right fa fa-plus"> Add</a>
+      </div>
+
+      <div class="form-group col-md-12 margin-top-10">
+        <div class="panel panel-default col-md-12 borderNone">
+          <ul class="list-group" ng-repeat="f in files">
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-md-3">
+                  {{f.get('image').get('name')}}
+                </div>
+                <div class="col-md-3">
+                  {{f.get('image').size()}}
+                </div>
+                <div class="col-md-3">
+                  <button type="button" class="btn btn-default btn-xs pull-right" ng-click="deleteFile($index)">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true" translate="BDELETE"></span>
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

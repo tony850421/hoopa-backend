@@ -541,3 +541,39 @@
   .content{
     font-weight: normal;
   }
+
+  .mediaListBox{
+    display: flex;
+    flex-direction: column;
+    border: 1px #d6dadb solid;
+    border-radius: 5px;
+    padding: 15px;
+  }
+
+  .imageBox{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .captionBox{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .formNewNews{
+    padding: 30px;
+    background-color: #fff;
+    margin: 2% 3%;
+    border-radius: 5px;
+    width: 94% !important;
+  }
+
+  .imageGroupBox{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .borderNone {
+    border: none !important;
+    box-shadow: none !important;
+  }

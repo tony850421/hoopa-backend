@@ -54,6 +54,14 @@ app.config(['$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider
             .state('messages', {
                 url: '/messages',
                 templateUrl: 'templates/messages.html'
+            })
+            .state('new-news', {
+                url: '/new-news',
+                templateUrl: 'templates/new-news.html'
+            })
+            .state('news', {
+                url: '/news',
+                templateUrl: 'templates/news.html'
             });
     }
 ]);
