@@ -445,21 +445,23 @@
   }
 
   .MessagesUser{
-    background-color: green;
-    max-width: 320px;
+    background-color: #804A00;
+    max-width: 400px;
+    min-width: 300px;
     padding: 15px;
-    margin-top: 20px;
-    margin-left: 10px;
+    margin-left: 1%;
     border-radius: 5px;
+    color: white;
   }
 
   .MessagesAdmin{
-    background-color: red;
+    background-color: #ff6801;
     max-width: 400px;
+    min-width: 300px;
     padding: 15px;
-    margin-top: 20px;
-    margin-left: 10px;
+    margin-right: 1%;
     border-radius: 5px;
+    color: white;
   }
 
   .messageBox{
@@ -468,20 +470,74 @@
 
   .sendBox{
     width: 100%;
-    padding: 7px;
+    padding: 5px;
     border-top: 1px #d6dadb solid;
   }
 
   .textareaMessageSend{
     width: 95%;
-    height: 40px;
+    height: 30px;
     border-radius: 5px;
     resize: none;
     border: 0px;
+    padding: 5px;
   }
 
   .sendImage{
-    width: 40px;
+    width: 30px;
     margin-left: 1%;
-    margin-top: -23px;
+    margin-top: -15px;
+  }
+
+  .avatar{
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    margin-left: 1%;
+  }
+
+  .avatarAdmin{
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    margin-right: 1%;
+  }
+
+  .groupSender{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .groupReceiver{
+    display: flex;
+    flex-direction: row;
+    float: right;
+  }
+
+  .senderGroup{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .receiverGroup{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    float: right;
+  }
+
+  .labelDateSender{
+    margin-left: 7%;
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+  .labelDateReceiver{    
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+  .content{
+    font-weight: normal;
   }

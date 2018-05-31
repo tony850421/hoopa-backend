@@ -1,16 +1,29 @@
 <div class="row" ng-controller="MessagesCtrl">
-    <div class="messageBox margin-bottom-0" style="overflow-y: scroll; height: {{height-130}}px;">        
+    <div class="messageBox margin-bottom-0" style="overflow-y: scroll; height: {{height-115}}px;">
         <div ng-repeat="i in Messages">
-            <div class="MessagesUser" ng-show="i.type == 'sender'">
-                <label for="">{{i.content}}</label>
+            <div class="senderGroup" ng-show="i.type == 'sender'">
+                <label class="labelDateSender">{{i.releaseTime}}</label>
+                <div class="groupSender">
+                    <img class="avatar" ng-show="i.avatar.length > 0" ng-src="{{i.avatar}}"/>
+                    <img class="avatar" ng-show="!i.avatar.length > 0" ng-src="./img/avatar.jpg"/>
+                    <div class="MessagesUser">
+                        <label class="content">{{i.content}}</label>
+                    </div>
+                </div>
             </div>
-            <div class="MessagesAdmin" ng-show="i.type == 'receiver'">
-                <label for="">{{i.content}}</label>                    
+            <div class="receiverGroup" ng-show="i.type == 'receiver'">
+                <label class="labelDateReceiver">{{i.releaseTime}}</label>
+                <div class="groupReceiver">
+                    <div class="MessagesAdmin">
+                        <label class="content">{{i.content}}</label>
+                    </div>
+                    <img class="avatarAdmin" ng-src="./img/admin.png"/>
+                </div>
             </div>
         </div>
     </div>
     <div class="sendBox margin-bottom-0">
-        <textarea class="textareaMessageSend"></textarea>
-        <img ng-src="./img/send.png" class="sendImage"></img>
+        <textarea ng-keypress="keyPress($event)" ng-model="messageText" class="textareaMessageSend"></textarea>
+        <img ng-click="sendMessage()" ng-src="./img/send.png" class="sendImage"></img>
     </div>
 </div>

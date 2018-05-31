@@ -24,7 +24,6 @@ function OffersCtrl($scope, $window, $timeout) {
       query.include('user');
       query.include('project');
       query.descending('createdAt');
-      // query.limit(10);
       query.find().then(function (offers) {
         offers.forEach(function (offer) {
         
@@ -33,12 +32,6 @@ function OffersCtrl($scope, $window, $timeout) {
           var date = (offer.createdAt.getMonth() + 1) + '/' + offer.createdAt.getDate() + '/' + offer.createdAt.getFullYear();
           var avatar =  offer.get('user').get('avatarUrl');
           var content = offer.get('description');
-
-          console.log(offerId);
-          console.log(userFullName);
-          console.log(date);
-          console.log(avatar);
-          console.log(content);
 
           // handlebars context
           $scope.offers.push({
@@ -49,7 +42,6 @@ function OffersCtrl($scope, $window, $timeout) {
             content: content
           })
           $scope.$apply();
-          console.log($scope.offers)
         });
 
         $scope.loading = false;

@@ -58,18 +58,19 @@
           <ul class="padding-0 width100" ng-class="{'hiddeNewProjectButton': activeList != 'projects'}">
             <li>
               <a href="#new-project" style="padding-left: 10%;">
-                <span class="fa fa-plus menu-icon"></span>{{'NEWPACKAGE' | translate}}
+                <span class="fa fa-plus menu-icon"></span>
+                {{'NEWPACKAGE' | translate}}
               </a>
             </li>
           </ul>
         </li>
-        <!-- <li class="sidebar-list" ng-if="getUser() != ' '">
-          <a href="#inbox">
+        <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'inbox'}">
+          <a href="#inbox" ng-click="changeActiveList('inbox')">
             <span class="menu-icon fa fa-envelope"></span>
             {{'MESSAGES' | translate}}
           </a>
         </li>
-        <li class="sidebar-list" ng-if="getUser() != ' '">
+        <!-- <li class="sidebar-list" ng-if="getUser() != ' '">
           <a href="#offers">
             <span class="menu-icon fa fa-bomb"></span>
             {{'OFFERS' | translate}}

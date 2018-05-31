@@ -10,6 +10,7 @@ function MessagesCtrl($scope, $window, $translate, localStorageService) {
     $scope.Messages = [];
     $scope.width = '';
     $scope.height = '';
+    $scope.messageText = '';
 
     $scope.getSize = function(){
         $scope.width = window.innerWidth;
@@ -43,7 +44,7 @@ function MessagesCtrl($scope, $window, $translate, localStorageService) {
         queryInbox1.equalTo('receiver', otherUser);
 
         var queryOr = AV.Query.or(queryInbox, queryInbox1);
-        queryOr.descending('createdAt');
+        queryOr.ascending('createdAt');
         queryOr.include('sender');
         queryOr.include('receiver');  
         queryOr.find().then(function(messages){
@@ -80,5 +81,15 @@ function MessagesCtrl($scope, $window, $translate, localStorageService) {
     };
 
     $scope.init();
+
+    $scope.sendMessage = function(){
+        console.log($scope.messageText);
+    };
+
+    $scope.keyPress = function(event){
+        if (event.keyCode === 13) {
+            $scope.sendMessage();
+        }
+    };
     
 }
