@@ -32,6 +32,7 @@ function OffersCtrl($scope, $rootScope, $window, $timeout) {
           var avatar = offer.get('user').get('avatarUrl');
           var content = offer.get('description');
           var open = false;
+          var pending = offer.get('pending');
 
           // handlebars context
           $scope.offers.push({
@@ -41,7 +42,8 @@ function OffersCtrl($scope, $rootScope, $window, $timeout) {
             date: date,
             avatar: avatar,
             content: content,
-            open: open
+            open: open,
+            pending: pending
           })
           $scope.$apply();
         });
