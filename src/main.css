@@ -269,15 +269,16 @@
     background-color: white;
     border-bottom: 1px #EFEFF4 solid;
     display: flex;
-    flex-direction: row;
-    height: 40px;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .imgAvatar{
-    width: 30px;
-    height: 30px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    margin-top: 5px;
   }
 
   .h-divider{
@@ -472,21 +473,23 @@
     width: 100%;
     padding: 5px;
     border-top: 1px #d6dadb solid;
+    display: flex;
+    flex-direction: row;
   }
 
   .textareaMessageSend{
-    width: 95%;
-    height: 30px;
+    width: 90%;
+    height: 80px;
     border-radius: 5px;
     resize: none;
     border: 0px;
     padding: 5px;
   }
 
-  .sendImage{
-    width: 30px;
+  .sendButton{
+    width: 8%;
     margin-left: 1%;
-    margin-top: -15px;
+    padding-top: 30px;
   }
 
   .avatar{
@@ -613,4 +616,8 @@
     flex-direction: row;
     align-items: center;
     height: 100px;
+  }
+
+  .marginTopInbox{
+    margin-top: -15px;
   }
