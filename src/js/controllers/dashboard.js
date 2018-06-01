@@ -1,6 +1,6 @@
-app.controller('DashBoardCtrl', ['$scope', '$rootScope', '$window', '$timeout', DashBoardCtrl]);
+app.controller('DashBoardCtrl', ['$scope', '$rootScope', '$window', '$timeout', '$state', DashBoardCtrl]);
 
-function DashBoardCtrl($scope, $rootScope, $window, $timeout) {
+function DashBoardCtrl($scope, $rootScope, $window, $timeout, $state) {
 
     $scope.loading = false;
     $rootScope.activeList = 'dashboard';
@@ -77,6 +77,14 @@ function DashBoardCtrl($scope, $rootScope, $window, $timeout) {
             console.log('ups');
             $window.location.href = '#/login';
         }
-    }
+    };
     $scope.statistics();
+
+    $scope.goToProjects = function(){
+        $state.go('project-list');
+    };
+
+    $scope.goToOffer = function(){
+        $state.go('offers');
+    };
 };
