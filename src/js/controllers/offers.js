@@ -3,9 +3,9 @@
  * Login and signup Controller
  */
 
-app.controller('OffersCtrl', ['$scope', '$window', '$timeout', OffersCtrl]);
+app.controller('OffersCtrl', ['$scope', '$rootScope', '$window', '$timeout', OffersCtrl]);
 
-function OffersCtrl($scope, $window, $timeout) {
+function OffersCtrl($scope, $rootScope, $window, $timeout) {
 
   $scope.loading = false;
   

@@ -1,10 +1,10 @@
 
-app.controller('InboxCtrl', ['$scope', '$state', '$window', '$timeout', 'localStorageService', InboxCtrl]);
+app.controller('InboxCtrl', ['$scope', '$rootScope', '$state', '$window', '$timeout', 'localStorageService', InboxCtrl]);
 
-function InboxCtrl($scope, $state, $window, $timeout, localStorageService) {
+function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageService) {
 
     $scope.inbox = [];
-    // $scope.send = [];
+    $rootScope.activeList = 'inbox';
     $scope.usersAux = [];
     $scope.showInbox = true;
 

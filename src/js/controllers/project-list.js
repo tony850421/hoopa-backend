@@ -3,12 +3,12 @@
  * Login and signup Controller
  */
 
-app.controller('ProjectListCtrl', ['$scope', '$window', '$timeout', ProjectListCtrl]);
+app.controller('ProjectListCtrl', ['$scope', '$rootScope', '$window', '$timeout', ProjectListCtrl]);
 
-function ProjectListCtrl($scope, $window, $timeout) {
+function ProjectListCtrl($scope, $rootScope, $window, $timeout) {
 
   $scope.loading = false;
-  
+  $rootScope.activeList = 'projects';
   $scope.products = [];
 
   $scope.listAllProjects = function () {
@@ -89,8 +89,7 @@ function ProjectListCtrl($scope, $window, $timeout) {
           if (productImage) {
             productImageUrl = productImage.get('url');
           } else {
-            productImageUrl = 'img/LogoHoopa.png'
-            console.log('no image');
+            productImageUrl = 'img/LogoHoopa.png';
           }
           // handlebars context
           $scope.products.push({

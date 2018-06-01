@@ -577,3 +577,40 @@
     border: none !important;
     box-shadow: none !important;
   }
+
+  .padding-right-0{
+    padding-right: 0px;
+  }
+
+  .padding-left-0{
+    padding-left: 0px;
+  }
+
+  .columBox{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .imageMainNews{
+    width: 115px;
+    margin-top: 4%;
+    float: right;
+    object-fit: cover;
+  }
+
+  .newsImage{
+    width: 100px;    
+    object-fit: cover;
+  }
+
+  .imageBoxList{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .textNewsList{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100px;
+  }

@@ -3,14 +3,15 @@
  * Login and signup Controller
  */
 
-app.controller('MessagesCtrl', ['$scope', '$window', '$translate', 'localStorageService', MessagesCtrl]);
+app.controller('MessagesCtrl', ['$scope', '$rootScope', '$window', '$translate', 'localStorageService', MessagesCtrl]);
 
-function MessagesCtrl($scope, $window, $translate, localStorageService) {
+function MessagesCtrl($scope, $rootScope, $window, $translate, localStorageService) {
 
     $scope.Messages = [];
     $scope.width = '';
     $scope.height = '';
     $scope.messageText = '';
+    $rootScope.activeList = 'inbox';
 
     $scope.getSize = function(){
         $scope.width = window.innerWidth;

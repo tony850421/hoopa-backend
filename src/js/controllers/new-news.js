@@ -3,11 +3,12 @@
  * Login and signup Controller
  */
 
-app.controller('NewNewsCtrl', ['$scope', '$window', '$timeout', NewNewsCtrl]);
+app.controller('NewNewsCtrl', ['$scope', '$rootScope', '$window', '$timeout', NewNewsCtrl]);
 
-function NewNewsCtrl($scope, $window, $timeout) {
+function NewNewsCtrl($scope, $rootScope, $window, $timeout) {
 
     $scope.newsMedias = [];
+    $rootScope.activeList = 'newnews';
 
     $scope.title = '';
     $scope.newsContent = '';
@@ -18,9 +19,13 @@ function NewNewsCtrl($scope, $window, $timeout) {
 
     $scope.news = {};
 
-    $scope.initNews = function() {
+    $scope.changeValueMainImage = function(){
+        readURL($('#inputMainImage')[0]);
+    }
+
+    $scope.initNews = function () {
         var News = AV.Object.extend('News');
-       $scope.news = new News();
+        $scope.news = new News();
     }
     $scope.initNews();
 
@@ -28,7 +33,8 @@ function NewNewsCtrl($scope, $window, $timeout) {
 
         var file = $('#inputFile')[0].files[0];
 
-        if(file || $scope.caption != '' || $scope.content != '') {
+        if (file || $scope.caption != '' || $scope.content != '') {
+
 
             var NewsMedia = AV.Object.extend('NewsMedia');
             var media = new NewsMedia();
@@ -37,6 +43,8 @@ function NewNewsCtrl($scope, $window, $timeout) {
                 var name = file.name;
                 var avFile = new AV.File(name, file);
                 media.set('image', avFile);
+
+                readURLMediaList($('#inputFile')[0], media, $scope.newsMedias.length);
             }
 
             media.set('caption', $scope.caption);
@@ -60,9 +68,9 @@ function NewNewsCtrl($scope, $window, $timeout) {
         $scope.newsMedias.splice(index, 1);
     }
 
-    $scope.publishNews = function() {
+    $scope.publishNews = function () {
 
-        if($scope.title != '' && $scope.newsContent != '') {
+        if ($scope.title != '' && $scope.newsContent != '') {
             var currentUser = AV.User.current();
             if (currentUser) {
 
@@ -91,7 +99,7 @@ function NewNewsCtrl($scope, $window, $timeout) {
                     // $scope.loading = false;
                     alert(JSON.stringify(error));
                 });
-    
+
             } else {
                 $window.location.href = '#/login';
             }
@@ -108,6 +116,35 @@ function NewNewsCtrl($scope, $window, $timeout) {
             }, function (error) {
                 console.log(JSON.stringify(error));
             });
+        }
+    }
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#mainImage').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function readURLMediaList(input, media, length) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                if (length < $scope.newsMedias.length){             
+                    $scope.newsMedias[length].set('imageUrl', e.target.result);
+                } else {
+                    media.set('imageUrl', e.target.result);
+                }
+                $scope.$apply();
+            }
+
+            reader.readAsDataURL(input.files[0]);
         }
     }
 }

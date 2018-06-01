@@ -1,8 +1,9 @@
-app.controller('DashBoardCtrl', ['$scope', '$window', '$timeout', DashBoardCtrl]);
+app.controller('DashBoardCtrl', ['$scope', '$rootScope', '$window', '$timeout', DashBoardCtrl]);
 
-function DashBoardCtrl($scope, $window, $timeout) {
+function DashBoardCtrl($scope, $rootScope, $window, $timeout) {
 
     $scope.loading = false;
+    $rootScope.activeList = 'dashboard';
 
     $scope.userCount = 0;
     $scope.packageCount = 0;
