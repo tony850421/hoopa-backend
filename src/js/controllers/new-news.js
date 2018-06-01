@@ -20,7 +20,7 @@ function NewNewsCtrl($scope, $rootScope, $window, $timeout) {
     $scope.news = {};
 
     $scope.changeValueMainImage = function(){
-        readURL($('#inputMainImage')[0]);
+        readURL($('#newsFile')[0]);
     }
 
     $scope.initNews = function () {

@@ -40,10 +40,10 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
         queryInbox.equalTo('receiver', user);
         queryInbox.descending('createdAt');
         queryInbox.find().then(function (messages) {
-            
-            
+
             messages.forEach(function (message) {
                 if (message.get('sender')) {
+
                     var fullName = message.get('sender').get('fullName');
                     var releaseTime = (message.createdAt.getMonth() + 1) + '/' + message.createdAt.getDate() + '/' + message.createdAt.getFullYear();
                     var avatar = message.get('sender').get('avatarUrl');
@@ -63,11 +63,13 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
                         aux+= '...';
                     }
                     content = aux;
-                    var id = message.get('sender').get('id');
+                    var id = message.get('sender').id;
+
+                    console.log(message.get('sender').id);
 
                     var flagMessage = false;
                     $scope.inbox.forEach(function (msg) {
-                        if (msg.senderId == message.get('sender').get('id')) {
+                        if (msg.senderId == message.get('sender').id) {
                             flagMessage = true;
                             if (!unreaded){
                                 msg.unreadedCount +=1;                                
@@ -86,8 +88,6 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
         }).catch(function (error) {
             alert(JSON.stringify(error));
         });
-
-
 
     };
 
@@ -139,7 +139,7 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
             messages.forEach(function (msg) {
 
                 var fullName, avatar, type = '';
-                if (msg.get('sender').get('id') == userId) {
+                if (msg.get('sender').id == userId) {
                     fullName = msg.get('sender').get('fullName');
                     avatar = msg.get('sender').get('avatarUrl');
                     type = 'sender';
@@ -152,7 +152,7 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
                 var releaseTime = (msg.createdAt.getMonth() + 1) + '/' + msg.createdAt.getDate() + '/' + msg.createdAt.getFullYear();
                 var content = msg.get('content');
                 var readed = msg.get('readed');
-                var id = msg.get('id');
+                var id = msg.id;
 
                 $scope.Messages.push({
                     fullName: fullName,
@@ -197,7 +197,7 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
                 $scope.messageText = '';
 
                 var fullName, avatar, type = '';
-                if (msg.get('sender').get('id') == $scope.senderId) {
+                if (msg.get('sender').id == $scope.senderId) {
                     fullName = msg.get('sender').get('fullName');
                     avatar = msg.get('sender').get('avatarUrl');
                     type = 'sender';
