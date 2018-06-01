@@ -1,30 +1,40 @@
 <div class="row" ng-controller="NewNewsCtrl">
   <form class="formNewNews col-md-12">
-    <div class="titleBox form-group padding-0 col-md-6">
-      <label>Title</label>
-      <input class="form-control backgroundGray" type="text">
+    <div class="row">
+        <div class="titleBox form-group padding-0 col-md-6">
+            <label>Title</label>
+            <input class="form-control backgroundGray" type="text" ng-model="title">
+          </div>
+          <div class="titleBox form-group col-md-6">
+              <label>Select an image</label>
+              <input class="form-controlInput backgroundGray" type="file" id="newsFile">
+          </div>
+          <div class="col-md-12">
+            <textarea class="textAreaMediaList form-control backgroundGray" ng-model="newsContent"></textarea>
+          </div>
     </div>
+
     <div class="mediaListBox col-md-12">
       <div class="imageGroupBox">
         <div class="imageBox form-group col-md-6">
           <label>Select an image</label>
-          <input class="form-controlInput backgroundGray" type="file">
+          <input class="form-controlInput backgroundGray" type="file" id="inputFile" ng-model="fileModal">
         </div>
         <div class="captionBox form-group col-md-6">
           <label>Caption</label>
-          <input class="form-control backgroundGray" type="text">
+          <input class="form-control backgroundGray" type="text" ng-model="caption">
         </div>
       </div>
       <div class="col-md-12">
-        <textarea class="textAreaMediaList form-control backgroundGray"></textarea>
+        <textarea class="textAreaMediaList form-control backgroundGray" ng-model="content"></textarea>
       </div>
       <div class="col-md-12 margin-top-10">
-        <a class="btn btn-primary pull-right fa fa-plus"> Add</a>
+        <a class="btn btn-primary pull-right fa fa-plus" ng-click="addNewsMedia()"> Add</a>
       </div>
 
       <div class="form-group col-md-12 margin-top-10">
         <div class="panel panel-default col-md-12 borderNone">
-          <ul class="list-group" ng-repeat="f in files">
+          <ul class="list-group" ng-repeat="f in newsMedias">
             <li class="list-group-item">
               <div class="row">
                 <div class="col-md-3">
@@ -34,7 +44,7 @@
                   {{f.get('image').size()}}
                 </div>
                 <div class="col-md-3">
-                  <button type="button" class="btn btn-default btn-xs pull-right" ng-click="deleteFile($index)">
+                  <button type="button" class="btn btn-default btn-xs pull-right" ng-click="deleteNewsMedia($index)">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true" translate="BDELETE"></span>
                   </button>
                 </div>
@@ -44,5 +54,12 @@
         </div>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-12 margin-top-10">
+        <a class="btn btn-primary pull-right fa fa-plus" ng-click="publishNews()"> Publish</a>
+      </div>
+    </div>
+
   </form>
 </div>
