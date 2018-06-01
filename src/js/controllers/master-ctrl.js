@@ -1,9 +1,12 @@
 /**
  * Master Controller
  */
-app.controller('MasterCtrl', ['$scope', '$cookieStore', '$translate', MasterCtrl]);
+app.controller('MasterCtrl', ['$scope', '$rootScope', '$cookieStore', '$translate', MasterCtrl]);
 
-function MasterCtrl($scope, $cookieStore, $translate) {
+function MasterCtrl($scope, $rootScope, $cookieStore, $translate) {
+
+    $rootScope.activeList = 'dashboard';
+
     /**
      * Sidebar Toggle & Cookie Control
      */

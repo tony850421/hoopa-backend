@@ -55,9 +55,9 @@
             <span class="menu-icon fa fa-briefcase"></span>
             {{'PACKAGES' | translate}}
           </a>
-          <ul class="padding-0 width100" ng-class="{'hiddeNewProjectButton': activeList != 'projects'}">
+          <ul class="padding-0 width100" ng-class="{'hiddeNewProjectButton': activeList != 'projects' && activeList != 'newprojects'}">
             <li>
-              <a href="#new-project" style="padding-left: 10%;">
+              <a href="#new-project" style="padding-left: 10%;" ng-class="{'colorListActive': activeList == 'newprojects'}">
                 <span class="fa fa-plus menu-icon"></span>
                 {{'NEWPACKAGE' | translate}}
               </a>
@@ -75,21 +75,21 @@
             <span class="menu-icon fa fa-file"></span>
             {{'NEWS' | translate}}
           </a>
-          <ul class="padding-0 width100" ng-class="{'hiddeNewProjectButton': activeList != 'news'}">
+          <ul class="padding-0 width100" ng-class="{'hiddeNewProjectButton': activeList != 'news' && activeList != 'newnews'}">
             <li>
-              <a href="#new-news" style="padding-left: 10%;">
+              <a href="#new-news" style="padding-left: 10%;" ng-class="{'colorListActive': activeList == 'newnews'}">
                 <span class="fa fa-plus menu-icon"></span>
                 {{'NEWNEWS' | translate}}
               </a>
             </li>
           </ul>
         </li>
-        <!-- <li class="sidebar-list" ng-if="getUser() != ' '">
-          <a href="#offers">
+        <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'offers'}">
+          <a href="#offers" ng-click="changeActiveList('offers')">
             <span class="menu-icon fa fa-bomb"></span>
             {{'OFFERS' | translate}}
           </a>
-        </li> -->
+        </li>
       </ul>
       <div class="sidebar-footer">
 
@@ -102,7 +102,7 @@
 
         <!-- Header Bar -->
         <div class="row header" ng-controller="LoginCtrl">
-          <div class="col-xs-12">
+          <div class="col-xs-12 margin-bottom-0">
             <div class="user pull-right">
               <div class="item dropdown" uib-dropdown>
                 <a href="#" class="dropdown-toggle" uib-dropdown-toggle>

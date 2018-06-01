@@ -3,21 +3,17 @@
  * Login and signup Controller
  */
 
-app.controller('LoginCtrl', ['$scope', '$window', '$translate', LoginCtrl]);
+app.controller('LoginCtrl', ['$scope', '$rootScope', '$window', '$translate', LoginCtrl]);
 
-function LoginCtrl($scope, $window, $translate) {
+function LoginCtrl($scope, $rootScope, $window, $translate) {
 
     $scope.ptitle = $translate.instant('PTITLE');
-
-    $scope.activeList = 'dashboard';
-
+    $rootScope.activeList = 'dashboard';
     $scope.username = '';
     $scope.password = '';
     $scope.email = '';
 
     $scope.login = function () {
-        console.log('login:' + $scope.username + ' ' + $scope.password);
-
         AV.User.logIn($scope.username, $scope.password).then(function (loginedUser) {
             // $window.location.href = '#/project-list';
             $window.location.href = '#/dashboard';
@@ -71,6 +67,6 @@ function LoginCtrl($scope, $window, $translate) {
     }
 
     $scope.changeActiveList = function(text){
-        $scope.activeList = text;
+        $rootScope.activeList = text;
     }
 }

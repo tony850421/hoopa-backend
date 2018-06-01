@@ -3,8 +3,8 @@
  * Login and signup Controller
  */
 
-app.controller('UpdateProjectCtrl', ['$scope', '$window', '$translate', UpdateProjectCtrl]);
+app.controller('UpdateProjectCtrl', ['$scope', '$rootScope', '$window', '$translate', UpdateProjectCtrl]);
 
-function UpdateProjectCtrl($scope, $window, $translate) {
+function UpdateProjectCtrl($scope, $rootScope, $window, $translate) {
     
 }

@@ -3,12 +3,12 @@
  * Login and signup Controller
  */
 
-app.controller('ProjectCtrl', ['$scope', '$window', '$translate', ProjectCtrl]);
+app.controller('ProjectCtrl', ['$scope', '$rootScope', '$window', '$translate', ProjectCtrl]);
 
-function ProjectCtrl($scope, $window, $translate) {
+function ProjectCtrl($scope, $rootScope, $window, $translate) {
 
     $scope.loading = false;
-
+    $rootScope.activeList = 'newprojects';
     $scope.project = {};
 
     $scope.package = {

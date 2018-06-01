@@ -1,27 +1,35 @@
 <div class="row" ng-controller="NewNewsCtrl">
   <form class="formNewNews col-md-12">
     <div class="row">
-        <div class="titleBox form-group padding-0 col-md-6">
-            <label>Title</label>
+      <div class="col-md-12 padding-0">
+        <div class="columBox col-md-6 padding-0">
+          <div class="titleBox form-group">
+            <label translate="TITLE"></label>
             <input class="form-control backgroundGray" type="text" ng-model="title">
           </div>
-          <div class="titleBox form-group col-md-6">
-              <label>Select an image</label>
-              <input class="form-controlInput backgroundGray" type="file" id="newsFile">
+          <div class="titleBox form-group">
+            <label translate="PFILE"></label>
+            <input id="inputMainImage" onchange="angular.element(this).scope().changeValueMainImage()" class="form-controlInput backgroundGray"
+              type="file" id="newsFile">
           </div>
-          <div class="col-md-12">
-            <textarea class="textAreaMediaList form-control backgroundGray" ng-model="newsContent"></textarea>
-          </div>
+        </div>
+        <div class="titleBox form-group col-md-6">
+          <img class="imageMainNews" id="mainImage">
+        </div>
+      </div>
+      <div class="col-md-12 padding-0">
+        <textarea class="textAreaMediaList form-control backgroundGray" ng-model="newsContent"></textarea>
+      </div>
     </div>
 
     <div class="mediaListBox col-md-12">
       <div class="imageGroupBox">
         <div class="imageBox form-group col-md-6">
-          <label>Select an image</label>
+          <label translate="PFILE"></label>
           <input class="form-controlInput backgroundGray" type="file" id="inputFile" ng-model="fileModal">
         </div>
         <div class="captionBox form-group col-md-6">
-          <label>Caption</label>
+          <label translate="CAPTION"></label>
           <input class="form-control backgroundGray" type="text" ng-model="caption">
         </div>
       </div>
@@ -29,24 +37,29 @@
         <textarea class="textAreaMediaList form-control backgroundGray" ng-model="content"></textarea>
       </div>
       <div class="col-md-12 margin-top-10">
-        <a class="btn btn-primary pull-right fa fa-plus" ng-click="addNewsMedia()"> Add</a>
+        <a class="btn btn-primary pull-right fa fa-plus" ng-click="addNewsMedia()" translate="BADD"></a>
       </div>
 
       <div class="form-group col-md-12 margin-top-10">
-        <div class="panel panel-default col-md-12 borderNone">
+        <div class="panel panel-default col-md-12 borderNone padding-0">
           <ul class="list-group" ng-repeat="f in newsMedias">
-            <li class="list-group-item">
+            <li class="list-group-item padding-0 borderNone">
               <div class="row">
-                <div class="col-md-3">
-                  {{f.get('image').get('name')}}
+                <div class="col-md-3 padding-left-0 imageBoxList">
+                  <img class="newsImage" ng-src="{{f.get('imageUrl')}}">
                 </div>
-                <div class="col-md-3">
-                  {{f.get('image').size()}}
+                <div class="col-md-3 textNewsList">
+                  <label>{{f.get('caption')}}</label>
                 </div>
-                <div class="col-md-3">
-                  <button type="button" class="btn btn-default btn-xs pull-right" ng-click="deleteNewsMedia($index)">
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true" translate="BDELETE"></span>
-                  </button>
+                <div class="col-md-3 textNewsList">
+                  <label>{{f.get('content')}}</label>
+                </div>
+                <div class="col-md-3 padding-right-0 textNewsList">
+                  <div class="col-md-12 padding-0">
+                    <button type="button" class="btn btn-primary btn-xs pull-right" ng-click="deleteNewsMedia($index)">
+                      <span class="glyphicon glyphicon-remove" aria-hidden="true" translate="BDELETE"></span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </li>
@@ -57,7 +70,7 @@
 
     <div class="row">
       <div class="col-md-12 margin-top-10">
-        <a class="btn btn-primary pull-right fa fa-plus" ng-click="publishNews()"> Publish</a>
+        <a class="btn btn-primary pull-right fa fa-plus" ng-click="publishNews()" translate="PPUBLISH"></a>
       </div>
     </div>
 

@@ -3,16 +3,18 @@
  * Login and signup Controller
  */
 
-app.controller('OffersCtrl', ['$scope', '$window', '$timeout', OffersCtrl]);
+app.controller('OffersCtrl', ['$scope', '$rootScope', '$window', '$timeout', OffersCtrl]);
 
-function OffersCtrl($scope, $window, $timeout) {
+function OffersCtrl($scope, $rootScope, $window, $timeout) {
 
+  $rootScope.activeList = 'offers';
   $scope.loading = false;
   
   $scope.offers = [];
 
   $scope.listAllOffers = function () {
     $scope.offers = [];
+    $scope.openOffer = false;
 
     var currentUser = AV.User.current();
 
@@ -32,6 +34,8 @@ function OffersCtrl($scope, $window, $timeout) {
           var date = (offer.createdAt.getMonth() + 1) + '/' + offer.createdAt.getDate() + '/' + offer.createdAt.getFullYear();
           var avatar =  offer.get('user').get('avatarUrl');
           var content = offer.get('description');
+          var open = false;
+          var id = offer.get('id');
 
           // handlebars context
           $scope.offers.push({
@@ -39,7 +43,9 @@ function OffersCtrl($scope, $window, $timeout) {
             userFullName: userFullName,
             date: date,
             avatar: avatar,
-            content: content
+            content: content,
+            open: open,
+            id: id
           })
           $scope.$apply();
         });
@@ -85,5 +91,16 @@ function OffersCtrl($scope, $window, $timeout) {
   //   }
   // }
   // $scope.notificationTest();
+
+  $scope.openOfferFunction =  function(id){
+    $scope.offers.forEach(function(offer){
+      if (offer.id == id){
+        offer.open = true;
+      } else {
+        offer.open = false;
+      }      
+    })
+    
+  };
 
 }

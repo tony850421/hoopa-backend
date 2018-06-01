@@ -142,6 +142,9 @@
   .margin-top-0{
     margin-top: 0px
   }
+  .margin-top-5{
+    margin-top: 5px
+  }
   .registerBox{
     background-color: #EFEFEF;
     padding: 15px;
@@ -267,17 +270,27 @@
 
   .messagesInbox{
     background-color: white;
-    border-bottom: 1px #EFEFF4 solid;
+    border-bottom: 1px #d6dadb solid;
     display: flex;
     flex-direction: row;
-    height: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .OfferBox{
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: white;
+    border-bottom: 1px #d6dadb solid;
+    align-items: center;
   }
 
   .imgAvatar{
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    margin-top: 5px;
   }
 
   .h-divider{
@@ -472,21 +485,29 @@
     width: 100%;
     padding: 5px;
     border-top: 1px #d6dadb solid;
+    display: flex;
+    flex-direction: row;
   }
 
   .textareaMessageSend{
-    width: 95%;
-    height: 30px;
+    width: 90%;
+    height: 80px;
     border-radius: 5px;
     resize: none;
     border: 0px;
     padding: 5px;
   }
 
-  .sendImage{
-    width: 30px;
+  .sendButton{
+    width: 8%;
     margin-left: 1%;
-    margin-top: -15px;
+    padding-top: 30px;
+  }
+
+  .sendOffer{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
   }
 
   .avatar{
@@ -517,13 +538,18 @@
   .senderGroup{
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
   }
 
   .receiverGroup{
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  .groupReceiverUp{
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
     float: right;
   }
 
@@ -576,4 +602,122 @@
   .borderNone {
     border: none !important;
     box-shadow: none !important;
+  }
+
+  .padding-right-0{
+    padding-right: 0px;
+  }
+
+  .padding-left-0{
+    padding-left: 0px;
+  }
+
+  .columBox{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .imageMainNews{
+    width: 115px;
+    margin-top: 4%;
+    float: right;
+    object-fit: cover;
+  }
+
+  .newsImage{
+    width: 100px;    
+    object-fit: cover;
+  }
+
+  .imageBoxList{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .textNewsList{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100px;
+  }
+
+  .marginTopInbox{
+    margin-top: -15px;
+  }
+
+  .scrollbarUser{
+    background-color: #f3f3f3;
+  }
+
+  .groupUserRow{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .marginAvatar{
+    margin-left: 6%;
+  }
+
+  .groupContentUser{
+    display: flex;
+    flex-direction: column;
+    margin-left: 3%;
+  }
+
+  .badge{
+    position: absolute !important;
+    z-index: 5;
+    margin-left: 3%;
+    background-color: #ff6801;
+  }
+
+  .offerContent{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .angles{
+    width: 40px;
+  }
+
+  .notifyBox{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .offerResponse{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+  }
+
+  .textAreaOfferResponse{
+    height: 80px;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    border: 1px solid #d6dadb;
+  }
+
+  .textAreaOffer{
+    padding: 10px;
+  }
+
+  .notifyUser{
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .notifyManager{
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .sendButtonOffer{
+    width: 100%;
+    padding-top: 30px;
   }

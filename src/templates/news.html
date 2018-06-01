@@ -1,3 +1,36 @@
 <div class="row" ng-controller="NewsCtrl">
-  
+    <ul class="media-list custom-media-list" ng-repeat="f in news">
+        <li class="media">
+            <div class="media-left">
+                <a>
+                    <img class="media-object notification-image" ng-src="{{f.mainImage}}">
+                </a>
+            </div>
+            <div class="media-body">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h4 class="media-heading"> {{f.title}}
+                        </h4>
+                        <h5>{{f.content}}</h5>
+                    </div>
+                    <!-- <div class="col-md-2">
+                        <h5 class="media-heading font-weight-unset">
+                            <i class="fa fa-user-secret" aria-hidden="true"> </i>
+                            {{project.ownerUsername}}
+                        </h5>
+                        <h5 class="media-heading font-weight-unset margin-top-10">
+                            <i class="fa  fa-clock-o" aria-hidden="true"> </i>
+                            {{project.releaseTime}}
+                        </h5>
+                    </div> -->
+                    <div class="col-md-2 margin-bottom-0">
+                        <a class="btn btn-secundary fa fa-eye pull-right buttonShow" ng-disabled="true" ng-click="" translate="BSHOW"></a>
+                        <a class="btn btn-secundary fa fa-edit pull-right buttonUpdate" ng-disabled="true" ng-click="" translate="BUPDATE"></a>
+                        <a class="btn btn-secundary fa fa-times pull-right buttonDelete" ng-disabled="true" ng-click="" translate="BDELETE"></a>
+                    </div>
+                </div>
+
+            </div>
+        </li>
+    </ul>
 </div>
