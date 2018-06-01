@@ -84,12 +84,12 @@
             </li>
           </ul>
         </li>
-        <!-- <li class="sidebar-list" ng-if="getUser() != ' '">
-          <a href="#offers">
+        <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'offers'}">
+          <a href="#offers" ng-click="changeActiveList('offers')">
             <span class="menu-icon fa fa-bomb"></span>
             {{'OFFERS' | translate}}
           </a>
-        </li> -->
+        </li>
       </ul>
       <div class="sidebar-footer">
 

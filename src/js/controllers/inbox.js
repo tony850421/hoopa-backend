@@ -34,54 +34,49 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
 
         var user = AV.User.current();
 
-        // var query = new AV.Query('Message');
-        // query.include('sender');
-        // query.include('receiver');
-        // query.equalTo('sender', user);
-        // query.descending('createdAt');
-        // query.find().then(function (messages) {
-
-        //     messages.forEach(function (message) {
-        //         if(message.get('receiver')) {
-        //             var fullName = message.get('receiver').get('fullName');
-        //             var releaseTime = (message.createdAt.getMonth() + 1) + '/' + message.createdAt.getDate() + '/' + message.createdAt.getFullYear();
-        //             var avatar =  message.get('receiver').get('avatarUrl');
-        //             var content = message.get('content');
-
-        //             $scope.send.push({fullName: fullName, releaseTime: releaseTime, avatar: avatar, content: content});
-        //         }
-        //     });
-
-        //     $scope.$apply();
-
-        // }).catch(function (error) {
-        //     alert(JSON.stringify(error));
-        // });
-
         var queryInbox = new AV.Query('Message');
         queryInbox.include('sender');
         queryInbox.include('receiver');
         queryInbox.equalTo('receiver', user);
         queryInbox.descending('createdAt');
         queryInbox.find().then(function (messages) {
-
+            
+            
             messages.forEach(function (message) {
                 if (message.get('sender')) {
                     var fullName = message.get('sender').get('fullName');
                     var releaseTime = (message.createdAt.getMonth() + 1) + '/' + message.createdAt.getDate() + '/' + message.createdAt.getFullYear();
                     var avatar = message.get('sender').get('avatarUrl');
                     var content = message.get('content');
+                    var aux = content;
+                    var unreaded = message.get('readedAdmin');
+                    var unreadedCount= 0;
+                    if (!unreaded){
+                        unreadedCount = 1;
+                    }
+
+                    if (content.length > 15){
+                        var aux = '';
+                        for (var t=0; t<15; t++){
+                            aux += content[t];
+                        }
+                        aux+= '...';
+                    }
+                    content = aux;
                     var id = message.get('sender').get('id');
 
                     var flagMessage = false;
                     $scope.inbox.forEach(function (msg) {
                         if (msg.senderId == message.get('sender').get('id')) {
                             flagMessage = true;
+                            if (!unreaded){
+                                msg.unreadedCount +=1;                                
+                            }
                         }
                     })
 
                     if (!flagMessage) {
-                        $scope.inbox.push({ fullName: fullName, releaseTime: releaseTime, avatar: avatar, content: content, senderId: id });
+                        $scope.inbox.push({ fullName: fullName, releaseTime: releaseTime, avatar: avatar, content: content, senderId: id, unreadedCount: unreadedCount });
                     }
                 }
             });
@@ -91,6 +86,9 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
         }).catch(function (error) {
             alert(JSON.stringify(error));
         });
+
+
+
     };
 
     $scope.init();
@@ -111,6 +109,12 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
         var userId = message.senderId;
         $scope.senderId = message.senderId;
 
+        $scope.inbox.forEach(function(mess){
+            if (mess.senderId == $scope.senderId){
+                mess.unreadedCount = 0;
+            }
+        })
+
         var user = AV.User.current();
         var otherUser = AV.Object.createWithoutData('_User', userId);
 
@@ -130,10 +134,70 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
 
             $scope.Messages = [];
 
+            
+
             messages.forEach(function (msg) {
 
                 var fullName, avatar, type = '';
                 if (msg.get('sender').get('id') == userId) {
+                    fullName = msg.get('sender').get('fullName');
+                    avatar = msg.get('sender').get('avatarUrl');
+                    type = 'sender';
+                } else {
+                    fullName = msg.get('receiver').get('fullName');
+                    avatar = msg.get('receiver').get('avatarUrl');
+                    type = 'receiver';
+                }
+
+                var releaseTime = (msg.createdAt.getMonth() + 1) + '/' + msg.createdAt.getDate() + '/' + msg.createdAt.getFullYear();
+                var content = msg.get('content');
+                var readed = msg.get('readed');
+                var id = msg.get('id');
+
+                $scope.Messages.push({
+                    fullName: fullName,
+                    releaseTime: releaseTime,
+                    avatar: avatar,
+                    content: content,
+                    readed: readed,
+                    type: type,
+                    id: id
+                });
+
+                msg.set('readedAdmin', true);
+                msg.save();
+            });
+
+            $scope.$apply();
+
+            var objDiv = document.getElementById('messagesCamp');
+            objDiv.scrollTop = objDiv.scrollHeight;
+        })
+    };
+
+    $scope.sendMessage = function () {
+
+        if ($scope.messageText != '') {
+
+            var newMessage = new AV.Object('Message');
+            newMessage.set('sender', AV.User.current());
+            var receiver = AV.Object.createWithoutData('_User', $scope.senderId);
+            newMessage.set('receiver', receiver);
+            newMessage.set('content', $scope.messageText);
+            newMessage.set('readed', false);
+            newMessage.set('readedAdmin', true);
+
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setWriteAccess(AV.User.current(), true);
+            acl.setWriteAccess(receiver, true);
+            newMessage.setACL(acl);
+
+            newMessage.save().then(function (msg) {
+                $scope.messageText = '';
+
+                var fullName, avatar, type = '';
+                if (msg.get('sender').get('id') == $scope.senderId) {
                     fullName = msg.get('sender').get('fullName');
                     avatar = msg.get('sender').get('avatarUrl');
                     type = 'sender';
@@ -155,17 +219,16 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
                     readed: readed,
                     type: type
                 });
-            });
 
-            $scope.$apply();
-        })
+                $scope.$apply();
+
+                var objDiv = document.getElementById('messagesCamp');
+                objDiv.scrollTop = objDiv.scrollHeight;
+            })
+        }
     };
 
-    $scope.sendMessage = function(){
-        console.log($scope.messageText);
-    };
-
-    $scope.keyPress = function(event){
+    $scope.keyPress = function (event) {
         if (event.keyCode === 13) {
             $scope.sendMessage();
         }

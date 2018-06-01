@@ -1,8 +1,4 @@
 <div class="row" ng-controller="ProjectListCtrl">
-  <!-- <div class="custom-media-list">
-    <a class="btn btn-primary fa fa-plus padding-0" href="#new-project"> {{'NEWPACKAGE' | translate}} </a>
-  </div>
-  <div class="h-divider"></div> -->
     <ul class="media-list custom-media-list" ng-repeat="project in products">
       <li class="media">
         <div class="media-left">
@@ -14,13 +10,10 @@
           <div class="row">
             <div class="col-md-9">
                 <h4 class="media-heading"> {{project.title}} 
-                  <!-- <small><i class="fa fa-clock-o"> 发表于->{{project.releaseTime}}</i></small> -->
                 </h4>
                 <h5>{{project.description}}</h5>
             </div>
             <div class="col-md-2">
-                <!-- <h5 class="media-heading"> <small><i class="fa fa-money"> </i></small> {{project.debitAmount}}</h5>
-                <h5 class="media-heading"> <small><i class="fa fa-credit-card"> </i></small> {{project.plainAddress}}</h5> -->
                 <h5 class="media-heading font-weight-unset">
                     <i class="fa fa-user-secret" aria-hidden="true"> </i>
                   {{project.ownerUsername}}
@@ -39,7 +32,6 @@
 
         </div>
       </li>
-      <!-- <div class="h-divider"></div> -->
     </ul>
   </div>
 </div>

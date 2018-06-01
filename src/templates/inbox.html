@@ -1,19 +1,24 @@
 <div class="row" ng-controller="InboxCtrl">
-    <div class="col-md-3 padding-0 marginTopInbox margin-bottom-0" style="overflow-y: scroll; height: {{height-60}}px;">
+    <div class="col-md-3 padding-0 marginTopInbox margin-bottom-0 scrollbarUser" style="overflow-y: scroll; height: {{height-60}}px;">
         <div ng-repeat="i in inbox" class="messagesInbox" ng-class="{'colorListActive': i.senderId == senderId}">
-            <div ng-click="goToConversation(i)" class="col-md-12 padding-0" style="text-align: center;">
-                <div class="col-md-12 padding-0" style="display: flex;flex-direction: column;align-items: center;">
+            <div ng-click="goToConversation(i)" class="col-md-12 padding-0 groupUserRow">
+                <div class="marginAvatar">
                     <img class="imgAvatar" ng-show="i.avatar.length > 0" ng-src="{{i.avatar}}" />
                     <img class="imgAvatar" ng-show="!i.avatar.length > 0" ng-src="img/avatar.jpg" />
                 </div>
-                <h4 class="col-md-12 padding-0">{{i.fullName}}</h4>
+                <div class="groupContentUser">
+                    <h5 ng-show="i.fullName.length > 0" class="margin-top-5 margin-bottom-0">{{i.fullName}}</h5>
+                    <h5 ng-show="!i.fullName.length > 0" class="margin-top-5 margin-bottom-0" translate="UNNAMED"></h5>
+                    <h5 class="margin-top-5">{{i.content}}</h5>
+                </div>
+                <span ng-if="i.unreadedCount > 0" class="badge">{{i.unreadedCount}}</span>
             </div>
         </div>
     </div>
     <div class="col-md-9 marginTopInbox margin-bottom-0 padding-0">
-        <div class="messageBox margin-bottom-0" style="overflow-y: scroll; height: {{height-150}}px;">
+        <div id="messagesCamp" class="messageBox margin-bottom-0" style="overflow-y: scroll; height: {{height-150}}px;">
             <div ng-repeat="i in Messages">
-                <div class="senderGroup" ng-show="i.type == 'sender'">
+                <div class="senderGroup col-md-12" ng-if="i.type == 'sender'" id="{{i.id}}">
                     <label class="labelDateSender">{{i.releaseTime}}</label>
                     <div class="groupSender">
                         <img class="avatar" ng-show="i.avatar.length > 0" ng-src="{{i.avatar}}" />
@@ -23,13 +28,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="receiverGroup" ng-show="i.type == 'receiver'">
-                    <label class="labelDateReceiver">{{i.releaseTime}}</label>
-                    <div class="groupReceiver">
-                        <div class="MessagesAdmin">
-                            <label class="content">{{i.content}}</label>
+                <div class="receiverGroup col-md-12" ng-if="i.type == 'receiver'" id="{{i.id}}">
+                    <div class="groupReceiverUp">
+                        <label class="labelDateReceiver">{{i.releaseTime}}</label>
+                        <div class="groupReceiver">
+                            <div class="MessagesAdmin">
+                                <label class="content">{{i.content}}</label>
+                            </div>
+                            <img class="avatarAdmin" ng-src="./img/admin.png" />
                         </div>
-                        <img class="avatarAdmin" ng-src="./img/admin.png" />
                     </div>
                 </div>
             </div>

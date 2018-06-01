@@ -81,7 +81,8 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "NEWS": 'News',
         "NEWNEWS": 'Add News',
         "CAPTION": 'Image subtitle',
-        "SEND": "Send"
+        "SEND": "Send",
+        "UNNAMED": 'Unnamed'
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -160,7 +161,8 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "NEWS": '新闻',
         "NEWNEWS": '添加新闻',
         "CAPTION": '图像副标题',
-        "SEND": "发送"
+        "SEND": "发送",
+        "UNNAMED": '无名'
     });
     $translateProvider.preferredLanguage('en_US ');
 }]);
