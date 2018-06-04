@@ -113,7 +113,7 @@
 								</tr>
 							</thead>
 							<tbody ng-repeat="user in users">
-								<tr>
+								<tr ng-class="{'backgroundListTable': $index%2 == 0}">
 									<td>{{user.fullName}}</td>
 									<td>{{user.company}}</td>
 									<td>{{user.phone}}</td>

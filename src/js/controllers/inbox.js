@@ -94,8 +94,6 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
         querySocket.subscribe().then(function (liveQuery) {
             liveQuery.on('create', function (message) {
                 // add newDoingItem to doingList
-                console.log('Live query');
-                console.log(message);
 
                 var fullName = message.get('sender').get('fullName');
                 var releaseTime = (message.createdAt.getMonth() + 1) + '/' + message.createdAt.getDate() + '/' + message.createdAt.getFullYear();
@@ -118,12 +116,9 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
                 content = aux;
                 var id = message.get('sender').id;
 
-                console.log(message.get('sender').id);
-
                 var flagMessage = false;
                 $scope.inbox.forEach(function (msg) {
                     if (msg.senderId == message.get('sender').id) {
-                        console.log('true tre');
                         flagMessage = true;
                         msg.content = content;
                         if (!unreaded) {
@@ -137,7 +132,6 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
                     querySender.get(id).then(function (object) {
                         var fullName = object.get('fullName');
                         var avatar = object.get('avatarUrl');
-                        console.log('new one...' + fullName + ' id: ' + id);
                         $scope.inbox.splice(0, 0 , { fullName: fullName, releaseTime: releaseTime, avatar: avatar, content: content, senderId: id, unreadedCount: unreadedCount })
                         // $scope.inbox.push({ fullName: fullName, releaseTime: releaseTime, avatar: avatar, content: content, senderId: id, unreadedCount: unreadedCount });
                         $scope.$apply();
@@ -164,15 +158,24 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
     };
 
     $scope.goToConversation = function (message) {
-        // localStorageService.cookie.set('sender', message.senderId);
-        // $state.go('messages');
-
         var userId = message.senderId;
         $scope.senderId = message.senderId;
 
         $scope.inbox.forEach(function(mess){
             if (mess.senderId == $scope.senderId){
+                $rootScope.notificationsMessagesCount -= mess.unreadedCount;
+                console.log($rootScope.notificationsMessagesCount + " countMessage");
                 mess.unreadedCount = 0;
+
+                if ($rootScope.notificationsMessagesCount == 0){
+                    $rootScope.notificationsMessages = false;
+                    console.log($rootScope.notificationsMessages);
+                    if ($rootScope.notificationsMessagesCount + $rootScope.notificationsOffersCount == 0) {
+                        $rootScope.notificationsGeneral = false;
+                    } else {
+                        $rootScope.notificationsGeneral = true;
+                    }
+                }
             }
         })
 

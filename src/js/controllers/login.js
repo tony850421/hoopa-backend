@@ -13,11 +13,11 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
     $scope.password = '';
     $scope.email = '';
 
-    $scope.notificationsMessages = false;
-    $scope.notificationsOffers = false;
-    $scope.notificationsMessagesCount = 0;
-    $scope.notificationsOffersCount = 0;
-    $scope.notificationsGeneral = false;
+    $rootScope.notificationsMessages = false;
+    $rootScope.notificationsOffers = false;
+    $rootScope.notificationsMessagesCount = 0;
+    $rootScope.notificationsOffersCount = 0;
+    $rootScope.notificationsGeneral = false;
 
     $scope.login = function () {
         AV.User.logIn($scope.username, $scope.password).then(function (loginedUser) {
@@ -84,35 +84,68 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
         queryInbox.equalTo('receiver', user);
         queryInbox.equalTo('readedAdmin', false);
         queryInbox.count().then(function (num) {
-            $scope.notificationsMessagesCount = parseInt(num);
-
-            console.log('login ' + $scope.notificationsMessagesCount);
-
-            if ($scope.notificationsMessagesCount > 0){
-                $scope.notificationsMessages = true;
-                $scope.notificationsGeneral = true;
+            $rootScope.notificationsMessagesCount = parseInt(num);
+            if ($rootScope.notificationsMessagesCount > 0){
+                $rootScope.notificationsMessages = true;
+                $rootScope.notificationsGeneral = true;
             } else {
-                $scope.notificationsMessages = false;
-                if ($scope.notificationsMessagesCount + $scope.notificationsOffersCount == 0) {
-                    $scope.notificationsGeneral = false;
+                $rootScope.notificationsMessages = false;
+                if ($rootScope.notificationsMessagesCount + $rootScope.notificationsOffersCount == 0) {
+                    $rootScope.notificationsGeneral = false;
+                } else {
+                    $rootScope.notificationsGeneral = true;
                 }
             }
         })
 
         var query = new AV.Query('Offert');
         query.equalTo('pending', true);
-        query.descending('createdAt');
         query.count().then(function (num) {
-            $scope.notificationsOffersCount = parseInt(num);
-            if ($scope.notificationsOffersCount > 0){
-                $scope.notificationsOffers = true;
-                $scope.notificationsGeneral = true;
+            $rootScope.notificationsOffersCount = parseInt(num);
+            if ($rootScope.notificationsOffersCount > 0){
+                $rootScope.notificationsOffers = true;
+                $rootScope.notificationsGeneral = true;
             } else {
-                $scope.notificationsOffers = false;
-                if ($scope.notificationsMessagesCount + $scope.notificationsOffersCount == 0) {
-                    $scope.notificationsGeneral = false;
+                $rootScope.notificationsOffers = false;
+                if ($rootScope.notificationsMessagesCount + $rootScope.notificationsOffersCount == 0) {
+                    $rootScope.notificationsGeneral = false;
+                } else {
+                    $rootScope.notificationsGeneral = true;
                 }
             }
+        })
+
+        var querySocketMessage = new AV.Query('Message');
+        querySocketMessage.equalTo('receiver', user);
+        querySocketMessage.subscribe().then(function (liveQuery) {
+            liveQuery.on('create', function (message) {
+                console.log("entro messages");
+                $rootScope.notificationsMessagesCount += 1;
+                console.log($rootScope.notificationsMessagesCount);
+                $rootScope.notificationsMessages = true;
+                if ($rootScope.notificationsMessagesCount + $rootScope.notificationsOffersCount == 0) {
+                    $rootScope.notificationsGeneral = false;
+                } else {
+                    $rootScope.notificationsGeneral = true;
+                }
+                $scope.$apply();
+            })
+        })
+
+        var querySocketOffers = new AV.Query('Offert');
+        querySocketOffers.equalTo('pending', true);
+        querySocketOffers.subscribe().then(function (liveQuery) {
+            liveQuery.on('create', function (message) {                
+                console.log("entro offers");
+                $rootScope.notificationsOffersCount += 1;
+                $rootScope.notificationsOffers = true;
+                if ($rootScope.notificationsMessagesCount + $rootScope.notificationsOffersCount == 0) {
+                    $rootScope.notificationsGeneral = false;
+                } else {
+                    $rootScope.notificationsGeneral = true;
+                }
+                $scope.$apply();
+            })
         })
     };
 
@@ -126,5 +159,9 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
         } else {
             $state.go('offers');
         }
+    };
+
+    $scope.goToDashboard = function(){
+        $state.go('tables');
     };
 }

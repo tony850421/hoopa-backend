@@ -6,6 +6,11 @@ app.controller('MasterCtrl', ['$scope', '$rootScope', '$cookieStore', '$translat
 function MasterCtrl($scope, $rootScope, $cookieStore, $translate) {
 
     $rootScope.activeList = 'dashboard';
+    $rootScope.notificationsMessages = false;
+    $rootScope.notificationsOffers = false;
+    $rootScope.notificationsMessagesCount = 0;
+    $rootScope.notificationsOffersCount = 0;
+    $rootScope.notificationsGeneral = false;
 
     /**
      * Sidebar Toggle & Cookie Control

@@ -55,7 +55,7 @@
             <span class="menu-icon fa fa-briefcase"></span>
             {{'PACKAGES' | translate}}
           </a>
-          <ul class="padding-0 width100" ng-class="{'hiddeNewProjectButton': activeList != 'projects' && activeList != 'newprojects'}">
+          <ul class="padding-0 width100 listUnstyled" ng-class="{'hiddeNewProjectButton': activeList != 'projects' && activeList != 'newprojects'}">
             <li>
               <a href="#new-project" style="padding-left: 10%;" ng-class="{'colorListActive': activeList == 'newprojects'}">
                 <span class="fa fa-plus menu-icon"></span>
@@ -76,7 +76,7 @@
             <span class="menu-icon fa fa-file"></span>
             {{'NEWS' | translate}}
           </a>
-          <ul class="padding-0 width100" ng-class="{'hiddeNewProjectButton': activeList != 'news' && activeList != 'newnews'}">
+          <ul class="padding-0 width100 listUnstyled" ng-class="{'hiddeNewProjectButton': activeList != 'news' && activeList != 'newnews'}">
             <li>
               <a href="#new-news" style="padding-left: 10%;" ng-class="{'colorListActive': activeList == 'newnews'}">
                 <span class="fa fa-plus menu-icon"></span>
@@ -165,7 +165,7 @@
 
             </div>
             <div class="meta">
-              <div class="page">
+              <div class="page" ng-click="goToDashboard()">
                 Hoopa 后端
               </div>
               <!-- <div class="breadcrumb-links">
