@@ -124,4 +124,8 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
             $state.go('offers');
         }
     };
+
+    $scope.goToDashboard = function(){
+        $state.go('tables');
+    };
 }
