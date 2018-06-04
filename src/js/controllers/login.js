@@ -3,15 +3,21 @@
  * Login and signup Controller
  */
 
-app.controller('LoginCtrl', ['$scope', '$rootScope', '$window', '$translate', LoginCtrl]);
+app.controller('LoginCtrl', ['$scope', '$state', '$rootScope', '$window', '$translate', LoginCtrl]);
 
-function LoginCtrl($scope, $rootScope, $window, $translate) {
+function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
 
     $scope.ptitle = $translate.instant('PTITLE');
     $rootScope.activeList = 'dashboard';
     $scope.username = '';
     $scope.password = '';
     $scope.email = '';
+
+    $scope.notificationsMessages = false;
+    $scope.notificationsOffers = false;
+    $scope.notificationsMessagesCount = 0;
+    $scope.notificationsOffersCount = 0;
+    $scope.notificationsGeneral = false;
 
     $scope.login = function () {
         AV.User.logIn($scope.username, $scope.password).then(function (loginedUser) {
@@ -55,7 +61,7 @@ function LoginCtrl($scope, $rootScope, $window, $translate) {
     $scope.logout = function () {
         AV.User.logOut();
         $window.location.href = '#/login';
-    }
+    };
 
     $scope.getUser = function () {
         var currentUser = AV.User.current();
@@ -64,9 +70,48 @@ function LoginCtrl($scope, $rootScope, $window, $translate) {
         } else {
             return ' ';
         }
-    }
+    };
 
     $scope.changeActiveList = function(text){
         $rootScope.activeList = text;
-    }
+    };
+
+
+    $scope.notificationsCount = function(){
+        var user = AV.User.current();
+
+        var queryInbox = new AV.Query('Message');
+        queryInbox.equalTo('receiver', user);
+        queryInbox.equalTo('readedAdmin', false);
+        queryInbox.count().then(function (num) {
+            $scope.notificationsMessagesCount = parseInt(num);
+            if ($scope.notificationsMessagesCount > 0){
+                $scope.notificationsMessages = true;
+                $scope.notificationsGeneral = true;
+            }
+        })
+
+        var query = new AV.Query('Offert');
+        query.equalTo('pending', true);
+        query.descending('createdAt');
+        query.count().then(function (num) {
+            $scope.notificationsOffersCount = parseInt(num);
+            if ($scope.notificationsOffersCount > 0){
+                $scope.notificationsOffers = true;
+                $scope.notificationsGeneral = true;
+            }
+        })
+    };
+
+    $scope.notificationsCount();
+
+    $scope.goToNotifications = function(){
+        if ($scope.notificationsMessages > 0) {
+            $state.go('inbox');
+        } else if ($scope.notificationsOffers > 0){
+            $state.go('offers');
+        } else {
+            $state.go('inbox');
+        }
+    };
 }

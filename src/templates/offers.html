@@ -11,20 +11,20 @@
                 </div>
                 <h5 class="col-md-1">{{offer.date}}</h5>
                 <div class="offerContent col-md-1" ng-click="changePending()">
-                    <h5 ng-show="!offer.pending">
+                    <h5 class="cursorPointer" ng-show="!offer.pending">
                         <span tooltip="Server Down!" class="text-danger">
                             <i class="fa fa-warning"></i>
                         </span>
-                        <label class="margin-bottom-0" translate="PENDING"></label>
+                        <label class="margin-bottom-0 cursorPointer" translate="PENDING"></label>
                     </h5>
-                    <h5 ng-show="offer.pending">
+                    <h5 class="cursorPointer" ng-show="offer.pending">
                         <span tooltip="Server Down!" class="text-success">
                             <i class="fa fa-check"></i>
                         </span>
-                        <label class="margin-bottom-0" translate="READY"></label>
+                        <label class="margin-bottom-0 cursorPointer" translate="READY"></label>
                     </h5>
                 </div>
-                <div class="offerContent col-md-1" ng-click="openOfferFunction(offer.offerId)">
+                <div class="offerContent col-md-1 cursorPointer" ng-click="openOfferFunction(offer.offerId)">
                     <img class="angles" ng-show="!offer.open" ng-src="./img/angle_right.png" />
                     <img class="angles" ng-show="offer.open" ng-src="./img/angle_down.png" />
                 </div>

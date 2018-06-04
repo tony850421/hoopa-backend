@@ -17,7 +17,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider
             // })
             .state('index', {
                 url: '/',
-                templateUrl: 'templates/login.html'
+                templateUrl: 'templates/dashboard.html'
             })
             .state('tables', {
                 url: '/dashboard',

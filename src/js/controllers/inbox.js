@@ -65,8 +65,6 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
                     content = aux;
                     var id = message.get('sender').id;
 
-                    console.log(message.get('sender').id);
-
                     var flagMessage = false;
                     $scope.inbox.forEach(function (msg) {
                         if (msg.senderId == message.get('sender').id) {
