@@ -86,7 +86,70 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
         }).catch(function (error) {
             alert(JSON.stringify(error));
         });
+        
+        var querySocket = new AV.Query('Message');
+        querySocket.include('sender');
+        querySocket.include('receiver');
+        querySocket.equalTo('receiver', user);
+        querySocket.subscribe().then(function (liveQuery) {
+            liveQuery.on('create', function (message) {
+                // add newDoingItem to doingList
+                console.log('Live query');
+                console.log(message);
 
+                var fullName = message.get('sender').get('fullName');
+                var releaseTime = (message.createdAt.getMonth() + 1) + '/' + message.createdAt.getDate() + '/' + message.createdAt.getFullYear();
+                var avatar = message.get('sender').get('avatarUrl');
+                var content = message.get('content');
+                var aux = content;
+                var unreaded = message.get('readedAdmin');
+                var unreadedCount= 0;
+                if (!unreaded){
+                    unreadedCount = 1;
+                }
+
+                if (content.length > 15){
+                    var aux = '';
+                    for (var t=0; t<15; t++){
+                        aux += content[t];
+                    }
+                    aux+= '...';
+                }
+                content = aux;
+                var id = message.get('sender').id;
+
+                console.log(message.get('sender').id);
+
+                var flagMessage = false;
+                $scope.inbox.forEach(function (msg) {
+                    if (msg.senderId == message.get('sender').id) {
+                        console.log('true tre');
+                        flagMessage = true;
+                        msg.content = content;
+                        if (!unreaded) {
+                            msg.unreadedCount += 1;                                
+                        }
+                    }
+                })
+
+                if (!flagMessage) {
+                    querySender = new AV.Query('_User');
+                    querySender.get(id).then(function (object) {
+                        var fullName = object.get('fullName');
+                        var avatar = object.get('avatarUrl');
+                        console.log('new one...' + fullName + ' id: ' + id);
+                        $scope.inbox.splice(0, 0 , { fullName: fullName, releaseTime: releaseTime, avatar: avatar, content: content, senderId: id, unreadedCount: unreadedCount })
+                        // $scope.inbox.push({ fullName: fullName, releaseTime: releaseTime, avatar: avatar, content: content, senderId: id, unreadedCount: unreadedCount });
+                        $scope.$apply();
+
+                    }, function (error) {
+                        console.log(error);
+                    });
+                }
+
+                $scope.$apply();
+            });
+        });
     };
 
     $scope.init();
@@ -131,8 +194,6 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
         queryOr.find().then(function (messages) {
 
             $scope.Messages = [];
-
-            
 
             messages.forEach(function (msg) {
 
