@@ -316,11 +316,11 @@
    }
 
    #page-wrapper:not(.open) ul.sidebar .sidebar-title.separator, .sidebar-footer, ul.sidebar .sidebar-list a:hover, ul.sidebar .sidebar-main a {
-    background: #002370 !important;
+    background: #151922 !important;
   }
 
   #sidebar-wrapper {
-    background: #003580 !important;
+    background: #29313b !important;
   }
 
    ul.sidebar .sidebar-title {
@@ -329,7 +329,7 @@
   }
 
   ul.sidebar .sidebar-list a:hover {
-    border-left: 3px solid #804A00 !important;
+    border-left: 3px solid #5867dd !important;
   }
 
   .iconDashboard{
@@ -349,11 +349,11 @@
   }
 
   .colorBlue{
-    background-color: #2f59b5;
+    background-color: #5867dd;
   }
 
   .widget .widget-icon {
-    background: #2f59b5 !important;
+    background: #5867dd !important;
   }
 
   .media{
@@ -384,7 +384,7 @@
   }
 
   .colorListActive{
-    background-color: #804A00 !important;
+    background-color: #5867dd !important;
   }
 
   .media-heading{
@@ -405,21 +405,21 @@
 
   .buttonDelete{
     color: white !important;
-    background-color: #2f59b5 !important;
+    background-color: #ff851b !important;
     width: 80px;
     margin-top: 5px;
   }
 
   .buttonUpdate{
     color: white !important;
-    background-color: #804A00 !important;
+    background-color: #5867dd !important;
     width: 80px;
     margin-top: 5px;
   }
 
   .buttonShow{
     color: white !important;
-    background-color: green !important;
+    background-color: #00a65a !important;
     width: 80px;
   }
 
@@ -463,23 +463,24 @@
   }
 
   .MessagesUser{
-    background-color: #804A00;
+    background-color: #5867dd;
     max-width: 400px;
     min-width: 300px;
     padding: 15px;
     margin-left: 1%;
     border-radius: 5px;
-    color: white;
+    color: white !important;
   }
 
   .MessagesAdmin{
-    background-color: #ff6801;
+    background-color: white;
     max-width: 400px;
     min-width: 300px;
     padding: 15px;
     margin-right: 1%;
     border-radius: 5px;
-    color: white;
+    color: black;
+    border: 1px solid #ff851b;
   }
 
   .messageBox{
@@ -651,7 +652,7 @@
   }
 
   .scrollbarUser{
-    background-color: #f3f3f3;
+    background-color: #ccc;
   }
 
   .groupUserRow{
@@ -673,7 +674,7 @@
     position: absolute !important;
     z-index: 5;
     margin-left: 3%;
-    background-color: #ff6801;
+    background-color: #5867dd;
     font-size: 13px !important;
   }
 
@@ -730,7 +731,7 @@
   }
 
   .colorMoney{
-    color: #ff6801;
+    color: #ff851b;
   }
 
   .iconClasBar{
@@ -746,7 +747,7 @@
 
   .badgeMessage{
     position: absolute !important;
-    background-color: #ff6801;
+    background-color: #5867dd;
     z-index: 2;
     width: 10px;
     height: 10px;
@@ -760,5 +761,21 @@
   }
 
   #page-wrapper:not(.open) ul.sidebar .sidebar-list a:hover span{
-    border-left: 3px solid #ff6801 !important;
+    border-left: 3px solid #5867dd !important;
+  }
+
+  ul.sidebar .sidebar-title:hover{
+    color: #1e81d3 !important;
+  }
+
+  ul.sidebar .sidebar-list a{
+    color: white !important;
+  }
+
+  ul.sidebar .sidebar-list a:hover{
+    color: #1e81d3 !important;
+  }
+
+  .btn-primary{
+    background-color: #5867dd !important;
   }

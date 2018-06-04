@@ -106,9 +106,9 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
     $scope.notificationsCount();
 
     $scope.goToNotifications = function(){
-        if ($scope.notificationsMessages > 0) {
+        if ($scope.notificationsMessagesCount > 0) {
             $state.go('inbox');
-        } else if ($scope.notificationsOffers > 0){
+        } else if ($scope.notificationsOffersCount > 0){
             $state.go('offers');
         } else {
             $state.go('inbox');
