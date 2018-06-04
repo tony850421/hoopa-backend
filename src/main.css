@@ -674,6 +674,7 @@
     z-index: 5;
     margin-left: 3%;
     background-color: #ff6801;
+    font-size: 13px !important;
   }
 
   .offerContent{
@@ -730,4 +731,34 @@
 
   .colorMoney{
     color: #ff6801;
+  }
+
+  .iconClasBar{
+    font-size: 35px !important;
+    margin-top: 5px;
+  }
+
+  .badgeNotifications{
+    margin-left: -15px !important;
+    margin-top: 10px !important;
+    font-size: 13px !important;
+  }
+
+  .badgeMessage{
+    position: absolute !important;
+    background-color: #ff6801;
+    z-index: 2;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    margin-left: 76%;
+    margin-top: 4%;
+  }
+
+  .cursorPointer{
+    cursor: pointer !important;
+  }
+
+  #page-wrapper:not(.open) ul.sidebar .sidebar-list a:hover span{
+    border-left: 3px solid #ff6801 !important;
   }

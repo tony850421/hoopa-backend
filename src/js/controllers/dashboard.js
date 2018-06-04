@@ -2,6 +2,15 @@ app.controller('DashBoardCtrl', ['$scope', '$rootScope', '$window', '$timeout', 
 
 function DashBoardCtrl($scope, $rootScope, $window, $timeout, $state) {
 
+    $scope.getUser = function () {
+        var currentUser = AV.User.current();
+        if (!currentUser) {
+            $state.go('login');
+        }
+    };
+
+    $scope.getUser();
+
     $scope.loading = false;
     $rootScope.activeList = 'dashboard';
 
@@ -23,28 +32,24 @@ function DashBoardCtrl($scope, $rootScope, $window, $timeout, $state) {
             var userQuery = new AV.Query('_User');
             userQuery.count().then(function (res) {
                 $scope.userCount = res;
-                console.log(res);
                 $scope.$apply();
             });
 
             var projectQuery = new AV.Query('Project');
             projectQuery.count().then(function (res) {
                 $scope.packageCount = res;
-                console.log(res);
                 $scope.$apply();
             });
 
             var visitQuery = new AV.Query('ProjectVisit');
             visitQuery.count().then(function (res) {
                 $scope.visitCount = res;
-                console.log(res);
                 $scope.$apply();
             });
 
             var offerQuery = new AV.Query('Offert');
             offerQuery.count().then(function (res) {
                 $scope.offerCount = res;
-                console.log(res);
                 $scope.$apply();
             });
 
@@ -56,25 +61,21 @@ function DashBoardCtrl($scope, $rootScope, $window, $timeout, $state) {
                 query.descending('createdAt');
                 return query.find();
             }).then(function (results) {
-                console.log('Users');
                 results.forEach(function (user) {
 
                     var fullName = user.get('fullName');
                     var phone = user.get('mobilePhoneNumber');
                     var company = user.get('company');
-                    console.log(fullName + ' ' + phone + company);
                     $scope.users.push({ fullName: fullName, phone: phone, company: company });
                 });
                 $scope.loading = false;
                 $scope.$apply();
 
             }).catch(function (error) {
-                console.log(error);
                 $scope.loading = false;
                 $scope.$apply();
             });
         } else {
-            console.log('ups');
             $window.location.href = '#/login';
         }
     };
