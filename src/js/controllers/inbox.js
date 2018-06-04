@@ -95,6 +95,8 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
             liveQuery.on('create', function (message) {
                 // add newDoingItem to doingList
 
+                console.log ('liveQuery inbox');
+
                 var fullName = message.get('sender').get('fullName');
                 var releaseTime = (message.createdAt.getMonth() + 1) + '/' + message.createdAt.getDate() + '/' + message.createdAt.getFullYear();
                 var avatar = message.get('sender').get('avatarUrl');
@@ -164,7 +166,6 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
         $scope.inbox.forEach(function(mess){
             if (mess.senderId == $scope.senderId){
                 $rootScope.notificationsMessagesCount -= mess.unreadedCount;
-                console.log($rootScope.notificationsMessagesCount + " countMessage");
                 mess.unreadedCount = 0;
 
                 if ($rootScope.notificationsMessagesCount == 0){
