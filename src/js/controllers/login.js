@@ -85,6 +85,9 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
         queryInbox.equalTo('readedAdmin', false);
         queryInbox.count().then(function (num) {
             $scope.notificationsMessagesCount = parseInt(num);
+
+            console.log('login ' + $scope.notificationsMessagesCount);
+
             if ($scope.notificationsMessagesCount > 0){
                 $scope.notificationsMessages = true;
                 $scope.notificationsGeneral = true;
