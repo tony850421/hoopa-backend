@@ -133,7 +133,18 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
                 })
 
                 if (!flagMessage) {
-                    $scope.inbox.push({ fullName: fullName, releaseTime: releaseTime, avatar: avatar, content: content, senderId: id, unreadedCount: unreadedCount });
+                    querySender = new AV.Query('_User');
+                    querySender.get(id).then(function (object) {
+                        var fullName = object.get('fullName');
+                        var avatar = object.get('avatarUrl');
+                        console.log('new one...' + fullName + ' id: ' + id);
+                        $scope.inbox.splice(0, 0 , { fullName: fullName, releaseTime: releaseTime, avatar: avatar, content: content, senderId: id, unreadedCount: unreadedCount })
+                        // $scope.inbox.push({ fullName: fullName, releaseTime: releaseTime, avatar: avatar, content: content, senderId: id, unreadedCount: unreadedCount });
+                        $scope.$apply();
+
+                    }, function (error) {
+                        console.log(error);
+                    });
                 }
 
                 $scope.$apply();
