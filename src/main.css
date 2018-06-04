@@ -303,7 +303,7 @@
     margin-bottom:5px;
     height:1px;
     width:100%;
-    border-top:1px solid gray;
+    border-top:1px solid #d6dadb;
    }
 
    .form-signin-heading,
@@ -435,7 +435,11 @@
   }
 
   .backgroundGray{
-    background-color: #F9F9F9;
+    background-color: #ecf0f5;
+  }
+
+  .backgroundMessage{
+    background-color: #ffffff80;
   }
 
   .buttonProjects{
@@ -648,7 +652,7 @@
   }
 
   .scrollbarUser{
-    background-color: #f3f3f3;
+    background-color: #ffffff80;
   }
 
   .groupUserRow{
@@ -670,7 +674,7 @@
     position: absolute !important;
     z-index: 5;
     margin-left: 3%;
-    background-color: #5867dd;
+    background-color: #f44336;
     font-size: 13px !important;
   }
 
@@ -743,7 +747,7 @@
 
   .badgeMessage{
     position: absolute !important;
-    background-color: #5867dd;
+    background-color: #f44336;
     z-index: 2;
     width: 10px;
     height: 10px;
@@ -753,7 +757,7 @@
   }
 
   .badgeMessageActive{
-    background-color: #ff851b !important;
+    background-color: #f39c12 !important;
   }
 
   .cursorPointer{
@@ -822,4 +826,21 @@
 
   .widget-icon{
     border: 2px solid white;
+  }
+
+  .listUnstyled{
+    list-style: unset;
+  }
+
+  .table{
+    margin-bottom: 0px !important;
+    background-color: white !important;
+  }
+
+  .widget-header{    
+    background-color: white !important;
+  }
+
+  .backgroundListTable{
+    background-color: #cccccc80 !important;
   }

@@ -111,6 +111,14 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
                 }
             }
         })
+
+        var querySocket = new AV.Query('Message');
+        querySocket.equalTo('receiver', user);
+        querySocket.subscribe().then(function (liveQuery) {
+            liveQuery.on('create', function (message) {
+                $scope.notificationsMessagesCount += 1;
+            })
+        })
     };
 
     $scope.notificationsCount();
