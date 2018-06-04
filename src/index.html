@@ -67,7 +67,7 @@
         <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'inbox'}">
           <a href="#inbox" ng-click="changeActiveList('inbox')">
             <span class="menu-icon fa fa-envelope"></span>
-            <span ng-show="notificationsMessages" class="badgeMessage"></span>
+            <span ng-show="notificationsMessages" class="badgeMessage" ng-class="{'badgeMessageActive': activeList == 'inbox'}"></span>
             {{'MESSAGES' | translate}}
           </a>
         </li>
@@ -88,7 +88,7 @@
         <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'offers'}">
           <a href="#offers" ng-click="changeActiveList('offers')">              
             <span class="menu-icon fa fa-money"></span>
-            <span ng-show="notificationsOffers" class="badgeMessage"></span>
+            <span ng-show="notificationsOffers" class="badgeMessage" ng-class="{'badgeMessageActive': activeList == 'offers'}"></span>
             {{'OFFERS' | translate}}
           </a>
         </li>

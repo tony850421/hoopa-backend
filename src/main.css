@@ -339,21 +339,17 @@
 
   .iconDashboardProjects{
     width: 40px;
-    margin-top: 14px;
+    margin-top: 13px;
   }
 
   .iconDashboardOffers{
     width: 40px;
-    margin-top: 14px;
-    margin-left: -2px;
+    margin-top: 12px;
+    margin-left: -3px;
   }
 
   .colorBlue{
     background-color: #5867dd;
-  }
-
-  .widget .widget-icon {
-    background: #5867dd !important;
   }
 
   .media{
@@ -652,7 +648,7 @@
   }
 
   .scrollbarUser{
-    background-color: #ccc;
+    background-color: #f3f3f3;
   }
 
   .groupUserRow{
@@ -756,6 +752,10 @@
     margin-top: 4%;
   }
 
+  .badgeMessageActive{
+    background-color: #ff851b !important;
+  }
+
   .cursorPointer{
     cursor: pointer !important;
   }
@@ -778,4 +778,48 @@
 
   .btn-primary{
     background-color: #5867dd !important;
+  }
+
+  .widget-iconUser{
+    background-color: #5867dd !important;
+  }
+
+  .widget-iconProjects{
+    background-color: #00a65a  !important;
+  }
+
+  .widget-iconVisits{
+    background-color: #04c1c4  !important;
+  }
+
+  .widget-iconOffers{
+    background-color: #ff851b  !important;
+  }
+
+  .widget-bodyUser{
+    background-color: #5867dd !important;
+    color: white !important;
+  }
+
+  .widget-bodyProjects{
+    background-color: #00a65a !important;
+    color: white !important;
+  }
+
+  .widget-bodyVisits{
+    background-color: #04c1c4 !important;
+    color: white !important;
+  }
+
+  .widget-bodyOffers{
+    background-color: #ff851b !important;
+    color: white !important;
+  }
+
+  .widget{
+    background-color: transparent !important;
+  }
+
+  .widget-icon{
+    border: 2px solid white;
   }

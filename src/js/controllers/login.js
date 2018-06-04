@@ -88,6 +88,11 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
             if ($scope.notificationsMessagesCount > 0){
                 $scope.notificationsMessages = true;
                 $scope.notificationsGeneral = true;
+            } else {
+                $scope.notificationsMessages = false;
+                if ($scope.notificationsMessagesCount + $scope.notificationsOffersCount == 0) {
+                    $scope.notificationsGeneral = false;
+                }
             }
         })
 
@@ -99,6 +104,11 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
             if ($scope.notificationsOffersCount > 0){
                 $scope.notificationsOffers = true;
                 $scope.notificationsGeneral = true;
+            } else {
+                $scope.notificationsOffers = false;
+                if ($scope.notificationsMessagesCount + $scope.notificationsOffersCount == 0) {
+                    $scope.notificationsGeneral = false;
+                }
             }
         })
     };
@@ -111,7 +121,7 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
         } else if ($scope.notificationsOffersCount > 0){
             $state.go('offers');
         } else {
-            $state.go('inbox');
+            $state.go('offers');
         }
     };
 }

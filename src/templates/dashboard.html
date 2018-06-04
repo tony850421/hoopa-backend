@@ -13,52 +13,60 @@
 	<div class="row" ng-if="!loading">
 
 		<div class="col-lg-3 col-md-6 col-xs-12">
-			<rd-widget>
-				<rd-widget-body>
-					<div class="widget-icon colorBlue pull-left">
-						<!-- <i class="fa fa-users"></i> -->
-						<img class="iconDashboard" ng-src="./img/users.png" />
-					</div>
-					<div class="title">{{userCount}}</div>
-					<div class="comment">Users</div>
-				</rd-widget-body>
-			</rd-widget>
+			<div class="widget-bodyUser">
+				<rd-widget>
+					<rd-widget-body class="widget-bodyUser">
+						<div class="widget-icon widget-iconUser pull-left">
+							<!-- <i class="fa fa-users"></i> -->
+							<img class="iconDashboard" ng-src="./img/users.png" />
+						</div>
+						<div class="title">{{userCount}}</div>
+						<div class="comment">Users</div>
+					</rd-widget-body>
+				</rd-widget>
+			</div>
 		</div>
 		<div class="col-lg-3 col-md-6 col-xs-12" ng-click="goToProjects()">
-			<rd-widget>
-				<rd-widget-body>
-					<div class="widget-icon colorBlue pull-left cursorPointer">
-						<!-- <i class="fa fa-sitemap"></i> -->
-						<img class="iconDashboardProjects cursorPointer" ng-src="./img/projects.png" />
-					</div>
-					<div class="title cursorPointer">{{packageCount}}</div>
-					<div class="comment cursorPointer">Packages</div>
-				</rd-widget-body>
-			</rd-widget>
+			<div class="widget-bodyProjects">
+				<rd-widget>
+					<rd-widget-body class="widget-bodyProjects">
+						<div class="widget-icon widget-iconProjects pull-left cursorPointer">
+							<!-- <i class="fa fa-sitemap"></i> -->
+							<img class="iconDashboardProjects cursorPointer" ng-src="./img/projects.png" />
+						</div>
+						<div class="title cursorPointer">{{packageCount}}</div>
+						<div class="comment cursorPointer">Packages</div>
+					</rd-widget-body>
+				</rd-widget>
+			</div>
 		</div>
 		<div class="col-lg-3 col-md-6 col-xs-12">
-			<rd-widget>
-				<rd-widget-body>
-					<div class="widget-icon colorBlue pull-left">
-						<!-- <i class="fa fa-tasks"></i> -->
-						<img class="iconDashboardProjects" ng-src="./img/visits.png" />
-					</div>
-					<div class="title">{{visitCount}}</div>
-					<div class="comment">Visits</div>
-				</rd-widget-body>
-			</rd-widget>
+			<div class="widget-bodyVisits">
+				<rd-widget>
+					<rd-widget-body class="widget-bodyVisits">
+						<div class="widget-icon widget-iconVisits pull-left">
+							<!-- <i class="fa fa-tasks"></i> -->
+							<img class="iconDashboardProjects" ng-src="./img/visits.png" />
+						</div>
+						<div class="title">{{visitCount}}</div>
+						<div class="comment">Visits</div>
+					</rd-widget-body>
+				</rd-widget>
+			</div>
 		</div>
 		<div class="col-lg-3 col-md-6 col-xs-12" ng-click="goToOffer()">
-			<rd-widget>
-				<rd-widget-body>
-					<div class="widget-icon colorBlue pull-left cursorPointer">
-						<!-- <i class="fa fa-support"></i> -->
-						<img class="iconDashboardOffers cursorPointer" ng-src="./img/offers.png" />
-					</div>
-					<div class="title cursorPointer">{{offerCount}}</div>
-					<div class="comment cursorPointer">Offers</div>
-				</rd-widget-body>
-			</rd-widget>
+			<div class="widget-bodyOffers">
+				<rd-widget>
+					<rd-widget-body>
+						<div class="widget-icon widget-iconOffers pull-left cursorPointer">
+							<!-- <i class="fa fa-support"></i> -->
+							<img class="iconDashboardOffers cursorPointer" ng-src="./img/offers.png" />
+						</div>
+						<div class="title cursorPointer">{{offerCount}}</div>
+						<div class="comment cursorPointer">Offers</div>
+					</rd-widget-body>
+				</rd-widget>
+			</div>
 		</div>
 	</div>
 
