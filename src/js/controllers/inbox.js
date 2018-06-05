@@ -95,8 +95,6 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
             liveQuery.on('create', function (message) {
                 // add newDoingItem to doingList
 
-                console.log ('liveQuery inbox');
-
                 var fullName = message.get('sender').get('fullName');
                 var releaseTime = (message.createdAt.getMonth() + 1) + '/' + message.createdAt.getDate() + '/' + message.createdAt.getFullYear();
                 var avatar = message.get('sender').get('avatarUrl');
@@ -170,7 +168,6 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
 
                 if ($rootScope.notificationsMessagesCount == 0){
                     $rootScope.notificationsMessages = false;
-                    console.log($rootScope.notificationsMessages);
                     if ($rootScope.notificationsMessagesCount + $rootScope.notificationsOffersCount == 0) {
                         $rootScope.notificationsGeneral = false;
                     } else {

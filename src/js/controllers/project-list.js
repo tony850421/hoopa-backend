@@ -3,9 +3,9 @@
  * Login and signup Controller
  */
 
-app.controller('ProjectListCtrl', ['$scope', '$rootScope', '$window', '$timeout', ProjectListCtrl]);
+app.controller('ProjectListCtrl', ['$scope', '$rootScope', '$window', '$timeout', 'localStorageService', '$state', ProjectListCtrl]);
 
-function ProjectListCtrl($scope, $rootScope, $window, $timeout) {
+function ProjectListCtrl($scope, $rootScope, $window, $timeout, localStorageService, $state) {
 
   $scope.loading = false;
   $rootScope.activeList = 'projects';
@@ -64,22 +64,22 @@ function ProjectListCtrl($scope, $rootScope, $window, $timeout) {
       query.include('creator');
       query.include('image');
       query.descending('createdAt');
-      query.limit(10);
+      query.limit(30);
       query.find().then(function (products) {
         products.forEach(function (product) {
           var productId = product.id;
           var productTitle = product.get('title');
           var productDescription = product.get('description');
           var productDesc = productDescription;
-          if (productDescription.length > 170){
+          if (productDescription.length > 170) {
             productDesc = ''
-            for (var i=0; i<170; i++){
+            for (var i = 0; i < 170; i++) {
               productDesc += productDescription[i];
             }
-            productDesc+="...";
+            productDesc += "...";
           }
           productDescription = productDesc;
-          
+
           var releaseTime = (product.createdAt.getMonth() + 1) + '/' + product.createdAt.getDate() + '/' + product.createdAt.getFullYear();
           var ownerUsername = product.get('creator').get('username');
           var productImage = product.get('image');
@@ -108,7 +108,7 @@ function ProjectListCtrl($scope, $rootScope, $window, $timeout) {
         $scope.loading = false;
 
       }).catch(function (error) {
-        
+
         $scope.loading = false;
 
         alert(JSON.stringify(error));
@@ -120,16 +120,18 @@ function ProjectListCtrl($scope, $rootScope, $window, $timeout) {
   };
 
   $scope.deleteProduct = function (id) {
-    console.log('deleteProduct ' + id);
     var product = AV.Object.createWithoutData('Project', id);
     product.destroy().then(function (prod) {
-      console.log('deleted ok->' + prod);
       $scope.listAllProjects();
     }).catch(function (error) {
       alert(JSON.stringify(error));
     });
-  }
+  };
 
   $scope.listAllProjects();
-  
+
+  $scope.goToProject = function(id){
+    localStorageService.cookie.set('projectId', id);
+    $state.go('view-project');
+  };
 }

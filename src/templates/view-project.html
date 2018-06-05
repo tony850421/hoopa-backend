@@ -1,0 +1,176 @@
+<div class="row paddingView" ng-controller="ViewProjectCtrl">
+    <div class="row styleViewProject">
+        <div class="ProjectsData col-md-12">
+            <div class="col-md-12">
+                <label class="font-weight-unset">Title:</label>
+                <label class="font-weight-unset">{{project.get('title')}}</label>
+            </div>
+            <div class="col-md-12">
+                <label class="font-weight-unset">Company:</label>
+                <label class="font-weight-unset">{{project.get('companyName')}}</label>
+            </div>
+            <div class="col-md-12">
+                <label class="col-md-12 no-padding font-weight-unset">Description:</label>
+                <label class="col-md-12 no-padding font-weight-unset">{{project.get('description')}}</label>
+            </div>
+            <div class="col-md-12">
+                <label class="font-weight-unset">Debt Amount:</label>
+                <label class="font-weight-unset">{{project.get('debitAmount')}}</label>
+            </div>
+            <div class="col-md-12">
+                <label class="font-weight-unset">Principal and interest of the debt:</label>
+                <label class="font-weight-unset">{{project.get('debitPricipalInterest')}}</label>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6 no-padding">
+                    <label class="font-weight-unset">Come from:</label>
+                    <label class="font-weight-unset">{{project.get('comefrom')}}</label>
+                </div>
+                <div class="col-md-6 no-padding">
+                    <label class="font-weight-unset">Province:</label>
+                    <label class="font-weight-unset">{{project.get('province')}}</label>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label class="font-weight-unset">Address:</label>
+                <label class="font-weight-unset">{{project.get('plainAddress')}}</label>
+            </div>
+            <div class="col-md-12">
+                <label class="col-md-12 no-padding font-weight-unset">Credits Highlights:</label>
+                <label class="col-md-12 no-padding font-weight-unset">{{project.get('creditHighlights')}}</label>
+            </div>
+        </div>
+        <div class="ManagerData col-md-12" ng-show="project.get('projectManager').get('name') != ''">
+            <div class="col-md-12">
+                <label class="font-weight-unset">Manager</label>
+            </div>
+            <div class="col-md-6">
+                <label class="font-weight-unset">Name:</label>
+                <label class="font-weight-unset">{{project.get('projectManager').get('name')}}</label>
+            </div>
+            <div class="col-md-6">
+                <label class="font-weight-unset">Phone:</label>
+                <label class="font-weight-unset">{{project.get('projectManager').get('phone')}}</label>
+            </div>
+        </div>
+        <div class="BorrowerData col-md-12 no-padding" ng-show="borrowerList.length > 0">
+            <rd-widget>
+                <rd-widget-header icon="fa-user" title="{{'BORROWERS' | translate}}">
+                </rd-widget-header>
+                <rd-widget-body classes="medium no-padding widgetBorrower">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th translate="FULLNAME"></th>
+                                    <th translate="BORROPDEB"></th>
+                                    <th translate="BORROINTER"></th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="b in borrowerList">
+                                <tr>
+                                    <td>{{b.get('name')}}</td>
+                                    <td>{{b.get('principalDebit')}}</td>
+                                    <td>{{b.get('interestCreditor')}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </rd-widget-body>
+            </rd-widget>
+        </div>
+        <div class="AssetsData col-md-12 no-padding" ng-show="assetsList.length > 0">
+            <rd-widget class="padding-15">
+                <rd-widget-header icon="fa-building-o" title="{{'ASSETS' | translate}}">
+                </rd-widget-header>
+                <rd-widget-body classes="medium no-padding widgetBorrower">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th translate="ATITLE"></th>
+                                    <th translate="TARRIVAL"></th>
+                                    <th translate="CAREA"></th>
+                                    <th translate="LAREA"></th>
+                                    <th translate="ADDRESS"></th>
+                                    <th translate="PROVINCE"></th>
+                                    <th translate="LONGLATASSETS"></th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="a in assetsList">
+                                <tr>
+                                    <td>{{a.get('title')}}</td>
+                                    <td>{{a.get('typeArrival')}}</td>
+                                    <td>{{a.get('constructionArea')}}</td>
+                                    <td>{{a.get('landArea')}}</td>
+                                    <td>{{a.get('plainAddress')}}</td>
+                                    <td>{{a.get('province')}}</td>
+                                    <td>{{a.get('location').longitude+","+a.get('location').latitude}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </rd-widget-body>
+            </rd-widget>
+        </div>
+        <div class="AssetsData col-md-12 no-padding" ng-show="sponsorsList.length > 0">
+            <rd-widget class="padding-15">
+                <rd-widget-header icon="fa-money" title="{{'SPONSORS' | translate}}">
+                </rd-widget-header>
+                <rd-widget-body classes="medium no-padding widgetBorrower">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th translate="FULLNAME"></th>
+                                    <th translate="AMOUNT"></th>
+                                    <th translate="STYPE"></th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="s in sponsorsList">
+                                <tr>
+                                    <td>{{s.get('name')}}</td>
+                                    <td>{{s.get('amount')}}</td>
+                                    <td>{{s.get('type')}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </rd-widget-body>
+            </rd-widget>
+        </div>
+        <div class="col-md-12 tags padding-15" ng-show="project.get('isHot') || project.get('isHouse') || project.get('isRecommended')
+    || project.get('isFactory') || project.get('isDebt') || project.get('isShop')">
+            <label class="col-md-12 no-padding font-weight-unset" translate="FILTERS"></label>
+            <label ng-show="project.get('isHot')" class="font-weight-unset marginLeft" translate="HOT"></label>
+            <label ng-show="project.get('isHouse')" class="font-weight-unset marginLeft" translate="HOUSE"></label>
+            <label ng-show="project.get('isRecommended')" class="font-weight-unset marginLeft" translate="RECOM"></label>
+            <label ng-show="project.get('isFactory')" class="font-weight-unset marginLeft" translate="FACTORY"></label>
+            <label ng-show="project.get('isDebt')" class="font-weight-unset marginLeft" translate="ISDEBT"></label>
+            <label ng-show="project.get('isShop')" class="font-weight-unset marginLeft" translate="SHOP"></label>
+        </div>
+        <div class="col-md-12 Gallery padding-15">
+            <label class="col-md-12 no-padding font-weight-unset" translate="GALLERY"></label>
+            <div ng-repeat="i in imageList">
+                <div class="col-md-3 margin-top-10">
+                    <img ng-click="OpenImage($index)" ng-src="{{i.get('imageUrl')}}" class="imageGallery" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="openImage" ng-controller="ViewProjectCtrl">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content padding-0 ModalImageSize">
+            <a id="prevImage" class="cursorPointer" ng-click="prevImageModal()" ng-show="imageOpenModal != 0">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            <a id="nextImage" class="cursorPointer" ng-click="nextImageModal()" ng-show="imageOpenModal != (imageList.length - 1)">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            <img ng-click="closeImage()" class="img-responsive imageModalProjects" ng-src="{{imageList[imageOpenModal].get('url')}}"
+            />
+        </div>
+    </div>
+</div>

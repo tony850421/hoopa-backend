@@ -96,7 +96,11 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "DEBIT": "Debit Amount",
         "OFFERSAMOUNT": "Offer Amount",
         "TITLETPROJECT": "Projects With Offers",
-        "OFFICIALSUSERS": "Official Users"
+        "OFFICIALSUSERS": "Official Users",
+        "BORROWERS": "Borrowers",
+        "LONGLATASSETS": "Longitude and Latitude",
+        "GALLERY": "Gallery",
+        "AMOUNT": "Amount"
 
     });
     // Adding a translation table for the Chinise language
@@ -191,7 +195,11 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "DEBIT": "借方金额",
         "OFFERSAMOUNT": "报价金额",
         "TITLETPROJECT": "具有优惠的项目",
-        "OFFICIALSUSERS": "官方用户"
+        "OFFICIALSUSERS": "官方用户",
+        "BORROWERS": "借款",
+        "LONGLATASSETS": "经度和纬度",
+        "GALLERY": "库",
+        "AMOUNT": "量"
     });
     $translateProvider.preferredLanguage('en_US ');
 }]);
