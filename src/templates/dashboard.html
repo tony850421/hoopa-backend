@@ -3,7 +3,6 @@
 		<rd-loading></rd-loading>
 	</div>
 	<div class="row" ng-if="!loading">
-
 		<div class="col-lg-3 col-md-6 col-xs-12">
 			<div class="widget-bodyUser">
 				<rd-widget>
@@ -12,7 +11,7 @@
 							<img class="iconDashboard" ng-src="./img/users.png" />
 						</div>
 						<div class="title">{{userCount}}</div>
-						<div class="comment">Users</div>
+						<div class="comment" translate="USERS"></div>
 					</rd-widget-body>
 				</rd-widget>
 			</div>
@@ -25,7 +24,7 @@
 							<img class="iconDashboardProjects cursorPointer" ng-src="./img/projects.png" />
 						</div>
 						<div class="title cursorPointer">{{packageCount}}</div>
-						<div class="comment cursorPointer">Packages</div>
+						<div class="comment cursorPointer" translate="PACKAGES"></div>
 					</rd-widget-body>
 				</rd-widget>
 			</div>
@@ -38,7 +37,7 @@
 							<img class="iconDashboardProjects" ng-src="./img/visits.png" />
 						</div>
 						<div class="title">{{visitCount}}</div>
-						<div class="comment">Visits</div>
+						<div class="comment" translate="VISITS"></div>
 					</rd-widget-body>
 				</rd-widget>
 			</div>
@@ -51,7 +50,7 @@
 							<img class="iconDashboardOffers cursorPointer" ng-src="./img/offers.png" />
 						</div>
 						<div class="title cursorPointer">{{offerCount}}</div>
-						<div class="comment cursorPointer">Offers</div>
+						<div class="comment cursorPointer" translate="OFFERS"></div>
 					</rd-widget-body>
 				</rd-widget>
 			</div>
@@ -62,34 +61,34 @@
 		<div class="col-lg-6">
 			<div class="groupTitleChart">
 				<img class="imgVisits" ng-src="./img/statistics.png" />
-				<h4 class="VisitTitle">Visits per days</h4>
+				<h4 class="VisitTitle" translate="VISITPROJECTS"></h4>
 			</div>
-			<canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options"
+			<canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options"
 			 chart-dataset-override="datasetOverride"></canvas>
 		</div>
 		<div class="col-lg-6">
 			<div class="groupTitleChart">
-				<img class="imgVisits" ng-src="./img/statistics.png" />
-				<h4 class="VisitTitle">Users Distibutions</h4>
+				<img class="imgVisits" ng-src="./img/user.png" />
+				<h4 class="VisitTitle" translate="USERDISTRIBUTIONS"></h4>
 			</div>
-			<canvas id="lineUser" class="chart chart-line" chart-data="dataUsers" chart-labels="labelsUsers" chart-series="seriesUsers" chart-options="options"
-			 chart-dataset-override="datasetOverride"></canvas>
+			<canvas id="lineUser" class="chart chart-bar" chart-data="dataUsers" chart-labels="labelsUsers" chart-series="seriesUsers"
+			 chart-options="options" chart-dataset-override="datasetOverride"></canvas>
 		</div>
 	</div>
 
 	<div class="row" ng-if="!loading">
 		<div class="col-lg-6">
 			<rd-widget>
-				<rd-widget-header icon="fa-users" title="Official Users">
+				<rd-widget-header icon="fa-users" title="{{'OFFICIALSUSERS' | translate}}">
 				</rd-widget-header>
 				<rd-widget-body classes="medium no-padding">
 					<div class="table-responsive">
 						<table class="table">
 							<thead>
 								<tr>
-									<th>Fullname</th>
-									<th>Company</th>
-									<th>Phone</th>
+									<th translate="FULLNAME"></th>
+									<th translate="COMPANY"></th>
+									<th translate="PHONE"></th>
 								</tr>
 							</thead>
 							<tbody ng-repeat="user in users">
@@ -106,17 +105,17 @@
 		</div>
 		<div class="col-lg-6">
 			<rd-widget>
-				<rd-widget-header icon="fa-users" title="Projects With Offers">
+				<rd-widget-header icon="fa-users" title="{{'TITLETPROJECT' | translate}}">
 				</rd-widget-header>
 				<rd-widget-body classes="medium no-padding">
 					<div class="table-responsive">
 						<table class="table">
 							<thead>
 								<tr>
-									<th>Project Name</th>
-									<th>Company</th>
-									<th>Debit Amount</th>
-									<th>Offer Amount</th>
+									<th translate="PROJECTNAME"></th>
+									<th translate="COMPANY"></th>
+									<th translate="DEBIT"></th>
+									<th translate="OFFERSAMOUNT"></th>
 								</tr>
 							</thead>
 							<tbody ng-repeat="p in projectsWithOffers">
