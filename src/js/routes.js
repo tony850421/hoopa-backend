@@ -72,3 +72,8 @@ app.config(['localStorageServiceProvider', function (localStorageServiceProvider
         .setStorageType('sessionStorage')
         .setNotify(true, true)
 }]);
+
+app.config(['ChartJsProvider',(function (ChartJsProvider) {
+    ChartJsProvider.setOptions({ colors : [ '#5867dd', '#00a65a', '#04c1c4', '#ff851b', '#f39c12', '#f44336', '#dc4a38'] });
+  })
+]);

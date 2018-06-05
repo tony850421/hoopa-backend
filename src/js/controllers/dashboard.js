@@ -20,6 +20,7 @@ function DashBoardCtrl($scope, $rootScope, $window, $timeout, $state) {
     $scope.offerCount = 0;
 
     $scope.users = [];
+    $scope.projectsWithOffers = [];
 
     $scope.statistics = function () {
 
@@ -78,14 +79,337 @@ function DashBoardCtrl($scope, $rootScope, $window, $timeout, $state) {
         } else {
             $window.location.href = '#/login';
         }
+
+        var projectWithOffers = new AV.Query('Offert');
+        projectWithOffers.include('project');
+        projectWithOffers.find().then(function (p) {
+
+            p.forEach(function (pro) {
+                var title = pro.get('project').get('title');
+                var company = pro.get('project').get('companyName');
+                var debit = pro.get('project').get('debitAmount');
+                var offerAmount = pro.get('amount');
+
+                var flagProject = false;
+                $scope.projectsWithOffers.forEach(function (proWO) {
+                    if (proWO.id == pro.id) {
+                        flagProject = true;
+                    }
+                })
+                if (!flagProject) {
+                    $scope.projectsWithOffers.push({
+                        title: title,
+                        company: company,
+                        debit: debit,
+                        offerAmount: offerAmount
+                    });
+                }
+                $scope.$apply();
+            })
+        })
     };
     $scope.statistics();
 
-    $scope.goToProjects = function(){
+    $scope.goToProjects = function () {
         $state.go('project-list');
     };
 
-    $scope.goToOffer = function(){
+    $scope.goToOffer = function () {
         $state.go('offers');
     };
+
+    $scope.datasetOverride = [{ yAxisID: 'y-axis-1' }];
+    $scope.options = {
+        scales: {
+            yAxes: [
+                {
+                    id: 'y-axis-1',
+                    type: 'linear',
+                    display: true,
+                    position: 'left'
+                }
+            ]
+        }
+    };
+
+    $scope.chartLineInit = function () {
+        $scope.labels = [];
+        $scope.data = [];
+        $scope.serie1 = []
+        $scope.series = ['Visits'];
+
+        var d = new Date();
+        var date = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 23, 59, 59, 000);
+
+        var visitQuery = new AV.Query('ProjectVisit');
+        var dateAM = new Date(date - 86400000);
+        var datePM = date;
+        var month = datePM.getMonth() + 1;
+        $scope.labels[6] = datePM.getDate() + "/" + month;
+        visitQuery.lessThanOrEqualTo('createdAt', datePM);
+        visitQuery.greaterThanOrEqualTo('createdAt', dateAM);
+        visitQuery.count().then(function (res) {
+            $scope.serie1[6] = res;
+        });
+
+        var visitQuery1 = new AV.Query('ProjectVisit');
+        dateAM = new Date(date - (2 * 86400000));
+        datePM = new Date(date - 86400000);
+        month = datePM.getMonth() + 1;
+        $scope.labels[5] = datePM.getDate() + "/" + month;
+        visitQuery1.lessThanOrEqualTo('createdAt', datePM);
+        visitQuery1.greaterThanOrEqualTo('createdAt', dateAM);
+        visitQuery1.count().then(function (res) {
+            $scope.serie1[5] = res;
+        });
+
+        var visitQuery2 = new AV.Query('ProjectVisit');
+        dateAM = new Date(date - (3 * 86400000));
+        datePM = new Date(date - (2 * 86400000));
+        month = datePM.getMonth() + 1;
+        $scope.labels[4] = datePM.getDate() + "/" + month;
+        visitQuery2.lessThanOrEqualTo('createdAt', datePM);
+        visitQuery2.greaterThanOrEqualTo('createdAt', dateAM);
+        visitQuery2.count().then(function (res) {
+            $scope.serie1[4] = res;
+        });
+
+        var visitQuery3 = new AV.Query('ProjectVisit');
+        dateAM = new Date(date - (4 * 86400000));
+        datePM = new Date(date - (3 * 86400000));
+        month = datePM.getMonth() + 1;
+        $scope.labels[3] = datePM.getDate() + "/" + month;
+        visitQuery3.lessThanOrEqualTo('createdAt', datePM);
+        visitQuery3.greaterThanOrEqualTo('createdAt', dateAM);
+        visitQuery3.count().then(function (res) {
+            $scope.serie1[3] = res;
+        });
+
+        var visitQuery4 = new AV.Query('ProjectVisit');
+        dateAM = new Date(date - (5 * 86400000));
+        datePM = new Date(date - (4 * 86400000));
+        month = datePM.getMonth() + 1;
+        $scope.labels[2] = datePM.getDate() + "/" + month;
+        visitQuery4.lessThanOrEqualTo('createdAt', datePM);
+        visitQuery4.greaterThanOrEqualTo('createdAt', dateAM);
+        visitQuery4.count().then(function (res) {
+            $scope.serie1[2] = res;
+        });
+
+        var visitQuery5 = new AV.Query('ProjectVisit');
+        dateAM = new Date(date - (6 * 86400000));
+        datePM = new Date(date - (5 * 86400000));
+        month = datePM.getMonth() + 1;
+        $scope.labels[1] = datePM.getDate() + "/" + month;
+        visitQuery5.lessThanOrEqualTo('createdAt', datePM);
+        visitQuery5.greaterThanOrEqualTo('createdAt', dateAM);
+        visitQuery5.count().then(function (res) {
+            $scope.serie1[1] = res;
+        });
+
+        var visitQuery6 = new AV.Query('ProjectVisit');
+        dateAM = new Date(date - (7 * 86400000));
+        datePM = new Date(date - (6 * 86400000));
+        month = datePM.getMonth() + 1;
+        $scope.labels[0] = datePM.getDate() + "/" + month;
+        visitQuery6.lessThanOrEqualTo('createdAt', datePM);
+        visitQuery6.greaterThanOrEqualTo('createdAt', dateAM);
+        visitQuery6.count().then(function (res) {
+            $scope.serie1[0] = res;
+        });
+
+        $scope.data.push($scope.serie1);
+    };
+
+    $scope.chartLineInit();
+
+    $scope.labelsUsers = [];
+    $scope.dataUsers = [];
+    $scope.serieUsers = []
+    $scope.serieUsers1 = []
+    $scope.seriesUsers = ['Users Officials', 'Users Guest'];
+
+    $scope.chartLineUsersSerie1 = function () {
+
+        var d = new Date();
+        var date = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 23, 59, 59, 000);
+
+        var roleQuery = new AV.Query(AV.Role);
+        roleQuery.get('5af3fad6fe88c2200cacea15').then(function (role) {
+            var userRelation = role.getUsers();
+
+            var query = userRelation.query();
+            var dateAM = new Date(date - 86400000);
+            var datePM = date;
+            var month = datePM.getMonth() + 1;
+            $scope.labelsUsers[6] = datePM.getDate() + "/" + month;
+            query.lessThanOrEqualTo('createdAt', datePM);
+            query.greaterThanOrEqualTo('createdAt', dateAM);
+            query.count().then(function (count) {
+                $scope.serieUsers[6] = count;
+                $scope.$apply();
+            })
+
+            var query1 = userRelation.query();
+            dateAM = new Date(date - (2 * 86400000));
+            datePM = new Date(date - 86400000);
+            month = datePM.getMonth() + 1;
+            $scope.labelsUsers[5] = datePM.getDate() + "/" + month;
+            query1.lessThanOrEqualTo('createdAt', datePM);
+            query1.greaterThanOrEqualTo('createdAt', dateAM);
+            query1.count().then(function (count) {
+                $scope.serieUsers[5] = count;
+                $scope.$apply();
+            })
+
+            var query2 = userRelation.query();
+            dateAM = new Date(date - (3 * 86400000));
+            datePM = new Date(date - (2 * 86400000));
+            month = datePM.getMonth() + 1;
+            $scope.labelsUsers[4] = datePM.getDate() + "/" + month;
+            query2.lessThanOrEqualTo('createdAt', datePM);
+            query2.greaterThanOrEqualTo('createdAt', dateAM);
+            query2.count().then(function (count) {
+                $scope.serieUsers[4] = count;
+                $scope.$apply();
+            })
+
+            var query3 = userRelation.query();
+            dateAM = new Date(date - (4 * 86400000));
+            datePM = new Date(date - (3 * 86400000));
+            month = datePM.getMonth() + 1;
+            $scope.labelsUsers[3] = datePM.getDate() + "/" + month;
+            query3.lessThanOrEqualTo('createdAt', datePM);
+            query3.greaterThanOrEqualTo('createdAt', dateAM);
+            query3.count().then(function (count) {
+                $scope.serieUsers[3] = count;
+                $scope.$apply();
+            })
+
+            var query4 = userRelation.query();
+            dateAM = new Date(date - (5 * 86400000));
+            datePM = new Date(date - (4 * 86400000));
+            month = datePM.getMonth() + 1;
+            $scope.labelsUsers[2] = datePM.getDate() + "/" + month;
+            query4.lessThanOrEqualTo('createdAt', datePM);
+            query4.greaterThanOrEqualTo('createdAt', dateAM);
+            query4.count().then(function (count) {
+                $scope.serieUsers[2] = count;
+                $scope.$apply();
+            })
+
+            var query5 = userRelation.query();
+            dateAM = new Date(date - (6 * 86400000));
+            datePM = new Date(date - (5 * 86400000));
+            month = datePM.getMonth() + 1;
+            $scope.labelsUsers[1] = datePM.getDate() + "/" + month;
+            query5.lessThanOrEqualTo('createdAt', datePM);
+            query5.greaterThanOrEqualTo('createdAt', dateAM);
+            query5.count().then(function (count) {
+                $scope.serieUsers[1] = count;
+                $scope.$apply();
+            })
+
+            var query6 = userRelation.query();
+            dateAM = new Date(date - (7 * 86400000));
+            datePM = new Date(date - (6 * 86400000));
+            month = datePM.getMonth() + 1;
+            $scope.labelsUsers[0] = datePM.getDate() + "/" + month;
+            query6.lessThanOrEqualTo('createdAt', datePM);
+            query6.greaterThanOrEqualTo('createdAt', dateAM);
+            query6.count().then(function (count) {
+                $scope.serieUsers[0] = count;
+                $scope.$apply();
+            })
+        })
+        
+        $scope.dataUsers.push($scope.serieUsers);
+    };
+
+    $scope.chartLineUsersSerie1();
+
+    $scope.chartLineUsersSerie2 = function () {
+
+        var d = new Date();
+        var date = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 23, 59, 59, 000);
+
+        var roleQuery = new AV.Query(AV.Role);
+        roleQuery.get('5af255f0a22b9d004458c1eb').then(function (role) {
+            var userRelation = role.getUsers();
+
+            var query = userRelation.query();
+            var dateAM = new Date(date - 86400000);
+            var datePM = date;
+            query.lessThanOrEqualTo('createdAt', datePM);
+            query.greaterThanOrEqualTo('createdAt', dateAM);
+            query.count().then(function (count) {
+                $scope.serieUsers1[6] = count;
+                $scope.$apply();
+            })
+
+            var query1 = userRelation.query();
+            dateAM = new Date(date - (2 * 86400000));
+            datePM = new Date(date - 86400000);
+            query1.lessThanOrEqualTo('createdAt', datePM);
+            query1.greaterThanOrEqualTo('createdAt', dateAM);
+            query1.count().then(function (count) {
+                $scope.serieUsers1[5] = count;
+                $scope.$apply();
+            })
+
+            var query2 = userRelation.query();
+            dateAM = new Date(date - (3 * 86400000));
+            datePM = new Date(date - (2 * 86400000));
+            query2.lessThanOrEqualTo('createdAt', datePM);
+            query2.greaterThanOrEqualTo('createdAt', dateAM);
+            query2.count().then(function (count) {
+                $scope.serieUsers1[4] = count;
+                $scope.$apply();
+            })
+
+            var query3 = userRelation.query();
+            dateAM = new Date(date - (4 * 86400000));
+            datePM = new Date(date - (3 * 86400000));
+            query3.lessThanOrEqualTo('createdAt', datePM);
+            query3.greaterThanOrEqualTo('createdAt', dateAM);
+            query3.count().then(function (count) {
+                $scope.serieUsers1[3] = count;
+                $scope.$apply();
+            })
+
+            var query4 = userRelation.query();
+            dateAM = new Date(date - (5 * 86400000));
+            datePM = new Date(date - (4 * 86400000));
+            query4.lessThanOrEqualTo('createdAt', datePM);
+            query4.greaterThanOrEqualTo('createdAt', dateAM);
+            query4.count().then(function (count) {
+                $scope.serieUsers1[2] = count;
+                $scope.$apply();
+            })
+
+            var query5 = userRelation.query();
+            dateAM = new Date(date - (6 * 86400000));
+            datePM = new Date(date - (5 * 86400000));
+            query5.lessThanOrEqualTo('createdAt', datePM);
+            query5.greaterThanOrEqualTo('createdAt', dateAM);
+            query5.count().then(function (count) {
+                $scope.serieUsers1[1] = count;
+                $scope.$apply();
+            })
+
+            var query6 = userRelation.query();
+            dateAM = new Date(date - (7 * 86400000));
+            datePM = new Date(date - (6 * 86400000));
+            query6.lessThanOrEqualTo('createdAt', datePM);
+            query6.greaterThanOrEqualTo('createdAt', dateAM);
+            query6.count().then(function (count) {
+                $scope.serieUsers1[0] = count;
+                $scope.$apply();
+            })
+        })
+        
+        $scope.dataUsers.push($scope.serieUsers1);
+    };
+
+    $scope.chartLineUsersSerie2();
 };

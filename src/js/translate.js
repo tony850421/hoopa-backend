@@ -84,7 +84,20 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "SEND": "Send",
         "UNNAMED": 'Unnamed',
         "PENDING": "Pending",
-        "READY": "Ready"
+        "READY": "Ready",
+        "USERS": "Users",
+        "VISITS": "Visits",
+        "VISITPROJECTS": "Visits to projects per days",
+        "USERDISTRIBUTIONS": "Users Distributions per days",
+        "FULLNAME": "Fullname",
+        "COMPANY": "Company",
+        "PHONE": "Phone",
+        "PROJECTNAME": "Project Name",
+        "DEBIT": "Debit Amount",
+        "OFFERSAMOUNT": "Offer Amount",
+        "TITLETPROJECT": "Projects With Offers",
+        "OFFICIALSUSERS": "Official Users"
+
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -166,7 +179,19 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "SEND": "发送",
         "UNNAMED": '无名',
         "PENDING": "等待",
-        "READY": "准备"
+        "READY": "准备",
+        "USERS": "用户",
+        "VISITS": "访问",
+        "VISITPROJECTS": "每天访问项目",
+        "USERDISTRIBUTIONS": "用户每天分配数",
+        "FULLNAME": "全名",
+        "COMPANY": "公司",
+        "PHONE": "电话",
+        "PROJECTNAME": "项目名称",
+        "DEBIT": "借方金额",
+        "OFFERSAMOUNT": "报价金额",
+        "TITLETPROJECT": "具有优惠的项目",
+        "OFFICIALSUSERS": "官方用户"
     });
     $translateProvider.preferredLanguage('en_US ');
 }]);
