@@ -1,43 +1,92 @@
 <div class="row paddingView" ng-controller="ViewProjectCtrl">
     <div class="row styleViewProject">
         <div class="ProjectsData col-md-12">
-            <div class="col-md-12">
-                <label class="font-weight-unset">Title:</label>
-                <label class="font-weight-unset">{{project.get('title')}}</label>
-            </div>
-            <div class="col-md-12">
-                <label class="font-weight-unset">Company:</label>
-                <label class="font-weight-unset">{{project.get('companyName')}}</label>
-            </div>
-            <div class="col-md-12">
-                <label class="col-md-12 no-padding font-weight-unset">Description:</label>
-                <label class="col-md-12 no-padding font-weight-unset">{{project.get('description')}}</label>
-            </div>
-            <div class="col-md-12">
-                <label class="font-weight-unset">Debt Amount:</label>
-                <label class="font-weight-unset">{{project.get('debitAmount')}}</label>
-            </div>
-            <div class="col-md-12">
-                <label class="font-weight-unset">Principal and interest of the debt:</label>
-                <label class="font-weight-unset">{{project.get('debitPricipalInterest')}}</label>
-            </div>
-            <div class="col-md-12">
-                <div class="col-md-6 no-padding">
-                    <label class="font-weight-unset">Come from:</label>
-                    <label class="font-weight-unset">{{project.get('comefrom')}}</label>
+            <div class="col-md-12 titleProjectStyle">
+                <label class="font-weight-unset margin-right-10" translate="PUTITLE"></label>
+                <label ng-show="!projectTitleEdited" class="font-weight-unset">{{projectTitle}}</label>
+                <a ng-show="!projectTitleEdited" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectTitle()"></a>
+                <div class="editTitleBox" ng-show="projectTitleEdited">
+                    <input ng-model="projectTitle" value="{{projectTitle}}">
+                    <a type="button" class="btn btn-default fa fa-save buttonEdit" ng-click="editProjectTitle()"></a>
                 </div>
-                <div class="col-md-6 no-padding">
-                    <label class="font-weight-unset">Province:</label>
-                    <label class="font-weight-unset">{{project.get('province')}}</label>
+            </div>
+            <div class="col-md-12 titleProjectStyle">
+                <label class="font-weight-unset margin-right-10" translate="PUCOMPANY"></label>
+                <label ng-show="!projectCompanyEdited" class="font-weight-unset">{{projectCompany}}</label>
+                <a ng-show="!projectCompanyEdited" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectCompany()"></a>
+                <div class="editTitleBox" ng-show="projectCompanyEdited">
+                    <input ng-model="projectCompany" value="{{projectCompany}}">
+                    <a type="button" class="btn btn-default fa fa-save buttonEdit" ng-click="editProjectCompany()"></a>
                 </div>
             </div>
             <div class="col-md-12">
-                <label class="font-weight-unset">Address:</label>
-                <label class="font-weight-unset">{{project.get('plainAddress')}}</label>
+                <label class="font-weight-unset margin-right-10" translate="PUDESC"></label>
+                <div class="titleProjectStyle">
+                    <label ng-show="!projectDescriptionEdited" class="font-weight-unset">{{projectDescription}}</label>
+                    <a ng-show="!projectDescriptionEdited" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectDescription()"></a>
+                </div>
+                <div class="titleProjectStyle" ng-show="projectDescriptionEdited">
+                    <textarea class="textareaProjectDescription" ng-model="projectDescription" value="{{projectDescription}}"></textarea>
+                    <a type="button" class="btn btn-default fa fa-save buttonEdit" ng-click="editProjectDescription()"></a>
+                </div>
+            </div>
+            <div class="col-md-12 titleProjectStyle">
+                <label class="font-weight-unset margin-right-10" translate="DUAMOUNT"></label>
+                <label ng-show="!projectDebitAmountEdited" class="font-weight-unset">¥{{projectDebitAmount}}万</label>
+                <a ng-show="!projectDebitAmountEdited" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectDebitAmount()"></a>
+                <div class="editTitleBox" ng-show="projectDebitAmountEdited">
+                    <input ng-model="projectDebitAmount" value="{{projectDebitAmount}}">
+                    <a type="button" class="btn btn-default fa fa-save buttonEdit" ng-click="editProjectDebitAmount()"></a>
+                </div>
+            </div>
+            <div class="col-md-12 titleProjectStyle">
+                <label class="font-weight-unset margin-right-10" translate="DUPRINCIPALI"></label>
+                <label ng-show="!projectPrincipalEdited" class="font-weight-unset">{{projectPrincipal}}</label>
+                <a ng-show="!projectPrincipalEdited" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectPrincipal()"></a>
+                <div class="editTitleBox" ng-show="projectPrincipalEdited">
+                    <input ng-model="projectPrincipal" value="{{projectPrincipal}}">
+                    <a type="button" class="btn btn-default fa fa-save buttonEdit" ng-click="editProjectPrincipal()"></a>
+                </div>
             </div>
             <div class="col-md-12">
-                <label class="col-md-12 no-padding font-weight-unset">Credits Highlights:</label>
-                <label class="col-md-12 no-padding font-weight-unset">{{project.get('creditHighlights')}}</label>
+                <div class="col-md-6 no-padding titleProjectStyle">
+                    <label class="font-weight-unset margin-right-10" translate="CUFROM"></label>
+                    <label ng-show="!projectComeFromEdited" class="font-weight-unset">{{projectComeFrom}}</label>
+                    <a ng-show="!projectComeFromEdited" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectComeFrom()"></a>
+                    <div class="editTitleBox" ng-show="projectComeFromEdited">
+                        <input ng-model="projectComeFrom" value="{{projectComeFrom}}">
+                        <a type="button" class="btn btn-default fa fa-save buttonEdit" ng-click="editProjectComeFrom()"></a>
+                    </div>
+                </div>
+                <div class="col-md-6 no-padding titleProjectStyle">
+                    <label class="font-weight-unset margin-right-10" translate="PUPROVINCE"></label>
+                    <label ng-show="!projectProvinceEdited" class="font-weight-unset">{{projectProvince}}</label>
+                    <a ng-show="!projectProvinceEdited" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectProvince()"></a>
+                    <div class="editTitleBox" ng-show="projectProvinceEdited">
+                        <input ng-model="projectProvince" value="{{projectProvince}}">
+                        <a type="button" class="btn btn-default fa fa-save buttonEdit" ng-click="editProjectProvince()"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 titleProjectStyle">
+                <label class="font-weight-unset margin-right-10" translate="PUADDRESS"></label>
+                <label ng-show="!projectAddressEdited" class="font-weight-unset">{{projectAddress}}</label>
+                <a ng-show="!projectAddressEdited" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectAddress()"></a>
+                <div class="editTitleBox" ng-show="projectAddressEdited">
+                    <input ng-model="projectAddress" value="{{projectAddress}}">
+                    <a type="button" class="btn btn-default fa fa-save buttonEdit" ng-click="editProjectAddress()"></a>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label class="font-weight-unset" translate="PUCHIGHL"></label>
+                <div ng-show="!projectCreditsEdited" class="titleProjectStyle">
+                    <label class="col-md-12 no-padding font-weight-unset">{{projectCredits}}</label>
+                    <a type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectCredits()"></a>
+                </div>
+                <div class="titleProjectStyle" ng-show="projectCreditsEdited">
+                    <textarea class="textareaProjectDescription" ng-model="projectCredits" value="{{projectCredits}}"></textarea>
+                    <a type="button" class="btn btn-default fa fa-save buttonEdit" ng-click="editProjectCredits()"></a>
+                </div>
             </div>
         </div>
         <div class="ManagerData col-md-12" ng-show="project.get('projectManager').get('name') != ''">
