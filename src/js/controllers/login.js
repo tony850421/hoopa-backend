@@ -151,11 +151,13 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
             var querySocketOffers = new AV.Query('Offert');
             querySocketOffers.equalTo('pending', true);
             querySocketOffers.subscribe().then(function (liveQuery) {
-                liveQuery.on('create', function (message) {                
+                liveQuery.on('create', function (offer) {    
+                    console.log('querySocketOffers');      
                     var query = new AV.Query('Offert');
                     query.equalTo('pending', true);
                     query.count().then(function (num) {
                         $rootScope.notificationsOffersCount = parseInt(num);
+                        console.log('count ' + $rootScope.notificationsOffersCount);
                         if ($rootScope.notificationsOffersCount > 0){
                             $rootScope.notificationsOffers = true;
                             $rootScope.notificationsGeneral = true;
@@ -171,7 +173,35 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
                     })
                     $scope.$apply();
                 })
-            })    
+            })  
+            
+            var querySocketOffers1 = new AV.Query('Offert');
+            querySocketOffers1.equalTo('pending', true);
+            querySocketOffers1.subscribe().then(function (liveQuery) {
+                console.log('subscribe querySocketOffers update');  
+                liveQuery.on('update', function (offer, updatedKeys) {    
+                    console.log('querySocketOffers update');      
+                    var query = new AV.Query('Offert');
+                    query.equalTo('pending', true);
+                    query.count().then(function (num) {
+                        $rootScope.notificationsOffersCount = parseInt(num);
+                        console.log('count ' + $rootScope.notificationsOffersCount);
+                        if ($rootScope.notificationsOffersCount > 0){
+                            $rootScope.notificationsOffers = true;
+                            $rootScope.notificationsGeneral = true;
+                        } else {
+                            $rootScope.notificationsOffers = false;
+                            if ($rootScope.notificationsMessagesCount + $rootScope.notificationsOffersCount == 0) {
+                                $rootScope.notificationsGeneral = false;
+                            } else {
+                                $rootScope.notificationsGeneral = true;
+                            }
+                        }
+                        $scope.$apply();
+                    })
+                    $scope.$apply();
+                })
+            }) 
         }
     };
 

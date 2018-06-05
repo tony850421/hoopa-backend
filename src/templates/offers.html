@@ -11,13 +11,13 @@
                 </div>
                 <h5 class="col-md-1">{{offer.date}}</h5>
                 <div class="offerContent col-md-1" ng-click="changePending()">
-                    <h5 class="cursorPointer" ng-show="!offer.pending">
+                    <h5 class="cursorPointer" ng-show="offer.pending">
                         <span tooltip="Server Down!" class="text-danger">
                             <i class="fa fa-warning"></i>
                         </span>
                         <label class="margin-bottom-0 cursorPointer" translate="PENDING"></label>
                     </h5>
-                    <h5 class="cursorPointer" ng-show="offer.pending">
+                    <h5 class="cursorPointer" ng-show="!offer.pending">
                         <span tooltip="Server Down!" class="text-success">
                             <i class="fa fa-check"></i>
                         </span>
@@ -39,10 +39,10 @@
                         </div>
                     </div> -->
                 <div class="col-md-11 textAreaOffer">
-                    <textarea class="textAreaOfferResponse backgroundGray no-resize"></textarea>
+                    <textarea class="textAreaOfferResponse backgroundGray no-resize" ng-model="content"></textarea>
                 </div>
                 <div class="col-md-1 sendOffer">
-                    <a class="btn btn-primary sendButtonOffer" translate="SEND"></a>
+                    <a class="btn btn-primary sendButtonOffer" translate="SEND" ng-click="sendOfferNotification(offer.offerId, offer.userId, offer.projectId, content)"></a>
                 </div>
             </div>
         </div>

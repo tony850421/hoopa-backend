@@ -4,8 +4,18 @@ function OffersCtrl($scope, $rootScope, $window, $timeout) {
 
   $rootScope.activeList = 'offers';
   $scope.loading = false;
-
   $scope.offers = [];
+
+  $scope.initSocket = function() {
+    var querySocketOffer = new AV.Query('Offert');
+    querySocketOffer.subscribe().then(function (liveQuery) {
+        liveQuery.on('create', function (offer) {
+          $scope.listAllOffers();
+        })
+    })
+  }
+
+  $scope.initSocket();
 
   $scope.listAllOffers = function () {
     $scope.offers = [];
@@ -33,6 +43,8 @@ function OffersCtrl($scope, $rootScope, $window, $timeout) {
           var content = offer.get('description');
           var open = false;
           var pending = offer.get('pending');
+          var userId = offer.get('user').id;
+          var projectId = offer.get('project').id;
 
           // handlebars context
           $scope.offers.push({
@@ -43,7 +55,9 @@ function OffersCtrl($scope, $rootScope, $window, $timeout) {
             avatar: avatar,
             content: content,
             open: open,
-            pending: pending
+            pending: pending,
+            userId: userId,
+            projectId: projectId,
           })
           $scope.$apply();
         });
@@ -61,34 +75,7 @@ function OffersCtrl($scope, $rootScope, $window, $timeout) {
     }
   };
 
-  // $scope.deleteProduct = function (id) {
-  //   console.log('deleteProduct ' + id);
-  //   var product = AV.Object.createWithoutData('Project', id);
-  //   product.destroy().then(function (prod) {
-  //     console.log('deleted ok->' + prod);
-  //     $scope.listAllProjects();
-  //   }).catch(function (error) {
-  //     alert(JSON.stringify(error));
-  //   });
-  // }
-
   $scope.listAllOffers();
-
-  // $scope.notificationTest = function() {
-  //   console.log('notificationTest...');
-  //   var currentUser = AV.User.current();
-  //   if (currentUser) {
-  //     var toUser = AV.Object.createWithoutData('_User', '5b0535442f301e0038f55987');
-  //     var toProject = AV.Object.createWithoutData('Project', '5b04badb44d9040068e19776');
-  //     var notification = new AV.Object('OfferNotification');
-  //     notification.set('user', toUser);
-  //     notification.set('project', toProject);
-  //     notification.set('content', 'test test test hola mundo cruel');
-  //     notification.set('readed', false);
-  //     notification.save();
-  //   }
-  // }
-  // $scope.notificationTest();
 
   $scope.openOfferFunction = function (id) {
     $scope.offers.forEach(function (offer) {
@@ -99,6 +86,60 @@ function OffersCtrl($scope, $rootScope, $window, $timeout) {
       }
     })
   };
+
+
+  $scope.sendOfferNotification = function (id, userId, projectId, content) {
+    console.log(id + ' ' + userId + ' ' + projectId + ' ' + content);
+    var currentUser = AV.User.current();
+
+    if (currentUser) {
+      // AV.Cloud.requestSmsCode({
+      //   mobilePhoneNumber: '13818353491',
+      //   template: 'newoffer',
+      //   sign: 'sign1',
+      //   client_phone: '13817991464',
+      //   project_title: 'Test title',
+      //   offer_amount: '1000'
+      // }).then(function () {
+      //   console.log('perfect');
+      // }).catch(function (err) {
+      //   console.log(err)
+      // });
+
+      if (content != '') {
+        var Notification = AV.Object.extend('OfferNotification');
+        var notification = new Notification();
+        notification.set('content', content);
+        notification.set('readed', false);
+
+        var offerMaker = AV.Object.createWithoutData('_User', userId);
+        var involvedProject = AV.Object.createWithoutData('Project', projectId);
+
+        notification.set('user', offerMaker);
+        notification.set('project', involvedProject);
+
+        notification.save().then(function (obj) {
+          console.log('notification ok ok');
+
+          var offer = AV.Object.createWithoutData('Offert', id);
+          offer.set('pending', false);
+          offer.save().then(function (obj) {
+
+            $scope.listAllOffers();
+
+          }, function (error) {
+            // $scope.loading = false;
+            alert(JSON.stringify(error));
+          });
+
+        }, function (error) {
+          // $scope.loading = false;
+          alert(JSON.stringify(error));
+        });
+
+      }
+    }
+  }
 
   $scope.changePending = function () {
 

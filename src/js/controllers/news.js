@@ -12,7 +12,7 @@ function NewsCtrl($scope, $rootScope, $window, $timeout) {
 
     $scope.init = function(){
         var queryNews = new AV.Query('News');
-        queryNews.find().then( function(res){
+        queryNews.find().then( function(res) {
             res.forEach( function(element) {
                 var mainImage = element.get('image').thumbnailURL(100, 100);
                 var title = element.get('title');
