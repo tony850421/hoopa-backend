@@ -34,6 +34,8 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "MANAGERINFO": "Manager information",
         "MANAGERNAME": "Manager name",
         "MANAGERPHONE": "Manager phone number",
+        "PUMANAGERNAME": "Manager name: ",
+        "PUMANAGERPHONE": "Manager phone number: ",
         "BORROINFO": "Borrower information",
         "BORRONAME": "Name",
         "BORROPDEB": "Principal of debt",
@@ -109,7 +111,11 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "BORROWERS": "Borrowers",
         "LONGLATASSETS": "Longitude and Latitude",
         "GALLERY": "Gallery",
-        "AMOUNT": "Amount"
+        "AMOUNT": "Amount",
+        "AREYOUSURE": "Are you sure?",
+        "ADDBORROWER": "Add borrower",
+        "ADDASSET": "Add asset",
+        "ADDSPONSOR": "Add sponsor"
 
     });
     // Adding a translation table for the Chinise language
@@ -143,6 +149,8 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "BORRONAME": "借款人名字",
         "MANAGERNAME": "项目经理名字",
         "MANAGERPHONE": "项目经理电话号",
+        "PUMANAGERNAME": "项目经理名字: ",
+        "PUMANAGERPHONE": "项目经理电话号: ",
         "BORROINFO": "借款人信息",
         "BORROPDEB": "债权本金",
         "BORROINTER": "债权利息",
@@ -217,7 +225,11 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "BORROWERS": "借款",
         "LONGLATASSETS": "经度和纬度",
         "GALLERY": "库",
-        "AMOUNT": "量"
+        "AMOUNT": "量",
+        "AREYOUSURE": "是否确定？",
+        "ADDBORROWER": "添加借方",
+        "ADDASSET": "添加资产",
+        "ADDSPONSOR": "添加赞助商"
     });
     $translateProvider.preferredLanguage('en_US ');
 }]);
