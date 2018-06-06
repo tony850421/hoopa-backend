@@ -938,3 +938,25 @@
     color: white;
     margin-left: 94%;
   }
+
+  .buttonEdit{
+    padding: 5px;
+    border: none;
+  }
+
+  .titleProjectStyle{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .editTitleBox{
+    margin-left: 10px;
+  }
+
+  .margin-right-10{
+    margin-right: 10px;
+  }
+
+  .textareaProjectDescription{
+    width: 100% !important;
+  }

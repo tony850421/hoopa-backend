@@ -87,7 +87,8 @@ function ProjectListCtrl($scope, $rootScope, $window, $timeout, localStorageServ
           var productAddress = product.get('plainAddress');
           var productImageUrl;
           if (productImage) {
-            productImageUrl = productImage.get('url');
+            // productImageUrl = productImage.get('url');
+            productImageUrl = productImage.thumbnailURL(100, 150);
           } else {
             productImageUrl = 'img/LogoHoopa.png';
           }
