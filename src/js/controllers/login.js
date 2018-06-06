@@ -26,9 +26,9 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
 
             $window.location.href = '#/dashboard';
         }, function (error) {
+            console.log(error.code);
             $window.location.href = '#/signup';
         });
-
     };
 
     $scope.signup = function () {
@@ -176,9 +176,7 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
             })  
             
             var querySocketOffers1 = new AV.Query('Offert');
-            querySocketOffers1.equalTo('pending', true);
             querySocketOffers1.subscribe().then(function (liveQuery) {
-                console.log('subscribe querySocketOffers update');  
                 liveQuery.on('update', function (offer, updatedKeys) {    
                     console.log('querySocketOffers update');      
                     var query = new AV.Query('Offert');
