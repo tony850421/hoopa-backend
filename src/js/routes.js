@@ -63,6 +63,10 @@ app.config(['$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider
                 url: '/news',
                 templateUrl: 'templates/news.html'
             })
+            .state('forum', {
+                url: '/forum',
+                templateUrl: 'templates/forum.html'
+            })
             .state('view-project', {
                 url: '/view-project',
                 templateUrl: 'templates/view-project.html'

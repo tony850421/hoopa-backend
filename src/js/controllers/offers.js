@@ -93,9 +93,10 @@ function OffersCtrl($scope, $rootScope, $window, $timeout) {
     var currentUser = AV.User.current();
 
     if (currentUser) {
+
       // AV.Cloud.requestSmsCode({
       //   mobilePhoneNumber: '13818353491',
-      //   template: 'newoffer',
+      //   template: 'manager_offer',
       //   sign: 'sign1',
       //   client_phone: '13817991464',
       //   project_title: 'Test title',

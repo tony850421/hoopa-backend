@@ -109,8 +109,8 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "BORROWERS": "Borrowers",
         "LONGLATASSETS": "Longitude and Latitude",
         "GALLERY": "Gallery",
-        "AMOUNT": "Amount"
-
+        "AMOUNT": "Amount",
+        "FORUM": "Forum"
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -217,7 +217,8 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "BORROWERS": "借款",
         "LONGLATASSETS": "经度和纬度",
         "GALLERY": "库",
-        "AMOUNT": "量"
+        "AMOUNT": "量",
+        "FORUM": "论坛"
     });
     $translateProvider.preferredLanguage('en_US ');
 }]);
