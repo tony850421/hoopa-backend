@@ -96,6 +96,14 @@
             {{'OFFERS' | translate}}
           </a>
         </li>
+        <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'forum'}">
+          <a href="#forum" ng-click="changeActiveList('forum')">              
+            <span class="menu-icon fa fa-list"></span>
+            <!-- <span ng-show="notificationsOffers" class="badgeMessage" ng-class="{'badgeMessageActive': activeList == 'offers'}"></span> -->
+            {{'FORUM' | translate}}
+          </a>
+        </li>
+
       </ul>
       <div class="sidebar-footer">
 
