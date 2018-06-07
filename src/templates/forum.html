@@ -26,10 +26,10 @@
         <nav aria-label="Page navigation">
             <div class="col-md-12">
                 <div class="col-md-5 padding-15">
-                    <a ng-disabled="skip < 10" class="btn btn-default pull-right" translate="PREVIOUS" ng-click="previous()"></a>
+                    <a ng-hide="skip < 10" class="btn btn-default pull-right" translate="PREVIOUS" ng-click="previous()"></a>
                 </div>
                 <div class="col-md-5 col-md-offset-2 padding-15">
-                    <a ng-disabled="forumComments.length < 10" class="btn btn-default" translate="NEXT" ng-click="next()"></a>
+                    <a ng-hide="forumComments.length < 10" class="btn btn-default" translate="NEXT" ng-click="next()"></a>
                 </div>
             </div>
         </nav>
