@@ -15,6 +15,7 @@ function NewsCtrl($scope, $state, $rootScope, $window, $timeout, localStorageSer
         var queryNews = new AV.Query('News');
         queryNews.limit(10);
         queryNews.find().then(function (res) {
+            $scope.news = [];
             res.forEach(function (element) {
                 var mainImage = element.get('image').thumbnailURL(100, 100);
                 var title = element.get('title');
@@ -95,7 +96,10 @@ function NewsCtrl($scope, $state, $rootScope, $window, $timeout, localStorageSer
         $state.go('newsView');
     };
 
-    $scope.deleteNews = function(){
-
+    $scope.deleteNews = function (id) {
+        var news = AV.Object.createWithoutData('News', id);
+        news.destroy().then(function (n) {
+            $scope.init();
+        })
     };
 }

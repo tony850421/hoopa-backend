@@ -3,9 +3,9 @@
  * Login and signup Controller
  */
 
-app.controller('NewNewsCtrl', ['$scope', '$rootScope', '$window', '$timeout', NewNewsCtrl]);
+app.controller('NewNewsCtrl', ['$scope', '$state', '$rootScope', '$window', '$timeout', NewNewsCtrl]);
 
-function NewNewsCtrl($scope, $rootScope, $window, $timeout) {
+function NewNewsCtrl($scope, $state, $rootScope, $window, $timeout) {
 
     $scope.newsMedias = [];
     $rootScope.activeList = 'newnews';
@@ -19,7 +19,7 @@ function NewNewsCtrl($scope, $rootScope, $window, $timeout) {
 
     $scope.news = {};
 
-    $scope.changeValueMainImage = function(){
+    $scope.changeValueMainImage = function () {
         readURL($('#newsFile')[0]);
     }
 
@@ -88,12 +88,9 @@ function NewNewsCtrl($scope, $rootScope, $window, $timeout) {
 
 
                 $scope.news.save().then(function (news) {
-
                     $scope.recursiveMediaSave($scope.newsMedias, 0);
-
-                    console.log('news inserted ok');
-                    // $scope.loading = false;
-                    // $window.location.href = '#/project-list';
+                    $scope.loading = false;
+                    $state.go('news');
 
                 }, function (error) {
                     // $scope.loading = false;
@@ -109,7 +106,6 @@ function NewNewsCtrl($scope, $rootScope, $window, $timeout) {
     }
 
     $scope.recursiveMediaSave = function (arrayObj, index) {
-        console.log('recursiveMediaSave:' + arrayObj.length + ' ' + index);
         if (index < arrayObj.length) {
             arrayObj[index].save().then(function (obj) {
                 $scope.recursiveMediaSave(arrayObj, index + 1);
@@ -136,7 +132,7 @@ function NewNewsCtrl($scope, $rootScope, $window, $timeout) {
             var reader = new FileReader();
 
             reader.onload = function (e) {
-                if (length < $scope.newsMedias.length){             
+                if (length < $scope.newsMedias.length) {
                     $scope.newsMedias[length].set('imageUrl', e.target.result);
                 } else {
                     media.set('imageUrl', e.target.result);
