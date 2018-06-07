@@ -101,11 +101,11 @@ function ProjectListCtrl($scope, $rootScope, $window, $timeout, localStorageServ
             debitAmount: productAmount,
             plainAddress: productAddress,
             ownerUsername: ownerUsername,
-            releaseTime: releaseTime
+            releaseTime: releaseTime,
+            imCreator: (ownerUsername == currentUser.get('username')),
           })
           $scope.$apply();
         });
-
         $scope.loading = false;
 
       }).catch(function (error) {
@@ -185,7 +185,8 @@ function ProjectListCtrl($scope, $rootScope, $window, $timeout, localStorageServ
               debitAmount: productAmount,
               plainAddress: productAddress,
               ownerUsername: ownerUsername,
-              releaseTime: releaseTime
+              releaseTime: releaseTime,
+              imCreator: (ownerUsername == currentUser.get('username')),
             })
             $scope.$apply();
           })
@@ -241,7 +242,8 @@ function ProjectListCtrl($scope, $rootScope, $window, $timeout, localStorageServ
             debitAmount: productAmount,
             plainAddress: productAddress,
             ownerUsername: ownerUsername,
-            releaseTime: releaseTime
+            releaseTime: releaseTime,
+            imCreator: (ownerUsername == currentUser.get('username')),
           })
           $scope.$apply();
         })
