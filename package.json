@@ -24,6 +24,7 @@
     "angular-chart.js": "^1.1.1",
     "angular-local-storage": "^0.7.1",
     "chart.js": "^2.7.2",
-    "gulp-cli": "^2.0.1"
+    "gulp-cli": "^2.0.1",
+    "print-js": "^1.0.47"
   }
 }
