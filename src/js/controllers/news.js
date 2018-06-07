@@ -94,4 +94,8 @@ function NewsCtrl($scope, $state, $rootScope, $window, $timeout, localStorageSer
         localStorageService.cookie.set('newsId', $scope.news[index].id);
         $state.go('newsView');
     };
+
+    $scope.deleteNews = function(){
+
+    };
 }

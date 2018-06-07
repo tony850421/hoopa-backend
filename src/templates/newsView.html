@@ -1,7 +1,12 @@
 <div class="row" ng-controller="NewsViewCtrl">
   <form class="formNewNews col-md-12">
       <h4>{{new.get('title')}}</h4>
-      <img ng-src="{{new.get('image').get('url')}}"/>
+      <img class="imageNew" ng-src="{{new.get('image').get('url')}}"/>
       <h5>{{new.get('content')}}</h5>
+      <div class="medias" ng-repeat="m in newsMedia">
+        <img class="imageNew" ng-src="{{m.get('image').get('url')}}"/>
+        <h5>{{m.get('caption')}}</h5>
+        <h5>{{m.get('content')}}</h5>
+      </div>
   </form>
 </div>

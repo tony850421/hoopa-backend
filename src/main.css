@@ -1075,3 +1075,7 @@
   .margin-top--10{
     margin-top: -10px !important;
   }
+
+  .imageNew{
+    width: 100%;
+  }
