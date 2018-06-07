@@ -10,6 +10,7 @@ function ProjectListCtrl($scope, $rootScope, $window, $timeout, localStorageServ
   $scope.loading = false;
   $rootScope.activeList = 'projects';
   $scope.products = [];
+  $scope.skip = 0;
 
   $scope.listAllProjects = function () {
     $scope.products = [];
@@ -64,7 +65,7 @@ function ProjectListCtrl($scope, $rootScope, $window, $timeout, localStorageServ
       query.include('creator');
       query.include('image');
       query.descending('createdAt');
-      query.limit(30);
+      query.limit(10);
       query.find().then(function (products) {
         products.forEach(function (product) {
           var productId = product.id;
@@ -87,7 +88,6 @@ function ProjectListCtrl($scope, $rootScope, $window, $timeout, localStorageServ
           var productAddress = product.get('plainAddress');
           var productImageUrl;
           if (productImage) {
-            // productImageUrl = productImage.get('url');
             productImageUrl = productImage.thumbnailURL(100, 150);
           } else {
             productImageUrl = 'img/LogoHoopa.png';
@@ -131,8 +131,121 @@ function ProjectListCtrl($scope, $rootScope, $window, $timeout, localStorageServ
 
   $scope.listAllProjects();
 
-  $scope.goToProject = function(id){
+  $scope.goToProject = function (id) {
     localStorageService.cookie.set('projectId', id);
     $state.go('view-project');
+  };
+
+  $scope.previous = function () {
+
+    if ($scope.skip >= 10) {
+      $scope.skip -= 10;
+      var currentUser = AV.User.current();
+      if (currentUser) {
+        var query = new AV.Query('Project');
+        query.include('creator');
+        query.include('image');
+        query.descending('createdAt');
+        query.limit(10);
+        query.skip($scope.skip)
+        query.find().then(function (products) {          
+          $scope.products = [];
+          $('html,body').scrollTop(0);
+          products.forEach(function (product) {
+            var productId = product.id;
+            var productTitle = product.get('title');
+            var productDescription = product.get('description');
+            var productDesc = productDescription;
+            if (productDescription.length > 170) {
+              productDesc = ''
+              for (var i = 0; i < 170; i++) {
+                productDesc += productDescription[i];
+              }
+              productDesc += "...";
+            }
+            productDescription = productDesc;
+
+            var releaseTime = (product.createdAt.getMonth() + 1) + '/' + product.createdAt.getDate() + '/' + product.createdAt.getFullYear();
+            var ownerUsername = product.get('creator').get('username');
+            var productImage = product.get('image');
+            var productAmount = product.get('debitAmount');
+            var productAddress = product.get('plainAddress');
+            var productImageUrl;
+            if (productImage) {
+              productImageUrl = productImage.thumbnailURL(100, 150);
+            } else {
+              productImageUrl = 'img/LogoHoopa.png';
+            }
+            // handlebars context
+            $scope.products.push({
+              id: productId,
+              imageUrl: productImageUrl,
+              title: productTitle,
+              description: productDescription,
+              debitAmount: productAmount,
+              plainAddress: productAddress,
+              ownerUsername: ownerUsername,
+              releaseTime: releaseTime
+            })
+            $scope.$apply();
+          })
+        })
+      }
+    }
+  };
+
+  $scope.next = function () {
+    var currentUser = AV.User.current();
+    $scope.skip += 10;
+    if (currentUser) {
+      var query = new AV.Query('Project');
+      query.include('creator');
+      query.include('image');
+      query.descending('createdAt');
+      query.limit(10);
+      query.skip($scope.skip)
+      query.find().then(function (products) {        
+        $scope.products = [];
+        $('html,body').scrollTop(0);
+        products.forEach(function (product) {
+          var productId = product.id;
+          var productTitle = product.get('title');
+          var productDescription = product.get('description');
+          var productDesc = productDescription;
+          if (productDescription.length > 170) {
+            productDesc = ''
+            for (var i = 0; i < 170; i++) {
+              productDesc += productDescription[i];
+            }
+            productDesc += "...";
+          }
+          productDescription = productDesc;
+
+          var releaseTime = (product.createdAt.getMonth() + 1) + '/' + product.createdAt.getDate() + '/' + product.createdAt.getFullYear();
+          var ownerUsername = product.get('creator').get('username');
+          var productImage = product.get('image');
+          var productAmount = product.get('debitAmount');
+          var productAddress = product.get('plainAddress');
+          var productImageUrl;
+          if (productImage) {
+            productImageUrl = productImage.thumbnailURL(100, 150);
+          } else {
+            productImageUrl = 'img/LogoHoopa.png';
+          }
+          // handlebars context
+          $scope.products.push({
+            id: productId,
+            imageUrl: productImageUrl,
+            title: productTitle,
+            description: productDescription,
+            debitAmount: productAmount,
+            plainAddress: productAddress,
+            ownerUsername: ownerUsername,
+            releaseTime: releaseTime
+          })
+          $scope.$apply();
+        })
+      })
+    }
   };
 }

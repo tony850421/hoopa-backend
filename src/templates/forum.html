@@ -1,29 +1,37 @@
 <div class="col-lg-12" ng-controller="ForumCtrl">
     <div class="inboxBox">
         <div ng-repeat="comment in forumComments" class="OfferBox">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 offerContentGroup">
-                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                    <img class="imgAvatar" ng-src="{{comment.userAvatar}}" />
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 forumContentGroup">
+                <div class="col-md-1">
+                    <img class="imgAvatarForum" ng-src="{{comment.userAvatar}}" />
                 </div>
-                <div class="offerContent col-md-4">
+                <div class="offerContent col-md-8">
                     <h5>{{comment.userFullName}}</h5>
+                    <h5>{{comment.content}}</h5>
                     <!-- <h5 class="margin-top-0 margin-bottom-0 colorMoney">¥{{offer.amount}}万</h5> -->
                 </div>
-
-                <h5 class="col-md-3">{{comment.content}}</h5>
-                
-                <div col-md-2 >
+                <div class="col-md-2">
                     <a>
-                        <img class="media-object notification-image" ng-src="{{comment.productImageUrl}}">
+                        <img class="media-object forum-image pull-right" ng-src="{{comment.productImageUrl}}">
                     </a>
                 </div>
-
-                <h5 class="col-md-1">{{comment.date}}</h5>
-
                 <div class="col-md-1 margin-bottom-0">
+                    <span class="fa fa-clock-o"> {{comment.date}}</span>
                     <a class="btn btn-secundary fa fa-times pull-right buttonDelete" ng-click="deleteComment(comment.id)" translate="BDELETE"></a>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="paginationBox" ng-hide="forumComments.length < 10 && skip == 0">
+        <nav aria-label="Page navigation">
+            <div class="col-md-12">
+                <div class="col-md-5 padding-15">
+                    <a ng-disabled="skip < 10" class="btn btn-default pull-right" translate="PREVIOUS" ng-click="previous()"></a>
+                </div>
+                <div class="col-md-5 col-md-offset-2 padding-15">
+                    <a ng-disabled="forumComments.length < 10" class="btn btn-default" translate="NEXT" ng-click="next()"></a>
+                </div>
+            </div>
+        </nav>
     </div>
 </div>

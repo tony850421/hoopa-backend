@@ -13,24 +13,25 @@
                         </h4>
                         <h5>{{f.content}}</h5>
                     </div>
-                    <!-- <div class="col-md-2">
-                        <h5 class="media-heading font-weight-unset">
-                            <i class="fa fa-user-secret" aria-hidden="true"> </i>
-                            {{project.ownerUsername}}
-                        </h5>
-                        <h5 class="media-heading font-weight-unset margin-top-10">
-                            <i class="fa  fa-clock-o" aria-hidden="true"> </i>
-                            {{project.releaseTime}}
-                        </h5>
-                    </div> -->
                     <div class="col-md-2 margin-bottom-0">
-                        <a class="btn btn-secundary fa fa-eye pull-right buttonShow" ng-disabled="true" ng-click="" translate="BSHOW"></a>
+                        <a class="btn btn-secundary fa fa-eye pull-right buttonShow" ng-click="goToNews($index)" translate="BSHOW"></a>
                         <a class="btn btn-secundary fa fa-edit pull-right buttonUpdate" ng-disabled="true" ng-click="" translate="BUPDATE"></a>
                         <a class="btn btn-secundary fa fa-times pull-right buttonDelete" ng-disabled="true" ng-click="" translate="BDELETE"></a>
                     </div>
                 </div>
-
             </div>
         </li>
     </ul>
+    <div class="paginationBox" ng-hide="news.length < 10 && skip == 0">
+        <nav aria-label="Page navigation">
+            <div class="col-md-12">
+                <div class="col-md-5 padding-15">
+                    <a ng-disabled="skip < 10" class="btn btn-default pull-right" translate="PREVIOUS" ng-click="previous()"></a>
+                </div>
+                <div class="col-md-5 col-md-offset-2 padding-15">
+                    <a ng-disabled="news.length < 10" class="btn btn-default" translate="NEXT" ng-click="next()"></a>
+                </div>
+            </div>
+        </nav>
+    </div>
 </div>

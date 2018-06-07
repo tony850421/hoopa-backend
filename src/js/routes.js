@@ -70,6 +70,10 @@ app.config(['$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider
             .state('view-project', {
                 url: '/view-project',
                 templateUrl: 'templates/view-project.html'
+            })
+            .state('newsView', {
+                url: '/newsView',
+                templateUrl: 'templates/newsView.html'
             });
     }
 ]);
