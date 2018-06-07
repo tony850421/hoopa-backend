@@ -246,10 +246,6 @@ function ProjectCtrl($scope, $rootScope, $window, $translate) {
     $scope.releaseNewProject = function () {
 
         $scope.alerts = [];
-
-        console.log('releaseNewProject');
-        console.log($scope.files.length);
-        
         //valitations
         if (!isNaN($scope.package.debitAmount != '') && ($scope.package.title != '')  && ($scope.files.length > 0) ) {
 
