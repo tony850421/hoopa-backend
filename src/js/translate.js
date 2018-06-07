@@ -118,7 +118,10 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "ADDSPONSOR": "Add sponsor",
         "FORUM": "Forum",
         "PREVIOUS": "Previous",
-        "NEXT": "Next"
+        "NEXT": "Next",
+        "ALERTLOGIN0": "Login error",
+        "ALERTLOGIN1": "Password mismatch",
+        "ALERTLOGIN2": "Could not find user",
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -234,7 +237,10 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "ADDSPONSOR": "添加赞助商",
         "FORUM": "论坛",
         "PREVIOUS": "以前",
-        "NEXT": "下"
+        "NEXT": "下",
+        "ALERTLOGIN0": "登录错误",
+        "ALERTLOGIN1": "密码不匹配",
+        "ALERTLOGIN2": "找不到用户",
     });
     $translateProvider.preferredLanguage('en_US ');
 }]);

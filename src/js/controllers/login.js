@@ -19,15 +19,38 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
     $rootScope.notificationsOffersCount = 0;
     $rootScope.notificationsGeneral = false;
 
+    $scope.alertsLogin = [];
+
+    $scope.closeAlertLogin = function(index) {
+        $scope.alertsLogin.splice(index, 1);
+    };
+
     $scope.login = function () {
+        $scope.alertsLogin = [];
+
         AV.User.logIn($scope.username, $scope.password).then(function (loginedUser) {
             // $window.location.href = '#/project-list';
             $scope.notificationsCount();
 
             $window.location.href = '#/dashboard';
         }, function (error) {
-            console.log(error.code);
-            $window.location.href = '#/signup';
+
+            var alert = "Login error";
+
+            switch(error.code){
+                case 210:
+                    alert = $translate.instant('ALERTLOGIN1');
+                    break;
+                case 211:
+                    alert = $translate.instant('ALERTLOGIN2');
+                    break;
+                default:
+                    alert = $translate.instant('ALERTLOGIN0');
+            }
+            
+            $scope.alertsLogin.push({type: 'danger', msg: alert});
+            $scope.$apply();
+            // $window.location.href = '#/signup';
         });
     };
 
