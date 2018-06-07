@@ -43,18 +43,18 @@
       <div class="form-group col-md-12 margin-top-10">
         <div class="panel panel-default col-md-12 borderNone padding-0">
           <ul class="list-group" ng-repeat="f in newsMedias">
-            <li class="list-group-item padding-0 borderNone">
+            <li class="list-group-item padding-0 borderNone listNewsGroup">
               <div class="row">
-                <div class="col-md-3 padding-left-0 imageBoxList">
+                <div class="col-md-3 padding-left-0 marging-bottom-0 imageBoxList">
                   <img class="newsImage" ng-src="{{f.get('imageUrl')}}">
                 </div>
-                <div class="col-md-3 textNewsList">
+                <div class="col-md-3 textNewsList marging-bottom-0">
                   <label>{{f.get('caption')}}</label>
                 </div>
-                <div class="col-md-3 textNewsList">
+                <div class="col-md-3 textNewsList marging-bottom-0">
                   <label>{{f.get('content')}}</label>
                 </div>
-                <div class="col-md-3 padding-right-0 textNewsList">
+                <div class="col-md-3 padding-right-0 textNewsList marging-bottom-0">
                   <div class="col-md-12 padding-0">
                     <button type="button" class="btn btn-primary btn-xs pull-right" ng-click="deleteNewsMedia($index)">
                       <span class="glyphicon glyphicon-remove" aria-hidden="true" translate="BDELETE"></span>

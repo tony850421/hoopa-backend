@@ -138,16 +138,16 @@
                     <ul class="list-group" ng-repeat="borr in borrowers">
                         <li class="list-group-item">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-3 margin-bottom-0">
                                     {{borr.name}}
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 margin-bottom-0">
                                     {{borr.principalDebit}}
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 margin-bottom-0">
                                     {{borr.totalInterest}}
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 margin-bottom-0">
                                     <button type="button" class="btn btn-default btn-xs pull-right" ng-click="deleteBorrower($index)">
                                         <span class="glyphicon glyphicon-remove" aria-hidden="true" translate="BDELETE"></span>
                                     </button>
@@ -226,16 +226,16 @@
                 <ul class="list-group" ng-repeat="asset in assets">
                     <li class="list-group-item">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-3 margin-bottom-0">
                                 {{asset.typeArrival}}
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 margin-bottom-0">
                                 {{asset.plainAddress}}
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 margin-bottom-0">
                                 {{asset.constructionArea}}x{{asset.landArea}}
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 margin-bottom-0">
                                 <button type="button" class="btn btn-default btn-xs pull-right" ng-click="deleteAsset($index)">
                                     <span class="glyphicon glyphicon-remove" aria-hidden="true" translate="BDELETE"></span>
                                 </button>
@@ -286,16 +286,16 @@
                 <ul class="list-group" ng-repeat="sponsor in sponsors">
                     <li class="list-group-item">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-3 margin-bottom-0">
                                 {{sponsor.type}}
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 margin-bottom-0">
                                 {{sponsor.name}}
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 margin-bottom-0">
                                 {{sponsor.amount}}
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 margin-bottom-0">
                                 <button type="button" class="btn btn-default btn-xs pull-right" ng-click="deleteSponsor($index)">
                                     <span class="glyphicon glyphicon-remove" aria-hidden="true" translate="BDELETE"></span>
                                 </button>
@@ -388,16 +388,16 @@
                 <ul class="list-group" ng-repeat="f in files">
                     <li class="list-group-item">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-3 margin-bottom-0">
                                 {{f.get('image').get('name')}}
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 margin-bottom-0">
                                     {{f.get('image').size()}}
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 margin-bottom-0">
                                 <!-- {{sponsor.amount}} -->
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 margin-bottom-0">
                                 <button type="button" class="btn btn-default btn-xs pull-right" ng-click="deleteFile($index)">
                                     <span class="glyphicon glyphicon-remove" aria-hidden="true" translate="BDELETE"></span>
                                 </button>

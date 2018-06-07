@@ -467,13 +467,14 @@
   }
 
   .MessagesUser{
-    background-color: #5867dd;
     max-width: 400px;
     min-width: 300px;
     padding: 15px;
+    background-color: #fff;
     margin-left: 1%;
     border-radius: 5px;
-    color: white !important;
+    color: #000 !important;
+    border: 1px solid #5867dd;
   }
 
   .MessagesAdmin{
@@ -1029,4 +1030,13 @@
   .facts{
     padding: 10px !important;
     height: 35px;
+  }
+
+  .listNewsGroup{
+    border: 1px solid #d6dadb !important;
+    padding: 15px !important;
+  }
+
+  .marging-bottom-0{
+    margin-bottom: 0px !important;
   }
