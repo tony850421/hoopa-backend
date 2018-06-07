@@ -46,6 +46,18 @@ function OffersCtrl($scope, $rootScope, $window, $timeout) {
           var pending = offer.get('pending');
           var userId = offer.get('user').id;
           var projectId = offer.get('project').id;
+          var projectTitle = offer.get('project').get('title');
+          var projectDescription = offer.get('project').get('description');
+
+          var p = projectDescription;
+          if (projectDescription.length > 50) {
+            p = '';
+            for (var i = 0; i < 50; i++) {
+              p += projectDescription[i];
+            }
+          }
+
+          projectDescription = p;
 
           // handlebars context
           $scope.offers.push({
@@ -59,6 +71,8 @@ function OffersCtrl($scope, $rootScope, $window, $timeout) {
             pending: pending,
             userId: userId,
             projectId: projectId,
+            projectTitle: projectTitle,
+            projectDescription: projectDescription
           })
           $scope.$apply();
         });
@@ -149,6 +163,18 @@ function OffersCtrl($scope, $rootScope, $window, $timeout) {
           var pending = offer.get('pending');
           var userId = offer.get('user').id;
           var projectId = offer.get('project').id;
+          var projectTitle = offer.get('project').get('title');
+          var projectDescription = offer.get('project').get('description');
+
+          var p = projectDescription;
+          if (projectDescription.length > 50) {
+            p = '';
+            for (var i = 0; i < 50; i++) {
+              p += projectDescription[i];
+            }
+          }
+
+          projectDescription = p;
 
           // handlebars context
           $scope.offers.push({
@@ -162,6 +188,8 @@ function OffersCtrl($scope, $rootScope, $window, $timeout) {
             pending: pending,
             userId: userId,
             projectId: projectId,
+            projectTitle: projectTitle,
+            projectDescription: projectDescription
           })
           $scope.$apply();
         });
@@ -203,6 +231,18 @@ function OffersCtrl($scope, $rootScope, $window, $timeout) {
             var pending = offer.get('pending');
             var userId = offer.get('user').id;
             var projectId = offer.get('project').id;
+            var projectTitle = offer.get('project').get('title');
+            var projectDescription = offer.get('project').get('description');
+
+            var p = projectDescription;
+            if (projectDescription.length > 50) {
+              p = '';
+              for (var i = 0; i < 50; i++) {
+                p += projectDescription[i];
+              }
+            }
+
+            projectDescription = p;
 
             // handlebars context
             $scope.offers.push({
@@ -216,6 +256,8 @@ function OffersCtrl($scope, $rootScope, $window, $timeout) {
               pending: pending,
               userId: userId,
               projectId: projectId,
+              projectTitle: projectTitle,
+              projectDescription: projectDescription
             })
             $scope.$apply();
           });

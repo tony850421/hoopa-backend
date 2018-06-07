@@ -1079,3 +1079,13 @@
   .imageNew{
     width: 100%;
   }
+
+  .textEnd{
+    text-align: end;
+  }
+
+  .imgAvatarOffers{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }

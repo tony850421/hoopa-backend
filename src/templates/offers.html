@@ -3,13 +3,21 @@
         <div ng-repeat="offer in offers" class="OfferBox margin-top--10">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 offerContentGroup">
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                    <img class="imgAvatar" ng-src="{{offer.avatar}}" />
+                    <img class="imgAvatarOffers" ng-src="{{offer.avatar}}" />
                 </div>
-                <div class="offerContent col-md-8">
+                <div class="offerContent col-md-2">
                     <h5>{{offer.userFullName}}</h5>
                     <h5 class="margin-top-0 margin-bottom-0 colorMoney">¥{{offer.amount}}万</h5>
                 </div>
-                <h5 class="col-md-1">{{offer.date}}</h5>
+                <div class="offerContent textEnd col-md-1">
+                    <h5 translate="PUTITLE"></h5>
+                    <h5 translate="PUDESC"></h5>
+                </div>
+                <div class="offerContent col-md-5">
+                    <h5>{{offer.projectTitle}}</h5>
+                    <h5 class="margin-top-0 margin-bottom-0">{{offer.projectDescription}}</h5>
+                </div>
+                <span class="fa fa-clock-o col-md-1"> {{offer.date}}</span>
                 <div class="offerContent col-md-1">
                     <h5 class="cursorPointer" ng-show="offer.pending">
                         <span tooltip="Server Down!" class="text-danger">
