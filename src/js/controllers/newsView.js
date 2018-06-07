@@ -3,6 +3,7 @@ app.controller('NewsViewCtrl', ['$scope', '$rootScope', '$window', '$timeout', '
 function NewsViewCtrl($scope, $rootScope, $window, $timeout, localStorageService) {
 
     $scope.new = {};
+    $scope.newsMedia = [];    
 
     $scope.init = function(){
         var id = localStorageService.cookie.get('newsId');
@@ -10,6 +11,14 @@ function NewsViewCtrl($scope, $rootScope, $window, $timeout, localStorageService
         var query = new AV.Query("News")
         query.get(id).then(function(n){
             $scope.new = n;
+
+            var queryMedias = new AV.Query("NewsMedia")
+            queryMedias.equalTo('news', n)
+            queryMedias.find().then(function(mediasObject){
+                $scope.newsMedia = mediasObject;
+                $scope.$apply();
+            })
+            
             $scope.$apply();
         })
     };
