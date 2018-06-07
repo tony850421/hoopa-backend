@@ -110,7 +110,10 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "LONGLATASSETS": "Longitude and Latitude",
         "GALLERY": "Gallery",
         "AMOUNT": "Amount",
-        "FORUM": "Forum"
+        "FORUM": "Forum",
+        "ALERTLOGIN0": "Login error",
+        "ALERTLOGIN1": "Password mismatch",
+        "ALERTLOGIN2": "Could not find user",
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -218,7 +221,10 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "LONGLATASSETS": "经度和纬度",
         "GALLERY": "库",
         "AMOUNT": "量",
-        "FORUM": "论坛"
+        "FORUM": "论坛",
+        "ALERTLOGIN0": "登录错误",
+        "ALERTLOGIN1": "密码不匹配",
+        "ALERTLOGIN2": "找不到用户",
     });
     $translateProvider.preferredLanguage('en_US ');
 }]);
