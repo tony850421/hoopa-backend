@@ -9,8 +9,7 @@
       <div class="media-body">
         <div class="row">
           <div class="col-md-9">
-            <h4 class="media-heading"> {{project.title}}
-            </h4>
+            <h4 class="media-heading"> {{project.title}}</h4>
             <h5>{{project.description}}</h5>
           </div>
           <div class="col-md-2">
@@ -32,7 +31,7 @@
       </div>
     </li>
   </ul>
-  <div class="paginationBox">
+  <div class="paginationBox" ng-hide="products.length < 10 && skip == 0">
     <nav aria-label="Page navigation">
       <div class="col-md-12">
         <div class="col-md-5 padding-15">

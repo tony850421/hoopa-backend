@@ -109,9 +109,14 @@
   }
   .notification-image{
     height: 100px !important;
-    /* margin-left: 20% !important; */
     width: 100px !important;
     object-fit: cover;
+  }
+  .forum-image{
+    height: 80px !important;
+    width: 80px !important;
+    object-fit: cover;
+    border-radius: 5px;
   }
   .no-padding {
     padding: 0 !important;
@@ -288,13 +293,31 @@
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: white;
-    border-bottom: 1px #d6dadb solid;
+    border: 1px #d6dadb solid;
     align-items: center;
+    margin-top: 10px;
+  }
+
+  .forumContentGroup{
+    display: flex;
+    flex-direction: row;    
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: white;
+    border: 1px #d6dadb solid;
+    align-items: center;
+    margin-bottom: 10px;
   }
 
   .imgAvatar{
     width: 50px;
     height: 50px;
+    border-radius: 50%;
+  }
+
+  .imgAvatarForum{
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
   }
 
@@ -1047,4 +1070,8 @@
 
   .buttonPagination{
     background-color: white;
+  }
+
+  .margin-top--10{
+    margin-top: -10px !important;
   }
