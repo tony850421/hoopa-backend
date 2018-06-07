@@ -3,9 +3,9 @@
  * Login and signup Controller
  */
 
-app.controller('NewsCtrl', ['$scope', '$rootScope', '$window', '$timeout', NewsCtrl]);
+app.controller('NewsCtrl', ['$scope', '$state', '$rootScope', '$window', '$timeout', 'localStorageService', NewsCtrl]);
 
-function NewsCtrl($scope, $rootScope, $window, $timeout) {
+function NewsCtrl($scope, $state, $rootScope, $window, $timeout, localStorageService) {
 
     $scope.news = [];
     $rootScope.activeList = 'news';
@@ -19,8 +19,10 @@ function NewsCtrl($scope, $rootScope, $window, $timeout) {
                 var mainImage = element.get('image').thumbnailURL(100, 100);
                 var title = element.get('title');
                 var content = element.get('content');
+                var id = element.id;
 
                 $scope.news.push({
+                    id: id,
                     mainImage: mainImage,
                     title: title,
                     content: content
@@ -45,8 +47,10 @@ function NewsCtrl($scope, $rootScope, $window, $timeout) {
                     var mainImage = element.get('image').thumbnailURL(100, 100);
                     var title = element.get('title');
                     var content = element.get('content');
+                    var id = element.id;
 
                     $scope.news.push({
+                        id: id,
                         mainImage: mainImage,
                         title: title,
                         content: content
@@ -71,8 +75,10 @@ function NewsCtrl($scope, $rootScope, $window, $timeout) {
                         var mainImage = element.get('image').thumbnailURL(100, 100);
                         var title = element.get('title');
                         var content = element.get('content');
+                        var id = element.id;
 
                         $scope.news.push({
+                            id: id,
                             mainImage: mainImage,
                             title: title,
                             content: content
@@ -82,5 +88,10 @@ function NewsCtrl($scope, $rootScope, $window, $timeout) {
                 })
             }
         }
+    };
+
+    $scope.goToNews = function (index) {
+        localStorageService.cookie.set('newsId', $scope.news[index].id);
+        $state.go('newsView');
     };
 }
