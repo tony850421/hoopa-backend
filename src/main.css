@@ -1040,3 +1040,11 @@
   .marging-bottom-0{
     margin-bottom: 0px !important;
   }
+
+  .example{
+    margin-left: 40%;
+  }
+
+  .buttonPagination{
+    background-color: white;
+  }

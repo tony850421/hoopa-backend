@@ -116,7 +116,9 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "ADDBORROWER": "Add borrower",
         "ADDASSET": "Add asset",
         "ADDSPONSOR": "Add sponsor",
-        "FORUM": "Forum"
+        "FORUM": "Forum",
+        "PREVIOUS": "Previous",
+        "NEXT": "Next"
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -230,7 +232,9 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "ADDBORROWER": "添加借方",
         "ADDASSET": "添加资产",
         "ADDSPONSOR": "添加赞助商",
-        "FORUM": "论坛"
+        "FORUM": "论坛",
+        "PREVIOUS": "以前",
+        "NEXT": "下"
     });
     $translateProvider.preferredLanguage('en_US ');
 }]);
