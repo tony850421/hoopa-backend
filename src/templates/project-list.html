@@ -1,5 +1,5 @@
 <div class="row" ng-controller="ProjectListCtrl">
-  <ul class="media-list custom-media-list" ng-repeat="project in products">
+  <ul class="media-list custom-media-list" ng-repeat="project in products" ng-hide="products.length == 0">
     <li class="media">
       <div class="media-left">
         <a>
@@ -42,5 +42,8 @@
         </div>
       </div>
     </nav>
+  </div>
+  <div class="NoComments" ng-show="products.length == 0">
+      <h1 translate="NOPROJECTS"></h1>
   </div>
 </div>

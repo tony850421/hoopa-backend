@@ -1,5 +1,5 @@
 <div class="col-lg-12" ng-controller="OffersCtrl">
-    <div class="inboxBox">
+    <div class="inboxBox" ng-hide="offers.length == 0">
         <div ng-repeat="offer in offers" class="OfferBox margin-top--10">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 offerContentGroup">
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
@@ -66,5 +66,8 @@
                 </div>
             </div>
         </nav>
+    </div>
+    <div class="NoComments" ng-show="offers.length == 0">
+        <h1 translate="NOOFFERS"></h1>
     </div>
 </div>

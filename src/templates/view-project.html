@@ -371,9 +371,9 @@
             <label class="col-md-12 no-padding font-weight-unset" translate="GALLERY"></label>
             <div ng-repeat="i in imageList">
                 <div class="col-md-3 margin-top-10">
+                    <img hidden class="imgClose" id="img{{$index}}" ng-click="deleteImage($index)" ng-src="./img/close.png" />
                     <img ng-mouseenter="mouseEnter($index)" ng-mouseleave="mouseLeave($index)" id="imageGallery{{$index}}" ng-click="OpenImage($index)"
                         ng-src="{{i.get('imageUrl')}}" class="imageGallery" />
-                    <img hidden class="imgClose" id="img{{$index}}" ng-click="deleteImage($index)" ng-src="./img/close.png" />
                 </div>
             </div>
             <div class="col-md-12 no-padding margin-top-10">

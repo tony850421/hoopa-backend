@@ -1,5 +1,5 @@
 <div class="col-lg-12" ng-controller="ForumCtrl">
-    <div class="inboxBox">
+    <div class="inboxBox" ng-hide="forumComments.length == 0">
         <div ng-repeat="comment in forumComments" class="OfferBox">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 forumContentGroup">
                 <div class="col-md-1">
@@ -33,5 +33,8 @@
                 </div>
             </div>
         </nav>
+    </div>
+    <div class="NoComments" ng-show="forumComments.length == 0">
+        <h1 translate="NOCOMMENTS"></h1>
     </div>
 </div>

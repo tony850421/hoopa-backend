@@ -122,6 +122,11 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "ALERTLOGIN0": "Login error",
         "ALERTLOGIN1": "Password mismatch",
         "ALERTLOGIN2": "Could not find user",
+        "NOOFFERS": "There are no offers",
+        "NOCOMMENTS": "There are no comments in the forums",
+        "NONEWS": "There are no news",
+        "NOMESSAGES": "There are no message",
+        "NOPROJECTS": "There are no projects"
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -241,6 +246,11 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "ALERTLOGIN0": "登录错误",
         "ALERTLOGIN1": "密码不匹配",
         "ALERTLOGIN2": "找不到用户",
+        "NOOFFERS": "没有报价",
+        "NOCOMMENTS": "论坛中没有评论",
+        "NONEWS": "没有消息",        
+        "NOMESSAGES": "没有消息",
+        "NOPROJECTS": "没有项目"
     });
     $translateProvider.preferredLanguage('en_US ');
 }]);
