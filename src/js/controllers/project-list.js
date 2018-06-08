@@ -8,6 +8,7 @@ app.controller('ProjectListCtrl', ['$scope', '$rootScope', '$window', '$timeout'
 function ProjectListCtrl($scope, $rootScope, $window, $timeout, localStorageService, $state) {
 
   $scope.loading = false;
+
   $rootScope.activeList = 'projects';
   $scope.products = [];
   $scope.skip = 0;
@@ -106,12 +107,14 @@ function ProjectListCtrl($scope, $rootScope, $window, $timeout, localStorageServ
           })
           $scope.$apply();
         });
+
         $scope.loading = false;
+        $scope.$apply();
 
       }).catch(function (error) {
 
         $scope.loading = false;
-
+        $scope.$apply();
         alert(JSON.stringify(error));
       });
 
@@ -142,6 +145,9 @@ function ProjectListCtrl($scope, $rootScope, $window, $timeout, localStorageServ
       $scope.skip -= 10;
       var currentUser = AV.User.current();
       if (currentUser) {
+
+        $scope.loading = true;
+
         var query = new AV.Query('Project');
         query.include('creator');
         query.include('image');
@@ -190,7 +196,16 @@ function ProjectListCtrl($scope, $rootScope, $window, $timeout, localStorageServ
             })
             $scope.$apply();
           })
-        })
+
+          $scope.loading = false;
+          $scope.$apply();
+
+        }).catch(function (error) {
+
+          $scope.loading = false;
+          $scope.$apply();
+          alert(JSON.stringify(error));
+        });
       }
     }
   };
@@ -199,6 +214,9 @@ function ProjectListCtrl($scope, $rootScope, $window, $timeout, localStorageServ
     var currentUser = AV.User.current();
     $scope.skip += 10;
     if (currentUser) {
+
+      $scope.loading = true;
+
       var query = new AV.Query('Project');
       query.include('creator');
       query.include('image');
@@ -247,7 +265,16 @@ function ProjectListCtrl($scope, $rootScope, $window, $timeout, localStorageServ
           })
           $scope.$apply();
         })
-      })
+
+        $scope.loading = false;
+        $scope.$apply();
+
+      }).catch(function (error) {
+
+        $scope.loading = false;
+        $scope.$apply();
+        alert(JSON.stringify(error));
+      });
     }
   };
 }

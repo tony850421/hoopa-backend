@@ -258,8 +258,9 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
 
             var acl = new AV.ACL();
             acl.setPublicReadAccess(true);
-            acl.setWriteAccess(admin, true);
-            acl.setWriteAccess(receiver, true);
+            acl.setPublicWriteAccess(true);
+            // acl.setWriteAccess(admin, true);
+            // acl.setWriteAccess(receiver, true);
             newMessage.setACL(acl);
 
             newMessage.save().then(function (msg) {
