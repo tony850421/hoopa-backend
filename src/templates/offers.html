@@ -8,7 +8,8 @@
         <div ng-repeat="offer in offers" class="OfferBox margin-top--10">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 offerContentGroup">
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                    <img class="imgAvatarOffers" ng-src="{{offer.avatar}}" />
+                    <img ng-show="offer.avatar.length > 0" class="imgAvatarOffers" ng-src="{{offer.avatar}}" />
+                    <img ng-show="!offer.avatar.length > 0" class="imgAvatarOffers" ng-src="img/avatar.jpg" />
                 </div>
                 <div class="offerContent col-md-2">
                     <h5>{{offer.userFullName}}</h5>
@@ -43,14 +44,6 @@
                 </div>
             </div>
             <div ng-show="offer.open" class="offerResponse col-md-12">
-                <!-- <div class="notifyBox col-md-2 padding-0">
-                        <div class="notifyUser">
-                            <label>Notify User</label>
-                        </div>
-                        <div class="notifyManager">
-                            <label>Notify Manager</label>
-                        </div>
-                    </div> -->
                 <div class="col-md-11 textAreaOffer">
                     <textarea class="textAreaOfferResponse backgroundGray no-resize" ng-model="content"></textarea>
                 </div>

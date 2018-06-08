@@ -1095,3 +1095,28 @@
     margin-top: 20%;
     color: #c8c8c8;
   }
+
+  .inputSearch{
+    border: 1px solid #d6dadb;
+    border-radius: 5px;
+    width: 250px;
+    height: 30px;
+    border-radius: 50px;
+  }
+
+  .imgAvatarUsers{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .divUser{
+    background-color: white;
+    border: 1px solid #d6d6d6;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
