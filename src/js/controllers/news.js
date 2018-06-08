@@ -11,7 +11,11 @@ function NewsCtrl($scope, $state, $rootScope, $window, $timeout, localStorageSer
     $rootScope.activeList = 'news';
     $scope.skip = 0;
 
+    $scope.loading = false;
+
     $scope.init = function () {
+        $scope.loading = true;
+
         var queryNews = new AV.Query('News');
         queryNews.limit(10);
         queryNews.find().then(function (res) {
@@ -30,7 +34,16 @@ function NewsCtrl($scope, $state, $rootScope, $window, $timeout, localStorageSer
                 })
                 $scope.$apply();
             });
-        })
+
+            $scope.loading = false;
+            $scope.$apply();
+
+        }).catch(function (error) {
+
+            $scope.loading = false;
+            $scope.$apply();
+            alert(JSON.stringify(error));
+        });
     };
 
     $scope.init();
@@ -38,6 +51,9 @@ function NewsCtrl($scope, $state, $rootScope, $window, $timeout, localStorageSer
     $scope.next = function () {
         var currentUser = AV.User.current();
         if (currentUser) {
+            
+            $scope.loading = true;
+
             $scope.skip += 10;
             var queryNews = new AV.Query('News');
             queryNews.limit(10);
@@ -58,7 +74,16 @@ function NewsCtrl($scope, $state, $rootScope, $window, $timeout, localStorageSer
                     })
                     $scope.$apply();
                 });
-            })
+
+                $scope.loading = false;
+                $scope.$apply();
+
+            }).catch(function (error) {
+
+                $scope.loading = false;
+                $scope.$apply();
+                alert(JSON.stringify(error));
+            });
         }
     };
 
@@ -66,6 +91,9 @@ function NewsCtrl($scope, $state, $rootScope, $window, $timeout, localStorageSer
         if ($scope.skip >= 10) {
             var currentUser = AV.User.current();
             if (currentUser) {
+
+                $scope.loading = true;
+
                 $scope.skip -= 10;
                 var queryNews = new AV.Query('News');
                 queryNews.limit(10);
@@ -86,7 +114,16 @@ function NewsCtrl($scope, $state, $rootScope, $window, $timeout, localStorageSer
                         })
                         $scope.$apply();
                     });
-                })
+
+                    $scope.loading = false;
+                    $scope.$apply();
+
+                }).catch(function (error) {
+
+                    $scope.loading = false;
+                    $scope.$apply();
+                    alert(JSON.stringify(error));
+                });
             }
         }
     };

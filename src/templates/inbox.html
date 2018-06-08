@@ -1,5 +1,10 @@
 <div class="row" ng-controller="InboxCtrl">
-    <div ng-hide="inbox.length == 0" class="col-md-3 padding-0 marginTopInbox margin-bottom-0 scrollbarUser" style="overflow-y: scroll; height: {{height-60}}px;">
+
+    <div ng-if="loading">
+        <rd-loading></rd-loading>
+    </div>
+
+    <div ng-if="!loading" ng-hide="inbox.length == 0" class="col-md-3 padding-0 marginTopInbox margin-bottom-0 scrollbarUser" style="overflow-y: scroll; height: {{height-60}}px;">
         <div ng-repeat="i in inbox" class="messagesInbox" ng-class="{'colorListActive': i.senderId == senderId}">
             <div ng-click="goToConversation(i)" class="col-md-12 padding-0 groupUserRow">
                 <div class="marginAvatar">

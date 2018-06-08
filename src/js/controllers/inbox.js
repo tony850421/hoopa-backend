@@ -13,6 +13,8 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
     $scope.messageText = '';
     $scope.senderId = '';
 
+    $scope.loading = false;
+
     $scope.getSize = function () {
         $scope.width = window.innerWidth;
         $scope.height = window.innerHeight;
@@ -32,10 +34,10 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
 
     $scope.init = function () {
 
-        var user = AV.User.current();
+        $scope.loading = true;
 
+        var user = AV.User.current();
         var admin = AV.Object.createWithoutData('_User', '5af264c07f6fd3003895d3a2');
-        
 
         var queryInbox = new AV.Query('Message');
         queryInbox.include('sender');
@@ -84,9 +86,12 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
                 }
             });
 
+            $scope.loading = false;
             $scope.$apply();
 
         }).catch(function (error) {
+            $scope.loading = false;
+            $scope.$apply();
             alert(JSON.stringify(error));
         });
         

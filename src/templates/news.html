@@ -1,5 +1,10 @@
 <div class="row" ng-controller="NewsCtrl">
-    <ul class="media-list custom-media-list" ng-repeat="f in news">
+
+    <div ng-if="loading">
+        <rd-loading></rd-loading>
+    </div>
+
+    <ul class="media-list custom-media-list" ng-repeat="f in news" ng-if="!loading">
         <li class="media">
             <div class="media-left">
                 <a>

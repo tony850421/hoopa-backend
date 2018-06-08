@@ -3,7 +3,9 @@ app.controller('OffersCtrl', ['$scope','$state', '$rootScope', '$window', '$time
 function OffersCtrl($scope, $state, $rootScope, $window, $timeout, localStorageService) {
 
   $rootScope.activeList = 'offers';
+
   $scope.loading = false;
+
   $scope.offers = [];
   $scope.skip = 0;
 
@@ -78,9 +80,11 @@ function OffersCtrl($scope, $state, $rootScope, $window, $timeout, localStorageS
         });
 
         $scope.loading = false;
+        $scope.$apply();
 
       }).catch(function (error) {
         $scope.loading = false;
+        $scope.$apply();
         alert(JSON.stringify(error));
       });
 
@@ -195,9 +199,11 @@ function OffersCtrl($scope, $state, $rootScope, $window, $timeout, localStorageS
         });
 
         $scope.loading = false;
+        $scope.$apply();
 
       }).catch(function (error) {
         $scope.loading = false;
+        $scope.$apply();
         alert(JSON.stringify(error));
       });
 
@@ -263,9 +269,11 @@ function OffersCtrl($scope, $state, $rootScope, $window, $timeout, localStorageS
           });
 
           $scope.loading = false;
+          $scope.$apply();
 
         }).catch(function (error) {
           $scope.loading = false;
+          $scope.$apply();
           alert(JSON.stringify(error));
         });
 

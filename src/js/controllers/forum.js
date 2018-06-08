@@ -11,10 +11,15 @@ function ForumCtrl($scope, $state,  $rootScope, $window, $timeout, localStorageS
     $rootScope.activeList = 'forum';
     $scope.skip = 0;
 
+    $scope.loading = false;
+
     $scope.init = function () {
 
         var currentUser = AV.User.current();
         if (currentUser) {
+
+            $scope.loading = true;
+
             var queryComment = new AV.Query('ForumComment');
             queryComment.include('user');
             queryComment.include('project');
@@ -53,7 +58,16 @@ function ForumCtrl($scope, $state,  $rootScope, $window, $timeout, localStorageS
 
                     $scope.$apply();
                 });
-            })
+
+                $scope.loading = false;
+                $scope.$apply();
+
+            }).catch(function (error) {
+
+                $scope.loading = false;
+                $scope.$apply();
+                alert(JSON.stringify(error));
+            });
         }
     };
 
@@ -71,6 +85,8 @@ function ForumCtrl($scope, $state,  $rootScope, $window, $timeout, localStorageS
     $scope.next = function () {
         var currentUser = AV.User.current();
         if (currentUser) {
+
+            $scope.loading = true;
 
             $scope.skip += 10;
             var queryComment = new AV.Query('ForumComment');
@@ -111,7 +127,16 @@ function ForumCtrl($scope, $state,  $rootScope, $window, $timeout, localStorageS
 
                     $scope.$apply();
                 });
-            })
+
+                $scope.loading = false;
+                $scope.$apply();
+
+            }).catch(function (error) {
+
+                $scope.loading = false;
+                $scope.$apply();
+                alert(JSON.stringify(error));
+            });
         }
     };
 
@@ -119,6 +144,8 @@ function ForumCtrl($scope, $state,  $rootScope, $window, $timeout, localStorageS
         if ($scope.skip >= 10) {
             var currentUser = AV.User.current();
             if (currentUser) {
+
+                $scope.loading = true;
 
                 $scope.skip -= 10;
                 var queryComment = new AV.Query('ForumComment');
@@ -159,7 +186,16 @@ function ForumCtrl($scope, $state,  $rootScope, $window, $timeout, localStorageS
 
                         $scope.$apply();
                     });
-                })
+
+                    $scope.loading = false;
+                    $scope.$apply();
+
+                }).catch(function (error) {
+
+                $scope.loading = false;
+                $scope.$apply();
+                alert(JSON.stringify(error));
+            });
             }
         }
     };
