@@ -34,10 +34,13 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
 
         var user = AV.User.current();
 
+        var admin = AV.Object.createWithoutData('_User', '5af264c07f6fd3003895d3a2');
+        
+
         var queryInbox = new AV.Query('Message');
         queryInbox.include('sender');
         queryInbox.include('receiver');
-        queryInbox.equalTo('receiver', user);
+        queryInbox.equalTo('receiver', admin);
         queryInbox.descending('createdAt');
         queryInbox.find().then(function (messages) {
 
@@ -90,14 +93,12 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
         var querySocket = new AV.Query('Message');
         querySocket.include('sender');
         querySocket.include('receiver');
-        querySocket.equalTo('receiver', user);
+        querySocket.equalTo('receiver', admin);
         querySocket.subscribe().then(function (liveQuery) {
             liveQuery.on('create', function (message) {
                 // add newDoingItem to doingList
 
-                var fullName = message.get('sender').get('fullName');
                 var releaseTime = (message.createdAt.getMonth() + 1) + '/' + message.createdAt.getDate() + '/' + message.createdAt.getFullYear();
-                var avatar = message.get('sender').get('avatarUrl');
                 var content = message.get('content');
                 var aux = content;
                 var unreaded = message.get('readedAdmin');
@@ -180,12 +181,14 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
         var user = AV.User.current();
         var otherUser = AV.Object.createWithoutData('_User', userId);
 
+        var admin = AV.Object.createWithoutData('_User', '5af264c07f6fd3003895d3a2');
+
         var queryInbox = new AV.Query('Message');
-        queryInbox.equalTo('receiver', user);
+        queryInbox.equalTo('receiver', admin);
         queryInbox.equalTo('sender', otherUser);
 
         var queryInbox1 = new AV.Query('Message');
-        queryInbox1.equalTo('sender', user);
+        queryInbox1.equalTo('sender', admin);
         queryInbox1.equalTo('receiver', otherUser);
 
         var queryOr = AV.Query.or(queryInbox, queryInbox1);
@@ -239,8 +242,9 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
 
         if ($scope.messageText != '') {
 
+            var admin = AV.Object.createWithoutData('_User', '5af264c07f6fd3003895d3a2');
             var newMessage = new AV.Object('Message');
-            newMessage.set('sender', AV.User.current());
+            newMessage.set('sender', admin);
             var receiver = AV.Object.createWithoutData('_User', $scope.senderId);
             newMessage.set('receiver', receiver);
             newMessage.set('content', $scope.messageText);
@@ -249,7 +253,7 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
 
             var acl = new AV.ACL();
             acl.setPublicReadAccess(true);
-            acl.setWriteAccess(AV.User.current(), true);
+            acl.setWriteAccess(admin, true);
             acl.setWriteAccess(receiver, true);
             newMessage.setACL(acl);
 
