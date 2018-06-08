@@ -127,7 +127,10 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "NOCOMMENTS": "There are no comments in the forums",
         "NONEWS": "There are no news",
         "NOMESSAGES": "There are no message",
-        "NOPROJECTS": "There are no projects"
+        "NOPROJECTS": "There are no projects",
+        "MAKEADMIN": "Add",
+        "REMOVEADMIN": "Remove",
+        "USERS": "User"
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -252,7 +255,10 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "NOCOMMENTS": "论坛中没有评论",
         "NONEWS": "没有消息",        
         "NOMESSAGES": "没有消息",
-        "NOPROJECTS": "没有项目"
+        "NOPROJECTS": "没有项目",
+        "MAKEADMIN": "添加",
+        "REMOVEADMIN": "删除",
+        "USERS": "用户"
     });
     $translateProvider.preferredLanguage('en_US ');
 }]);

@@ -5,6 +5,8 @@ function UsersCtrl($scope, $state, $rootScope, $window, $translate, localStorage
     $scope.users = [];
     $scope.skip = 0;
 
+    $rootScope.activeList = 'users';
+
     $scope.init = function () {
         var queryUsers = new AV.Query('_User');
         queryUsers.limit(10);

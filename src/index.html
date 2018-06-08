@@ -90,20 +90,24 @@
           </ul>
         </li>
         <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'offers'}">
-          <a href="#offers" ng-click="changeActiveList('offers')">              
+          <a href="#offers" ng-click="changeActiveList('offers')">
             <span class="menu-icon fa fa-money"></span>
             <span ng-show="notificationsOffers" class="badgeMessage" ng-class="{'badgeMessageActive': activeList == 'offers'}"></span>
             {{'OFFERS' | translate}}
           </a>
         </li>
         <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'forum'}">
-          <a href="#forum" ng-click="changeActiveList('forum')">              
+          <a href="#forum" ng-click="changeActiveList('forum')">
             <span class="menu-icon fa fa-list"></span>
-            <!-- <span ng-show="notificationsOffers" class="badgeMessage" ng-class="{'badgeMessageActive': activeList == 'offers'}"></span> -->
             {{'FORUM' | translate}}
           </a>
         </li>
-
+        <li ng-show="getUser() == 'admin'" class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'users'}">
+          <a href="#usersView" ng-click="changeActiveList('users')">
+            <span class="menu-icon fa fa-users"></span>
+            {{'USERS' | translate}}
+          </a>
+        </li>
       </ul>
       <div class="sidebar-footer">
 
@@ -172,7 +176,7 @@
                 <a ng-click="goToNotifications()" class="dropdown-toggle" uib-dropdown-toggle>
                   <i class="fa fa-bell-o iconClasBar cursorPointer"></i>
                   <span ng-show="notificationsGeneral" class="badge badgeNotifications cursorPointer">{{notificationsMessagesCount + notificationsOffersCount}}</span>
-                </a>                
+                </a>
               </div>
 
             </div>
