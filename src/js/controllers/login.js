@@ -30,6 +30,14 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
 
         AV.User.logIn($scope.username, $scope.password).then(function (loginedUser) {
             // $window.location.href = '#/project-list';
+
+            var roleQuery = new AV.Query(AV.Role);
+            roleQuery.equalTo('users', loginedUser);
+            roleQuery.find().then(function(results) {
+                console.log(results);
+            });
+
+
             $scope.notificationsCount();
 
             $window.location.href = '#/dashboard';
