@@ -109,7 +109,7 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
 
     $scope.getUser = function () {
         var currentUser = AV.User.current();
-        if (currentUser) {
+        if (currentUser) {            
             return currentUser.getUsername();
         } else {
             return ' ';

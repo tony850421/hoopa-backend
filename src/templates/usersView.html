@@ -21,8 +21,8 @@
                     <h5>{{user.get('updatedDate')}}</h5>
                 </div>
                 <div class="offerContent col-md-1 col-md-offset-2">
-                    <a ng-show="user.get('isAdmin')" ng-click="quitAdmin(user.id)" class="btn btn-default fa fa-users pull-right buttonShow" translate="BDELETE"></a>
-                    <a ng-show="!user.get('isAdmin')" ng-click="makeAdmin(user.id)" class="btn btn-primary fa fa-users pull-right buttonShow" translate="BSHOW"></a>
+                    <a ng-show="user.get('isAdmin')" ng-click="quitAdmin(user.id)" class="btn btn-default fa fa-users pull-right buttonShow" translate="REMOVEADMIN"></a>
+                    <a ng-show="!user.get('isAdmin')" ng-click="makeAdmin(user.id)" class="btn btn-primary fa fa-users pull-right buttonShow" translate="MAKEADMIN"></a>
                 </div>
             </div>
         </div>
