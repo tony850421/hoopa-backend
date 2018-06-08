@@ -1,6 +1,6 @@
-app.controller('OffersCtrl', ['$scope', '$rootScope', '$window', '$timeout', OffersCtrl]);
+app.controller('OffersCtrl', ['$scope','$state', '$rootScope', '$window', '$timeout', 'localStorageService', OffersCtrl]);
 
-function OffersCtrl($scope, $rootScope, $window, $timeout) {
+function OffersCtrl($scope, $state, $rootScope, $window, $timeout, localStorageService) {
 
   $rootScope.activeList = 'offers';
   $scope.loading = false;
@@ -273,5 +273,10 @@ function OffersCtrl($scope, $rootScope, $window, $timeout) {
         $window.location.href = '#/login';
       }
     }
+  };
+
+  $scope.goToProject = function (id) {
+    localStorageService.cookie.set('projectId', id);
+    $state.go('view-project');
   };
 }

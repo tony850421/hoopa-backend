@@ -3,9 +3,9 @@
  * Login and signup Controller
  */
 
-app.controller('ForumCtrl', ['$scope', '$rootScope', '$window', '$timeout', ForumCtrl]);
+app.controller('ForumCtrl', ['$scope', '$state', '$rootScope', '$window', '$timeout', 'localStorageService', ForumCtrl]);
 
-function ForumCtrl($scope, $rootScope, $window, $timeout) {
+function ForumCtrl($scope, $state,  $rootScope, $window, $timeout, localStorageService) {
 
     $scope.forumComments = [];
     $rootScope.activeList = 'forum';
@@ -162,5 +162,10 @@ function ForumCtrl($scope, $rootScope, $window, $timeout) {
                 })
             }
         }
+    };
+
+    $scope.goToProject = function (id) {
+        localStorageService.cookie.set('projectId', id);
+        $state.go('view-project');
     };
 }

@@ -9,11 +9,11 @@
                     <h5>{{offer.userFullName}}</h5>
                     <h5 class="margin-top-0 margin-bottom-0 colorMoney">¥{{offer.amount}}万</h5>
                 </div>
-                <div class="offerContent textEnd col-md-1">
+                <div class="offerContent textEnd col-md-1 cursorPointer" ng-click="goToProject(offer.projectId)">
                     <h5 translate="PUTITLE"></h5>
                     <h5 translate="PUDESC"></h5>
                 </div>
-                <div class="offerContent col-md-5">
+                <div class="offerContent col-md-5 cursorPointer" ng-click="goToProject(offer.projectId)">
                     <h5>{{offer.projectTitle}}</h5>
                     <h5 class="margin-top-0 margin-bottom-0">{{offer.projectDescription}}</h5>
                 </div>
