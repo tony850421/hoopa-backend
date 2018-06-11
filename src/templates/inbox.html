@@ -5,18 +5,18 @@
     </div>
 
     <div ng-if="!loading" ng-hide="inbox.length == 0" class="col-md-3 padding-0 marginTopInbox margin-bottom-0 scrollbarUser" style="overflow-y: scroll; height: {{height-60}}px;">
-        <div ng-repeat="i in inbox" class="messagesInbox" ng-class="{'colorListActive': i.senderId == senderId}">
+        <div ng-repeat="i in inbox" class="messagesInbox cursorPointer" ng-class="{'colorListActive': i.senderId == senderId}">
             <div ng-click="goToConversation(i)" class="col-md-12 padding-0 groupUserRow">
                 <div class="marginAvatar">
                     <img class="imgAvatar" ng-show="i.avatar.length > 0" ng-src="{{i.avatar}}" />
                     <img class="imgAvatar" ng-show="!i.avatar.length > 0" ng-src="img/avatar.jpg" />
                 </div>
-                <div class="groupContentUser">
-                    <h5 ng-show="i.fullName.length > 0" class="margin-top-5 margin-bottom-0">{{i.fullName}}</h5>
-                    <h5 ng-show="!i.fullName.length > 0" class="margin-top-5 margin-bottom-0" translate="UNNAMED"></h5>
-                    <h5 class="margin-top-5">{{i.content}}</h5>
+                <div class="groupContentUser cursorPointer">
+                    <h5 ng-show="i.fullName.length > 0" class="margin-top-5 margin-bottom-0 cursorPointer">{{i.fullName}}</h5>
+                    <h5 ng-show="!i.fullName.length > 0" class="margin-top-5 margin-bottom-0 cursorPointer" translate="UNNAMED"></h5>
+                    <h5 class="margin-top-5 cursorPointer">{{i.content}}</h5>
                 </div>
-                <span ng-if="i.unreadedCount > 0" class="badge">{{i.unreadedCount}}</span>
+                <span ng-if="i.unreadedCount > 0 cursorPointer" class="badge cursorPointer">{{i.unreadedCount}}</span>
             </div>
         </div>
     </div>
