@@ -126,8 +126,10 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
         var user = AV.User.current();
 
         if(user) {
+            var admin = AV.Object.createWithoutData('_User', '5af264c07f6fd3003895d3a2');
+
             var queryInbox = new AV.Query('Message');
-            queryInbox.equalTo('receiver', user);
+            queryInbox.equalTo('receiver', admin);
             queryInbox.equalTo('readedAdmin', false);
             queryInbox.count().then(function (num) {
                 $rootScope.notificationsMessagesCount = parseInt(num);
@@ -162,12 +164,12 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
             })
     
             var querySocketMessage = new AV.Query('Message');
-            querySocketMessage.equalTo('receiver', user);
+            querySocketMessage.equalTo('receiver', admin);
             querySocketMessage.subscribe().then(function (liveQuery) {
                 liveQuery.on('create', function (message) {
 
                     var queryInbox = new AV.Query('Message');
-                    queryInbox.equalTo('receiver', user);
+                    queryInbox.equalTo('receiver', admin);
                     queryInbox.equalTo('readedAdmin', false);
                     queryInbox.count().then(function (num) {
 
