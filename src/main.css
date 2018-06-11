@@ -771,6 +771,8 @@
     margin-left: -15px !important;
     margin-top: 10px !important;
     font-size: 13px !important;
+    height: 14px;
+    width: 10px;
   }
 
   .badgeMessage{

@@ -169,17 +169,17 @@ function InboxCtrl($scope, $rootScope, $state, $window, $timeout, localStorageSe
 
         $scope.inbox.forEach(function(mess){
             if (mess.senderId == $scope.senderId){
-                $rootScope.notificationsMessagesCount -= mess.unreadedCount;
+                // $rootScope.notificationsMessagesCount -= mess.unreadedCount;
                 mess.unreadedCount = 0;
 
-                if ($rootScope.notificationsMessagesCount == 0){
-                    $rootScope.notificationsMessages = false;
-                    if ($rootScope.notificationsMessagesCount + $rootScope.notificationsOffersCount == 0) {
-                        $rootScope.notificationsGeneral = false;
-                    } else {
-                        $rootScope.notificationsGeneral = true;
-                    }
-                }
+                // if ($rootScope.notificationsMessagesCount == 0){
+                //     $rootScope.notificationsMessages = false;
+                //     if ($rootScope.notificationsMessagesCount + $rootScope.notificationsOffersCount == 0) {
+                //         $rootScope.notificationsGeneral = false;
+                //     } else {
+                //         $rootScope.notificationsGeneral = true;
+                //     }
+                // }
             }
         })
 

@@ -191,6 +191,35 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
                     $scope.$apply();
                 })
             })
+
+            var querySocketMessage1 = new AV.Query('Message');
+            querySocketMessage1.equalTo('receiver', admin);
+            querySocketMessage1.subscribe().then(function (liveQuery) {
+                liveQuery.on('update', function (message) {
+
+                    var queryInbox = new AV.Query('Message');
+                    queryInbox.equalTo('receiver', admin);
+                    queryInbox.equalTo('readedAdmin', false);
+                    queryInbox.count().then(function (num) {
+
+                        $rootScope.notificationsMessagesCount = parseInt(num);
+                        if ($rootScope.notificationsMessagesCount > 0) {
+                            $rootScope.notificationsMessages = true;
+                            $rootScope.notificationsGeneral = true;
+                        } else {
+                            $rootScope.notificationsMessages = false;
+                            if ($rootScope.notificationsMessagesCount + $rootScope.notificationsOffersCount == 0) {
+                                $rootScope.notificationsGeneral = false;
+                            } else {
+                                $rootScope.notificationsGeneral = true;
+                            }
+                        }
+                        $scope.$apply();
+                    })
+
+                    $scope.$apply();
+                })
+            })
     
             var querySocketOffers = new AV.Query('Offert');
             querySocketOffers.equalTo('pending', true);
