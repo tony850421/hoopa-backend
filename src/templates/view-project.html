@@ -367,12 +367,12 @@
             <input class="margin-right-10" ng-show="projectTagsEdited" type="checkbox" value="projectShop" ng-model="projectShop">
             <label ng-show="projectShop || projectTagsEdited" class="font-weight-unset marginLeft" translate="SHOP"></label>
         </div>
-        <div class="col-md-12 Gallery padding-15" ng-show="imageList.length > 0">
+        <div class="col-md-12 Gallery padding-15">
             <label class="col-md-12 no-padding font-weight-unset" translate="GALLERY"></label>
             <div ng-repeat="i in imageList">
-                <div class="col-md-3 margin-top-10">
+                <div class="col-md-3 margin-top-10" ng-mouseenter="mouseEnter($index)" ng-mouseleave="mouseLeave($index)">
                     <img hidden class="imgClose" id="img{{$index}}" ng-click="deleteImage($index)" ng-src="./img/close.png" />
-                    <img ng-mouseenter="mouseEnter($index)" ng-mouseleave="mouseLeave($index)" id="imageGallery{{$index}}" ng-click="OpenImage($index)"
+                    <img id="imageGallery{{$index}}" ng-click="OpenImage($index)"
                         ng-src="{{i.get('imageUrl')}}" class="imageGallery" />
                 </div>
             </div>
