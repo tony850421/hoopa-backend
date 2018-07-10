@@ -1,4 +1,3 @@
-
 /**
  * Login and signup Controller
  */
@@ -18,6 +17,7 @@ function NewsCtrl($scope, $state, $rootScope, $window, $timeout, localStorageSer
 
         var queryNews = new AV.Query('News');
         queryNews.limit(10);
+        queryNews.descending('createdAt');
         queryNews.find().then(function (res) {
             $scope.news = [];
             res.forEach(function (element) {
@@ -51,12 +51,13 @@ function NewsCtrl($scope, $state, $rootScope, $window, $timeout, localStorageSer
     $scope.next = function () {
         var currentUser = AV.User.current();
         if (currentUser) {
-            
+
             $scope.loading = true;
 
             $scope.skip += 10;
             var queryNews = new AV.Query('News');
             queryNews.limit(10);
+            queryNews.descending('createdAt');
             queryNews.skip($scope.skip);
             queryNews.find().then(function (res) {
                 $scope.news = [];
@@ -97,6 +98,7 @@ function NewsCtrl($scope, $state, $rootScope, $window, $timeout, localStorageSer
                 $scope.skip -= 10;
                 var queryNews = new AV.Query('News');
                 queryNews.limit(10);
+                queryNews.descending('createdAt');
                 queryNews.skip($scope.skip);
                 queryNews.find().then(function (res) {
                     $scope.news = [];
