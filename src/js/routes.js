@@ -75,6 +75,10 @@ app.config(['$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider
                 url: '/newsView',
                 templateUrl: 'templates/newsView.html'
             })
+            .state('slider', {
+                url: '/slider',
+                templateUrl: 'templates/sliderConfig.html'
+            })
             .state('usersView', {
                 url: '/usersView',
                 templateUrl: 'templates/usersView.html'

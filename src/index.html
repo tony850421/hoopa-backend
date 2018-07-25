@@ -102,6 +102,12 @@
             {{'FORUM' | translate}}
           </a>
         </li>
+        <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'slider'}">
+          <a href="#slider" ng-click="changeActiveList('slider')">
+            <span class="menu-icon fa fa-cogs"></span>
+            {{'SLIDER' | translate}}
+          </a>
+        </li>
         <li ng-show="getUser() == 'admin'" class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'users'}">
           <a href="#usersView" ng-click="changeActiveList('users')">
             <span class="menu-icon fa fa-users"></span>
