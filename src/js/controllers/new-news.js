@@ -14,6 +14,7 @@ function NewNewsCtrl($scope, $state, $rootScope, $window, $timeout) {
     $scope.newsContent = '';
     $scope.caption = '';
     $scope.content = '';
+    $scope.isIndustry = false;
 
     $scope.fileModal = '';
 
@@ -86,6 +87,11 @@ function NewNewsCtrl($scope, $state, $rootScope, $window, $timeout) {
 
                 $scope.news.set('content', $scope.newsContent);
 
+                if($scope.isIndustry) {
+                    $scope.news.set('type', '1');
+                } else {
+                    $scope.news.set('type', '0');
+                }
 
                 $scope.news.save().then(function (news) {
                     $scope.recursiveMediaSave($scope.newsMedias, 0);

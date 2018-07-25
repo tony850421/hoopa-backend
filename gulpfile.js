@@ -17,6 +17,7 @@ var paths = {
     templates: 'src/templates/**/*.html',
     index: 'src/index.html',
     bower_fonts: 'src/components/**/*.{ttf,woff,eof,svg}',
+    custom_fonts: 'src/fonts/**/*.{ttf,woff,eof,svg}',
 };
 
 /**
@@ -34,10 +35,18 @@ gulp.task('usemin', function() {
 /**
  * Copy assets
  */
-gulp.task('build-assets', ['copy-bower_fonts']);
+gulp.task('build-assets', ['copy-bower_fonts', 'copy-custom_fonts']);
 
 gulp.task('copy-bower_fonts', function() {
     return gulp.src(paths.bower_fonts)
+        .pipe(rename({
+            dirname: '/fonts'
+        }))
+        .pipe(gulp.dest('dist/lib'));
+});
+
+gulp.task('copy-custom_fonts', function() {
+    return gulp.src(paths.custom_fonts)
         .pipe(rename({
             dirname: '/fonts'
         }))

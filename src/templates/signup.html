@@ -14,7 +14,14 @@
   </div>
 
   <div class="registerBox">
-    <form class="form-signup">
+
+      <div class="row alerts-container" data-ng-show="alertsLogin.length">
+          <div class="col-xs-12">
+              <uib-alert data-ng-repeat="alert in alertsLogin" type="{{alert.type}}" close="closeAlertLogin($index)">{{alert.msg}}</uib-alert>
+          </div>
+      </div>
+
+    <form class="form-signup" ng-show="!registered">
         <h2 class="form-signup-heading margin-top-0" translate="SIGNUP">登记</h2>
         <label for="inputUsername" translate="USERNAME">用户</label>
         <input ng-model="username" type="username" id="inputUsername" class="form-control" required autofocus>

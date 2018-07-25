@@ -20,12 +20,37 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
     $rootScope.notificationsGeneral = false;
 
     $scope.alertsLogin = [];
+    $scope.registered = false;
 
     $scope.closeAlertLogin = function(index) {
         $scope.alertsLogin.splice(index, 1);
     };
 
     $scope.login = function () {
+
+        // AV.User.loginWithAuthData({
+        //     openid: 'oRW061NUAnB26YfdJUsD8yJBGHTE',
+        //     access_token: '10_bfas9qeJP6QVdON8_wcdSjWrLZac5j3n5R-jBlVV7V_eiGy5TWT4vRvDRTgHNA_oFnoWF7nlmwTnpDw0y-qmug',
+        //     expires_in: 1382686496
+        //   }, 'weixin').then(function(user) {
+        //     console.log(user);
+        //   }).catch(function(error) {
+        //     console.error("error: ", error);
+        //   });
+
+        //   AV.User.loginWithAuthDataAndUnionId({
+        //     openid: 'oRW061NUAnB26YfdJUsD8yJBGHTE',
+        //     access_token: '10_bfas9qeJP6QVdON8_wcdSjWrLZac5j3n5R-jBlVV7V_eiGy5TWT4vRvDRTgHNA_oFnoWF7nlmwTnpDw0y-qmug',
+        //     expires_in: 1382686496
+        //   }, 'weixin', 'olpwM1LonD1SaJUVtfKbic56lbA8', {
+        //     unionIdPlatform: 'weixin',
+        //     asMainAccount: true,
+        //   }).then(function(user) {
+        //     console.log(user);
+        //   }).catch(function(error) {
+        //     console.error("error: ", error);
+        //   });
+
         $scope.alertsLogin = [];
         var alert = "Login error";
 
@@ -95,7 +120,14 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
                 console.log(error);
             });
 
-            $window.location.href = '#/project-list';
+            var alert = $translate.instant('ALERTREGISTER');
+            $scope.alertsLogin.push({type: 'success', msg: alert});
+
+            $scope.registered = true;
+            AV.User.logOut();
+            $scope.$apply();
+
+            // $window.location.href = '#/project-list';
 
         }, function (error) {
             alert(JSON.stringify(error));

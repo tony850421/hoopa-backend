@@ -9,14 +9,23 @@
           </div>
           <div class="titleBox form-group">
             <label translate="PFILE"></label>
-            <input onchange="angular.element(this).scope().changeValueMainImage()" class="form-controlInput backgroundGray"
-              type="file" id="newsFile">
+            <input onchange="angular.element(this).scope().changeValueMainImage()" class="form-controlInput backgroundGray" type="file"
+              id="newsFile">
           </div>
         </div>
         <div class="titleBox form-group col-md-6">
           <img class="imageMainNews" id="mainImage">
         </div>
       </div>
+      <div class="form-group col-md-2">
+        <div class="form-check">
+          <input class="form-check-input backgroundGray" type="checkbox" id="isIndustry" ng-model="isIndustry">
+          <label class="form-check-label" for="isIndustry" translate="ISINDUSTRY">
+            Is Industry
+          </label>
+        </div>
+      </div>
+
       <div class="col-md-12 padding-0">
         <textarea class="textAreaMediaList form-control no-resize backgroundGray" ng-model="newsContent"></textarea>
       </div>
