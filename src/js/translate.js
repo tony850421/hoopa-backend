@@ -264,7 +264,7 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "USERS": "用户",
         "ALERTREGISTER": "成功注册用户, 请等待管理员批准",
         "ISINDUSTRY": "行业资讯",
-        "SHOWMANAGERPHONE": "Show Manager Phone"
+        "SHOWMANAGERPHONE": "显示经理电话"
     });
     $translateProvider.preferredLanguage('en_US');
 }]);
