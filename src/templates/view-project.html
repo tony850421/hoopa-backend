@@ -118,6 +118,11 @@
         <div class="ManagerData col-md-12" ng-show="project.get('projectManager').get('name') != ''">
             <div class="col-md-12">
                 <label class="font-weight-unset" translate="MANAGERINFO"></label>
+                <label class="bs-switch pull-right margin-left-5 margin-top--8">
+                    <input ng-model="showManagerPhone" type="checkbox" ng-change="showManagerPhoneFunction()">
+                    <span class="slider round"></span>
+                </label>
+                <label class="pull-right" translate="SHOWMANAGERPHONE"></label>
             </div>
             <div class="col-md-6 titleProjectStyle">
                 <label class="font-weight-unset margin-right-10" translate="PUMANAGERNAME"></label>
@@ -372,8 +377,7 @@
             <div ng-repeat="i in imageList">
                 <div class="col-md-3 margin-top-10" ng-mouseenter="mouseEnter($index)" ng-mouseleave="mouseLeave($index)">
                     <img hidden class="imgClose" id="img{{$index}}" ng-click="deleteImage($index)" ng-src="./img/close.png" />
-                    <img id="imageGallery{{$index}}" ng-click="OpenImage($index)"
-                        ng-src="{{i.get('imageUrl')}}" class="imageGallery" />
+                    <img id="imageGallery{{$index}}" ng-click="OpenImage($index)" ng-src="{{i.get('imageUrl')}}" class="imageGallery" />
                 </div>
             </div>
             <div class="col-md-12 no-padding margin-top-10">

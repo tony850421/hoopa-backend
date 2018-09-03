@@ -25,6 +25,7 @@
     "angular-local-storage": "^0.7.1",
     "chart.js": "^2.7.2",
     "gulp-cli": "^2.0.1",
+    "mdbootstrap": "^4.5.9",
     "print-js": "^1.0.47"
   }
 }

@@ -70,6 +70,7 @@ function ViewProjectCtrl($scope, $state, $rootScope, $window, $translate, localS
     $scope.projectFactory = false;
     $scope.projectDebt = false;
     $scope.projectShop = false;
+    $scope.showManagerPhone = true;
 
     $scope.init = function () {
         var id = localStorageService.cookie.get('projectId');
@@ -99,7 +100,7 @@ function ViewProjectCtrl($scope, $state, $rootScope, $window, $translate, localS
             $scope.projectFactory = p.get('isFactory');
             $scope.projectDebt = p.get('isDebt');
             $scope.projectShop = p.get('isShop');
-            
+
             var query1 = new AV.Query("Sponsorship")
             query1.equalTo('project', p)
             query1.find().then(function (sponsors) {
@@ -139,21 +140,21 @@ function ViewProjectCtrl($scope, $state, $rootScope, $window, $translate, localS
 
             var query5 = new AV.Query("ProjectVisit")
             query5.equalTo('project', p)
-            query5.count().then(function (count) {                
+            query5.count().then(function (count) {
                 $scope.countVisit = count;
                 $scope.$apply();
             })
 
             var query6 = new AV.Query("ShopCar")
             query6.equalTo('project', p)
-            query6.count().then(function (count) {                
+            query6.count().then(function (count) {
                 $scope.countShopCar = count;
                 $scope.$apply();
             })
 
             var query7 = new AV.Query("Offert")
             query7.equalTo('project', p)
-            query7.count().then(function (count) {                
+            query7.count().then(function (count) {
                 $scope.countOffers = count;
                 $scope.$apply();
             })
@@ -526,8 +527,8 @@ function ViewProjectCtrl($scope, $state, $rootScope, $window, $translate, localS
     $scope.isTitle = false;
 
     $scope.addAsset = function () {
-        if ($scope.assetTitle != '' && $scope.assetTypeArrival != '' && $scope.assetPlainAddress != ''
-            && $scope.assetStringLocation != '' && $scope.assetProvince != '') {
+        if ($scope.assetTitle != '' && $scope.assetTypeArrival != '' && $scope.assetPlainAddress != '' &&
+            $scope.assetStringLocation != '' && $scope.assetProvince != '') {
 
             if (!isNaN($scope.assetConstructionArea)) {
                 if (!isNaN($scope.assetLandArea)) {
@@ -693,5 +694,12 @@ function ViewProjectCtrl($scope, $state, $rootScope, $window, $translate, localS
 
             $scope.$apply();
         }
+    };
+
+    $scope.showManagerPhoneFunction = function () {
+        var id = localStorageService.cookie.get('projectId');
+        var project = AV.Object.createWithoutData('Project', id);
+        project.set('showManagerPhone', $scope.showManagerPhone);
+        project.save();
     };
 }

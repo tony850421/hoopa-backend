@@ -132,7 +132,8 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "REMOVEADMIN": "Remove",
         "USERS": "User",
         "ALERTREGISTER": "Successful registered user, please wait for admin approval",
-        "ISINDUSTRY": "Industry News"
+        "ISINDUSTRY": "Industry News",
+        "SHOWMANAGERPHONE": "Show Manager Phone"
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -262,7 +263,8 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "REMOVEADMIN": "删除",
         "USERS": "用户",
         "ALERTREGISTER": "成功注册用户, 请等待管理员批准",
-        "ISINDUSTRY": "行业资讯"
+        "ISINDUSTRY": "行业资讯",
+        "SHOWMANAGERPHONE": "Show Manager Phone"
     });
     $translateProvider.preferredLanguage('en_US');
 }]);

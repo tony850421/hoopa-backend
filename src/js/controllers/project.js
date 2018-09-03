@@ -85,7 +85,6 @@ function ProjectCtrl($scope, $rootScope, $window, $translate) {
     $scope.files = [];
 
     $scope.initProject = function() {
-        console.log('initProject');
         var Project = AV.Object.extend('Project');
         $scope.project = new Project();
     };

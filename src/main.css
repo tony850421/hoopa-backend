@@ -1122,3 +1122,19 @@
     flex-direction: row;
     align-items: center;
   }
+
+  .margin-left-5{
+    margin-left: 5px !important;
+  }
+
+  .margin-left-10{
+    margin-left: 10px !important;
+  }
+
+  .margin-top--10{
+    margin-top: -10px !important;
+  }
+
+  .margin-top--8{
+    margin-top: -8px !important;
+  }
