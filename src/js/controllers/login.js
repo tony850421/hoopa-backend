@@ -257,7 +257,7 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
             querySocketOffers.equalTo('pending', true);
             querySocketOffers.subscribe().then(function (liveQuery) {
                 liveQuery.on('create', function (offer) {    
-                    console.log('querySocketOffers');      
+                    console.log('querySocketOffers');
                     var query = new AV.Query('Offert');
                     query.equalTo('pending', true);
                     query.count().then(function (num) {

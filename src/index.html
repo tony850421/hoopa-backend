@@ -118,6 +118,12 @@
             {{'USERS' | translate}}
           </a>
         </li>
+        <li class="sidebar-list" ng-if="getUser() != ' '" ng-show="getUser() == 'admin'" ng-class="{'colorListActive': activeList == 'adv'}">
+          <a href="#advView" ng-click="changeActiveList('adv')">
+            <span class="menu-icon fa fa-users"></span>
+            {{'ADVINFO' | translate}}
+          </a>
+        </li>
       </ul>
       <div class="sidebar-footer">
 
@@ -182,10 +188,10 @@
                 </ul>
               </div>
 
-              <div class="item dropdown cursorPointer" uib-dropdown>
+              <div class="item dropdown cursorPointer" uib-dropdown ng-if="getUser() != ' '">
                 <a ng-click="goToNotifications()" class="dropdown-toggle" uib-dropdown-toggle>
                   <i class="fa fa-bell-o iconClasBar cursorPointer"></i>
-                  <span ng-show="notificationsGeneral" class="badge badgeNotifications cursorPointer"> </span>
+                  <span ng-show="notificationsGeneral" class="badge badgeNotifications cursorPointer">{{notificationsOffersCount}}</span>
                 </a>
               </div>
 

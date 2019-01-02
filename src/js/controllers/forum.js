@@ -40,7 +40,7 @@ function ForumCtrl($scope, $state,  $rootScope, $window, $timeout, localStorageS
 
                     var productImageUrl;
                     if (productImage) {
-                        productImageUrl = productImage.thumbnailURL(60, 60);
+                        productImageUrl = productImage.thumbnailURL(240, 240);
                     } else {
                         productImageUrl = 'img/LogoHoopa.png';
                     }
@@ -66,7 +66,7 @@ function ForumCtrl($scope, $state,  $rootScope, $window, $timeout, localStorageS
 
                 $scope.loading = false;
                 $scope.$apply();
-                alert(JSON.stringify(error));
+                // alert(JSON.stringify(error));
             });
         }
     };
@@ -78,7 +78,7 @@ function ForumCtrl($scope, $state,  $rootScope, $window, $timeout, localStorageS
         comment.destroy().then(function (comment) {
             $scope.init();
         }).catch(function (error) {
-            alert(JSON.stringify(error));
+            // alert(JSON.stringify(error));
         });
     };
 
@@ -135,7 +135,7 @@ function ForumCtrl($scope, $state,  $rootScope, $window, $timeout, localStorageS
 
                 $scope.loading = false;
                 $scope.$apply();
-                alert(JSON.stringify(error));
+                // alert(JSON.stringify(error));
             });
         }
     };
@@ -194,7 +194,7 @@ function ForumCtrl($scope, $state,  $rootScope, $window, $timeout, localStorageS
 
                 $scope.loading = false;
                 $scope.$apply();
-                alert(JSON.stringify(error));
+                // alert(JSON.stringify(error));
             });
             }
         }

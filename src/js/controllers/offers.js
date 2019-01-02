@@ -34,7 +34,7 @@ function OffersCtrl($scope, $state, $rootScope, $window, $timeout, localStorageS
       query.include('user');
       query.include('project');
       query.descending('createdAt');
-      query.limit(10);
+      query.limit(7);
       query.find().then(function (offers) {
         $scope.offers = [];
         offers.forEach(function (offer) {
@@ -85,7 +85,7 @@ function OffersCtrl($scope, $state, $rootScope, $window, $timeout, localStorageS
       }).catch(function (error) {
         $scope.loading = false;
         $scope.$apply();
-        alert(JSON.stringify(error));
+        // alert(JSON.stringify(error));
       });
 
     } else {
@@ -131,12 +131,12 @@ function OffersCtrl($scope, $state, $rootScope, $window, $timeout, localStorageS
 
           }, function (error) {
             // $scope.loading = false;
-            alert(JSON.stringify(error));
+            // alert(JSON.stringify(error));
           });
 
         }, function (error) {
           // $scope.loading = false;
-          alert(JSON.stringify(error));
+          // alert(JSON.stringify(error));
         });
 
       }
@@ -147,12 +147,12 @@ function OffersCtrl($scope, $state, $rootScope, $window, $timeout, localStorageS
     var currentUser = AV.User.current();
     if (currentUser) {
       $scope.loading = true;
-      $scope.skip += 10;
+      $scope.skip += 7;
       var query = new AV.Query('Offert');
       query.include('user');
       query.include('project');
       query.descending('createdAt');
-      query.limit(10);
+      query.limit(7);
       query.skip($scope.skip);
       query.find().then(function (offers) {
         $scope.offers = [];
@@ -204,7 +204,7 @@ function OffersCtrl($scope, $state, $rootScope, $window, $timeout, localStorageS
       }).catch(function (error) {
         $scope.loading = false;
         $scope.$apply();
-        alert(JSON.stringify(error));
+        // alert(JSON.stringify(error));
       });
 
     } else {
@@ -213,16 +213,16 @@ function OffersCtrl($scope, $state, $rootScope, $window, $timeout, localStorageS
   };
 
   $scope.previous = function () {
-    if ($scope.skip >= 10) {
+    if ($scope.skip >= 7) {
       var currentUser = AV.User.current();
       if (currentUser) {
         $scope.loading = true;
-        $scope.skip -= 10;
+        $scope.skip -= 7;
         var query = new AV.Query('Offert');
         query.include('user');
         query.include('project');
         query.descending('createdAt');
-        query.limit(10);
+        query.limit(7);
         query.skip($scope.skip);
         query.find().then(function (offers) {
           $scope.offers = [];
@@ -274,7 +274,7 @@ function OffersCtrl($scope, $state, $rootScope, $window, $timeout, localStorageS
         }).catch(function (error) {
           $scope.loading = false;
           $scope.$apply();
-          alert(JSON.stringify(error));
+          // alert(JSON.stringify(error));
         });
 
       } else {

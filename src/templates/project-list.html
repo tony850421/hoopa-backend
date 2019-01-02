@@ -7,14 +7,16 @@
   <ul class="media-list custom-media-list" ng-repeat="project in products" ng-hide="products.length == 0" ng-if="!loading">
     <li class="media">
       <div class="media-left">
-        <a>
+        <a ng-click="goToProject(project.id)">
           <img class="media-object notification-image" ng-src="{{project.imageUrl}}">
         </a>
       </div>
       <div class="media-body">
         <div class="row">
           <div class="col-md-9">
-            <h4 class="media-heading"> {{project.title}}</h4>
+            <a>
+              <h4 ng-click="goToProject(project.id)" class="media-heading"> {{project.title}}</h4>
+            </a>
             <h5>{{project.description}}</h5>
           </div>
           <div class="col-md-2">

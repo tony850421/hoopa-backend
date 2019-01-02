@@ -21,7 +21,7 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "CNAME": "Company name",
         "DAMOUNT": "Debt amount",
         "DUAMOUNT": "Debt amount: ",
-        "DPRINCIPALI": "Principal and interest of the debt",        
+        "DPRINCIPALI": "Principal and interest of the debt",
         "DUPRINCIPALI": "Principal and interest of the debt: ",
         "ADDRESS": "Address",
         "PUADDRESS": "Address: ",
@@ -133,7 +133,9 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "USERS": "User",
         "ALERTREGISTER": "Successful registered user, please wait for admin approval",
         "ISINDUSTRY": "Industry News",
-        "SHOWMANAGERPHONE": "Show Manager Phone"
+        "SHOWMANAGERPHONE": "Show Manager Phone",
+        "ADVINFO": "Adv Information",
+        "SHOWADV": "Show Adv"
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -264,7 +266,9 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "USERS": "用户",
         "ALERTREGISTER": "成功注册用户, 请等待管理员批准",
         "ISINDUSTRY": "行业资讯",
-        "SHOWMANAGERPHONE": "显示经理电话"
+        "SHOWMANAGERPHONE": "显示经理电话",
+        "ADVINFO": "Adv Information",
+        "SHOWADV": "Show Adv"
     });
     $translateProvider.preferredLanguage('en_US');
 }]);

@@ -23,7 +23,7 @@
                     <h5>{{offer.projectTitle}}</h5>
                     <h5 class="margin-top-0 margin-bottom-0">{{offer.projectDescription}}</h5>
                 </div>
-                <span class="fa fa-clock-o col-md-1"> {{offer.date}}</span>
+                <span class="fa fa-clock-o col-md-1 offerDate"> {{offer.date}}</span>
                 <div class="offerContent col-md-1">
                     <h5 class="cursorPointer" ng-show="offer.pending">
                         <span tooltip="Server Down!" class="text-danger">
@@ -53,14 +53,14 @@
             </div>
         </div>
     </div>
-    <div class="paginationBox" ng-hide="offers.length < 10 && skip == 0">
+    <div class="paginationBox" ng-hide="offers.length < 7 && skip == 0">
         <nav aria-label="Page navigation">
             <div class="col-md-12">
                 <div class="col-md-5 padding-15">
-                    <a ng-hide="skip < 10" class="btn btn-default pull-right" translate="PREVIOUS" ng-click="previous()"></a>
+                    <a ng-hide="skip < 7" class="btn btn-default pull-right" translate="PREVIOUS" ng-click="previous()"></a>
                 </div>
                 <div class="col-md-5 col-md-offset-2 padding-15">
-                    <a ng-hide="offers.length < 10" class="btn btn-default" translate="NEXT" ng-click="next()"></a>
+                    <a ng-hide="offers.length < 7" class="btn btn-default" translate="NEXT" ng-click="next()"></a>
                 </div>
             </div>
         </nav>
