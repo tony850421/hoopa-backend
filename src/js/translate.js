@@ -135,14 +135,15 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "ISINDUSTRY": "Industry News",
         "SHOWMANAGERPHONE": "Show Manager Phone",
         "ADVINFO": "Adv Information",
-        "SHOWADV": "Show Adv"
+        "SHOWADV": "Show Advertisement",
+        "SLIDER": "Choose Sliders"
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
         "TITLE": "标题",
         "PUTITLE": "标题: ",
-        "HEADER": "Header",
-        "SUBHEADER": "Subheader",
+        "HEADER": "头",
+        "SUBHEADER": "子标头",
         "NAV": "导航",
         "NEWPRODUCT": "发布一个新商品",
         "BASICINFO": "基本信息",
@@ -267,8 +268,9 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "ALERTREGISTER": "成功注册用户, 请等待管理员批准",
         "ISINDUSTRY": "行业资讯",
         "SHOWMANAGERPHONE": "显示经理电话",
-        "ADVINFO": "Adv Information",
-        "SHOWADV": "Show Adv"
+        "ADVINFO": "广告信息",
+        "SHOWADV": "展会广告",
+        "SLIDER": "选择滑块"
     });
     $translateProvider.preferredLanguage('en_US');
 }]);

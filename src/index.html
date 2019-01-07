@@ -118,7 +118,8 @@
             {{'USERS' | translate}}
           </a>
         </li>
-        <li class="sidebar-list" ng-if="getUser() != ' '" ng-show="getUser() == 'admin'" ng-class="{'colorListActive': activeList == 'adv'}">
+        <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'adv'}">
+        <!-- <li class="sidebar-list" ng-if="getUser() != ' '" ng-show="getUser() == 'admin'" ng-class="{'colorListActive': activeList == 'adv'}"> -->
           <a href="#advView" ng-click="changeActiveList('adv')">
             <span class="menu-icon fa fa-users"></span>
             {{'ADVINFO' | translate}}
