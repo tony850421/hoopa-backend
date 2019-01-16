@@ -85,6 +85,12 @@ app.config(['$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider
             }).state('advView', {
                 url: '/advView',
                 templateUrl: 'templates/advView.html'
+            }).state('coreTeamView', {
+                url: '/coreTeam',
+                templateUrl: 'templates/coreTeam.html'
+            }).state('hoopaBranchesView', {
+                url: '/hoopaBranches',
+                templateUrl: 'templates/hoopaBranches.html'
             });
     }
 ]);

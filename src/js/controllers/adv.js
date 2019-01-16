@@ -8,7 +8,7 @@ function AdvCtrl($scope, $rootScope) {
 
     $scope.init = function () {
         var query = new AV.Query('PublishImage');
-        query.get('5c32cba30b61600067a9d52e').then(function (data) {
+        query.get('5c32cb9644d904005d324af6').then(function (data) {
             $scope.showAdv = data.get('Publish'); // show or not adv
             $scope.$apply();
         }, function (error) {
@@ -18,7 +18,7 @@ function AdvCtrl($scope, $rootScope) {
 
     $scope.init();
 
-    $scope.showAdvFunction = function () {
+    $scope.showAdvFunction = function () {    
         var publish = AV.Object.createWithoutData('PublishImage', '5c32cb9644d904005d324af6');
         publish.set('Publish', $scope.showAdv);
         publish.save();

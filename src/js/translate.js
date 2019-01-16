@@ -136,7 +136,17 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "SHOWMANAGERPHONE": "Show Manager Phone",
         "ADVINFO": "Adv Information",
         "SHOWADV": "Show Advertisement",
-        "SLIDER": "Choose Sliders"
+        "SLIDER": "Choose Sliders",
+        "BNAME": "Branch's Name",
+        "BADDRESS": "Branch's Address",
+        "BPHONE": "Branch's Phone",
+        "BCOORDENATES": "Branch's Coordinates",
+        "ADDBRANCHE": "Add Branch",
+        "CCHARGE": "Core Team Member Charge",
+        "CNAME": " Core Team Member Name",
+        "CPICTURE": "Core Team Member Picture",
+        "CDESCRIPTION": "Core Team Member Description",
+        "ADDTEAMMEMBER": "Add Core Team Member"
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -270,7 +280,17 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "SHOWMANAGERPHONE": "显示经理电话",
         "ADVINFO": "广告信息",
         "SHOWADV": "展会广告",
-        "SLIDER": "选择滑块"
+        "SLIDER": "选择滑块",
+        "BNAME": "分公司名称",
+        "BADDRESS": "分公司地址",
+        "BPHONE": "分公司的电话",
+        "BCOORDENATES": "分支的坐标",
+        "ADDBRANCHE": "添加分支",
+        "CCHARGE": "核心团队成员收费",
+        "CNAME": "核心团队成员姓名",
+        "CPICTURE": "核心团队成员图片",
+        "CDESCRIPTION": "核心团队成员说明",
+        "ADDTEAMMEMBER": "添加核心团队成员"
     });
     $translateProvider.preferredLanguage('en_US');
 }]);

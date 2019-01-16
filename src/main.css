@@ -159,6 +159,10 @@
   margin-right: 10px;
 }
 
+.marginLeftNone {
+  margin-right: 0 !important;
+}
+
 .lineHeight {
   line-height: normal !important;
 }
@@ -1205,4 +1209,21 @@ tr {
 .buttonDeleteForum{
   padding-left: 5px !important;
   padding-right: 5px !important;
+}
+
+.buttonAddBranche{
+  float: right;
+}
+
+.BranchesView{
+  background-color: #fff;
+  padding-top: 15px;
+  margin: 2% 3%;
+  border: 1px solid #d6dadb;
+  border-radius: 5px;
+  width: 94%;
+}
+
+.textAreaCoreTeam{
+  height: 100px !important;
 }

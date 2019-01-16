@@ -1,0 +1,34 @@
+<div class="row" ng-controller="CoreTeamCtrl">
+    <form class="BranchesView col-md-12">
+        <div class="form-row col-md-12">
+            <div class="form-group col-md-6 padding-left-0">
+                <div class="form-group col-md-9 padding-left-0">
+                    <label for="coreTeamCharge" translate="CCHARGE"></label>
+                    <input ng-model="coreTeamCharge" type="title" id="coreTeamCharge" class="form-control backgroundGray"
+                        required autofocus>
+                </div>
+                <div class="form-group col-md-5 padding-left-0">
+                    <label for="coreTeamName" translate="CNAME"></label>
+                    <input ng-model="coreTeamName" type="title" id="coreTeamName" class="form-control backgroundGray"
+                        required autofocus>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <img class="imageMainTeam" id="mainTeamImage">
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="coreTeamPicture" translate="CPICTURE"></label>
+            <input onchange="" class="form-controlInput backgroundGray" type="file" id="coreTeamPicture">
+        </div>
+        <div class="form-group col-md-12">
+            <label for="coreTeamDescription" translate="CDESCRIPTION"></label>
+            <textarea ng-model="coreTeamDescription" type="title" id="coreTeamDescription" class="textAreaCoreTeam form-control backgroundGray"
+                required autofocus>
+            </div>
+            <div class="form-group col-md-12">
+                <button class="btn btn-lg btn-primary colorBlue buttonAddBranche" translate="ADDTEAMMEMBER"></button>
+            </div>
+        </div>
+    </form>
+</div>
