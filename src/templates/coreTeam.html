@@ -1,5 +1,10 @@
 <div class="row" ng-controller="CoreTeamCtrl">
     <form class="BranchesView col-md-12">
+        <!-- <div class="form-row col-md-12">
+            <div class="teamMemberItem" ng-repeat="member in arrayMembers">
+                <img src="">
+            </div>
+        </div> -->
         <div class="form-row col-md-12">
             <div class="form-group col-md-6 padding-left-0">
                 <div class="form-group col-md-9 padding-left-0">
@@ -19,7 +24,8 @@
         </div>
         <div class="form-group col-md-12">
             <label for="coreTeamPicture" translate="CPICTURE"></label>
-            <input onchange="" class="form-controlInput backgroundGray" type="file" id="coreTeamPicture">
+            <input onchange="angular.element(this).scope().changeValueMainImage()" class="form-controlInput backgroundGray"
+                type="file" id="coreTeamPicture">
         </div>
         <div class="form-group col-md-12">
             <label for="coreTeamDescription" translate="CDESCRIPTION"></label>
@@ -27,7 +33,7 @@
                 required autofocus>
             </div>
             <div class="form-group col-md-12">
-                <button class="btn btn-lg btn-primary colorBlue buttonAddBranche" translate="ADDTEAMMEMBER"></button>
+                <button class="btn btn-lg btn-primary colorBlue buttonAddBranche" translate="ADDTEAMMEMBER" ng-click="addmember()"></button>
             </div>
         </div>
     </form>

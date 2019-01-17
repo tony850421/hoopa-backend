@@ -89,7 +89,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider
                 url: '/coreTeam',
                 templateUrl: 'templates/coreTeam.html'
             }).state('hoopaBranchesView', {
-                url: '/hoopaBranches',
+                url: '/hoopaBranchs',
                 templateUrl: 'templates/hoopaBranches.html'
             });
     }

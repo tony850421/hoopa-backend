@@ -707,6 +707,12 @@ ul.sidebar .sidebar-list a:hover {
   object-fit: cover;
 }
 
+.imageMainTeam {
+  width: 130px;
+  float: right;
+  border: 1px #cccccc solid;
+}
+
 .newsImage {
   width: 100px;
   object-fit: cover;
