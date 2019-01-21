@@ -1,11 +1,25 @@
 <div class="row" ng-controller="CoreTeamCtrl">
-    <form class="BranchesView col-md-12">
-        <!-- <div class="form-row col-md-12">
-            <div class="teamMemberItem" ng-repeat="member in arrayMembers">
-                <img src="">
+    <form class="BranchesView col-md-12" ng-show="arrayMembers.length > 0">
+        <div class="form-row col-md-12 noPadding">
+            <div ng-repeat="member in arrayMembers">
+                <div class="col-md-12 teamMemberItem">
+                    <div class="col-md-2">
+                        <img src="{{member.mainImage}}">
+                    </div>
+                    <div class="col-md-8">
+                        <h4>{{member.charge}}</h4>
+                        <h5>{{member.name}}</h5>
+                        <h5>{{member.description}}</h5>
+                    </div>
+                    <div class="col-md-2">
+                        <a class="btn btn-secundary fa fa-times pull-right buttonDelete" ng-click="deleteMember(member.id)" translate="BDELETE"></a>
+                    </div>
+                </div>
             </div>
-        </div> -->
-        <div class="form-row col-md-12">
+        </div>
+    </form>
+    <form class="BranchesView col-md-12">
+        <div class="form-row col-md-12 marginTop20">
             <div class="form-group col-md-6 padding-left-0">
                 <div class="form-group col-md-9 padding-left-0">
                     <label for="coreTeamCharge" translate="CCHARGE"></label>
@@ -19,7 +33,7 @@
                 </div>
             </div>
             <div class="form-group col-md-6">
-                <img class="imageMainTeam" id="mainTeamImage">
+                <img class="imageMainTeam" id="mainTeamImage" src="../img/user.png">
             </div>
         </div>
         <div class="form-group col-md-12">

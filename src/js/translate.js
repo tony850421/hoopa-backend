@@ -140,13 +140,20 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "BNAME": "Branch's Name",
         "BADDRESS": "Branch's Address",
         "BPHONE": "Branch's Phone",
-        "BCOORDENATES": "Branch's Coordinates",
+        "BCOORDENATES": "Branch's Coordenates (123.1212,213.1232)",
         "ADDBRANCHE": "Add Branch",
         "CCHARGE": "Core Team Member Charge",
         "CNAME": " Core Team Member Name",
         "CPICTURE": "Core Team Member Picture",
         "CDESCRIPTION": "Core Team Member Description",
-        "ADDTEAMMEMBER": "Add Core Team Member"
+        "ADDTEAMMEMBER": "Add Team Member",
+        "CORETEAM": "Core Team",
+        "BRANCHS": "Branchs",
+        "HBNAME": "Name:",
+        "HBADDRESS": "Address:",
+        "HBPHONE": "Phone:",
+        "HBLATITUDE": "Latitude:",
+        "HBLONGITUDE": "Longitude:"
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -284,13 +291,20 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "BNAME": "分公司名称",
         "BADDRESS": "分公司地址",
         "BPHONE": "分公司的电话",
-        "BCOORDENATES": "分支的坐标",
+        "BCOORDENATES": "分支的坐标  (123.1212,213.1232)",
         "ADDBRANCHE": "添加分支",
         "CCHARGE": "核心团队成员收费",
         "CNAME": "核心团队成员姓名",
         "CPICTURE": "核心团队成员图片",
         "CDESCRIPTION": "核心团队成员说明",
-        "ADDTEAMMEMBER": "添加核心团队成员"
+        "ADDTEAMMEMBER": "添加核心团队成员",
+        "CORETEAM": "核心团队",
+        "BRANCHS": "添加霍帕分支",
+        "HBNAME": "名字：",
+        "HBADDRESS": "地址：",
+        "HBPHONE": "电话：",
+        "HBLATITUDE": "纬度：",
+        "HBLONGITUDE": "经度："
     });
     $translateProvider.preferredLanguage('en_US');
 }]);

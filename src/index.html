@@ -121,8 +121,20 @@
         <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'adv'}">
         <!-- <li class="sidebar-list" ng-if="getUser() != ' '" ng-show="getUser() == 'admin'" ng-class="{'colorListActive': activeList == 'adv'}"> -->
           <a href="#advView" ng-click="changeActiveList('adv')">
-            <span class="menu-icon fa fa-users"></span>
+            <span class="menu-icon fa fa-newspaper-o"></span>
             {{'ADVINFO' | translate}}
+          </a>
+        </li>
+        <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'coreTeam'}">
+          <a href="#coreTeam" ng-click="changeActiveList('coreTeam')">
+            <span class="menu-icon fa fa-male"></span>
+            {{'CORETEAM' | translate}}
+          </a>
+        </li>
+        <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'branchs'}">
+          <a href="#hoopaBranchs" ng-click="changeActiveList('branchs')">
+            <span class="menu-icon fa fa-map"></span>
+            {{'BRANCHS' | translate}}
           </a>
         </li>
       </ul>

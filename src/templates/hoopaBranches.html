@@ -1,4 +1,25 @@
 <div class="row" ng-controller="HoopaBranchesCtrl">
+    <form class="BranchesView col-md-12" ng-show="arrayBranchs.length > 0">
+        <div class="form-row col-md-12 noPadding">
+            <div ng-repeat="b in arrayBranchs">
+                <div class="col-md-12 teamMemberItem">
+                    <div class="col-md-7">
+                        <h4> <strong translate="HBNAME"> </strong> {{b.name}}</h4>
+                        <h4> <strong translate="HBADDRESS"> </strong> {{b.address}}</h4>
+                        <h4> <strong translate="HBPHONE"> </strong> {{b.phone}}</h4>
+                    </div>
+                    <div class="col-md-3">
+                        <h4> <strong translate="HBLATITUDE"> </strong> {{b.latitude}}</h4>
+                        <h4> <strong translate="HBLONGITUDE"> </strong>  {{b.longitude}}</h4>
+                    </div>
+                    <div class="col-md-2">
+                        <a class="btn btn-secundary fa fa-times pull-right buttonDelete" ng-click="deleteBranchs(b.id)"
+                            translate="BDELETE"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
     <form class="BranchesView col-md-12">
         <div class="form-row col-md-12">
             <div class="form-group col-md-6">

@@ -734,6 +734,14 @@ ul.sidebar .sidebar-list a:hover {
   margin-top: -15px;
 }
 
+.marginTop20{
+  margin-top: 20px;
+}
+
+.marginBottom20{
+  margin-bottom: 20px;
+}
+
 .scrollbarUser {
   background-color: #ffffff80;
 }
@@ -1232,4 +1240,14 @@ tr {
 
 .textAreaCoreTeam{
   height: 100px !important;
+}
+
+.teamMemberItem{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px #c8c8c8 solid;
+}
+
+.noPadding{
+  padding: 0;
 }
