@@ -12,7 +12,8 @@
                         <h5>{{member.description}}</h5>
                     </div>
                     <div class="col-md-2">
-                        <a class="btn btn-secundary fa fa-times pull-right buttonDelete" ng-click="deleteMember(member.id)" translate="BDELETE"></a>
+                        <a class="btn btn-secundary fa fa-times pull-right buttonDelete" ng-click="deleteMember(member.id)"
+                            translate="BDELETE"></a>
                     </div>
                 </div>
             </div>
@@ -21,14 +22,14 @@
     <form class="BranchesView col-md-12">
         <div class="form-row col-md-12 marginTop20">
             <div class="form-group col-md-6 padding-left-0">
+                <div class="form-group col-md-5 padding-left-0">
+                    <label for="coreTeamName" translate="CTNAME"></label>
+                    <input ng-model="coreTeamName" type="title" id="coreTeamName" class="form-control backgroundGray"
+                        required autofocus>
+                </div>
                 <div class="form-group col-md-9 padding-left-0">
                     <label for="coreTeamCharge" translate="CCHARGE"></label>
                     <input ng-model="coreTeamCharge" type="title" id="coreTeamCharge" class="form-control backgroundGray"
-                        required autofocus>
-                </div>
-                <div class="form-group col-md-5 padding-left-0">
-                    <label for="coreTeamName" translate="CNAME"></label>
-                    <input ng-model="coreTeamName" type="title" id="coreTeamName" class="form-control backgroundGray"
                         required autofocus>
                 </div>
             </div>
