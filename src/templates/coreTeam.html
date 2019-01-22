@@ -4,7 +4,7 @@
             <div ng-repeat="member in arrayMembers">
                 <div class="col-md-12 teamMemberItem">
                     <div class="col-md-2">
-                        <img src="{{member.mainImage}}">
+                        <img class="imageCoreTeam" src="{{member.mainImage}}">
                     </div>
                     <div class="col-md-8">
                         <h4>{{member.charge}}</h4>
@@ -12,29 +12,35 @@
                         <h5>{{member.description}}</h5>
                     </div>
                     <div class="col-md-2">
-                        <a class="btn btn-secundary fa fa-times pull-right buttonDelete" ng-click="deleteMember(member.id)"
-                            translate="BDELETE"></a>
+                        <div class="col-md-12">
+                            <a class="btn btn-warning fa fa-edit pull-right buttonUpdate" ng-click="updateMember(member.id)"
+                                translate="BUPDATE"></a>
+                        </div>
+                        <div class="col-md-12">
+                            <a class="btn btn-danger fa fa-times pull-right buttonDelete" ng-click="deleteMember(member.id)"
+                                translate="BDELETE"></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </form>
-    <form class="BranchesView col-md-12">
+    <form class="BranchesViewUpdate col-md-12" id="updateMemberBox">
         <div class="form-row col-md-12 marginTop20">
             <div class="form-group col-md-6 padding-left-0">
                 <div class="form-group col-md-5 padding-left-0">
-                    <label for="coreTeamName" translate="CTNAME"></label>
-                    <input ng-model="coreTeamName" type="title" id="coreTeamName" class="form-control backgroundGray"
+                    <label for="coreTeamNameUpdate" translate="CTNAME"></label>
+                    <input ng-model="coreTeamNameUpdate" type="title" id="coreTeamNameUpdate" class="form-control backgroundGray"
                         required autofocus>
                 </div>
                 <div class="form-group col-md-9 padding-left-0">
-                    <label for="coreTeamCharge" translate="CCHARGE"></label>
-                    <input ng-model="coreTeamCharge" type="title" id="coreTeamCharge" class="form-control backgroundGray"
+                    <label for="coreTeamChargeUpdate" translate="CCHARGE"></label>
+                    <input ng-model="coreTeamChargeUpdate" type="title" id="coreTeamChargeUpdate" class="form-control backgroundGray"
                         required autofocus>
                 </div>
             </div>
             <div class="form-group col-md-6">
-                <img class="imageMainTeam" id="mainTeamImage" src="img/user.png">
+                <img class="imageMainTeam" id="mainTeamImage" src="{{coreTeamImageUpdate}}">
             </div>
         </div>
         <div class="form-group col-md-12">
@@ -43,13 +49,13 @@
                 type="file" id="coreTeamPicture">
         </div>
         <div class="form-group col-md-12">
-            <label for="coreTeamDescription" translate="CDESCRIPTION"></label>
-            <textarea ng-model="coreTeamDescription" type="title" id="coreTeamDescription" class="textAreaCoreTeam form-control backgroundGray"
+            <label for="coreTeamDescriptionUpdate" translate="CDESCRIPTION"></label>
+            <textarea ng-model="coreTeamDescriptionUpdate" type="title" id="coreTeamDescriptionUpdate" class="textAreaCoreTeam form-control backgroundGray"
                 required autofocus>
             </div>
             <div class="form-group col-md-12">
-                <button class="btn btn-lg btn-primary colorBlue buttonAddBranche" translate="ADDTEAMMEMBER" ng-click="addmember()"></button>
+                <button class="btn btn-lg btn-primary fa fa-save colorBlue buttonAddBranche" translate="UPDATEMEMBER" ng-click="saveMember()"></button>
             </div>
         </div>
-    </form>
+    </form>    
 </div>

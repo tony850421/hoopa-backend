@@ -12,7 +12,7 @@
   <link rel="stylesheet" type="text/css" href="components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.min.css">
   <link rel="stylesheet" type="text/css" href="../node_modules/mdbootstrap/css/mdb.css">
-  
+
   <link rel="stylesheet" type="text/css" href="main.css">
   <!-- endbuild -->
 
@@ -119,7 +119,7 @@
           </a>
         </li>
         <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'adv'}">
-        <!-- <li class="sidebar-list" ng-if="getUser() != ' '" ng-show="getUser() == 'admin'" ng-class="{'colorListActive': activeList == 'adv'}"> -->
+          <!-- <li class="sidebar-list" ng-if="getUser() != ' '" ng-show="getUser() == 'admin'" ng-class="{'colorListActive': activeList == 'adv'}"> -->
           <a href="#advView" ng-click="changeActiveList('adv')">
             <span class="menu-icon fa fa-newspaper-o"></span>
             {{'ADVINFO' | translate}}
@@ -130,6 +130,14 @@
             <span class="menu-icon fa fa-male"></span>
             {{'CORETEAM' | translate}}
           </a>
+          <ul class="padding-0 width100 listUnstyled" ng-class="{'hiddeNewProjectButton': activeList != 'coreTeam' && activeList != 'addCoreTeamMember'}">
+            <li>
+              <a href="#addCoreTeamMember" style="padding-left: 10%;" ng-class="{'colorListActive': activeList == 'addCoreTeamMember'}">
+                <span class="fa fa-plus menu-icon"></span>
+                {{'ADDCORETEAMMEMBER' | translate}}
+              </a>
+            </li>
+          </ul>
         </li>
         <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'branchs'}">
           <a href="#hoopaBranchs" ng-click="changeActiveList('branchs')">
