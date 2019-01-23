@@ -68,6 +68,7 @@ function CoreTeamCtrl($scope, $rootScope, $translate) {
     };
 
     $scope.updateMember = function (id) {
+        window.scrollTo(0,document.body.scrollHeight);
         $("#updateMemberBox").removeClass("ng-hide");
 
         for (var i = 0; i < $scope.arrayMembers.length; i++) {
