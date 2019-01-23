@@ -1119,6 +1119,10 @@ tr {
   padding-top: 5px !important;
 }
 
+.padding-top-10 {
+  padding-top: 10px !important;
+}
+
 .imageFact {
   width: 25px;
   margin-top: -5px;

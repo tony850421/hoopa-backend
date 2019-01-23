@@ -155,7 +155,9 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "HBLONGITUDE": "Longitude:",
         "UPDATEMEMBER": "Update Member",
         "CANCEL": "Cancel",
-        "ADDCORETEAMMEMBER": "Add member"
+        "ADDCORETEAMMEMBER": "Add member",
+        "ADDHOOPABRANCH": "Add branch",
+        "UPDATEBRANCHE": "Update branch"
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -308,7 +310,9 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "HBLONGITUDE": "经度：",
         "UPDATEMEMBER": "更新会员",
         "CANCEL": "取消",
-        "ADDCORETEAMMEMBER": "添加核心团队成员"
+        "ADDCORETEAMMEMBER": "添加会员",
+        "ADDHOOPABRANCH": "添加分支",
+        "UPDATEBRANCHE": "更新分支"
     });
     $translateProvider.preferredLanguage('ch_CH');
 }]);

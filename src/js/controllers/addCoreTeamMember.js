@@ -2,7 +2,6 @@ app.controller('AddCoreTeamCtrl', ['$scope', '$rootScope', '$translate', '$state
 
 function AddCoreTeamCtrl($scope, $rootScope, $translate, $state) {
 
-    $scope.arrayMembers = [];
     $rootScope.activeList = 'addCoreTeamMember';
 
     $scope.coreTeamCharge = "";

@@ -139,11 +139,19 @@
             </li>
           </ul>
         </li>
-        <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'branchs'}">
-          <a href="#hoopaBranchs" ng-click="changeActiveList('branchs')">
+        <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'hoopaBranchs'}">
+          <a href="#hoopaBranchs" ng-click="changeActiveList('hoopaBranchs')">
             <span class="menu-icon fa fa-map"></span>
             {{'BRANCHS' | translate}}
           </a>
+          <ul class="padding-0 width100 listUnstyled" ng-class="{'hiddeNewProjectButton': activeList != 'hoopaBranchs' && activeList != 'addHoopaBranch'}">
+            <li>
+              <a href="#addHoopaBranch" style="padding-left: 10%;" ng-class="{'colorListActive': activeList == 'addHoopaBranch'}">
+                <span class="fa fa-plus menu-icon"></span>
+                {{'ADDHOOPABRANCH' | translate}}
+              </a>
+            </li>
+          </ul>
         </li>
       </ul>
       <div class="sidebar-footer">

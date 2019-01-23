@@ -61,6 +61,7 @@ function CoreTeamCtrl($scope, $rootScope, $translate) {
     };
 
     $scope.deleteMember = function (id) {
+        $("#updateMemberBox").addClass("ng-hide");
         var member = AV.Object.createWithoutData('CoreTeam', id);
         member.destroy().then(function (n) {
             $scope.init();
