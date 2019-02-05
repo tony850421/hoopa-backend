@@ -157,7 +157,14 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "CANCEL": "Cancel",
         "ADDCORETEAMMEMBER": "Add member",
         "ADDHOOPABRANCH": "Add branch",
-        "UPDATEBRANCHE": "Update branch"
+        "UPDATEBRANCHE": "Update branch",
+        "CITYNAME": "City Name",
+        "CITYPRICE": "Average Price",
+        "CITYPICTURE": "City Picture",
+        "CITYDESCRIPTION": "City Description",
+        "ADDCITY": "Add City",
+        "CITIES": "Cities",
+        "UPDATECITY": "Update City"
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -312,7 +319,14 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "CANCEL": "取消",
         "ADDCORETEAMMEMBER": "添加会员",
         "ADDHOOPABRANCH": "添加分支",
-        "UPDATEBRANCHE": "更新分支"
+        "UPDATEBRANCHE": "更新分支",
+        "CITYNAME": "城市名称",
+        "CITYPRICE": "平均价格",
+        "CITYPICTURE": "城市图片",
+        "CITYDESCRIPTION": "城市描述",
+        "ADDCITY": "城市城市",
+        "CITIES": "城市",
+        "UPDATECITY": "更新城市"
     });
     $translateProvider.preferredLanguage('ch_CH');
 }]);

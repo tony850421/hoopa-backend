@@ -97,6 +97,12 @@ app.config(['$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider
             }).state('addHoopaBranch', {
                 url: '/addHoopaBranch',
                 templateUrl: 'templates/addHoopaBranch.html'
+            }).state('addCity', {
+                url: '/addCity',
+                templateUrl: 'templates/addCity.html'
+            }).state('cities', {
+                url: '/cities',
+                templateUrl: 'templates/cities.html'
             });
     }
 ]);

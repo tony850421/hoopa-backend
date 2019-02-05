@@ -1,0 +1,35 @@
+<div class="row" ng-controller="AddCityCtrl">    
+    <form class="BranchesViewAdd col-md-12">
+        <div class="form-row col-md-12 marginTop20">
+            <div class="form-group col-md-6 padding-left-0">
+                <div class="form-group col-md-5 padding-left-0">
+                    <label for="cityName" translate="CITYNAME"></label>
+                    <input ng-model="cityName" type="title" id="cityName" class="form-control backgroundGray"
+                        required autofocus>
+                </div>
+                <div class="form-group col-md-5 padding-left-0">
+                    <label for="cityPrice" translate="CITYPRICE"></label>
+                    <input ng-model="cityPrice" type="title" id="cityPrice" class="form-control backgroundGray"
+                        required autofocus>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <img class="imageMainTeam" id="cityImage" src="img/branch.png">
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="cityPicture" translate="CITYPICTURE"></label>
+            <input onchange="angular.element(this).scope().changeValueMainImage()" class="form-controlInput backgroundGray"
+                type="file" id="cityPicture">
+        </div>
+        <div class="form-group col-md-12">
+            <label for="cityDescription" translate="CITYDESCRIPTION"></label>
+            <textarea ng-model="cityDescription" type="title" id="cityDescription" class="textAreaCoreTeam form-control backgroundGray"
+                required autofocus>
+            </div>
+            <div class="form-group col-md-12">
+                <button class="btn btn-lg btn-primary fa fa-plus colorBlue buttonAddBranche" translate="ADDCITY" ng-click="addCity()"></button>
+            </div>
+        </div>
+    </form>
+</div>

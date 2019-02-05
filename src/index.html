@@ -153,6 +153,20 @@
             </li>
           </ul>
         </li>
+        <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'cities'}">
+          <a href="#cities" ng-click="changeActiveList('cities')">
+            <span class="menu-icon fa fa-building"></span>
+            {{'CITIES' | translate}}
+          </a>
+          <ul class="padding-0 width100 listUnstyled" ng-class="{'hiddeNewProjectButton': activeList != 'cities' && activeList != 'addCity'}">
+            <li>
+              <a href="#addCity" style="padding-left: 10%;" ng-class="{'colorListActive': activeList == 'addCity'}">
+                <span class="fa fa-plus menu-icon"></span>
+                {{'ADDCITY' | translate}}
+              </a>
+            </li>
+          </ul>
+        </li>
       </ul>
       <div class="sidebar-footer">
 
