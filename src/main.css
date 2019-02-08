@@ -4,8 +4,7 @@
   margin: 0 auto;
 }
 
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
+.form-signin .form-signin-heading, .form-signin .checkbox {
   margin-bottom: 10px;
 }
 
@@ -45,8 +44,7 @@
   margin: 0 auto;
 }
 
-.form-signup .form-signup-heading,
-.form-signup .checkbox {
+.form-signup .form-signup-heading, .form-signup .checkbox {
   margin-bottom: 10px;
 }
 
@@ -97,8 +95,7 @@
   margin-right: 2% !important;
 }
 
-.new-product .new-product-heading,
-.new-product .checkbox {
+.new-product .new-product-heading, .new-product .checkbox {
   margin-bottom: 15px;
 }
 
@@ -233,8 +230,7 @@
   padding: 0.5rem 1rem !important;
 }
 
-.nav-link:hover,
-.nav-link:focus {
+.nav-link:hover, .nav-link:focus {
   text-decoration: none !important;
 }
 
@@ -256,8 +252,7 @@
   border-top-right-radius: 0.25rem !important;
 }
 
-.nav-tabs .nav-link:hover,
-.nav-tabs .nav-link:focus {
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
   border-color: #e9ecef #e9ecef #dee2e6 !important;
 }
 
@@ -267,8 +262,7 @@
   border-color: transparent !important;
 }
 
-.nav-tabs .nav-link.active,
-.nav-tabs .nav-item.show .nav-link {
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
   color: #495057 !important;
   background-color: #fff !important;
   border-color: #dee2e6 #dee2e6 #fff !important;
@@ -284,8 +278,7 @@
   border-radius: 0.25rem !important;
 }
 
-.nav-pills .nav-link.active,
-.nav-pills .show>.nav-link {
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
   color: #fff !important;
   background-color: #007bff !important;
 }
@@ -370,8 +363,7 @@
   border-top: 1px solid #d6dadb;
 }
 
-.form-signin-heading,
-.form-signup-heading {
+.form-signin-heading, .form-signup-heading {
   text-align: center;
 }
 
@@ -379,10 +371,7 @@
   font-size: 28px !important;
 }
 
-#page-wrapper:not(.open) ul.sidebar .sidebar-title.separator,
-.sidebar-footer,
-ul.sidebar .sidebar-list a:hover,
-ul.sidebar .sidebar-main a {
+#page-wrapper:not(.open) ul.sidebar .sidebar-title.separator, .sidebar-footer, ul.sidebar .sidebar-list a:hover, ul.sidebar .sidebar-main a {
   background: #151922 !important;
 }
 
@@ -734,15 +723,15 @@ ul.sidebar .sidebar-list a:hover {
   margin-top: -15px;
 }
 
-.marginTop20{
+.marginTop20 {
   margin-top: 20px;
 }
 
-.marginTop10{
+.marginTop10 {
   margin-top: 10px;
 }
 
-.marginBottom20{
+.marginBottom20 {
   margin-bottom: 20px;
 }
 
@@ -1223,21 +1212,21 @@ tr {
   font-size: 10px !important;
 }
 
-.offerDate{
+.offerDate {
   padding-left: 5px !important;
   padding-right: 5px !important;
 }
 
-.buttonDeleteForum{
+.buttonDeleteForum {
   padding-left: 5px !important;
   padding-right: 5px !important;
 }
 
-.buttonAddBranche{
+.buttonAddBranche {
   float: right;
 }
 
-.BranchesView{
+.BranchesView {
   background-color: #fff;
   padding-top: 15px;
   margin: 2% 3%;
@@ -1246,7 +1235,7 @@ tr {
   width: 94%;
 }
 
-.BranchesViewAdd{
+.BranchesViewAdd {
   background-color: #fff;
   padding-top: 15px;
   margin: 2% 3%;
@@ -1255,7 +1244,7 @@ tr {
   width: 94%;
 }
 
-.BranchesViewUpdate{
+.BranchesViewUpdate {
   background-color: #fff;
   padding-top: 15px;
   margin: 2% 3%;
@@ -1264,33 +1253,40 @@ tr {
   width: 94%;
 }
 
-.textAreaCoreTeam{
+.textAreaCoreTeam {
   height: 100px !important;
 }
 
-.teamMemberItem{
+.teamMemberItem {
   padding-top: 10px;
   padding-bottom: 10px;
   border-top: 1px #c8c8c8 solid;
 }
 
-.noPadding{
+.noPadding {
   padding: 0;
 }
 
-.heightModalUpdateMember{
+.heightModalUpdateMember {
   height: 450px;
 }
 
-.imageCoreTeam{
+.imageCoreTeam {
   max-width: 100px;
   max-height: 100px;
   object-fit: cover;
 }
 
-.imageCities{
+.imageCities {
   max-width: 100px;
   max-height: 100px;
   min-height: 80px;
   object-fit: cover;
+}
+
+.cityInformation {
+  background-color: #02c16a9e;
+  margin: 0% 3%;
+  padding: 5px 10px;
+  border-radius: 5px;
 }

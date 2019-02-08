@@ -1,5 +1,6 @@
 <div class="row" ng-controller="CitiesCtrl">
-    <form class="BranchesView col-md-12" ng-show="arrayCities.length > 0">
+    <h4 class="cityInformation" translate="CITYINFORMATION"></h4>
+    <form class="BranchesView col-md-12" ng-show="arrayCities.length> 0">
         <div class="form-row col-md-12 noPadding">
             <div ng-repeat="member in arrayCities">
                 <div class="col-md-12 teamMemberItem">
@@ -8,16 +9,22 @@
                     </div>
                     <div class="col-md-8">
                         <h4>{{member.name}}</h4>
-                        <h5><strong>{{'CITYPRICE' | translate}}:</strong> {{member.price}}</h5>
-                        <h5>{{member.description}}</h5>
+                        <h5><strong>{{'CITYPRICE' | translate}}:</strong>
+                            {{member.price}}</h5>
+                        <h5 ng-show="member.show"><strong>{{'SHOWCITYTEXT' | translate}}:</strong> {{'YES' | translate}}</h5>
+                        <h5 ng-show="!member.show"><strong>{{'SHOWCITYTEXT' | translate}}:</strong> {{'NO' | translate}}</h5>
                     </div>
                     <div class="col-md-2">
                         <div class="col-md-12">
-                            <a class="btn btn-warning fa fa-edit pull-right buttonUpdate padding-left-0 padding-right-0" ng-click="updateMember(member.id)"
+                            <a class="btn btn-warning fa fa-edit pull-right
+                                buttonUpdate padding-left-0 padding-right-0"
+                                ng-click="updateMember(member.id)"
                                 translate="BUPDATE"></a>
                         </div>
                         <div class="col-md-12">
-                            <a class="btn btn-danger fa fa-times pull-right buttonDelete padding-left-0 padding-right-0" ng-click="deleteMember(member.id)"
+                            <a class="btn btn-danger fa fa-times pull-right
+                                buttonDelete padding-left-0 padding-right-0"
+                                ng-click="deleteMember(member.id)"
                                 translate="BDELETE"></a>
                         </div>
                     </div>
@@ -30,32 +37,45 @@
             <div class="form-group col-md-6 padding-left-0">
                 <div class="form-group col-md-5 padding-left-0">
                     <label for="nameUpdate" translate="CITYNAME"></label>
-                    <input ng-model="nameUpdate" type="title" id="nameUpdate" class="form-control backgroundGray"
+                    <input ng-model="nameUpdate" type="title" id="nameUpdate"
+                        class="form-control backgroundGray"
                         required autofocus>
                 </div>
                 <div class="form-group col-md-9 padding-left-0">
                     <label for="priceUpdate" translate="CITYPRICE"></label>
-                    <input ng-model="priceUpdate" type="title" id="priceUpdate" class="form-control backgroundGray"
+                    <input ng-model="priceUpdate" type="title" id="priceUpdate"
+                        class="form-control backgroundGray"
                         required autofocus>
+                </div>
+                <div class="form-group col-md-8 padding-left-0">
+                    <input type="checkbox" ng-model="cityVisibilityUpdate">
+                    {{'SHOWCITYTEXT' | translate}}
                 </div>
             </div>
             <div class="form-group col-md-6">
-                <img class="imageMainTeam" id="mainTeamImage" src="{{imageUpdate}}">
+                <img class="imageMainTeam" id="mainTeamImage"
+                    src="{{imageUpdate}}">
             </div>
         </div>
         <div class="form-group col-md-12">
             <label for="coreTeamPicture" translate="CITYPICTURE"></label>
-            <input onchange="angular.element(this).scope().changeValueMainImage()" class="form-controlInput backgroundGray"
+            <input
+                onchange="angular.element(this).scope().changeValueMainImage()"
+                class="form-controlInput backgroundGray"
                 type="file" id="coreTeamPicture">
         </div>
         <div class="form-group col-md-12">
             <label for="descriptionUpdate" translate="CITYDESCRIPTION"></label>
-            <textarea ng-model="descriptionUpdate" type="title" id="descriptionUpdate" class="textAreaCoreTeam form-control backgroundGray"
+            <textarea ng-model="descriptionUpdate" type="title"
+                id="descriptionUpdate" class="textAreaCoreTeam form-control
+                backgroundGray"
                 required autofocus>
             </div>
             <div class="form-group col-md-12">
-                <button class="btn btn-lg btn-primary fa fa-save colorBlue buttonAddBranche" translate="UPDATECITY" ng-click="saveMember()"></button>
+                <button class="btn btn-lg btn-primary fa fa-save colorBlue
+                    buttonAddBranche" translate="UPDATECITY"
+                    ng-click="saveMember()"></button>
             </div>
         </div>
-    </form>    
+    </form>
 </div>

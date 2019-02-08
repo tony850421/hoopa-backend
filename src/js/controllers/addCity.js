@@ -7,6 +7,7 @@ function AddCityCtrl($scope, $rootScope, $translate, $state) {
     $scope.cityName = "";
     $scope.cityPrice = "";
     $scope.cityDescription = "";
+    $scope.cityVisibility = false;
 
     $scope.changeValueMainImage = function () {
         readURL($('#cityPicture')[0]);
@@ -26,11 +27,13 @@ function AddCityCtrl($scope, $rootScope, $translate, $state) {
                 city.set('name', $scope.cityName);
                 city.set('description', $scope.cityDescription);
                 city.set('price', $scope.cityPrice);
+                city.set('show', $scope.cityVisibility);
                 city.set('image', avFile);
                 city.save().then(function (res) {
                     $scope.cityName = "";
                     $scope.cityPrice = "";
                     $scope.cityDescription = "";
+                    $scope.cityVisibility = false;
                     $state.go('cities');
                 }, function (error) {
 

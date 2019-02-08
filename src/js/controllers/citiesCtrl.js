@@ -8,11 +8,13 @@ function CitiesCtrl($scope, $rootScope, $translate) {
     $scope.cityPrice = "";
     $scope.cityName = "";
     $scope.cityDescription = "";
+    $scope.cityVisibility = "";
 
     $scope.priceUpdate = "";
     $scope.nameUpdate = "";
     $scope.descriptionUpdate = "";
     $scope.imageUpdate = "";
+    $scope.cityVisibilityUpdate = "";
 
     $scope.memberUpdateId = -1;
 
@@ -32,13 +34,15 @@ function CitiesCtrl($scope, $rootScope, $translate) {
                 var id = element.id;
                 var name = element.get('name');
                 var description = element.get('description');
+                var show = element.get('show');
 
                 $scope.arrayCities.push({
                     id: id,
                     price: price,
                     mainImage: mainImage,
                     name: name,
-                    description: description
+                    description: description,
+                    show: show
                 })
                 $scope.$apply();
             });
@@ -77,6 +81,7 @@ function CitiesCtrl($scope, $rootScope, $translate) {
                 $scope.priceUpdate = $scope.arrayCities[i].price;
                 $scope.nameUpdate = $scope.arrayCities[i].name;
                 $scope.descriptionUpdate = $scope.arrayCities[i].description;
+                $scope.cityVisibilityUpdate = $scope.arrayCities[i].show;
                 $scope.imageUpdate = $scope.arrayCities[i].mainImage;
                 $scope.coreTeamIdUpdate = id;
                 $scope.$apply();
@@ -91,6 +96,7 @@ function CitiesCtrl($scope, $rootScope, $translate) {
         member.set('name', $scope.nameUpdate);
         member.set('price', $scope.priceUpdate);
         member.set('description', $scope.descriptionUpdate);
+        member.set('show', $scope.cityVisibilityUpdate);
 
         var pos = -1;
         for (var i = 0; i < $scope.arrayCities.length; i++) {
@@ -98,6 +104,7 @@ function CitiesCtrl($scope, $rootScope, $translate) {
                 $scope.arrayCities[i].name = $scope.nameUpdate;
                 $scope.arrayCities[i].price = $scope.priceUpdate;
                 $scope.arrayCities[i].description = $scope.descriptionUpdate;
+                $scope.arrayCities[i].show = $scope.cityVisibilityUpdate;
                 pos = i;
                 break;
             }

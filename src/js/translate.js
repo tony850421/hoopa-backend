@@ -50,7 +50,7 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "LAREA": "Land area",
         "LAT": "Latitude",
         "LONG": "Longitude",
-        "LONGLAT":"Longitude and Latitude(Ex: 120.895509,35.044819 )",
+        "LONGLAT": "Longitude and Latitude(Ex: 120.895509,35.044819 )",
         "GUARA": "Guarantor",
         "STYPE": "Type",
         "GAMOUNT": "Guarantee amount",
@@ -164,7 +164,11 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "CITYDESCRIPTION": "City Description",
         "ADDCITY": "Add City",
         "CITIES": "Cities",
-        "UPDATECITY": "Update City"
+        "UPDATECITY": "Update City",
+        "CITYINFORMATION": "We only show the eight first cities",
+        "SHOWCITYTEXT": "Show this city in home page",
+        "YES": "Yes",
+        "NO": "No"
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -211,7 +215,7 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "CAREA": "建筑面积",
         "LAREA": "土地面积",
         "LAT": "纬度",
-        "LONGLAT":"经度和纬度 (120.895509,35.044819)",
+        "LONGLAT": "经度和纬度 (120.895509,35.044819)",
         "LONG": "经度",
         "GUARA": "保证人名字",
         "STYPE": "保证人类型",
@@ -287,7 +291,7 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "ALERTLOGIN3": "仅允许管理员",
         "NOOFFERS": "没有报价",
         "NOCOMMENTS": "论坛中没有评论",
-        "NONEWS": "没有消息",        
+        "NONEWS": "没有消息",
         "NOMESSAGES": "没有消息",
         "NOPROJECTS": "没有项目",
         "MAKEADMIN": "添加",
@@ -326,7 +330,11 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "CITYDESCRIPTION": "城市描述",
         "ADDCITY": "城市城市",
         "CITIES": "城市",
-        "UPDATECITY": "更新城市"
+        "UPDATECITY": "更新城市",
+        "CITYINFORMATION": "我们只展示了八个前八个城市",
+        "SHOWCITYTEXT": "在主页上显示此城市",
+        "YES": "是的",
+        "NO": "不"
     });
     $translateProvider.preferredLanguage('ch_CH');
 }]);
