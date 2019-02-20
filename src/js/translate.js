@@ -168,7 +168,11 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "CITYINFORMATION": "We only show the eight first cities",
         "SHOWCITYTEXT": "Show this city in home page",
         "YES": "Yes",
-        "NO": "No"
+        "NO": "No",
+        "STATE": "State",
+        "CLOSEPROJECTBUTTON": "Do you want close this project?",
+        "PROJECTCLOSEDESCRIPTION": "Enter the cause by which you want to close that project",
+        "CLOSEPROJECT": " Close project"
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -334,7 +338,11 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "CITYINFORMATION": "我们只展示了八个前八个城市",
         "SHOWCITYTEXT": "在主页上显示此城市",
         "YES": "是的",
-        "NO": "不"
+        "NO": "不",
+        "STATE": "状态",
+        "CLOSEPROJECTBUTTON": "是否要关闭此项目？",
+        "PROJECTCLOSEDESCRIPTION": "输入要关闭该项目的原因",
+        "CLOSEPROJECT": " 关闭项目"
     });
     $translateProvider.preferredLanguage('ch_CH');
 }]);

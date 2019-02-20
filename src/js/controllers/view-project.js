@@ -72,6 +72,9 @@ function ViewProjectCtrl($scope, $state, $rootScope, $window, $translate, localS
     $scope.projectShop = false;
     $scope.showManagerPhone = true;
 
+    $scope.projectFinished = '';
+    $scope.projectFinishedDescription = '';
+
     $scope.init = function () {
         var id = localStorageService.cookie.get('projectId');
 
@@ -92,7 +95,13 @@ function ViewProjectCtrl($scope, $state, $rootScope, $window, $translate, localS
             $scope.projectCredits = p.get('creditHighlights');
             $scope.projectManagerId = p.get('projectManager').id;
             $scope.projectManagerName = p.get('projectManager').get('name');
+            if ($scope.projectManagerName == ''){
+                $scope.projectManagerName = '输入项目经理的名称';
+            }
             $scope.projectManagerPhone = p.get('projectManager').get('phone');
+            if ($scope.projectManagerPhone == ''){
+                $scope.projectManagerPhone = '输入项目经理编号';
+            }
 
             $scope.projectHot = p.get('isHot');
             $scope.projectHouse = p.get('isHouse');
@@ -100,6 +109,9 @@ function ViewProjectCtrl($scope, $state, $rootScope, $window, $translate, localS
             $scope.projectFactory = p.get('isFactory');
             $scope.projectDebt = p.get('isDebt');
             $scope.projectShop = p.get('isShop');
+
+            $scope.projectFinished = p.get('finished');
+            $scope.projectFinishedDescription = p.get('finishedDescription');
 
             var query1 = new AV.Query("Sponsorship")
             query1.equalTo('project', p)
@@ -702,4 +714,17 @@ function ViewProjectCtrl($scope, $state, $rootScope, $window, $translate, localS
         project.set('showManagerPhone', $scope.showManagerPhone);
         project.save();
     };
+
+    $scope.changeStateProject = function(){
+        console.log("close projects");
+        if ($scope.projectFinishedDescription != ''){
+            var id = localStorageService.cookie.get('projectId');
+            var project = AV.Object.createWithoutData('Project', id);
+            project.set('finished', '完成');
+            project.set('finishedDescription', $scope.projectFinishedDescription);
+            project.save();
+            $scope.projectFinished = '完成';
+            $(window).scrollTop(0);
+        }
+    }
 }

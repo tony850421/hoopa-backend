@@ -1119,7 +1119,7 @@ tr {
 
 .facts {
   padding: 10px !important;
-  height: 35px;
+  height: 40px;
 }
 
 .listNewsGroup {
@@ -1289,4 +1289,44 @@ tr {
   margin: 0% 3%;
   padding: 5px 10px;
   border-radius: 5px;
+}
+
+.closeDescription{
+  padding: 5px;
+  height: 110px;
+  margin-top: 10px;
+}
+
+.buttonCloseProject{
+  margin-left: 0;
+  border: none;
+  background-color: transparent !important;
+  color: #02c16a9e !important;
+  overflow: hidden !important;
+}
+
+.buttonCloseProject:focus{
+  outline: none !important;
+}
+
+.textAreaProjectCloseDescription{
+  height: 100px;
+  resize: none;
+  width: 100%
+}
+
+.closeProject{
+  margin-top: 10px;
+  font-size: 13px !important;
+}
+
+.descriptioTextCloseProject{  
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+.fontSize13,
+.btn .fa,
+.btn.btn-md .fa{
+  font-size: 13px !important;
 }

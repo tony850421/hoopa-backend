@@ -65,7 +65,7 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
                         isAdmin = true;
                     }
                 });
-                console.log('Is admin: ' + isAdmin);
+                
                 if(isAdmin) {
                     $scope.notificationsCount();
                     $window.location.href = '#/dashboard';

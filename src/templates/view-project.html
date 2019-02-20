@@ -1,104 +1,161 @@
 <div class="row paddingView" ng-controller="ViewProjectCtrl">
     <div class="facts styleViewProject">
+        <label translate="STATE"></label>
+        <label>: {{projectFinished}}</label>
         <label class="pull-right marginLeft">{{countOffers}}</label>
-        <img class="imageFact pull-right marginLeft" ng-src="./img/offersFact.png" />
+        <img class="imageFact pull-right marginLeft"
+            ng-src="./img/offersFact.png" />
         <label class="pull-right marginLeft">{{countShopCar}}</label>
-        <img class="imageFact pull-right marginLeft" ng-src="./img/shopCar.png" />
+        <img class="imageFact pull-right marginLeft" ng-src="./img/shopCar.png"
+            />
         <label class="pull-right marginLeft">{{countVisit}}</label>
-        <img class="imageFact pull-right marginLeft" ng-src="./img/projectFact.png" />
+        <img class="imageFact pull-right marginLeft"
+            ng-src="./img/projectFact.png" />
     </div>
     <div class="row styleViewProject">
         <div class="ProjectsData col-md-12">
             <div class="col-md-12 titleProjectStyle">
-                <label class="font-weight-unset margin-right-10" translate="PUTITLE"></label>
+                <label class="font-weight-unset margin-right-10"
+                    translate="PUTITLE"></label>
                 <label ng-show="!projectTitleEdited" class="font-weight-unset">{{projectTitle}}</label>
-                <div class="buttonEditHidden buttonEditHiddenTitle" ng-show="!projectTitleEdited">
-                    <a id="buttonEditTitle" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectTitle()"></a>
+                <div class="buttonEditHidden buttonEditHiddenTitle"
+                    ng-show="!projectTitleEdited">
+                    <a id="buttonEditTitle" type="button" class="btn btn-default
+                        fa fa-edit buttonEdit" ng-click="editProjectTitle()"></a>
                 </div>
                 <div class="editTitleBox" ng-show="projectTitleEdited">
                     <input ng-model="projectTitle" value="{{projectTitle}}">
-                    <a type="button" class="btn btn-default fa fa-save buttonEditSave" ng-click="editProjectTitle()"></a>
+                    <a type="button" class="btn btn-default fa fa-save
+                        buttonEditSave" ng-click="editProjectTitle()"></a>
                 </div>
             </div>
             <div class="col-md-12 titleProjectStyle">
-                <label class="font-weight-unset margin-right-10" translate="PUCOMPANY"></label>
-                <label ng-show="!projectCompanyEdited" class="font-weight-unset">{{projectCompany}}</label>
-                <div class="buttonEditHidden buttonEditHiddenCompany" ng-show="!projectCompanyEdited">
-                    <a id="buttonEditCompany" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectCompany()"></a>
+                <label class="font-weight-unset margin-right-10"
+                    translate="PUCOMPANY"></label>
+                <label ng-show="!projectCompanyEdited"
+                    class="font-weight-unset">{{projectCompany}}</label>
+                <div class="buttonEditHidden buttonEditHiddenCompany"
+                    ng-show="!projectCompanyEdited">
+                    <a id="buttonEditCompany" type="button" class="btn
+                        btn-default fa fa-edit buttonEdit"
+                        ng-click="editProjectCompany()"></a>
                 </div>
                 <div class="editTitleBox" ng-show="projectCompanyEdited">
                     <input ng-model="projectCompany" value="{{projectCompany}}">
-                    <a type="button" class="btn btn-default fa fa-save buttonEditSave" ng-click="editProjectCompany()"></a>
+                    <a type="button" class="btn btn-default fa fa-save
+                        buttonEditSave" ng-click="editProjectCompany()"></a>
                 </div>
             </div>
             <div class="col-md-12">
-                <label class="font-weight-unset margin-right-10" translate="PUDESC"></label>
-                <div class="titleProjectStyle" ng-show="!projectDescriptionEdited">
+                <label class="font-weight-unset margin-right-10"
+                    translate="PUDESC"></label>
+                <div class="titleProjectStyle"
+                    ng-show="!projectDescriptionEdited">
                     <label class="font-weight-unset">{{projectDescription}}</label>
                     <div class="buttonEditHidden buttonEditHiddenDescription">
-                        <a id="buttonEditDescription" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectDescription()"></a>
+                        <a id="buttonEditDescription" type="button" class="btn
+                            btn-default fa fa-edit buttonEdit"
+                            ng-click="editProjectDescription()"></a>
                     </div>
                 </div>
-                <div class="titleProjectStyle" ng-show="projectDescriptionEdited">
-                    <textarea class="textareaProjectDescription" ng-model="projectDescription" value="{{projectDescription}}"></textarea>
-                    <a type="button" class="btn btn-default fa fa-save buttonEditSave" ng-click="editProjectDescription()"></a>
+                <div class="titleProjectStyle"
+                    ng-show="projectDescriptionEdited">
+                    <textarea class="textareaProjectDescription"
+                        ng-model="projectDescription"
+                        value="{{projectDescription}}"></textarea>
+                    <a type="button" class="btn btn-default fa fa-save
+                        buttonEditSave" ng-click="editProjectDescription()"></a>
                 </div>
             </div>
             <div class="col-md-12 titleProjectStyle">
-                <label class="font-weight-unset margin-right-10" translate="DUAMOUNT"></label>
-                <label ng-show="!projectDebitAmountEdited" class="font-weight-unset">¥{{projectDebitAmount}}万</label>
-                <div class="buttonEditHidden buttonEditHiddenDebitAmount" ng-show="!projectDebitAmountEdited">
-                    <a id="buttonEditDebitAmount" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectDebitAmount()"></a>
+                <label class="font-weight-unset margin-right-10"
+                    translate="DUAMOUNT"></label>
+                <label ng-show="!projectDebitAmountEdited"
+                    class="font-weight-unset">¥{{projectDebitAmount}}万</label>
+                <div class="buttonEditHidden buttonEditHiddenDebitAmount"
+                    ng-show="!projectDebitAmountEdited">
+                    <a id="buttonEditDebitAmount" type="button" class="btn
+                        btn-default fa fa-edit buttonEdit"
+                        ng-click="editProjectDebitAmount()"></a>
                 </div>
                 <div class="editTitleBox" ng-show="projectDebitAmountEdited">
-                    <input ng-model="projectDebitAmount" value="{{projectDebitAmount}}">
-                    <a type="button" class="btn btn-default fa fa-save buttonEditSave" ng-click="editProjectDebitAmount()"></a>
+                    <input ng-model="projectDebitAmount"
+                        value="{{projectDebitAmount}}">
+                    <a type="button" class="btn btn-default fa fa-save
+                        buttonEditSave" ng-click="editProjectDebitAmount()"></a>
                 </div>
             </div>
             <div class="col-md-12 titleProjectStyle">
-                <label class="font-weight-unset margin-right-10" translate="DUPRINCIPALI"></label>
-                <label ng-show="!projectPrincipalEdited" class="font-weight-unset">{{projectPrincipal}}</label>
-                <div class="buttonEditHidden buttonEditHiddenPrincipal" ng-show="!projectPrincipalEdited">
-                    <a id="buttonEditPrincipal" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectPrincipal()"></a>
+                <label class="font-weight-unset margin-right-10"
+                    translate="DUPRINCIPALI"></label>
+                <label ng-show="!projectPrincipalEdited"
+                    class="font-weight-unset">{{projectPrincipal}}</label>
+                <div class="buttonEditHidden buttonEditHiddenPrincipal"
+                    ng-show="!projectPrincipalEdited">
+                    <a id="buttonEditPrincipal" type="button" class="btn
+                        btn-default fa fa-edit buttonEdit"
+                        ng-click="editProjectPrincipal()"></a>
                 </div>
                 <div class="editTitleBox" ng-show="projectPrincipalEdited">
-                    <input ng-model="projectPrincipal" value="{{projectPrincipal}}">
-                    <a type="button" class="btn btn-default fa fa-save buttonEditSave" ng-click="editProjectPrincipal()"></a>
+                    <input ng-model="projectPrincipal"
+                        value="{{projectPrincipal}}">
+                    <a type="button" class="btn btn-default fa fa-save
+                        buttonEditSave" ng-click="editProjectPrincipal()"></a>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="col-md-6 no-padding titleProjectStyle">
-                    <label class="font-weight-unset margin-right-10" translate="CUFROM"></label>
-                    <label ng-show="!projectComeFromEdited" class="font-weight-unset">{{projectComeFrom}}</label>
-                    <div class="buttonEditHidden buttonEditHiddenComeFrom" ng-show="!projectComeFromEdited">
-                        <a id="buttonEditComeFrom" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectComeFrom()"></a>
+                    <label class="font-weight-unset margin-right-10"
+                        translate="CUFROM"></label>
+                    <label ng-show="!projectComeFromEdited"
+                        class="font-weight-unset">{{projectComeFrom}}</label>
+                    <div class="buttonEditHidden buttonEditHiddenComeFrom"
+                        ng-show="!projectComeFromEdited">
+                        <a id="buttonEditComeFrom" type="button" class="btn
+                            btn-default fa fa-edit buttonEdit"
+                            ng-click="editProjectComeFrom()"></a>
                     </div>
                     <div class="editTitleBox" ng-show="projectComeFromEdited">
-                        <input ng-model="projectComeFrom" value="{{projectComeFrom}}">
-                        <a type="button" class="btn btn-default fa fa-save buttonEditSave" ng-click="editProjectComeFrom()"></a>
+                        <input ng-model="projectComeFrom"
+                            value="{{projectComeFrom}}">
+                        <a type="button" class="btn btn-default fa fa-save
+                            buttonEditSave" ng-click="editProjectComeFrom()"></a>
                     </div>
                 </div>
                 <div class="col-md-6 no-padding titleProjectStyle">
-                    <label class="font-weight-unset margin-right-10" translate="PUPROVINCE"></label>
-                    <label ng-show="!projectProvinceEdited" class="font-weight-unset">{{projectProvince}}</label>
-                    <div class="buttonEditHidden buttonEditHiddenProvince" ng-show="!projectProvinceEdited">
-                        <a id="buttonEditProvince" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectProvince()"></a>
+                    <label class="font-weight-unset margin-right-10"
+                        translate="PUPROVINCE"></label>
+                    <label ng-show="!projectProvinceEdited"
+                        class="font-weight-unset">{{projectProvince}}</label>
+                    <div class="buttonEditHidden buttonEditHiddenProvince"
+                        ng-show="!projectProvinceEdited">
+                        <a id="buttonEditProvince" type="button" class="btn
+                            btn-default fa fa-edit buttonEdit"
+                            ng-click="editProjectProvince()"></a>
                     </div>
                     <div class="editTitleBox" ng-show="projectProvinceEdited">
-                        <input ng-model="projectProvince" value="{{projectProvince}}">
-                        <a type="button" class="btn btn-default fa fa-save buttonEditSave" ng-click="editProjectProvince()"></a>
+                        <input ng-model="projectProvince"
+                            value="{{projectProvince}}">
+                        <a type="button" class="btn btn-default fa fa-save
+                            buttonEditSave" ng-click="editProjectProvince()"></a>
                     </div>
                 </div>
             </div>
             <div class="col-md-12 titleProjectStyle">
-                <label class="font-weight-unset margin-right-10" translate="PUADDRESS"></label>
-                <label ng-show="!projectAddressEdited" class="font-weight-unset">{{projectAddress}}</label>
-                <div class="buttonEditHidden buttonEditHiddenAddress" ng-show="!projectAddressEdited">
-                    <a id="buttonEditAddress" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectAddress()"></a>
+                <label class="font-weight-unset margin-right-10"
+                    translate="PUADDRESS"></label>
+                <label ng-show="!projectAddressEdited"
+                    class="font-weight-unset">{{projectAddress}}</label>
+                <div class="buttonEditHidden buttonEditHiddenAddress"
+                    ng-show="!projectAddressEdited">
+                    <a id="buttonEditAddress" type="button" class="btn
+                        btn-default fa fa-edit buttonEdit"
+                        ng-click="editProjectAddress()"></a>
                 </div>
                 <div class="editTitleBox" ng-show="projectAddressEdited">
                     <input ng-model="projectAddress" value="{{projectAddress}}">
-                    <a type="button" class="btn btn-default fa fa-save buttonEditSave" ng-click="editProjectAddress()"></a>
+                    <a type="button" class="btn btn-default fa fa-save
+                        buttonEditSave" ng-click="editProjectAddress()"></a>
                 </div>
             </div>
             <div class="col-md-12">
@@ -106,50 +163,70 @@
                 <div ng-show="!projectCreditsEdited" class="titleProjectStyle">
                     <label class="font-weight-unset">{{projectCredits}}</label>
                     <div class="buttonEditHidden buttonEditHiddenCredits">
-                        <a id="buttonEditCredits" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectCredits()"></a>
+                        <a id="buttonEditCredits" type="button" class="btn
+                            btn-default fa fa-edit buttonEdit"
+                            ng-click="editProjectCredits()"></a>
                     </div>
                 </div>
                 <div class="titleProjectStyle" ng-show="projectCreditsEdited">
-                    <textarea class="textareaProjectDescription" ng-model="projectCredits" value="{{projectCredits}}"></textarea>
-                    <a type="button" class="btn btn-default fa fa-save buttonEditSave" ng-click="editProjectCredits()"></a>
+                    <textarea class="textareaProjectDescription"
+                        ng-model="projectCredits" value="{{projectCredits}}"></textarea>
+                    <a type="button" class="btn btn-default fa fa-save
+                        buttonEditSave" ng-click="editProjectCredits()"></a>
                 </div>
             </div>
         </div>
-        <div class="ManagerData col-md-12" ng-show="project.get('projectManager').get('name') != ''">
+        <div class="ManagerData col-md-12">
             <div class="col-md-12">
                 <label class="font-weight-unset" translate="MANAGERINFO"></label>
                 <label class="bs-switch pull-right margin-left-5 margin-top--8">
-                    <input ng-model="showManagerPhone" type="checkbox" ng-change="showManagerPhoneFunction()">
+                    <input ng-model="showManagerPhone" type="checkbox"
+                        ng-change="showManagerPhoneFunction()">
                     <span class="slider round"></span>
                 </label>
                 <label class="pull-right" translate="SHOWMANAGERPHONE"></label>
             </div>
             <div class="col-md-6 titleProjectStyle">
-                <label class="font-weight-unset margin-right-10" translate="PUMANAGERNAME"></label>
-                <label ng-show="!projectManagerNameEdited" class="font-weight-unset">{{projectManagerName}}</label>
-                <div class="buttonEditHidden buttonEditHiddenManagerName" ng-show="!projectManagerNameEdited">
-                    <a id="buttonEditManagerName" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectManagerName()"></a>
+                <label class="font-weight-unset margin-right-10"
+                    translate="PUMANAGERNAME"></label>
+                <label ng-show="!projectManagerNameEdited"
+                    class="font-weight-unset">{{projectManagerName}}</label>
+                <div class="buttonEditHidden buttonEditHiddenManagerName"
+                    ng-show="!projectManagerNameEdited">
+                    <a id="buttonEditManagerName" type="button" class="btn
+                        btn-default fa fa-edit buttonEdit"
+                        ng-click="editProjectManagerName()"></a>
                 </div>
                 <div class="editTitleBox" ng-show="projectManagerNameEdited">
-                    <input ng-model="projectManagerName" value="{{projectManagerName}}">
-                    <a type="button" class="btn btn-default fa fa-save buttonEditSave" ng-click="editProjectManagerName()"></a>
+                    <input ng-model="projectManagerName"
+                        value="{{projectManagerName}}">
+                    <a type="button" class="btn btn-default fa fa-save
+                        buttonEditSave" ng-click="editProjectManagerName()"></a>
                 </div>
             </div>
             <div class="col-md-6 titleProjectStyle">
                 <label class="font-weight-unset" translate="PUMANAGERPHONE"></label>
-                <label ng-show="!projectManagerPhoneEdited" class="font-weight-unset">{{projectManagerPhone}}</label>
-                <div class="buttonEditHidden buttonEditHiddenManagerPhone" ng-show="!projectManagerPhoneEdited">
-                    <a id="buttonEditManagerPhone" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectManagePhone()"></a>
+                <label ng-show="!projectManagerPhoneEdited"
+                    class="font-weight-unset">{{projectManagerPhone}}</label>
+                <div class="buttonEditHidden buttonEditHiddenManagerPhone"
+                    ng-show="!projectManagerPhoneEdited">
+                    <a id="buttonEditManagerPhone" type="button" class="btn
+                        btn-default fa fa-edit buttonEdit"
+                        ng-click="editProjectManagePhone()"></a>
                 </div>
                 <div class="editTitleBox" ng-show="projectManagerPhoneEdited">
-                    <input ng-model="projectManagerPhone" value="{{projectManagerPhone}}">
-                    <a type="button" class="btn btn-default fa fa-save buttonEditSave" ng-click="editProjectManagePhone()"></a>
+                    <input ng-model="projectManagerPhone"
+                        value="{{projectManagerPhone}}">
+                    <a type="button" class="btn btn-default fa fa-save
+                        buttonEditSave" ng-click="editProjectManagePhone()"></a>
                 </div>
             </div>
         </div>
-        <div class="BorrowerData col-md-12 no-padding" ng-show="borrowerList.length > 0">
+        <div class="BorrowerData col-md-12 no-padding"
+            ng-show="borrowerList.length> 0">
             <rd-widget>
-                <rd-widget-header icon="fa-user" title="{{'BORROWERS' | translate}}">
+                <rd-widget-header icon="fa-user" title="{{'BORROWERS' |
+                    translate}}">
                 </rd-widget-header>
                 <rd-widget-body classes="medium no-padding widgetBorrower">
                     <div class="table-responsive">
@@ -168,7 +245,10 @@
                                     <td>{{b.get('principalDebit')}}</td>
                                     <td>{{b.get('interestCreditor')}}</td>
                                     <td>
-                                        <a type="button" class="fa fa-close btn btn-default pull-right" ng-click="deleteBorrower($index)" translate="BDELETE"></a>
+                                        <a type="button" class="fa fa-close btn
+                                            btn-default pull-right"
+                                            ng-click="deleteBorrower($index)"
+                                            translate="BDELETE"></a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -178,34 +258,48 @@
             </rd-widget>
         </div>
         <div class="col-md-12 no-padding">
-            <div class="col-md-12 no-padding addListStyleBorder padding-left-30 padding-top-5" ng-click="showAddBorrower()">
+            <div class="col-md-12 no-padding addListStyleBorder padding-left-30
+                padding-top-5" ng-click="showAddBorrower()">
                 <label class="font-weight-unset" translate="ADDBORROWER"></label>
-                <img ng-show="!showBorrowerAdd" class="hiddenListAdd" ng-src="./img/angle_right.png" />
-                <img ng-show="showBorrowerAdd" class="hiddenListAdd" ng-src="./img/angle_down.png" />
+                <img ng-show="!showBorrowerAdd" class="hiddenListAdd"
+                    ng-src="./img/angle_right.png" />
+                <img ng-show="showBorrowerAdd" class="hiddenListAdd"
+                    ng-src="./img/angle_down.png" />
             </div>
-            <div class="col-md-12 no-padding addListStyleBorder" ng-show="showBorrowerAdd">
+            <div class="col-md-12 no-padding addListStyleBorder"
+                ng-show="showBorrowerAdd">
                 <div class="form-group col-md-4 margin-top-10">
                     <label translate="BORRONAME"></label>
-                    <input ng-class="{'borderColorRed': isName}" ng-model="newBorrowerName" class="form-control backgroundGray">
+                    <input ng-class="{'borderColorRed': isName}"
+                        ng-model="newBorrowerName" class="form-control
+                        backgroundGray">
                 </div>
                 <div class="form-group col-md-4 margin-top-10">
                     <label translate="BORROPDEB"></label>
-                    <input ng-class="{'borderColorRed': isNaN}" ng-model="newBorrowerPrincipalDebit" class="form-control backgroundGray">
+                    <input ng-class="{'borderColorRed': isNaN}"
+                        ng-model="newBorrowerPrincipalDebit" class="form-control
+                        backgroundGray">
                 </div>
                 <div class="form-group col-md-4 margin-top-10">
                     <label translate="BORROINTER"></label>
-                    <input ng-class="{'borderColorRed': isInterest}" ng-model="newBorrowerInterestCreditor" class="form-control backgroundGray">
+                    <input ng-class="{'borderColorRed': isInterest}"
+                        ng-model="newBorrowerInterestCreditor"
+                        class="form-control backgroundGray">
                 </div>
                 <div class="form-group col-md-12 margin-top-10">
-                    <button class="btn btn-default btn-md pull-right" ng-click="addBorrower()">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true" translate="BADD"></span>
+                    <button class="btn btn-default btn-md pull-right"
+                        ng-click="addBorrower()">
+                        <span class="glyphicon glyphicon-plus"
+                            aria-hidden="true" translate="BADD"></span>
                     </button>
                 </div>
             </div>
         </div>
-        <div class="AssetsData col-md-12 no-padding" ng-show="assetsList.length > 0">
+        <div class="AssetsData col-md-12 no-padding" ng-show="assetsList.length>
+            0">
             <rd-widget class="padding-15">
-                <rd-widget-header icon="fa-building-o" title="{{'ASSETS' | translate}}">
+                <rd-widget-header icon="fa-building-o" title="{{'ASSETS' |
+                    translate}}">
                 </rd-widget-header>
                 <rd-widget-body classes="medium no-padding widgetBorrower">
                     <div class="table-responsive">
@@ -232,7 +326,10 @@
                                     <td>{{a.get('province')}}</td>
                                     <td>{{a.get('location').longitude+","+a.get('location').latitude}}</td>
                                     <td>
-                                        <a type="button" class="fa fa-close btn btn-default pull-right" ng-click="deleteAsset($index)" translate="BDELETE"></a>
+                                        <a type="button" class="fa fa-close btn
+                                            btn-default pull-right"
+                                            ng-click="deleteAsset($index)"
+                                            translate="BDELETE"></a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -242,53 +339,79 @@
             </rd-widget>
         </div>
         <div class="col-md-12 no-padding">
-            <div class="col-md-12 no-padding addListStyleBorder padding-left-30 padding-top-5" ng-click="showAddAsset()">
+            <div class="col-md-12 no-padding addListStyleBorder padding-left-30
+                padding-top-5" ng-click="showAddAsset()">
                 <label class="font-weight-unset" translate="ADDASSET"></label>
-                <img ng-show="!showAssetsAdd" class="hiddenListAdd" ng-src="./img/angle_right.png" />
-                <img ng-show="showAssetsAdd" class="hiddenListAdd" ng-src="./img/angle_down.png" />
+                <img ng-show="!showAssetsAdd" class="hiddenListAdd"
+                    ng-src="./img/angle_right.png" />
+                <img ng-show="showAssetsAdd" class="hiddenListAdd"
+                    ng-src="./img/angle_down.png" />
             </div>
-            <div class="col-md-12 no-padding addListStyleBorder" ng-show="showAssetsAdd">
+            <div class="col-md-12 no-padding addListStyleBorder"
+                ng-show="showAssetsAdd">
                 <div class="form-group col-md-3 margin-top-10">
                     <label translate="ATITLE"></label>
-                    <input ng-class="{'borderColorRed': isTitle}" ng-model="assetTitle" class="form-control backgroundGray">
+                    <input ng-class="{'borderColorRed': isTitle}"
+                        ng-model="assetTitle" class="form-control
+                        backgroundGray">
                 </div>
                 <div class="form-group col-md-3 margin-top-10">
                     <label translate="TARRIVAL"></label>
-                    <select ng-class="{'borderColorRed': isTypeA}" class="form-control backgroundGray" ng-model="assetTypeArrival" ng-options="x for x in typeArrivalArray">
+                    <select ng-class="{'borderColorRed': isTypeA}"
+                        class="form-control backgroundGray"
+                        ng-model="assetTypeArrival" ng-options="x for x in
+                        typeArrivalArray">
                     </select>
                 </div>
                 <div class="form-group col-md-3 margin-top-10">
                     <label translate="CAREA"></label>
-                    <input ng-class="{'borderColorRed': isConstruction}" ng-model="assetConstructionArea" class="form-control backgroundGray">
+                    <input ng-class="{'borderColorRed': isConstruction}"
+                        ng-model="assetConstructionArea" class="form-control
+                        backgroundGray">
                 </div>
                 <div class="form-group col-md-3 margin-top-10">
                     <label translate="LAREA"></label>
-                    <input ng-class="{'borderColorRed': isLand}" ng-model="assetLandArea" class="form-control backgroundGray">
+                    <input ng-class="{'borderColorRed': isLand}"
+                        ng-model="assetLandArea" class="form-control
+                        backgroundGray">
                 </div>
                 <div class="form-group col-md-3">
                     <label translate="ADDRESS"></label>
-                    <input ng-class="{'borderColorRed': isAddress}" ng-model="assetPlainAddress" class="form-control backgroundGray">
+                    <input ng-class="{'borderColorRed': isAddress}"
+                        ng-model="assetPlainAddress" class="form-control
+                        backgroundGray">
                 </div>
                 <div class="form-group col-md-3">
                     <label translate="PROVINCE"></label>
-                    <select ng-class="{'borderColorRed': isProvince}" class="form-control backgroundGray" ng-model="assetProvince" ng-options="x for x in provinces">
+                    <select ng-class="{'borderColorRed': isProvince}"
+                        class="form-control backgroundGray"
+                        ng-model="assetProvince" ng-options="x for x in
+                        provinces">
                     </select>
                 </div>
                 <div class="form-group col-md-6">
                     <label translate="LONGLAT"></label>
-                    <a href="http://api.map.baidu.com/lbsapi/getpoint/index.html" target="_blank">Baidu</a>
-                    <input ng-class="{'borderColorRed': isLL}" ng-model="assetStringLocation" class="form-control backgroundGray">
+                    <a
+                        href="http://api.map.baidu.com/lbsapi/getpoint/index.html"
+                        target="_blank">Baidu</a>
+                    <input ng-class="{'borderColorRed': isLL}"
+                        ng-model="assetStringLocation" class="form-control
+                        backgroundGray">
                 </div>
                 <div class="form-group col-md-12">
-                    <button class="btn btn-default btn-md pull-right" ng-click="addAsset()">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true" translate="BADD"></span>
+                    <button class="btn btn-default btn-md pull-right"
+                        ng-click="addAsset()">
+                        <span class="glyphicon glyphicon-plus"
+                            aria-hidden="true" translate="BADD"></span>
                     </button>
                 </div>
             </div>
         </div>
-        <div class="AssetsData col-md-12 no-padding" ng-show="sponsorsList.length > 0">
+        <div class="AssetsData col-md-12 no-padding"
+            ng-show="sponsorsList.length> 0">
             <rd-widget class="padding-15">
-                <rd-widget-header icon="fa-money" title="{{'SPONSORS' | translate}}">
+                <rd-widget-header icon="fa-money" title="{{'SPONSORS' |
+                    translate}}">
                 </rd-widget-header>
                 <rd-widget-body classes="medium no-padding widgetBorrower">
                     <div class="table-responsive">
@@ -307,7 +430,10 @@
                                     <td>{{s.get('amount')}}</td>
                                     <td>{{s.get('type')}}</td>
                                     <td>
-                                        <a type="button" class="fa fa-close btn btn-default pull-right" ng-click="deleteSponsor($index)" translate="BDELETE"></a>
+                                        <a type="button" class="fa fa-close btn
+                                            btn-default pull-right"
+                                            ng-click="deleteSponsor($index)"
+                                            translate="BDELETE"></a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -317,28 +443,41 @@
             </rd-widget>
         </div>
         <div class="col-md-12 no-padding">
-            <div class="col-md-12 no-padding addListStyleBorder padding-left-30 padding-top-5" ng-click="showAddSponsors()">
+            <div class="col-md-12 no-padding addListStyleBorder padding-left-30
+                padding-top-5" ng-click="showAddSponsors()">
                 <label class="font-weight-unset" translate="ADDSPONSOR"></label>
-                <img ng-show="!showSponsorsAdd" class="hiddenListAdd" ng-src="./img/angle_right.png" />
-                <img ng-show="showSponsorsAdd" class="hiddenListAdd" ng-src="./img/angle_down.png" />
+                <img ng-show="!showSponsorsAdd" class="hiddenListAdd"
+                    ng-src="./img/angle_right.png" />
+                <img ng-show="showSponsorsAdd" class="hiddenListAdd"
+                    ng-src="./img/angle_down.png" />
             </div>
-            <div class="col-md-12 no-padding addListStyleBorder" ng-show="showSponsorsAdd">
+            <div class="col-md-12 no-padding addListStyleBorder"
+                ng-show="showSponsorsAdd">
                 <div class="form-group col-md-6 margin-top-10">
                     <label translate="GUARA"></label>
-                    <input ng-class="{'borderColorRed': isSponsorName}" ng-model="sponsorName" class="form-control backgroundGray">
+                    <input ng-class="{'borderColorRed': isSponsorName}"
+                        ng-model="sponsorName" class="form-control
+                        backgroundGray">
                 </div>
                 <div class="form-group col-md-3 margin-top-10">
                     <label translate="STYPE"></label>
-                    <select ng-class="{'borderColorRed': isSponsorType}" class="form-control backgroundGray" ng-model="sponsorType" ng-options="x for x in typeSponsorArray">
+                    <select ng-class="{'borderColorRed': isSponsorType}"
+                        class="form-control backgroundGray"
+                        ng-model="sponsorType" ng-options="x for x in
+                        typeSponsorArray">
                     </select>
                 </div>
                 <div class="form-group col-md-3 margin-top-10">
                     <label translate="GAMOUNT"></label>
-                    <input ng-class="{'borderColorRed': isSponsorAmount}" ng-model="sponsorAmount" class="form-control backgroundGray">
+                    <input ng-class="{'borderColorRed': isSponsorAmount}"
+                        ng-model="sponsorAmount" class="form-control
+                        backgroundGray">
                 </div>
                 <div class="form-group col-md-12">
-                    <button type="button" class="btn btn-default btn-md pull-right" ng-click="addSponsor()">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true" translate="BADD"></span>
+                    <button type="button" class="btn btn-default btn-md
+                        pull-right" ng-click="addSponsor()">
+                        <span class="glyphicon glyphicon-plus"
+                            aria-hidden="true" translate="BADD"></span>
                     </button>
                 </div>
             </div>
@@ -346,50 +485,92 @@
         <div class="col-md-12 tags padding-15">
             <div class="col-md-12 no-padding titleProjectStyle">
                 <label class="font-weight-unset" translate="FILTERS"></label>
-                <div class="buttonEditHidden buttonEditHiddenTags" ng-show="!projectTagsEdited">
-                    <a id="buttonEditTags" type="button" class="btn btn-default fa fa-edit buttonEdit" ng-click="editProjectTags()"></a>
+                <div class="buttonEditHidden buttonEditHiddenTags"
+                    ng-show="!projectTagsEdited">
+                    <a id="buttonEditTags" type="button" class="btn btn-default
+                        fa fa-edit buttonEdit" ng-click="editProjectTags()"></a>
                 </div>
                 <div ng-show="projectTagsEdited">
-                    <a type="button" class="btn btn-default fa fa-save buttonEditSave" ng-click="editProjectTags()"></a>
+                    <a type="button" class="btn btn-default fa fa-save
+                        buttonEditSave" ng-click="editProjectTags()"></a>
                 </div>
             </div>
 
-            <input class="margin-right-10" ng-show="projectTagsEdited" type="checkbox" value="projectHot" ng-model="projectHot">
-            <label ng-show="projectHot || projectTagsEdited" class="font-weight-unset marginLeft" translate="HOT"></label>
-
-            <input class="margin-right-10" ng-show="projectTagsEdited" type="checkbox" value="projectHouse" ng-model="projectHouse">
-            <label ng-show="projectHouse || projectTagsEdited" class="font-weight-unset marginLeft" translate="HOUSE"></label>
-
-            <input class="margin-right-10" ng-show="projectTagsEdited" type="checkbox" value="projectRecommended" ng-model="projectRecommended">
-            <label ng-show="projectRecommended || projectTagsEdited" class="font-weight-unset marginLeft" translate="RECOM"></label>
-
-            <input class="margin-right-10" ng-show="projectTagsEdited" type="checkbox" value="projectFactory" ng-model="projectFactory">
-            <label ng-show="projectFactory || projectTagsEdited" class="font-weight-unset marginLeft" translate="FACTORY"></label>
-
-            <input class="margin-right-10" ng-show="projectTagsEdited" type="checkbox" value="projectDebt" ng-model="projectDebt">
-            <label ng-show="projectDebt || projectTagsEdited" class="font-weight-unset marginLeft" translate="ISDEBT"></label>
-
-            <input class="margin-right-10" ng-show="projectTagsEdited" type="checkbox" value="projectShop" ng-model="projectShop">
-            <label ng-show="projectShop || projectTagsEdited" class="font-weight-unset marginLeft" translate="SHOP"></label>
+            <input class="margin-right-10" ng-show="projectTagsEdited"
+                type="checkbox" value="projectHot" ng-model="projectHot">
+            <label ng-show="projectHot || projectTagsEdited"
+                class="font-weight-unset marginLeft" translate="HOT"></label>
+            <input class="margin-right-10" ng-show="projectTagsEdited"
+                type="checkbox" value="projectHouse" ng-model="projectHouse">
+            <label ng-show="projectHouse || projectTagsEdited"
+                class="font-weight-unset marginLeft" translate="HOUSE"></label>
+            <input class="margin-right-10" ng-show="projectTagsEdited"
+                type="checkbox" value="projectRecommended"
+                ng-model="projectRecommended">
+            <label ng-show="projectRecommended || projectTagsEdited"
+                class="font-weight-unset marginLeft" translate="RECOM"></label>
+            <input class="margin-right-10" ng-show="projectTagsEdited"
+                type="checkbox" value="projectFactory"
+                ng-model="projectFactory">
+            <label ng-show="projectFactory || projectTagsEdited"
+                class="font-weight-unset marginLeft" translate="FACTORY"></label>
+            <input class="margin-right-10" ng-show="projectTagsEdited"
+                type="checkbox" value="projectDebt" ng-model="projectDebt">
+            <label ng-show="projectDebt || projectTagsEdited"
+                class="font-weight-unset marginLeft" translate="ISDEBT"></label>
+            <input class="margin-right-10" ng-show="projectTagsEdited"
+                type="checkbox" value="projectShop" ng-model="projectShop">
+            <label ng-show="projectShop || projectTagsEdited"
+                class="font-weight-unset marginLeft" translate="SHOP"></label>
         </div>
         <div class="col-md-12 Gallery padding-15">
-            <label class="col-md-12 no-padding font-weight-unset" translate="GALLERY"></label>
+            <label class="col-md-12 no-padding font-weight-unset"
+                translate="GALLERY"></label>
             <div ng-repeat="i in imageList">
-                <div class="col-md-3 margin-top-10" ng-mouseenter="mouseEnter($index)" ng-mouseleave="mouseLeave($index)">
-                    <img hidden class="imgClose" id="img{{$index}}" ng-click="deleteImage($index)" ng-src="./img/close.png" />
-                    <img id="imageGallery{{$index}}" ng-click="OpenImage($index)" ng-src="{{i.get('imageUrl')}}" class="imageGallery" />
+                <div class="col-md-3 margin-top-10"
+                    ng-mouseenter="mouseEnter($index)"
+                    ng-mouseleave="mouseLeave($index)">
+                    <img hidden class="imgClose" id="img{{$index}}"
+                        ng-click="deleteImage($index)" ng-src="./img/close.png"
+                        />
+                    <img id="imageGallery{{$index}}"
+                        ng-click="OpenImage($index)"
+                        ng-src="{{i.get('imageUrl')}}" class="imageGallery" />
                 </div>
             </div>
             <div class="col-md-12 no-padding margin-top-10">
-                <label class="font-weight-unset col-md-12 no-padding" for="inputFile" translate="PFILE"></label>
+                <label class="font-weight-unset col-md-12 no-padding"
+                    for="inputFile" translate="PFILE"></label>
                 <div class="form-group no-padding col-md-6">
-                    <input type="file" id="inputImage" class="form-controlInput backgroundGray">
+                    <input type="file" id="inputImage" class="form-controlInput
+                        backgroundGray">
                 </div>
                 <div class="form-group no-padding col-md-6">
-                    <button type="button" class="btn btn-default btn-md pull-right" ng-click="addImage()">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true" translate="BADD"></span>
+                    <button type="button" class="btn btn-default btn-md
+                        pull-right fontSize13" ng-click="addImage()">
+                        <span class="glyphicon glyphicon-plus"
+                            aria-hidden="true" translate="BADD"></span>
                     </button>
                 </div>
+            </div>
+        </div>
+        <div class="closeProjectBox" ng-show="projectFinished == '积极'">
+            <button class="buttonCloseProject" type="button"
+                data-toggle="collapse"
+                data-target="#collapseExample" aria-expanded="false"
+                aria-controls="collapseExample" translate="CLOSEPROJECTBUTTON">
+            </button>
+            <div class="collapse" id="collapseExample">
+                <label class="descriptioTextCloseProject" translate="PROJECTCLOSEDESCRIPTION"></label>
+                <div class="card card-body closeDescription">
+                    <textarea class="textAreaProjectCloseDescription"
+                        ng-model="projectFinishedDescription" required></textarea>
+                </div>
+                <button type="button" class="btn btn-default btn-md
+                    pull-right closeProject" ng-click="changeStateProject()">
+                    <span class="fa fa-close"
+                        aria-hidden="true" translate="CLOSEPROJECT"></span>
+                </button>
             </div>
         </div>
     </div>
@@ -398,14 +579,18 @@
 <div class="modal fade" id="openImage" ng-controller="ViewProjectCtrl">
     <div class="modal-dialog modal-md">
         <div class="modal-content padding-0 ModalImageSize">
-            <a id="prevImage" class="cursorPointer" ng-click="prevImageModal()" ng-show="imageOpenModal != 0">
+            <a id="prevImage" class="cursorPointer" ng-click="prevImageModal()"
+                ng-show="imageOpenModal != 0">
                 <i class="fa fa-angle-left"></i>
             </a>
-            <a id="nextImage" class="cursorPointer" ng-click="nextImageModal()" ng-show="imageOpenModal != (imageList.length - 1)">
+            <a id="nextImage" class="cursorPointer" ng-click="nextImageModal()"
+                ng-show="imageOpenModal != (imageList.length - 1)">
                 <i class="fa fa-angle-right"></i>
             </a>
-            <img ng-click="closeImage()" class="img-responsive imageModalProjects" ng-src="{{imageList[imageOpenModal].get('url')}}"
-            />
+            <img ng-click="closeImage()" class="img-responsive
+                imageModalProjects"
+                ng-src="{{imageList[imageOpenModal].get('url')}}"
+                />
         </div>
     </div>
 </div>

@@ -33,6 +33,8 @@ function ProjectCtrl($scope, $rootScope, $window, $translate) {
         isFactory: false,
         isDebt: false,
         isShop: false,
+        finished: '',
+        finishedDescription: ''
     };
 
     $scope.asset = {
@@ -282,6 +284,10 @@ function ProjectCtrl($scope, $rootScope, $window, $translate) {
                 $scope.project.set('isFactory', $scope.package.isFactory);
                 $scope.project.set('isDebt', $scope.package.isDebt);
                 $scope.project.set('isShop', $scope.package.isShop);
+
+                // finished project flag
+                $scope.project.set('finished', false);
+                $scope.project.set('finishedDescription', '');
 
                 var Asset = AV.Object.extend('Asset');
                 var assetsArray = [];
