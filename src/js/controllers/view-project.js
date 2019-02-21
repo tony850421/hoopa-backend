@@ -720,10 +720,10 @@ function ViewProjectCtrl($scope, $state, $rootScope, $window, $translate, localS
         if ($scope.projectFinishedDescription != ''){
             var id = localStorageService.cookie.get('projectId');
             var project = AV.Object.createWithoutData('Project', id);
-            project.set('finished', '完成');
+            project.set('finished', '关闭');
             project.set('finishedDescription', $scope.projectFinishedDescription);
             project.save();
-            $scope.projectFinished = '完成';
+            $scope.projectFinished = '关闭';
             $(window).scrollTop(0);
         }
     }
