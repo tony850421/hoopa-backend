@@ -22,6 +22,8 @@
     "chart.js": "^2.7.2",
     "gulp-cli": "^2.0.1",
     "gulp-wrap": "^0.14.0",
+    "leancloud-realtime": "^4.2.1",
+    "leancloud-storage": "^3.11.1",
     "mdbootstrap": "^4.5.9",
     "natives": "^1.1.6",
     "print-js": "^1.0.47"

@@ -256,13 +256,11 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
             var querySocketOffers = new AV.Query('Offert');
             querySocketOffers.equalTo('pending', true);
             querySocketOffers.subscribe().then(function (liveQuery) {
-                liveQuery.on('create', function (offer) {    
-                    console.log('querySocketOffers');
+                liveQuery.on('create', function (offer) {
                     var query = new AV.Query('Offert');
                     query.equalTo('pending', true);
                     query.count().then(function (num) {
                         $rootScope.notificationsOffersCount = parseInt(num);
-                        console.log('count ' + $rootScope.notificationsOffersCount);
                         if ($rootScope.notificationsOffersCount > 0){
                             $rootScope.notificationsOffers = true;
                             $rootScope.notificationsGeneral = true;
@@ -282,13 +280,11 @@ function LoginCtrl($scope, $state, $rootScope, $window, $translate) {
             
             var querySocketOffers1 = new AV.Query('Offert');
             querySocketOffers1.subscribe().then(function (liveQuery) {
-                liveQuery.on('update', function (offer, updatedKeys) {    
-                    console.log('querySocketOffers update');      
+                liveQuery.on('update', function (offer, updatedKeys) {
                     var query = new AV.Query('Offert');
                     query.equalTo('pending', true);
                     query.count().then(function (num) {
                         $rootScope.notificationsOffersCount = parseInt(num);
-                        console.log('count ' + $rootScope.notificationsOffersCount);
                         if ($rootScope.notificationsOffersCount > 0){
                             $rootScope.notificationsOffers = true;
                             $rootScope.notificationsGeneral = true;

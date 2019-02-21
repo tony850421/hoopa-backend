@@ -286,7 +286,7 @@ function ProjectCtrl($scope, $rootScope, $window, $translate) {
                 $scope.project.set('isShop', $scope.package.isShop);
 
                 // finished project flag
-                $scope.project.set('finished', false);
+                $scope.project.set('finished', '进行中');
                 $scope.project.set('finishedDescription', '');
 
                 var Asset = AV.Object.extend('Asset');
