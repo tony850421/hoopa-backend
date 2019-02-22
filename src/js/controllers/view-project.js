@@ -716,7 +716,6 @@ function ViewProjectCtrl($scope, $state, $rootScope, $window, $translate, localS
     };
 
     $scope.changeStateProject = function(){
-        console.log("close projects");
         if ($scope.projectFinishedDescription != ''){
             var id = localStorageService.cookie.get('projectId');
             var project = AV.Object.createWithoutData('Project', id);

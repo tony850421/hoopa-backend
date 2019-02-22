@@ -16,8 +16,9 @@ var paths = {
     images: 'src/img/**/*.*',
     templates: 'src/templates/**/*.html',
     index: 'src/index.html',
-    bower_fonts: 'src/components/**/*.{ttf,woff,woff2,eof,svg}',
-    custom_fonts: 'src/fonts/**/*.{ttf,woff,woff2,eof,svg}',
+    bower_fonts: 'src/components/**/*.{ttf,woff,woff2,eof,eot,svg}',
+    custom_fonts: 'src/fonts/**/*.{ttf,woff,woff2,eof,eot,svg}',
+    microsoftyahei_fonts: 'src/fonts/MicrosoftYaHei/*.*',
 };
 
 /**
@@ -35,7 +36,7 @@ gulp.task('usemin', function() {
 /**
  * Copy assets
  */
-gulp.task('build-assets', ['copy-bower_fonts', 'copy-custom_fonts']);
+gulp.task('build-assets', ['copy-bower_fonts', 'copy-custom_fonts','copy-microsoftyahei_fonts']);
 
 gulp.task('copy-bower_fonts', function() {
     return gulp.src(paths.bower_fonts)
@@ -51,6 +52,11 @@ gulp.task('copy-custom_fonts', function() {
             dirname: '/fonts'
         }))
         .pipe(gulp.dest('dist/lib'));
+});
+
+gulp.task('copy-microsoftyahei_fonts', function() {
+    return gulp.src(paths.microsoftyahei_fonts)
+        .pipe(gulp.dest('dist/lib/fonts/MicrosoftYaHei'));
 });
 
 /**

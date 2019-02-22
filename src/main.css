@@ -1,3 +1,12 @@
+/* font family */
+:root {
+  font-family: "MicrosoftYaHei" !important;
+}
+
+html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
+  font-family: "MicrosoftYaHei" !important;
+}
+
 .form-signin {
   max-width: 330px;
   padding: 15px;
