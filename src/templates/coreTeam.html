@@ -1,5 +1,5 @@
 <div class="row" ng-controller="CoreTeamCtrl">
-    <form class="BranchesView col-md-12" ng-show="arrayMembers.length > 0">
+    <form class="BranchesView col-md-12" ng-show="arrayMembers.length> 0">
         <div class="form-row col-md-12 noPadding">
             <div ng-repeat="member in arrayMembers">
                 <div class="col-md-12 teamMemberItem">
@@ -13,12 +13,22 @@
                     </div>
                     <div class="col-md-2">
                         <div class="col-md-12">
-                            <a class="btn btn-warning fa fa-edit pull-right buttonUpdate padding-left-0 padding-right-0" ng-click="updateMember(member.id)"
-                                translate="BUPDATE"></a>
+                            <a class="btn btn-warning pull-right
+                                buttonUpdate padding-left-0 padding-right-0"
+                                ng-click="updateMember(member.id)">
+                                <span class="fa fa-edit"></span>
+                                <label class="margin-bottom-0 fontSize13"
+                                    translate="BUPDATE"></label>
+                            </a>
                         </div>
                         <div class="col-md-12">
-                            <a class="btn btn-danger fa fa-times pull-right buttonDelete padding-left-0 padding-right-0" ng-click="deleteMember(member.id)"
-                                translate="BDELETE"></a>
+                            <a class="btn btn-danger pull-right
+                                buttonDelete padding-left-0 padding-right-0"
+                                ng-click="deleteMember(member.id)">
+                                <span class="fa fa-times"></span>
+                                <label class="margin-bottom-0 fontSize13"
+                                    translate="BDELETE"></label>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -30,32 +40,46 @@
             <div class="form-group col-md-6 padding-left-0">
                 <div class="form-group col-md-5 padding-left-0">
                     <label for="coreTeamNameUpdate" translate="CTNAME"></label>
-                    <input ng-model="coreTeamNameUpdate" type="title" id="coreTeamNameUpdate" class="form-control backgroundGray"
+                    <input ng-model="coreTeamNameUpdate" type="title"
+                        id="coreTeamNameUpdate" class="form-control
+                        backgroundGray"
                         required autofocus>
                 </div>
                 <div class="form-group col-md-9 padding-left-0">
                     <label for="coreTeamChargeUpdate" translate="CCHARGE"></label>
-                    <input ng-model="coreTeamChargeUpdate" type="title" id="coreTeamChargeUpdate" class="form-control backgroundGray"
+                    <input ng-model="coreTeamChargeUpdate" type="title"
+                        id="coreTeamChargeUpdate" class="form-control
+                        backgroundGray"
                         required autofocus>
                 </div>
             </div>
             <div class="form-group col-md-6">
-                <img class="imageMainTeam" id="mainTeamImage" src="{{coreTeamImageUpdate}}">
+                <img class="imageMainTeam" id="mainTeamImage"
+                    src="{{coreTeamImageUpdate}}">
             </div>
         </div>
         <div class="form-group col-md-12">
             <label for="coreTeamPicture" translate="CPICTURE"></label>
-            <input onchange="angular.element(this).scope().changeValueMainImage()" class="form-controlInput backgroundGray"
+            <input
+                onchange="angular.element(this).scope().changeValueMainImage()"
+                class="form-controlInput backgroundGray"
                 type="file" id="coreTeamPicture">
         </div>
         <div class="form-group col-md-12">
             <label for="coreTeamDescriptionUpdate" translate="CDESCRIPTION"></label>
-            <textarea ng-model="coreTeamDescriptionUpdate" type="title" id="coreTeamDescriptionUpdate" class="textAreaCoreTeam form-control backgroundGray"
+            <textarea ng-model="coreTeamDescriptionUpdate" type="title"
+                id="coreTeamDescriptionUpdate" class="textAreaCoreTeam
+                form-control backgroundGray"
                 required autofocus>
             </div>
             <div class="form-group col-md-12">
-                <button class="btn btn-lg btn-primary fa fa-save colorBlue buttonAddBranche" translate="UPDATEMEMBER" ng-click="saveMember()"></button>
+                <button class="btn btn-lg btn-primary colorBlue
+                    buttonAddBranche" ng-click="saveMember()">
+                    <span class="fa fa-save"></span>
+                    <label class="margin-bottom-0 fontSize13"
+                        translate="UPDATEMEMBER"></label>
+                </button>
             </div>
         </div>
-    </form>    
+    </form>
 </div>

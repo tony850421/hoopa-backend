@@ -19,7 +19,10 @@
   "dependencies": {
     "angular-chart.js": "^1.1.1",
     "angular-local-storage": "^0.7.1",
+    "bootstrap": "^3.3.7",
     "chart.js": "^2.7.2",
+    "del": "^4.0.0",
+    "font-awesome": "^4.7.0",
     "gulp-cli": "^2.0.1",
     "gulp-wrap": "^0.14.0",
     "leancloud-realtime": "^4.2.1",

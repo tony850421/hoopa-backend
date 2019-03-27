@@ -6,13 +6,17 @@
         <div class="col-md-12">
             <div ng-repeat="user in users" class="col-md-12 divUser">
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                    <img ng-show="user.get('avatarUrl').length > 0" class="imgAvatarUsers" ng-src="{{user.get('avatarUrl')}}" />
-                    <img ng-show="!user.get('avatarUrl').length > 0" class="imgAvatarUsers" ng-src="img/avatar.jpg" />
+                    <img ng-show="user.get('avatarUrl').length> 0"
+                    class="imgAvatarUsers" ng-src="{{user.get('avatarUrl')}}" />
+                    <img ng-show="!user.get('avatarUrl').length> 0"
+                    class="imgAvatarUsers" ng-src="img/avatar.jpg" />
                 </div>
                 <div class="offerContent col-md-4">
-                    <h5 ng-show="user.get('fullName').length > 0">{{user.get('fullName')}}</h5>
-                    <h5 ng-show="!user.get('fullName').length > 0 && user.get('nickName').length > 0">{{user.get('nickName')}}</h5>
-                    <h5 ng-show="!user.get('fullName').length > 0 && !user.get('nickName').length > 0">{{user.get('username')}}</h5>
+                    <h5 ng-show="user.get('fullName').length> 0">{{user.get('fullName')}}</h5>
+                    <h5 ng-show="!user.get('fullName').length> 0 &&
+                        user.get('nickName').length > 0">{{user.get('nickName')}}</h5>
+                    <h5 ng-show="!user.get('fullName').length> 0 &&
+                        !user.get('nickName').length > 0">{{user.get('username')}}</h5>
                 </div>
                 <div class="offerContent col-md-2">
                     <h5>{{user.get('createdDate')}}</h5>
@@ -21,19 +25,33 @@
                     <h5>{{user.get('updatedDate')}}</h5>
                 </div>
                 <div class="offerContent col-md-1 col-md-offset-2">
-                    <a ng-show="user.get('isAdmin')" ng-click="quitAdmin(user.id)" class="btn btn-default fa fa-users pull-right buttonShow" translate="REMOVEADMIN"></a>
-                    <a ng-show="!user.get('isAdmin')" ng-click="makeAdmin(user.id)" class="btn btn-primary fa fa-users pull-right buttonShow" translate="MAKEADMIN"></a>
+                    <a ng-show="user.get('isAdmin')"
+                        ng-click="quitAdmin(user.id)" class="btn btn-default
+                        pull-right buttonShow">
+                        <span class="fa fa-users"></span>
+                        <label class="margin-bottom-0 fontSize13"
+                            translate="REMOVEADMIN"></label>
+                    </a>
+                    <a ng-show="!user.get('isAdmin')"
+                        ng-click="makeAdmin(user.id)" class="btn btn-primary fa
+                        fa-users pull-right buttonShow" translate="MAKEADMIN">
+                        <span class="fa fa-users"></span>
+                        <label class="margin-bottom-0 fontSize13"
+                            translate="MAKEADMIN"></label>
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="paginationBox" ng-hide="users.length < 10 && skip == 0">
+        <div class="paginationBox" ng-hide="users.length <10 && skip == 0">
             <nav aria-label="Page navigation">
                 <div class="col-md-12">
                     <div class="col-md-5 padding-15">
-                        <a ng-hide="skip < 10" class="btn btn-default pull-right" translate="PREVIOUS" ng-click="previous()"></a>
+                        <a ng-hide="skip <10" class="btn btn-default pull-right"
+                            translate="PREVIOUS" ng-click="previous()"></a>
                     </div>
                     <div class="col-md-5 col-md-offset-2 padding-15">
-                        <a ng-hide="users.length < 10" class="btn btn-default" translate="NEXT" ng-click="next()"></a>
+                        <a ng-hide="users.length <10" class="btn btn-default"
+                            translate="NEXT" ng-click="next()"></a>
                     </div>
                 </div>
             </nav>

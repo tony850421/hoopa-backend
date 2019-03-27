@@ -1,36 +1,58 @@
 <div class="row" ng-controller="HoopaBranchesCtrl">
-    <form class="BranchesView col-md-12" ng-show="arrayBranchs.length > 0">
+    <form class="BranchesView col-md-12" ng-show="arrayBranchs.length> 0">
         <div class="form-row col-md-12 noPadding">
             <div ng-repeat="b in arrayBranchs">
                 <div class="col-md-12 teamMemberItem">
                     <div class="col-md-7">
                         <div class="col-md-12">
-                            <label class="col-md-1 padding-top-10 padding-left-0 padding-right-0" for="branchesName" translate="HBNAME"></label>
-                            <h4 class="col-md-10 padding-left-0 padding-right-0"> {{b.name}}</h4>
+                            <label class="col-md-1 padding-top-10 padding-left-0
+                                padding-right-0" for="branchesName"
+                                translate="HBNAME"></label>
+                            <h4 class="col-md-10 padding-left-0
+                                padding-right-0"> {{b.name}}</h4>
                         </div>
                         <div class="col-md-12">
-                            <label class="col-md-1 padding-top-10 padding-left-0 padding-right-0" for="brancheAddress" translate="HBADDRESS"></label>
-                            <h4 class="col-md-10 padding-left-0 padding-right-0">{{b.address}}</h4>
+                            <label class="col-md-1 padding-top-10 padding-left-0
+                                padding-right-0" for="brancheAddress"
+                                translate="HBADDRESS"></label>
+                            <h4 class="col-md-10 padding-left-0
+                                padding-right-0">{{b.address}}</h4>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="col-md-12">
-                            <label class="col-md-2 padding-top-10 padding-left-0 padding-right-0" for="branchePhone" translate="HBPHONE"></label>
-                            <h4 class="col-md-10 padding-left-0 padding-right-0">{{b.phone}}</h4>
+                            <label class="col-md-2 padding-top-10 padding-left-0
+                                padding-right-0" for="branchePhone"
+                                translate="HBPHONE"></label>
+                            <h4 class="col-md-10 padding-left-0
+                                padding-right-0">{{b.phone}}</h4>
                         </div>
                         <div class="col-md-12">
-                            <label class="col-md-2 padding-top-10 padding-left-0 padding-right-0" for="branchesCoordenates" translate="HBLATITUDE"></label>
-                            <h4 class="col-md-10 padding-left-0 padding-right-0">{{b.longitude}},{{b.latitude}}</h4>
+                            <label class="col-md-2 padding-top-10 padding-left-0
+                                padding-right-0" for="branchesCoordenates"
+                                translate="HBLATITUDE"></label>
+                            <h4 class="col-md-10 padding-left-0
+                                padding-right-0">{{b.longitude}},{{b.latitude}}</h4>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="col-md-12">
-                            <a class="btn btn-warning fa fa-edit pull-right buttonUpdate padding-left-0 padding-right-0"
-                                ng-click="updateBranch(b.id)" translate="BUPDATE"></a>
+                            <a class="btn btn-warning pull-right buttonUpdate
+                                padding-left-0 padding-right-0"
+                                ng-click="updateBranch(b.id)">
+                                <span class="fa fa-edit"></span>
+                                <label class="margin-bottom-0 fontSize13"
+                                    translate="BUPDATE"></label>
+                            </a>
                         </div>
                         <div class="col-md-12">
-                            <a class="btn btn-secundary fa fa-times pull-right buttonDelete padding-left-0 padding-right-0"
-                                ng-click="deleteBranchs(b.id)" translate="BDELETE"></a>
+                            <a class="btn btn-secundary pull-right
+                                buttonDelete padding-left-0 padding-right-0"
+                                ng-click="deleteBranchs(b.id)">
+                                <span class="fa fa-times"></span>
+                                <label class="margin-bottom-0 fontSize13"
+                                    translate="BDELETE"></label>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -41,27 +63,35 @@
         <div class="form-row col-md-12">
             <div class="form-group col-md-6">
                 <label for="branchesName" translate="BNAME"></label>
-                <input ng-model="brancheName" type="title" id="branchesName" class="form-control backgroundGray"
+                <input ng-model="brancheName" type="title" id="branchesName"
+                    class="form-control backgroundGray"
                     required autofocus>
             </div>
             <div class="form-group col-md-12">
                 <label for="brancheAddress" translate="BADDRESS"></label>
-                <input ng-model="brancheAddress" type="title" id="branchesAddress" class="form-control backgroundGray"
+                <input ng-model="brancheAddress" type="title"
+                    id="branchesAddress" class="form-control backgroundGray"
                     required autofocus>
             </div>
             <div class="form-group col-md-6">
                 <label for="branchePhone" translate="BPHONE"></label>
-                <input ng-model="branchePhone" type="title" id="branchesPhone" class="form-control backgroundGray"
+                <input ng-model="branchePhone" type="title" id="branchesPhone"
+                    class="form-control backgroundGray"
                     required autofocus>
             </div>
             <div class="form-group col-md-6">
                 <label for="branchesCoordenates" translate="LONGLAT"></label>
-                <input ng-model="branchesCoordenates" type="title" id="branchesCoordenates" class="form-control backgroundGray"
+                <input ng-model="branchesCoordenates" type="title"
+                    id="branchesCoordenates" class="form-control backgroundGray"
                     required autofocus>
             </div>
             <div class="form-group col-md-12">
-                <button class="btn btn-lg btn-primary colorBlue fa fa-plus buttonAddBranche" ng-click="updateBranchs()"
-                    translate="UPDATEBRANCHE"></button>
+                <button class="btn btn-lg btn-primary colorBluebuttonAddBranche"
+                    ng-click="updateBranchs()">
+                    <span class="fa fa-plus"></span>
+                    <label class="margin-bottom-0 fontSize13"
+                        translate="UPDATEBRANCHE"></label>
+                </button>
             </div>
         </div>
     </form>

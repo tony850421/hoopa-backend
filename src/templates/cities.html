@@ -11,21 +11,29 @@
                         <h4>{{member.name}}</h4>
                         <h5><strong>{{'CITYPRICE' | translate}}:</strong>
                             {{member.price}}</h5>
-                        <h5 ng-show="member.show"><strong>{{'SHOWCITYTEXT' | translate}}:</strong> {{'YES' | translate}}</h5>
-                        <h5 ng-show="!member.show"><strong>{{'SHOWCITYTEXT' | translate}}:</strong> {{'NO' | translate}}</h5>
+                        <h5 ng-show="member.show"><strong>{{'SHOWCITYTEXT' |
+                                translate}}:</strong> {{'YES' | translate}}</h5>
+                        <h5 ng-show="!member.show"><strong>{{'SHOWCITYTEXT' |
+                                translate}}:</strong> {{'NO' | translate}}</h5>
                     </div>
                     <div class="col-md-2">
                         <div class="col-md-12">
-                            <a class="btn btn-warning fa fa-edit pull-right
+                            <a class="btn btn-warning pull-right
                                 buttonUpdate padding-left-0 padding-right-0"
-                                ng-click="updateMember(member.id)"
-                                translate="BUPDATE"></a>
+                                ng-click="updateMember(member.id)">
+                                <span class="fa fa-edit"></span>
+                                <label class="margin-bottom-0 fontSize13"
+                                    translate="BUPDATE"></label>
+                            </a>
                         </div>
                         <div class="col-md-12">
-                            <a class="btn btn-danger fa fa-times pull-right
+                            <a class="btn btn-danger pull-right
                                 buttonDelete padding-left-0 padding-right-0"
-                                ng-click="deleteMember(member.id)"
-                                translate="BDELETE"></a>
+                                ng-click="deleteMember(member.id)">
+                                <span class="fa fa-times"></span>
+                                <label class="margin-bottom-0 fontSize13"
+                                    translate="BDELETE"></label>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -72,9 +80,12 @@
                 required autofocus>
             </div>
             <div class="form-group col-md-12">
-                <button class="btn btn-lg btn-primary fa fa-save colorBlue
-                    buttonAddBranche" translate="UPDATECITY"
-                    ng-click="saveMember()"></button>
+                <button class="btn btn-lg btn-primary colorBlue
+                    buttonAddBranche" ng-click="saveMember()">
+                    <span class="fa fa-save"></span>
+                    <label class="margin-bottom-0 fontSize13"
+                        translate="UPDATECITY"></label>
+                </button>
             </div>
         </div>
     </form>
