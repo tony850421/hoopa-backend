@@ -83,21 +83,9 @@ gulp.task('custom-templates', function () {
     .pipe(gulp.dest('dist/templates'))
 })
 
-gulp.task('clean', function() {
-    // You can use multiple globbing patterns as you would with `gulp.src`
-    return del(['build'])
-  })
-
-/**
- * Watch custom files
- */
-// gulp.task('watch', function () {
-//   gulp.watch([paths.images], ['custom-images'])
-//   gulp.watch([paths.styles], ['custom-less'])
-//   gulp.watch([paths.scripts], ['custom-js'])
-//   gulp.watch([paths.templates], ['custom-templates'])
-//   gulp.watch([paths.index], ['usemin'])
-// })
+gulp.task('clean', function () {
+  return del(['build'])
+})
 
 /**
  * Live reload server
@@ -121,4 +109,3 @@ gulp.task('livereload', function () {
  */
 gulp.task('build', ['usemin', 'build-assets', 'build-custom'])
 gulp.task('default', [ 'clean', 'build', 'webserver', 'livereload'])
-// gulp.task('default', ['build', 'webserver', 'livereload', 'watch'])

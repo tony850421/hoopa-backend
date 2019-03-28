@@ -268,25 +268,25 @@
             </div>
             <div class="col-md-12 no-padding addListStyleBorder"
                 ng-show="showBorrowerAdd">
-                <div class="form-group col-md-4 margin-top-10">
+                <div class="form-group col-md-4 marginTop10">
                     <label translate="BORRONAME"></label>
                     <input ng-class="{'borderColorRed': isName}"
                         ng-model="newBorrowerName" class="form-control
                         backgroundGray">
                 </div>
-                <div class="form-group col-md-4 margin-top-10">
+                <div class="form-group col-md-4 marginTop10">
                     <label translate="BORROPDEB"></label>
                     <input ng-class="{'borderColorRed': isNaN}"
                         ng-model="newBorrowerPrincipalDebit" class="form-control
                         backgroundGray">
                 </div>
-                <div class="form-group col-md-4 margin-top-10">
+                <div class="form-group col-md-4 marginTop10">
                     <label translate="BORROINTER"></label>
                     <input ng-class="{'borderColorRed': isInterest}"
                         ng-model="newBorrowerInterestCreditor"
                         class="form-control backgroundGray">
                 </div>
-                <div class="form-group col-md-12 margin-top-10">
+                <div class="form-group col-md-12 marginTop10">
                     <button class="btn btn-default btn-md pull-right"
                         ng-click="addBorrower()">
                         <span class="glyphicon glyphicon-plus"
@@ -349,13 +349,13 @@
             </div>
             <div class="col-md-12 no-padding addListStyleBorder"
                 ng-show="showAssetsAdd">
-                <div class="form-group col-md-3 margin-top-10">
+                <div class="form-group col-md-3 marginTop10">
                     <label translate="ATITLE"></label>
                     <input ng-class="{'borderColorRed': isTitle}"
                         ng-model="assetTitle" class="form-control
                         backgroundGray">
                 </div>
-                <div class="form-group col-md-3 margin-top-10">
+                <div class="form-group col-md-3 marginTop10">
                     <label translate="TARRIVAL"></label>
                     <select ng-class="{'borderColorRed': isTypeA}"
                         class="form-control backgroundGray"
@@ -363,13 +363,13 @@
                         typeArrivalArray">
                     </select>
                 </div>
-                <div class="form-group col-md-3 margin-top-10">
+                <div class="form-group col-md-3 marginTop10">
                     <label translate="CAREA"></label>
                     <input ng-class="{'borderColorRed': isConstruction}"
                         ng-model="assetConstructionArea" class="form-control
                         backgroundGray">
                 </div>
-                <div class="form-group col-md-3 margin-top-10">
+                <div class="form-group col-md-3 marginTop10">
                     <label translate="LAREA"></label>
                     <input ng-class="{'borderColorRed': isLand}"
                         ng-model="assetLandArea" class="form-control
@@ -453,13 +453,13 @@
             </div>
             <div class="col-md-12 no-padding addListStyleBorder"
                 ng-show="showSponsorsAdd">
-                <div class="form-group col-md-6 margin-top-10">
+                <div class="form-group col-md-6 marginTop10">
                     <label translate="GUARA"></label>
                     <input ng-class="{'borderColorRed': isSponsorName}"
                         ng-model="sponsorName" class="form-control
                         backgroundGray">
                 </div>
-                <div class="form-group col-md-3 margin-top-10">
+                <div class="form-group col-md-3 marginTop10">
                     <label translate="STYPE"></label>
                     <select ng-class="{'borderColorRed': isSponsorType}"
                         class="form-control backgroundGray"
@@ -467,7 +467,7 @@
                         typeSponsorArray">
                     </select>
                 </div>
-                <div class="form-group col-md-3 margin-top-10">
+                <div class="form-group col-md-3 marginTop10">
                     <label translate="GAMOUNT"></label>
                     <input ng-class="{'borderColorRed': isSponsorAmount}"
                         ng-model="sponsorAmount" class="form-control
@@ -527,7 +527,7 @@
             <label class="col-md-12 no-padding font-weight-unset"
                 translate="GALLERY"></label>
             <div ng-repeat="i in imageList">
-                <div class="col-md-3 margin-top-10"
+                <div class="col-md-3 marginTop10"
                     ng-mouseenter="mouseEnter($index)"
                     ng-mouseleave="mouseLeave($index)">
                     <img hidden class="imgClose" id="img{{$index}}"
@@ -538,7 +538,7 @@
                         ng-src="{{i.get('imageUrl')}}" class="imageGallery" />
                 </div>
             </div>
-            <div class="col-md-12 no-padding margin-top-10">
+            <div class="col-md-12 no-padding marginTop10">
                 <label class="font-weight-unset col-md-12 no-padding"
                     for="inputFile" translate="PFILE"></label>
                 <div class="form-group no-padding col-md-6">

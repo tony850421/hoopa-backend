@@ -1,4 +1,5 @@
 /* font family */
+
 :root {
   font-family: "MicrosoftYaHei" !important;
 }
@@ -464,10 +465,6 @@ ul.sidebar .sidebar-list a:hover {
   font-weight: unset !important;
 }
 
-.margin-top-10 {
-  margin-top: 10px;
-}
-
 .buttonDelete {
   color: white !important;
   background-color: #ff851b !important;
@@ -690,7 +687,7 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .padding-left-0 {
-  padding-left: 0px;
+  padding-left: 0px !important;
 }
 
 .columBox {
@@ -708,7 +705,6 @@ ul.sidebar .sidebar-list a:hover {
 .imageMainTeam {
   width: 130px;
   float: right;
-  border: 1px #cccccc solid;
 }
 
 .newsImage {
@@ -738,6 +734,10 @@ ul.sidebar .sidebar-list a:hover {
 
 .marginTop10 {
   margin-top: 10px;
+}
+
+.marginBottom10 {
+  margin-bottom: 10px;
 }
 
 .marginBottom20 {
@@ -1244,13 +1244,26 @@ tr {
   width: 94%;
 }
 
+.citiesView {
+  background-color: #fff;
+  padding-top: 15px;
+  margin: 2% 3%;
+  border: 1px solid #d6dadb;
+  border-radius: 5px;
+  width: 94% !important;
+}
+
+.buttonAddCity {
+  margin: 10px 3% 0px;
+}
+
 .BranchesViewAdd {
   background-color: #fff;
   padding-top: 15px;
   margin: 2% 3%;
   border: 1px solid #d6dadb;
   border-radius: 5px;
-  width: 94%;
+  width: 94% !important;
 }
 
 .BranchesViewUpdate {
@@ -1300,13 +1313,13 @@ tr {
   border-radius: 5px;
 }
 
-.closeDescription{
+.closeDescription {
   padding: 5px;
   height: 110px;
   margin-top: 10px;
 }
 
-.buttonCloseProject{
+.buttonCloseProject {
   margin-left: 0;
   border: none;
   background-color: transparent !important;
@@ -1314,28 +1327,55 @@ tr {
   overflow: hidden !important;
 }
 
-.buttonCloseProject:focus{
+.buttonCloseProject:focus {
   outline: none !important;
 }
 
-.textAreaProjectCloseDescription{
+.textAreaProjectCloseDescription {
   height: 100px;
   resize: none;
   width: 100%
 }
 
-.closeProject{
+.closeProject {
   margin-top: 10px;
   font-size: 13px !important;
 }
 
-.descriptioTextCloseProject{  
+.descriptioTextCloseProject {
   margin-top: 10px;
   margin-left: 5px;
 }
 
-.fontSize13,
-.btn .fa,
-.btn.btn-md .fa{
+.fontSize13, .btn .fa, .btn.btn-md .fa {
   font-size: 13px !important;
+}
+
+.listSecondLevel {
+  margin-left: -15px !important;
+}
+
+.listThirdLevel {
+  margin-left: -8px !important;
+}
+
+.listSecondLevel:hover, .listThirdLevel:hover {
+  cursor: pointer;
+}
+
+.updateCityNameClass {
+  display: flex;
+  flex-direction: row;
+}
+
+.btnEditCityName {
+  margin-top: 0px;
+  color: black !important;
+  background-color: transparent !important;
+  padding: 4px !important;
+  opacity: 0.3;
+}
+
+.btnEditCityName:hover{  
+  opacity: 1;
 }

@@ -163,16 +163,20 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "CITYPICTURE": "City Picture",
         "CITYDESCRIPTION": "City Description",
         "ADDCITY": "Add City",
+        "SAVECITY": "Save City",
         "CITIES": "Cities",
         "UPDATECITY": "Update City",
-        "CITYINFORMATION": "We only show the eight first cities",
+        "CITYINFORMATION": "Only The first eight cities are shown",
         "SHOWCITYTEXT": "Show this city in home page",
         "YES": "Yes",
         "NO": "No",
         "STATE": "State",
         "CLOSEPROJECTBUTTON": "Do you want close this project?",
         "PROJECTCLOSEDESCRIPTION": "Enter the cause by which you want to close that project",
-        "CLOSEPROJECT": " Close project"
+        "CLOSEPROJECT": " Close project",
+        "SUBJECT": "Project Management",
+        "COMPANY": "Company",
+        "GROUPINTRODUCE": "Group Introduce"
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -332,17 +336,21 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "CITYPRICE": "平均价格",
         "CITYPICTURE": "城市图片",
         "CITYDESCRIPTION": "城市描述",
-        "ADDCITY": "城市城市",
+        "ADDCITY": "城市城市",        
+        "SAVECITY": "保存城市",
         "CITIES": "城市",
         "UPDATECITY": "更新城市",
-        "CITYINFORMATION": "我们只展示了八个前八个城市",
+        "CITYINFORMATION": "仅显示前八个城市",
         "SHOWCITYTEXT": "在主页上显示此城市",
         "YES": "是的",
         "NO": "不",
         "STATE": "状态",
         "CLOSEPROJECTBUTTON": "是否要关闭此项目？",
         "PROJECTCLOSEDESCRIPTION": "输入要关闭该项目的原因",
-        "CLOSEPROJECT": " 关闭项目"
+        "CLOSEPROJECT": " 关闭项目",
+        "SUBJECT": "项目管理",
+        "COMPANY": "公司信息管理",
+        "GROUPINTRODUCE": "集团信息管理"
     });
     $translateProvider.preferredLanguage('ch_CH');
 }]);
