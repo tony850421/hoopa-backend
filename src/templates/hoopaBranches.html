@@ -1,98 +1,85 @@
 <div class="row" ng-controller="HoopaBranchesCtrl">
-    <form class="BranchesView col-md-12" ng-show="arrayBranchs.length> 0">
-        <div class="form-row col-md-12 noPadding">
-            <div ng-repeat="b in arrayBranchs">
-                <div class="col-md-12 teamMemberItem">
-                    <div class="col-md-7">
-                        <div class="col-md-12">
-                            <label class="col-md-1 padding-top-10 padding-left-0
-                                padding-right-0" for="branchesName"
-                                translate="HBNAME"></label>
-                            <h4 class="col-md-10 padding-left-0
-                                padding-right-0"> {{b.name}}</h4>
-                        </div>
-                        <div class="col-md-12">
-                            <label class="col-md-1 padding-top-10 padding-left-0
-                                padding-right-0" for="brancheAddress"
-                                translate="HBADDRESS"></label>
-                            <h4 class="col-md-10 padding-left-0
-                                padding-right-0">{{b.address}}</h4>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="col-md-12">
-                            <label class="col-md-2 padding-top-10 padding-left-0
-                                padding-right-0" for="branchePhone"
-                                translate="HBPHONE"></label>
-                            <h4 class="col-md-10 padding-left-0
-                                padding-right-0">{{b.phone}}</h4>
-                        </div>
-                        <div class="col-md-12">
-                            <label class="col-md-2 padding-top-10 padding-left-0
-                                padding-right-0" for="branchesCoordenates"
-                                translate="HBLATITUDE"></label>
-                            <h4 class="col-md-10 padding-left-0
-                                padding-right-0">{{b.longitude}},{{b.latitude}}</h4>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="col-md-12">
-                            <a class="btn btn-warning pull-right buttonUpdate
-                                padding-left-0 padding-right-0"
-                                ng-click="updateBranch(b.id)">
-                                <span class="fa fa-edit"></span>
-                                <label class="margin-bottom-0 fontSize13"
-                                    translate="BUPDATE"></label>
-                            </a>
-                        </div>
-                        <div class="col-md-12">
-                            <a class="btn btn-secundary pull-right
-                                buttonDelete padding-left-0 padding-right-0"
-                                ng-click="deleteBranchs(b.id)">
-                                <span class="fa fa-times"></span>
-                                <label class="margin-bottom-0 fontSize13"
-                                    translate="BDELETE"></label>
-                            </a>
-                        </div>
-                    </div>
+    <button class="btn btn-lg btn-primary colorBlue buttonAddCity" ng-click="addBrancheFuntion()">
+        <span class="fa fa-plus"></span>
+        <label class="margin-bottom-0 fontSize13" translate="ADDBRANCHE"></label>
+    </button>
+    <div id="addBrancheBox">
+        <div class="BranchesViewAdd col-md-12">
+            <div class="form-row col-md-12">
+                <div class="form-group col-md-6">
+                    <label for="branchesName" translate="BNAME"></label>
+                    <input ng-model="brancheName" type="title" id="branchesName" class="form-control backgroundGray" required
+                        autofocus>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="brancheAddress" translate="BADDRESS"></label>
+                    <input ng-model="brancheAddress" type="title" id="branchesAddress" class="form-control backgroundGray"
+                        required autofocus>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="branchePhone" translate="BPHONE"></label>
+                    <input ng-model="branchePhone" type="title" id="branchesPhone" class="form-control backgroundGray" required
+                        autofocus>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="branchesCoordenates" translate="LONGLAT"></label>
+                    <input ng-model="branchesCoordenates" type="title" id="branchesCoordenates"
+                        class="form-control backgroundGray" required autofocus>
+                </div>
+                <div class="form-group col-md-12">
+                    <button class="btn btn-lg btn-primary colorBlue buttonAddBranche" ng-click="addBranchs()">
+                        <span class="fa fa-plus"></span>
+                        <label class="margin-bottom-0 fontSize13" translate="ADDBRANCHE"></label>
+                    </button>
                 </div>
             </div>
         </div>
-    </form>
-    <form class="BranchesView col-md-12" id="updateBranchBox">
-        <div class="form-row col-md-12">
-            <div class="form-group col-md-6">
-                <label for="branchesName" translate="BNAME"></label>
-                <input ng-model="brancheName" type="title" id="branchesName"
-                    class="form-control backgroundGray"
-                    required autofocus>
-            </div>
-            <div class="form-group col-md-12">
-                <label for="brancheAddress" translate="BADDRESS"></label>
-                <input ng-model="brancheAddress" type="title"
-                    id="branchesAddress" class="form-control backgroundGray"
-                    required autofocus>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="branchePhone" translate="BPHONE"></label>
-                <input ng-model="branchePhone" type="title" id="branchesPhone"
-                    class="form-control backgroundGray"
-                    required autofocus>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="branchesCoordenates" translate="LONGLAT"></label>
-                <input ng-model="branchesCoordenates" type="title"
-                    id="branchesCoordenates" class="form-control backgroundGray"
-                    required autofocus>
-            </div>
-            <div class="form-group col-md-12">
-                <button class="btn btn-lg btn-primary colorBluebuttonAddBranche"
-                    ng-click="updateBranchs()">
-                    <span class="fa fa-plus"></span>
-                    <label class="margin-bottom-0 fontSize13"
-                        translate="UPDATEBRANCHE"></label>
-                </button>
+    </div>
+    <form class="col-md-12" ng-show="arrayBranchs.length> 0">
+        <div class="form-row col-md-12 noPadding">
+            <div ng-repeat="b in arrayBranchs">
+                <div class="col-md-12 teamMemberItem">
+                    <span class="fa fa-times spanCitiesClose" ng-click="deleteBranchs(b.id)"></span>
+                    <div class="updateCityNameClass">
+                        <label translate="HBNAME"></label>
+                        <label class="margin-bottom-0" id="branchName_{{$index}}">{{b.name}}</label>
+                        <input id="updateBranchName_{{$index}}" ng-change="updateBranchName($index)" class="ng-hide" type="text" ng-model="nameUpdateBranch"></input>
+                        <div id="editBranchName_{{$index}}" class="buttonEditHidden">
+                            <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editBranchName($index, b.name)">
+                                <span class="fa fa-edit"></span>
+                            </a>
+                        </div>
+                        <div id="saveBranchName_{{$index}}" class="ng-hide">
+                            <a type="button" class="btn btnEditBranchName buttonEditSave" ng-click="saveBranchName($index, b.id)">
+                                <span class="fa fa-save"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="updateCityNameClass">
+                        <label translate="HBADDRESS"></label>
+                        <label class="margin-bottom-0" id="branchAddress_{{$index}}">{{b.address}}</label>
+                        <input id="updateBranchAddress_{{$index}}" ng-change="updateBranchAddress($index)" class="ng-hide" type="text" ng-model="addressUpdateBranch"></input>
+                        <div id="editBranchAddress_{{$index}}" class="buttonEditHidden">
+                            <a type="button" class="btn btnEditCityAddress buttonEdit" ng-click="editBranchAddress($index, b.address)">
+                                <span class="fa fa-edit"></span>
+                            </a>
+                        </div>
+                        <div id="saveBranchAddress_{{$index}}" class="ng-hide">
+                            <a type="button" class="btn btnEditBranchName buttonEditSave" ng-click="saveBranchAddress($index, b.id)">
+                                <span class="fa fa-save"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="updateCityNameClass">
+                        <label translate="HBPHONE"></label>
+                        <label class="margin-bottom-0" id="cityName_{{$index}}">{{b.phone}}</label>
+                    </div>
+                    <div class="updateCityNameClass">
+                        <label translate="HBLATITUDE"></label>
+                        <label class="margin-bottom-0" id="cityName_{{$index}}">{{b.longitude}},{{b.latitude}}</label>
+                    </div>                    
+                </div>
             </div>
         </div>
-    </form>
+    </form>    
 </div>

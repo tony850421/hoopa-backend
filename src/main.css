@@ -1238,6 +1238,11 @@ tr {
   width: 130px;
 }
 
+.buttonAddTeamMember{
+  float: right;
+  width: 160px;
+}
+
 .BranchesView {
   background-color: #fff;
   padding-top: 15px;
@@ -1303,9 +1308,16 @@ tr {
 }
 
 .imageCoreTeam {
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 100px !important;
+  max-height: 100px !important;
+  min-width: 100px !important;
+  min-height: 100px !important;
   object-fit: cover;
+}
+
+.coreTeamTextAreaStyle{
+  width: 100%;
+  resize: none;
 }
 
 .imageCities {
