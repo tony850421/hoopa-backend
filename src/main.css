@@ -162,16 +162,16 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
   vertical-align: middle;
 }
 
-.marginLeft {
-  margin-right: 10px;
-}
-
 .marginLeftNone {
   margin-right: 0 !important;
 }
 
 .lineHeight {
   line-height: normal !important;
+}
+
+.marginRight15 {
+  margin-right: 15px;
 }
 
 .loginBox {
@@ -704,7 +704,9 @@ ul.sidebar .sidebar-list a:hover {
 
 .imageMainTeam {
   width: 130px;
+  height: 130px;
   float: right;
+  object-fit: cover;
 }
 
 .newsImage {
@@ -1233,6 +1235,7 @@ tr {
 
 .buttonAddBranche {
   float: right;
+  width: 130px;
 }
 
 .BranchesView {
@@ -1282,11 +1285,17 @@ tr {
 .teamMemberItem {
   padding-top: 10px;
   padding-bottom: 10px;
-  border-top: 1px #c8c8c8 solid;
+  border: 1px solid #c8c8c8;
+  margin-top: 5px;
+  border-radius: 8px;
 }
 
 .noPadding {
   padding: 0;
+}
+
+.padding20 {
+  padding: 20px !important;
 }
 
 .heightModalUpdateMember {
@@ -1300,9 +1309,9 @@ tr {
 }
 
 .imageCities {
-  max-width: 100px;
-  max-height: 100px;
-  min-height: 80px;
+  max-width: 120px;
+  max-height: 120px;
+  min-height: 90px !important;
   object-fit: cover;
 }
 
@@ -1372,10 +1381,155 @@ tr {
   margin-top: 0px;
   color: black !important;
   background-color: transparent !important;
-  padding: 4px !important;
+  padding-top: 4px !important;
+  padding-bottom: 2px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
   opacity: 0.3;
 }
 
-.btnEditCityName:hover{  
+.btnEditCityPrice {
+  margin-top: 6px;
+  margin-left: 5px;
+  color: black !important;
+  background-color: transparent !important;
+  padding-top: 4px !important;
+  padding-bottom: 2px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+  opacity: 0.3;
+}
+
+.btnEditCityName:hover, .btnEditCityPrice:hover {
   opacity: 1;
+}
+
+.labelPriceCityUpdate {
+  margin-top: 7px !important;
+  margin-left: 10px !important;
+}
+
+.visibilityCity {
+  margin-left: 5px;
+}
+
+.spanCitiesClose {
+  float: right;
+  border: 1px solid #ebebeb;
+  border-radius: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.spanCitiesClose:hover {
+  cursor: pointer;
+  background-color: #007bff !important;
+  color: white !important;
+}
+
+/* style for unput type file image */
+
+.was-validated .custom-file-input:valid~.custom-file-label, .custom-file-input.is-valid~.custom-file-label {
+  border-color: #28a745;
+}
+
+.was-validated .custom-file-input:valid~.valid-feedback, .was-validated .custom-file-input:valid~.valid-tooltip, .custom-file-input.is-valid~.valid-feedback, .custom-file-input.is-valid~.valid-tooltip {
+  display: block;
+}
+
+.was-validated .custom-file-input:valid:focus~.custom-file-label, .custom-file-input.is-valid:focus~.custom-file-label {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.input-group>.form-control:focus, .input-group>.custom-select:focus, .input-group>.custom-file .custom-file-input:focus~.custom-file-label {
+  z-index: 3;
+}
+
+.input-group>.custom-file .custom-file-input:focus {
+  z-index: 4;
+}
+
+.custom-file-input {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  margin: 0;
+  opacity: 0;
+}
+
+.custom-file-input:focus~.custom-file-label {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.custom-file-input:disabled~.custom-file-label {
+  background-color: #e9ecef;
+}
+
+.custom-file-input:lang(en)~.custom-file-label::after {
+  content: "Browse";
+}
+
+.custom-file-input~.custom-file-label[data-browse]::after {
+  content: attr(data-browse);
+}
+
+.imageInput {
+  position: absolute;
+  z-index: 100;
+  width: 130px;
+  height: 130px;
+  right: 15px;
+}
+
+.imageInput:hover {
+  cursor: pointer;
+}
+
+.updateCityImageImput {
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 90px;
+  z-index: 100;
+}
+
+.updateCityImageImput:hover{
+  cursor: pointer;
+}
+
+.buttonsOrder{
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+}
+
+.styleAngleOrder{ 
+  font-size: 40px !important;
+}
+
+.styleAngleOrderDisabled{
+  opacity: 0.5;
+  font-size: 40px !important;
+}
+
+.styleAngleOrderDisabled:hover{
+  cursor: not-allowed !important;
+}
+
+.styleAngleOrder:hover{
+  cursor: pointer !important;
+}
+
+.buttonOrderSpan{
+  width: 55px !important;
+  height: 40px !important;
+}
+
+.marginSpanButtonBox{
+  margin-top: 6px;
 }
