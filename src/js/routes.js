@@ -96,6 +96,12 @@ app.config(['$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider
       }).state('group', {
         url: '/group',
         templateUrl: 'templates/groupIntroduction.html'
+      }).state('business', {
+        url: '/business',
+        templateUrl: 'templates/businessSystem.html'
+      }).state('services', {
+        url: '/services',
+        templateUrl: 'templates/servicesProcess.html'
       })
     }
 ])

@@ -1,0 +1,56 @@
+<div class="row groupIntroductonStyle" ng-controller="ServicesProcessCtrl">
+    <div class="pageHeader">
+        <label>Introduction</label>
+        <span class="fa fa-align-left spanModeView"
+            ng-class="{spanModeViewOpacity: modeGroupIntroduction != '1'}"
+            ng-click="changeMode(1)"></span>
+        <span class="fa fa-align-right spanModeView"
+            ng-class="{spanModeViewOpacity: modeGroupIntroduction != '2'}"
+            ng-click="changeMode(2)"></span>
+    </div>
+    <div class="padding-30 margin-bottom-0">
+        <div class="backgroundWhite displayFlexRow" ng-repeat="s in servicesProcessArray">
+            <div class="imageServicesProcessBox">
+                <div class="addImageServicesProcessBox">
+                    <img class="imageServicesProcess" ng-src="{{s.image}}" id="imageGroupIntroduction">
+                </div>
+                <input type="file" class="custom-file-input inputServicesProcessImage" id="updateServicesProcessPicture_{{$index}}"
+                    onchange="angular.element(this).scope().changeImageServicesProcess(angular.element(this).scope().$index)">
+            </div>
+            <div class="textServicesProcessBox">                    
+                <label>{{s.title}}</label>
+                <label>{{s.description}}</label>
+            </div>
+        </div>
+    </div>
+    <div class="padding-30 margin-bottom-0">
+        <div class="backgroundWhite displayFlexRow">
+            <div class="imageServicesProcessBox">
+                <div class="addImageServicesProcessBox">
+                    <span ng-show="!imageGroupIntroductionFlag" class="fa
+                        fa-picture-o spanServicesProcessImageAdd"></span>
+                    <img class="imageServicesProcess" src="{{imageGroupIntroduction}}" ng-show="imageGroupIntroductionFlag"
+                        id="imageGroupIntroduction">
+                </div>
+                <input type="file" class="custom-file-input
+                    inputServicesProcessImage"
+                    id="groupIntroductionPicture"
+                    onchange="angular.element(this).scope().changeImageGroupIntroduction()">
+            </div>
+            <div class="textServicesProcessBox">
+                <div class="addTextBox" ng-click="changeTextGroupState()"
+                    ng-show="!textGroupIntroductionFlag">
+                    <span class="fa fa-font spanServicesProcessTextAdd"></span>
+                </div>
+                <input type="text" class="form-control marginBottom5" ng-show="textGroupIntroductionFlag" ng-model="titleGroupIntroduction">
+                <textarea id="textGroupIntroductionArea" class="textAreaServicesProcess form-control" ng-show="textGroupIntroductionFlag"
+                    ng-model="textGroupIntroduction"></textarea>
+            </div>
+        </div>
+        <div class="buttonAddServicesProcess marginTop10">
+            <a type="button" class="btn btn-default buttonSaveGroupIntroduction" ng-click="saveInformation()">
+                <span>Submit</span>
+            </a>
+        </div>
+    </div>
+</div>

@@ -144,7 +144,10 @@ function CoreTeamCtrl ($scope, $rootScope, $translate) {
         member.set('charge', $scope.coreTeamCharge)
         member.set('description', $scope.coreTeamDescription)
         member.set('name', $scope.coreTeamName)
-        member.set('Order', $scope.arrayMembers.length + 1)
+        if ($scope.arrayMembers.length > 0)
+          member.set('Order', $scope.arrayMembers[$scope.arrayMembers.length - 1].order + 1)
+        else
+          member.set('Order', 1)
         member.set('image', avFile)
         member.save().then(function (res) {
           $scope.init()

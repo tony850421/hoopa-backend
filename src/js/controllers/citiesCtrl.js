@@ -124,7 +124,10 @@ function CitiesCtrl ($scope, $rootScope, $translate) {
         city.set('name', $scope.cityNameNew)
         city.set('description', $scope.cityDescriptionNew)
         city.set('price', $scope.cityPriceNew)
-        city.set('Order', $scope.arrayCities.length+1)
+        if ($scope.arrayCities.length > 0)
+          city.set('Order', $scope.arrayCities[$scope.arrayCities.length - 1].order + 1)
+        else
+          b.set('Order', 1)
         city.set('show', $scope.cityVisibilityNew)
         city.set('image', avFile)
         city.save().then(function (res) {
@@ -191,7 +194,7 @@ function CitiesCtrl ($scope, $rootScope, $translate) {
     idPrice = '#updateCityPrice_' + index
     $scope.priceUpdateCity = $(idPrice).val()
   }
-  
+
   $scope.updateCityVisibility = function (index) {
     idVisibility = '#updateCityVisibility_' + index
     $scope.visibilityUpdateCity = $(idVisibility).val()
@@ -284,42 +287,42 @@ function CitiesCtrl ($scope, $rootScope, $translate) {
   }
 
   $scope.orderUp = function (index) {
-    if (index > 0){
+    if (index > 0) {
       var orderOld = $scope.arrayCities[index].order
-      $scope.arrayCities[index].order = $scope.arrayCities[index-1].order
-      $scope.arrayCities[index-1].order = orderOld
+      $scope.arrayCities[index].order = $scope.arrayCities[index - 1].order
+      $scope.arrayCities[index - 1].order = orderOld
 
-      var city = AV.Object.createWithoutData('Cities', $scope.arrayCities[index].id)     
+      var city = AV.Object.createWithoutData('Cities', $scope.arrayCities[index].id)
       city.set('Order', $scope.arrayCities[index].order)
       city.save()
 
-      var city_Other = AV.Object.createWithoutData('Cities', $scope.arrayCities[index-1].id)     
-      city_Other.set('Order', $scope.arrayCities[index-1].order)
+      var city_Other = AV.Object.createWithoutData('Cities', $scope.arrayCities[index - 1].id)
+      city_Other.set('Order', $scope.arrayCities[index - 1].order)
       city_Other.save()
 
       var objectAux = $scope.arrayCities[index]
-      $scope.arrayCities[index] = $scope.arrayCities[index-1]
-      $scope.arrayCities[index-1] = objectAux
+      $scope.arrayCities[index] = $scope.arrayCities[index - 1]
+      $scope.arrayCities[index - 1] = objectAux
     }
   }
 
   $scope.orderDown = function (index) {
-    if (index < $scope.arrayCities.length - 1){
+    if (index < $scope.arrayCities.length - 1) {
       var orderOld = $scope.arrayCities[index].order
-      $scope.arrayCities[index].order = $scope.arrayCities[index+1].order
-      $scope.arrayCities[index+1].order = orderOld
+      $scope.arrayCities[index].order = $scope.arrayCities[index + 1].order
+      $scope.arrayCities[index + 1].order = orderOld
 
-      var city = AV.Object.createWithoutData('Cities', $scope.arrayCities[index].id)     
+      var city = AV.Object.createWithoutData('Cities', $scope.arrayCities[index].id)
       city.set('Order', $scope.arrayCities[index].order)
       city.save()
 
-      var city_Other = AV.Object.createWithoutData('Cities', $scope.arrayCities[index+1].id)     
-      city_Other.set('Order', $scope.arrayCities[index+1].order)
-      city_Other.save()      
+      var city_Other = AV.Object.createWithoutData('Cities', $scope.arrayCities[index + 1].id)
+      city_Other.set('Order', $scope.arrayCities[index + 1].order)
+      city_Other.save()
 
       var objectAux = $scope.arrayCities[index]
-      $scope.arrayCities[index] = $scope.arrayCities[index+1]
-      $scope.arrayCities[index+1] = objectAux
+      $scope.arrayCities[index] = $scope.arrayCities[index + 1]
+      $scope.arrayCities[index + 1] = objectAux
     }
   }
 }

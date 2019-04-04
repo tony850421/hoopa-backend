@@ -1,22 +1,57 @@
 <div class="row groupIntroductonStyle" ng-controller="BusinessSystemCtrl">
     <div class="pageHeader">
         <label>Business System</label>
-        <span class="fa fa-align-left spanModeView" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '1'}" ng-click="changeMode(1)"></span>
-        <span class="fa fa-align-right spanModeView" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '2'}" ng-click="changeMode(2)"></span>
+        <span class="fa fa-align-left spanModeView"
+            ng-class="{spanModeViewOpacity: modeGroupIntroduction != '1'}"
+            ng-click="changeMode(1)"></span>
+        <span class="fa fa-align-right spanModeView"
+            ng-class="{spanModeViewOpacity: modeGroupIntroduction != '2'}"
+            ng-click="changeMode(2)"></span>
+    </div>
+    <div class="displayFlexColumn padding-30"
+        ng-show="businessSystemArray.length> 0">
+        <div class="imageGroupIntroductionBox">
+            <div class="businessSystemImageBox" ng-repeat="b in
+                businessSystemArray">
+                <img class="imagebusinessSystem" ng-src="{{b.image}}" id="imageGroupIntroduction_{{$index}}">
+                <input type="file" class="custom-file-input inputChangePictureBusinessSystem" id="updateBusinessImage_{{$index}}" 
+                        onchange="angular.element(this).scope().changeValueMainImage(angular.element(this).scope().$index)">
+                <span class="fa fa-trash bussinesSystemDelete"
+                    ng-click="deleteBusinessSystem(b.id)"></span>
+                <div class="orderBox">
+                    <div class="spanOrderBox" ng-show="$index != 0 && $index != businessSystemArray.length -1" ng-click="orderUp($index)">
+                        <span class="fa fa-angle-up" ng-click="orderUp($index)"></span>
+                    </div>
+                    <div class="spanOrderBox marginTop4" ng-show="$index != 0 && $index != businessSystemArray.length -1" ng-click="orderDown($index)">
+                        <span class="fa fa-angle-down" ng-click="orderDown($index)"></span>
+                    </div>
+                    <div class="spanOrderBoxUp" ng-show="$index == 0" ng-click="orderUp($index)">
+                        <span class="fa fa-angle-down" ng-click="orderDown($index)"></span>
+                    </div>
+                    <div class="spanOrderBoxUp" ng-show="$index == businessSystemArray.length -1" ng-click="orderDown($index)">
+                        <span class="fa fa-angle-up" ng-click="orderUp($index)"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="displayFlexColumn padding-30">
         <div class="imageGroupIntroductionBox">
             <label>Add Image</label>
             <div class="addImageBox">
-                <span ng-show="!imageGroupIntroductionFlag" class="fa fa-picture-o spanImageAdd"></span>
-                <img class="imageGroup" src="{{imageGroupIntroduction}}" ng-show="imageGroupIntroductionFlag" id="imageGroupIntroduction">
+                <span ng-show="!imageGroupIntroductionFlag" class="fa
+                    fa-picture-o spanImageAdd"></span>
+                <img class="imageGroup" src="{{imageGroupIntroduction}}"
+                    ng-show="imageGroupIntroductionFlag"
+                    id="imageGroupIntroduction">
             </div>
-            <input type="file" class="custom-file-input inputGruopIntroductionImage" id="groupIntroductionPicture"
+            <input type="file" class="custom-file-input
+                inputGruopIntroductionImage" id="groupIntroductionPicture"
                 onchange="angular.element(this).scope().changeImageGroupIntroduction()">
-            
         </div>
         <div class="marginTop10">
-            <a type="button" class="btn btn-default buttonSaveGroupIntroduction" ng-click="saveInformation()">
+            <a type="button" class="btn btn-default buttonSaveGroupIntroduction"
+                ng-click="saveInformation()">
                 <span>Submit</span>
             </a>
         </div>

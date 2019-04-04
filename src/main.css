@@ -742,6 +742,8 @@ ul.sidebar .sidebar-list a:hover {
   margin-bottom: 10px;
 }
 
+
+
 .marginBottom20 {
   margin-bottom: 20px;
 }
@@ -1384,16 +1386,15 @@ tr {
   margin-left: -12px !important;
 }
 
-.listFourLevel{
+.listFourLevel {
   margin-left: 0px !important;
 }
 
-.listFirstLevel:hover, .listThirdLevel:hover,
-.listSecondLevel:hover, .listFourLevel:hover {
+.listFirstLevel:hover, .listThirdLevel:hover, .listSecondLevel:hover, .listFourLevel:hover {
   cursor: pointer;
 }
 
-.marginLeft-5{
+.marginLeft-5 {
   margin-left: -5px !important;
 }
 
@@ -1585,6 +1586,21 @@ tr {
   padding: 10px;
 }
 
+.imageServicesProcessBox{
+  background-color: white;
+  padding: 10px;
+  width: 25%;
+}
+
+.textServicesProcessBox{
+  background-color: white;
+  padding: 10px;
+  width: 73%;
+  margin-left: 2%;
+  display: flex;
+  flex-direction: column;
+}
+
 .addImageBox {
   background-color: #ebebeb;
   width: 100%;
@@ -1593,7 +1609,24 @@ tr {
   font-size: 100px;
 }
 
-.addTextBox{
+.addImageServicesProcessBox {
+  background-color: #ebebeb;
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  font-size: 100px;
+}
+
+.businessSystemImageBox {
+  background-color: white;
+  width: 100%;
+  height: 160px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.addTextBox {
   background-color: #ebebeb;
   width: 100%;
   height: 200px;
@@ -1607,6 +1640,14 @@ tr {
 
 .spanImageAdd {
   margin-top: 13%;
+}
+
+.spanServicesProcessImageAdd {
+  margin-top: 20%;
+}
+
+.spanServicesProcessTextAdd {
+  margin-top: 7%;
 }
 
 .spanTextAdd {
@@ -1643,13 +1684,33 @@ tr {
   width: 78%;
 }
 
-.imageGroup{
+.inputServicesProcessImage {
+  position: absolute;
+  margin-top: -200px;
+  height: 200px;
+  width: 18%;
+}
+
+.imageGroup {
   width: 100%;
   height: 360px;
   object-fit: cover;
 }
 
-.buttonSaveGroupIntroduction{
+.imageServicesProcess {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.imagebusinessSystem {
+  width: 95%;
+  margin-right: 1%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.buttonSaveGroupIntroduction {
   float: right;
   background-color: rgb(255, 153, 0) !important;
   width: 160px;
@@ -1658,13 +1719,86 @@ tr {
   padding: 13px !important;
 }
 
-.textAreaGroupIntroduction{
+.textAreaGroupIntroduction {
   width: 100%;
-  height: 200px;
+  height: 200px !important;
   resize: none;
   border: 1px solid #ebebeb;
 }
 
-.spanModeViewOpacity{
+.textAreaServicesProcess {
+  width: 100%;
+  height: 160px !important;
+  resize: none;
+  border: 1px solid #ebebeb;
+}
+
+.spanModeViewOpacity {
   opacity: 0.5;
+}
+
+.bussinesSystemDelete {
+  position: absolute;
+  right: 120px;
+  margin-top: 60px;
+  font-size: 30px!important;
+}
+
+.bussinesSystemDelete:hover {
+  color: #f44336;
+  cursor: pointer;
+}
+
+.orderBox {
+  width: 4%;
+  display: flex;
+  flex-direction: column;
+  font-size: 30px;
+}
+
+.spanOrderBox {
+  height: 78px;
+  background-color: #ebebeb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spanOrderBoxUp {
+  background-color: #ebebeb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 160px;
+}
+
+.spanOrderBox:hover, .spanOrderBoxUp:hover {
+  cursor: pointer;
+}
+
+.marginTop4 {
+  margin-top: 4px;
+}
+
+span.fa-angle-down:hover, span.fa-angle-up:hover {
+  cursor: pointer;
+}
+
+.inputChangePictureBusinessSystem {
+  position: absolute;
+  width: 68%;
+  z-index: 100;
+  height: 160px;
+}
+
+.backgroundWhite{
+  background-color: white;
+}
+
+.buttonAddServicesProcess{
+  height: 60px;
+}
+
+.marginBottom5{
+  margin-bottom: 5px;
 }

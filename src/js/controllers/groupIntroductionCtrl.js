@@ -22,6 +22,8 @@ function GroupIntroductionCtrl ($scope, $rootScope) {
         $scope.imageGroupIntroduction = e.target.result
         if ($scope.imageGroupIntroduction != '')
           $scope.imageGroupIntroductionFlag = true
+        else
+          $scope.imageGroupIntroductionFlag = false
         $scope.$apply()
       }
 
@@ -40,7 +42,7 @@ function GroupIntroductionCtrl ($scope, $rootScope) {
       var name = file.name
       var avFile = new AV.File(name, file)
 
-      if ($scope.textGroupIntroduction) {
+      if ($scope.textGroupIntroduction != '') {
         var query = AV.Object.createWithoutData('GroupIntroduction', '5ca4629a0237d7006895ef4f')
         query.set('image', avFile)
         query.set('text', $scope.textGroupIntroduction)
@@ -57,8 +59,12 @@ function GroupIntroductionCtrl ($scope, $rootScope) {
       $scope.imageGroupIntroduction = data[0].get('image').get('url')
       if ($scope.imageGroupIntroduction != '')
         $scope.imageGroupIntroductionFlag = true
+      else
+        $scope.imageGroupIntroductionFlag = false
       $scope.textGroupIntroduction = data[0].get('text')
       if ($scope.textGroupIntroduction != '')
+        $scope.textGroupIntroductionFlag = true
+      else
         $scope.textGroupIntroductionFlag = true
       $scope.modeGroupIntroduction = data[0].get('mode')
       $scope.$apply()
