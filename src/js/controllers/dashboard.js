@@ -322,7 +322,7 @@ function DashBoardCtrl($scope, $rootScope, $window, $timeout, $state) {
                 $scope.$apply();
             })
         })
-        
+
         $scope.dataUsers.push($scope.serieUsers);
     };
 
@@ -407,7 +407,7 @@ function DashBoardCtrl($scope, $rootScope, $window, $timeout, $state) {
                 $scope.$apply();
             })
         })
-        
+
         $scope.dataUsers.push($scope.serieUsers1);
     };
 

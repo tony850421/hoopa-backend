@@ -163,18 +163,17 @@ function CoreTeamCtrl ($scope, $rootScope, $translate) {
       $scope.arrayMembers[index].order = $scope.arrayMembers[index - 1].order
       $scope.arrayMembers[index - 1].order = orderOld
 
-      var city = AV.Object.createWithoutData('Cities', $scope.arrayMembers[index].id)
+      var city = AV.Object.createWithoutData('CoreTeam', $scope.arrayMembers[index].id)
       city.set('Order', $scope.arrayMembers[index].order)
       city.save()
 
-      var city_Other = AV.Object.createWithoutData('Cities', $scope.arrayMembers[index - 1].id)
+      var city_Other = AV.Object.createWithoutData('CoreTeam', $scope.arrayMembers[index - 1].id)
       city_Other.set('Order', $scope.arrayMembers[index - 1].order)
       city_Other.save()
 
       var objectAux = $scope.arrayMembers[index]
       $scope.arrayMembers[index] = $scope.arrayMembers[index - 1]
       $scope.arrayMembers[index - 1] = objectAux
-      $scope.$apply()
     }
   }
 
@@ -184,18 +183,17 @@ function CoreTeamCtrl ($scope, $rootScope, $translate) {
       $scope.arrayMembers[index].order = $scope.arrayMembers[index + 1].order
       $scope.arrayMembers[index + 1].order = orderOld
 
-      var city = AV.Object.createWithoutData('Cities', $scope.arrayMembers[index].id)
+      var city = AV.Object.createWithoutData('CoreTeam', $scope.arrayMembers[index].id)
       city.set('Order', $scope.arrayMembers[index].order)
       city.save()
 
-      var city_Other = AV.Object.createWithoutData('Cities', $scope.arrayMembers[index + 1].id)
+      var city_Other = AV.Object.createWithoutData('CoreTeam', $scope.arrayMembers[index + 1].id)
       city_Other.set('Order', $scope.arrayMembers[index + 1].order)
       city_Other.save()
 
       var objectAux = $scope.arrayMembers[index]
       $scope.arrayMembers[index] = $scope.arrayMembers[index + 1]
       $scope.arrayMembers[index + 1] = objectAux
-      $scope.$apply()
     }
   }
 

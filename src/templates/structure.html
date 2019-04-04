@@ -1,0 +1,23 @@
+<div class="row groupIntroductonStyle" ng-controller="StructureCtrl">
+    <div class="pageHeader">
+        <label>Structure</label>
+    </div>
+    <div class="displayFlexColumn padding-30">
+        <div class="imageGroupIntroductionBox">
+            <label>Add Image</label>
+            <div class="addImageBox">
+                <span ng-show="!imageGroupIntroductionFlag" class="fa fa-picture-o spanImageAdd"></span>
+                <img class="imageGroup" src="{{imageGroupIntroduction}}" ng-show="imageGroupIntroductionFlag" id="imageGroupIntroduction">
+            </div>
+            <input type="file" class="custom-file-input inputGruopIntroductionImage"
+                id="groupIntroductionPicture"
+                onchange="angular.element(this).scope().changeImageGroupIntroduction()">
+            
+        </div>
+        <div class="marginTop10">
+            <a type="button" class="btn btn-default buttonSaveGroupIntroduction" ng-click="saveInformation()">
+                <span>Submit</span>
+            </a>
+        </div>
+    </div>
+</div>

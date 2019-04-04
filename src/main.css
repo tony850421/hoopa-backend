@@ -526,7 +526,7 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .hiddeNewProjectButton {
-  display: none;
+  display: none !important;
 }
 
 .width100 {
@@ -1238,7 +1238,7 @@ tr {
   width: 130px;
 }
 
-.buttonAddTeamMember{
+.buttonAddTeamMember {
   float: right;
   width: 160px;
 }
@@ -1315,7 +1315,7 @@ tr {
   object-fit: cover;
 }
 
-.coreTeamTextAreaStyle{
+.coreTeamTextAreaStyle {
   width: 100%;
   resize: none;
 }
@@ -1372,16 +1372,29 @@ tr {
   font-size: 13px !important;
 }
 
+.listFirstLevel {
+  margin-left: -36px !important;
+}
+
 .listSecondLevel {
-  margin-left: -15px !important;
+  margin-left: -24px !important;
 }
 
 .listThirdLevel {
-  margin-left: -8px !important;
+  margin-left: -12px !important;
 }
 
-.listSecondLevel:hover, .listThirdLevel:hover {
+.listFourLevel{
+  margin-left: 0px !important;
+}
+
+.listFirstLevel:hover, .listThirdLevel:hover,
+.listSecondLevel:hover, .listFourLevel:hover {
   cursor: pointer;
+}
+
+.marginLeft-5{
+  margin-left: -5px !important;
 }
 
 .updateCityNameClass {
@@ -1510,38 +1523,148 @@ tr {
   z-index: 100;
 }
 
-.updateCityImageImput:hover{
+.updateCityImageImput:hover {
   cursor: pointer;
 }
 
-.buttonsOrder{
+.buttonsOrder {
   display: flex;
   flex-direction: column;
   text-align: end;
 }
 
-.styleAngleOrder{ 
+.styleAngleOrder {
   font-size: 40px !important;
 }
 
-.styleAngleOrderDisabled{
+.styleAngleOrderDisabled {
   opacity: 0.5;
   font-size: 40px !important;
 }
 
-.styleAngleOrderDisabled:hover{
+.styleAngleOrderDisabled:hover {
   cursor: not-allowed !important;
 }
 
-.styleAngleOrder:hover{
+.styleAngleOrder:hover {
   cursor: pointer !important;
 }
 
-.buttonOrderSpan{
+.buttonOrderSpan {
   width: 55px !important;
   height: 40px !important;
 }
 
-.marginSpanButtonBox{
+.marginSpanButtonBox {
   margin-top: 6px;
+}
+
+.branchItemRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.branchItemColumn {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.displayFlexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.displayFlexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.imageGroupIntroductionBox {
+  background-color: white;
+  padding: 10px;
+}
+
+.addImageBox {
+  background-color: #ebebeb;
+  width: 100%;
+  height: 360px;
+  text-align: center;
+  font-size: 100px;
+}
+
+.addTextBox{
+  background-color: #ebebeb;
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  font-size: 100px;
+}
+
+.groupIntroductonStyle {
+  background-color: #ebebeb;
+}
+
+.spanImageAdd {
+  margin-top: 13%;
+}
+
+.spanTextAdd {
+  margin-top: 5%;
+}
+
+.pageHeader {
+  background-color: white;
+  height: 50px;
+  padding-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.headerBarStyle {
+  box-shadow: 2px 2px 2px #ebebeb;
+}
+
+.spanModeView {
+  float: right;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 20px !important;
+}
+
+.spanModeView {
+  cursor: pointer;
+}
+
+.inputGruopIntroductionImage {
+  position: absolute;
+  margin-top: -360px;
+  height: 360px;
+  width: 78%;
+}
+
+.imageGroup{
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+}
+
+.buttonSaveGroupIntroduction{
+  float: right;
+  background-color: rgb(255, 153, 0) !important;
+  width: 160px;
+  height: 50px;
+  font-size: 16px !important;
+  padding: 13px !important;
+}
+
+.textAreaGroupIntroduction{
+  width: 100%;
+  height: 200px;
+  resize: none;
+  border: 1px solid #ebebeb;
+}
+
+.spanModeViewOpacity{
+  opacity: 0.5;
 }

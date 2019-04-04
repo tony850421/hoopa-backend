@@ -50,33 +50,38 @@
           </a>
         </li>
         <li class="sidebar-title" ng-if="getUser() != ' '">
-          <span translate="NAV">导航</span>
+          <span translate="NAV" class="marginLeft-5">导航</span>
         </li>
 
         <li class="sidebar-list" ng-class="{'colorListActive': activeList == 'dashboard'}" ng-if="getUser() != ' '">
-          <a href="#dashboard" ng-click="changeActiveList('dashboard')">
+          <a href="#dashboard" ng-click="changeActiveList('dashboard')" ng-class="{'colorListActive':activeList != 'dashboard'}">
             <span class="menu-icon fa fa-tachometer"></span>
-            {{'DASH' | translate}}
+            <label class="listFirstLevel margin-bottom-0">{{'DASH' | translate}}</label>
           </a>
         </li>
 
         <li class="sidebar-list" ng-if="getUser() != ' '">
-          <a href="#project-list" ng-click="changeActiveList('projects')">
-            {{'SUBJECT' | translate}}
+          <a ng-click="changeActiveList('subject')">
+            <span class="fa fa-angle-down menu-icon" ng-class="{'hiddeNewProjectButton': (activeList != 'projects' && activeList != 'newprojects') && 
+            (activeList != 'inbox') && (activeList != 'offers') && (activeList != 'forum') && (activeList != 'cities') && (activeList != 'subject')}"></span>
+            <span class="fa fa-angle-right menu-icon" ng-class="{'hiddeNewProjectButton': (activeList == 'projects' || activeList == 'newprojects') || 
+            (activeList == 'inbox') || (activeList == 'offers') || (activeList == 'forum') || (activeList == 'cities') || (activeList == 'subject')}"></span>
+            <label class="listFirstLevel margin-bottom-0">{{'SUBJECT' | translate}}</label>
           </a>
           <ul class="padding-0 width100 listUnstyled" ng-class="{'hiddeNewProjectButton': (activeList != 'projects' && activeList != 'newprojects') && 
                                                                   (activeList != 'inbox') && (activeList != 'offers') && (activeList != 'forum') && 
-                                                                  (activeList != 'cities') && (activeList != 'addCity')}">
+                                                                  (activeList != 'cities') && (activeList != 'subject')}">
               <li class="sidebar-list" ng-if="getUser() != ' '">
                 <a href="#project-list" ng-click="changeActiveList('projects')" ng-class="{'colorListActive': activeList == 'projects'}">
-                  <span class="menu-icon fa fa-briefcase"></span>
+                  <span class="fa fa-angle-down menu-icon" ng-class="{'hiddeNewProjectButton': activeList != 'projects' && activeList != 'newprojects'}"></span>
+                  <span class="fa fa-angle-right menu-icon" ng-class="{'hiddeNewProjectButton': activeList == 'projects' || activeList == 'newprojects'}"></span>
                   <label class="listSecondLevel margin-bottom-0">{{'PACKAGES' | translate}}</label>                    
                 </a>
                 <ul class="padding-0 width100 listUnstyled" ng-class="{'hiddeNewProjectButton': activeList != 'projects' && activeList != 'newprojects'}">
                   <li>
                     <a href="#new-project" style="padding-left: 10%;" ng-class="{'colorListActive': activeList == 'newprojects'}">
                       <span class="fa fa-plus menu-icon"></span>
-                      {{'NEWPACKAGE' | translate}}
+                      <label class="listSecondLevel margin-bottom-0">{{'NEWPACKAGE' | translate}}</label>
                     </a>
                   </li>
                 </ul>
@@ -106,30 +111,68 @@
                     <span class="menu-icon fa fa-building"></span>
                     <label class="listSecondLevel margin-bottom-0">{{'CITIES' | translate}}</label>
                   </a>
-                  <!-- <ul class="padding-0 width100 listUnstyled" ng-class="{'hiddeNewProjectButton': activeList != 'cities' && activeList != 'addCity'}">
-                    <li>
-                      <a href="#addCity" style="padding-left: 10%;" ng-class="{'colorListActive': activeList == 'addCity'}">
-                        <span class="fa fa-plus menu-icon"></span>
-                        {{'ADDCITY' | translate}}
-                      </a>
-                    </li>
-                  </ul> -->
               </li>
             </ul>
         </li>
         <li class="sidebar-list" ng-if="getUser() != ' '">
-          <a href="#coreTeam" ng-click="changeActiveList('company')">
-            {{'COMPANY' | translate}}
+          <a ng-click="changeActiveList('company')">
+              <span class="fa fa-angle-down menu-icon" ng-class="{'hiddeNewProjectButton': activeList != 'company' && activeList != 'coreTeam'
+                                                                    && activeList != 'hoopaBranchs'  && activeList != 'news' && activeList != 'newnews'
+                                                                    && activeList != 'group' && activeList != 'structure' && activeList != 'groupIntroduce' && 
+                                                                    activeList != 'companyIntroduce' && activeList != 'business'}"></span>
+              <span class="fa fa-angle-right menu-icon" ng-class="{'hiddeNewProjectButton': activeList == 'company' || activeList == 'coreTeam'
+                                                                    || activeList == 'hoopaBranchs'  || activeList == 'news' || activeList == 'newnews'
+                                                                    || activeList == 'group'|| activeList == 'structure' || activeList == 'groupIntroduce' ||
+                                                                    activeList == 'companyIntroduce' || activeList == 'business'}"></span>
+              <label class="listFirstLevel margin-bottom-0">{{'COMPANY' | translate}}</label>
           </a>
           <ul class="padding-0 width100 listUnstyled" ng-class="{'hiddeNewProjectButton': activeList != 'company' && activeList != 'coreTeam'
-           && activeList != 'hoopaBranchs' && 
-                                                                  activeList != 'addHoopaBranch' && activeList != 'news' && activeList != 'newnews'}">
+                                                      && activeList != 'hoopaBranchs'  && activeList != 'news' && activeList != 'newnews'
+                                                      && activeList != 'group' && activeList != 'structure' && activeList != 'groupIntroduce' && 
+                                                      activeList != 'companyIntroduce' && activeList != 'business'}">
             <li class="sidebar-list" ng-if="getUser() != ' '">
-              <a href="#coreTeam" ng-click="changeActiveList('coreTeam')">
+              <a ng-click="changeActiveList('groupIntroduce')">
+                  <span class="fa fa-angle-down menu-icon" ng-class="{'hiddeNewProjectButton': activeList != 'coreTeam' && activeList != 'group' 
+                                                                      && activeList != 'hoopaBranchs' && activeList != 'structure' && 
+                                                                      activeList != 'companyIntroduce' && activeList != 'groupIntroduce' && activeList != 'business'}"></span>
+                  <span class="fa fa-angle-right menu-icon" ng-class="{'hiddeNewProjectButton': activeList == 'coreTeam' || activeList == 'group' 
+                                                                      || activeList == 'hoopaBranchs' || activeList == 'structure' || 
+                                                                      activeList == 'companyIntroduce' || activeList == 'groupIntroduce' || activeList == 'business'}"></span>
                 <label class="listSecondLevel margin-bottom-0">{{'GROUPINTRODUCE' | translate}}</label>
               </a>
-              <ul class="padding-0 width100 listUnstyled" ng-class="{'hiddeNewProjectButton': activeList != 'coreTeam' &&
-                                                                      activeList != 'hoopaBranchs' && activeList != 'addHoopaBranch'}">
+              <ul class="padding-0 width100 listUnstyled" ng-class="{'hiddeNewProjectButton': activeList != 'coreTeam' && activeList != 'group'
+                                                                      && activeList != 'hoopaBranchs' && activeList != 'companyIntroduce' && 
+                                                                      activeList != 'groupIntroduce' && activeList != 'business' && activeList != 'structure'}">
+                <li class="sidebar-list" ng-if="getUser() != ' '">
+                  <a ng-click="changeActiveList('companyIntroduce')">
+                      <span class="fa fa-angle-down menu-icon" ng-class="{'hiddeNewProjectButton': activeList != 'group' && activeList != 'structure' && 
+                                                                          activeList != 'companyIntroduce' && activeList != 'business'}"></span>
+                      <span class="fa fa-angle-right menu-icon" ng-class="{'hiddeNewProjectButton': activeList == 'group' || activeList == 'structure' || 
+                                                                          activeList == 'companyIntroduce' || activeList == 'business'}"></span>
+                    <label class="listThirdLevel margin-bottom-0">{{'COMPANYINTRODUCE' | translate}}</label>
+                  </a>
+                  <ul class="padding-0 width100 listUnstyled" ng-class="{'hiddeNewProjectButton': activeList != 'group' && activeList != 'structure' && 
+                                                                         activeList != 'companyIntroduce' && activeList != 'business'}">
+                    <li class="sidebar-list" ng-if="getUser() != ' '">
+                        <a href="#group" ng-click="changeActiveList('group')" ng-class="{'colorListActive': activeList == 'group'}">
+                            <span class="menu-icon fa fa-user-circle"></span>
+                            <label class="listFourLevel margin-bottom-0">{{'INTRODUCE' | translate}}</label>
+                        </a>
+                    </li>
+                    <li class="sidebar-list" ng-if="getUser() != ' '">
+                        <a href="#structure" ng-click="changeActiveList('structure')" ng-class="{'colorListActive': activeList == 'structure'}">
+                            <span class="menu-icon fa fa-chain"></span>
+                            <label class="listFourLevel margin-bottom-0">{{'STRUCTURE' | translate}}</label>
+                        </a>
+                    </li>
+                    <li class="sidebar-list" ng-if="getUser() != ' '">
+                        <a href="#business" ng-click="changeActiveList('business')" ng-class="{'colorListActive': activeList == 'business'}">
+                            <span class="menu-icon fa fa-money"></span>
+                            <label class="listFourLevel margin-bottom-0">{{'BUSINESSSYSTEM' | translate}}</label>
+                        </a>
+                    </li>
+                  </ul>
+                </li>
                 <li class="sidebar-list" ng-if="getUser() != ' '">
                   <a href="#coreTeam" ng-click="changeActiveList('coreTeam')" ng-class="{'colorListActive': activeList == 'coreTeam'}">
                     <span class="menu-icon fa fa-male"></span>
@@ -141,14 +184,6 @@
                     <span class="menu-icon fa fa-map"></span>
                     <label class="listThirdLevel margin-bottom-0">{{'BRANCHS' | translate}}</label>
                   </a>
-                  <!-- <ul class="padding-0 width100 listUnstyled" ng-class="{'hiddeNewProjectButton': activeList != 'hoopaBranchs' && activeList != 'addHoopaBranch'}">
-                    <li>
-                      <a href="#addHoopaBranch" style="padding-left: 10%;" ng-class="{'colorListActive': activeList == 'addHoopaBranch'}">
-                        <span class="fa fa-plus menu-icon"></span>
-                        {{'ADDHOOPABRANCH' | translate}}
-                      </a>
-                    </li>
-                  </ul> -->
                 </li>
               </ul>
             </li>
@@ -161,7 +196,7 @@
                 <li>
                   <a href="#new-news" style="padding-left: 10%;" ng-class="{'colorListActive': activeList == 'newnews'}">
                     <span class="fa fa-plus menu-icon"></span>
-                    {{'NEWNEWS' | translate}}
+                    <label class="listThirdLevel margin-bottom-0">{{'NEWNEWS' | translate}}</label>
                   </a>
                 </li>
               </ul>
@@ -172,20 +207,19 @@
         <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'slider'}">
           <a href="#slider" ng-click="changeActiveList('slider')">
             <span class="menu-icon fa fa-cogs"></span>
-            {{'SLIDER' | translate}}
+            <label class="listFirstLevel margin-bottom-0">{{'SLIDER' | translate}}</label>
           </a>
         </li>
         <li ng-show="getUser() == 'admin'" class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'users'}">
           <a href="#usersView" ng-click="changeActiveList('users')">
             <span class="menu-icon fa fa-users"></span>
-            {{'USERS' | translate}}
+            <label class="listFirstLevel margin-bottom-0">{{'USERS' | translate}}</label>
           </a>
         </li>
         <li class="sidebar-list" ng-if="getUser() != ' '" ng-class="{'colorListActive': activeList == 'adv'}">
-          <!-- <li class="sidebar-list" ng-if="getUser() != ' '" ng-show="getUser() == 'admin'" ng-class="{'colorListActive': activeList == 'adv'}"> -->
           <a href="#advView" ng-click="changeActiveList('adv')">
             <span class="menu-icon fa fa-newspaper-o"></span>
-            {{'ADVINFO' | translate}}
+            <label class="listFirstLevel margin-bottom-0">{{'ADVINFO' | translate}}</label>
           </a>
         </li>
 
@@ -202,7 +236,7 @@
 
         <!-- Header Bar -->
         <div class="row header" ng-controller="LoginCtrl">
-          <div class="col-xs-12 margin-bottom-0">
+          <div class="col-xs-12 margin-bottom-0 headerBarStyle">
             <div class="user pull-right">
               <div class="item dropdown" uib-dropdown>
                 <a href="#" class="dropdown-toggle" uib-dropdown-toggle>

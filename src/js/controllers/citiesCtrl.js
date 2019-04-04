@@ -186,10 +186,12 @@ function CitiesCtrl ($scope, $rootScope, $translate) {
     id = '#updateCityName_' + index
     $scope.nameUpdateCity = $(id).val()
   }
+
   $scope.updateCityPrice = function (index) {
     idPrice = '#updateCityPrice_' + index
     $scope.priceUpdateCity = $(idPrice).val()
   }
+  
   $scope.updateCityVisibility = function (index) {
     idVisibility = '#updateCityVisibility_' + index
     $scope.visibilityUpdateCity = $(idVisibility).val()
@@ -298,7 +300,6 @@ function CitiesCtrl ($scope, $rootScope, $translate) {
       var objectAux = $scope.arrayCities[index]
       $scope.arrayCities[index] = $scope.arrayCities[index-1]
       $scope.arrayCities[index-1] = objectAux
-      $scope.$apply()
     }
   }
 
@@ -319,7 +320,6 @@ function CitiesCtrl ($scope, $rootScope, $translate) {
       var objectAux = $scope.arrayCities[index]
       $scope.arrayCities[index] = $scope.arrayCities[index+1]
       $scope.arrayCities[index+1] = objectAux
-      $scope.$apply()
     }
   }
 }

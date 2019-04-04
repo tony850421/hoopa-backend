@@ -87,12 +87,15 @@ app.config(['$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider
       }).state('hoopaBranchesView', {
         url: '/hoopaBranchs',
         templateUrl: 'templates/hoopaBranches.html'
-      }).state('addHoopaBranch', {
-        url: '/addHoopaBranch',
-        templateUrl: 'templates/addHoopaBranch.html'
       }).state('cities', {
         url: '/cities',
         templateUrl: 'templates/cities.html'
+      }).state('structure', {
+        url: '/structure',
+        templateUrl: 'templates/structure.html'
+      }).state('group', {
+        url: '/group',
+        templateUrl: 'templates/groupIntroduction.html'
       })
     }
 ])

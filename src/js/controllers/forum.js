@@ -1,207 +1,190 @@
+app.controller('ForumCtrl', ['$scope', '$state', '$rootScope', '$window', '$timeout', 'localStorageService', ForumCtrl])
 
-/**
- * Login and signup Controller
- */
+function ForumCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageService) {
+  $scope.forumComments = []
+  $rootScope.activeList = 'forum'
+  $scope.skip = 0
 
-app.controller('ForumCtrl', ['$scope', '$state', '$rootScope', '$window', '$timeout', 'localStorageService', ForumCtrl]);
+  $scope.loading = false
 
-function ForumCtrl($scope, $state,  $rootScope, $window, $timeout, localStorageService) {
+  $scope.init = function () {
+    var currentUser = AV.User.current()
+    if (currentUser) {
+      $scope.loading = true
 
-    $scope.forumComments = [];
-    $rootScope.activeList = 'forum';
-    $scope.skip = 0;
+      var queryComment = new AV.Query('ForumComment')
+      queryComment.include('user')
+      queryComment.include('project')
+      queryComment.descending('createdAt')
+      queryComment.limit(10)
+      queryComment.find().then(function (res) {
+        $scope.forumComments = []
+        res.forEach(function (comment) {
+          var userFullName = comment.get('user').get('fullName')
+          var date = (comment.createdAt.getMonth() + 1) + '/' + comment.createdAt.getDate() + '/' + comment.createdAt.getFullYear()
+          var avatar = comment.get('user').get('avatarUrl')
+          var content = comment.get('content')
+          var userId = comment.get('user').id
+          var projectId = comment.get('project').id
+          var commentId = comment.id
+          var productImage = comment.get('project').get('image')
 
-    $scope.loading = false;
+          var productImageUrl
+          if (productImage) {
+            productImageUrl = productImage.thumbnailURL(240, 240)
+          } else {
+            productImageUrl = 'img/LogoHoopa.png'
+          }
 
-    $scope.init = function () {
+          $scope.forumComments.push({
+            userFullName: userFullName,
+            userAvatar: avatar,
+            date: date,
+            content: content,
+            userId: userId,
+            projectId: projectId,
+            id: commentId,
+            productImageUrl: productImageUrl
+          })
 
-        var currentUser = AV.User.current();
-        if (currentUser) {
+          $scope.$apply()
+        })
 
-            $scope.loading = true;
+        $scope.loading = false
+        $scope.$apply()
+      }).catch(function (error) {
+        $scope.loading = false
+        $scope.$apply()
+      // alert(JSON.stringify(error))
+      })
+    }
+  }
 
-            var queryComment = new AV.Query('ForumComment');
-            queryComment.include('user');
-            queryComment.include('project');
-            queryComment.descending('createdAt');
-            queryComment.limit(10);
-            queryComment.find().then(function (res) {
-                $scope.forumComments = [];
-                res.forEach(function (comment) {
+  $scope.init()
 
-                    var userFullName = comment.get('user').get('fullName');
-                    var date = (comment.createdAt.getMonth() + 1) + '/' + comment.createdAt.getDate() + '/' + comment.createdAt.getFullYear();
-                    var avatar = comment.get('user').get('avatarUrl');
-                    var content = comment.get('content');
-                    var userId = comment.get('user').id;
-                    var projectId = comment.get('project').id;
-                    var commentId = comment.id;
-                    var productImage = comment.get('project').get('image');
+  $scope.deleteComment = function (id) {
+    var comment = AV.Object.createWithoutData('ForumComment', id)
+    comment.destroy().then(function (comment) {
+      $scope.init()
+    }).catch(function (error) {
+      // alert(JSON.stringify(error))
+    })
+  }
 
-                    var productImageUrl;
-                    if (productImage) {
-                        productImageUrl = productImage.thumbnailURL(240, 240);
-                    } else {
-                        productImageUrl = 'img/LogoHoopa.png';
-                    }
+  $scope.next = function () {
+    var currentUser = AV.User.current()
+    if (currentUser) {
+      $scope.loading = true
 
-                    $scope.forumComments.push({
-                        userFullName: userFullName,
-                        userAvatar: avatar,
-                        date: date,
-                        content: content,
-                        userId: userId,
-                        projectId: projectId,
-                        id: commentId,
-                        productImageUrl: productImageUrl,
-                    })
+      $scope.skip += 10
+      var queryComment = new AV.Query('ForumComment')
+      queryComment.include('user')
+      queryComment.include('project')
+      queryComment.descending('createdAt')
+      queryComment.limit(10)
+      queryComment.skip($scope.skip)
+      queryComment.find().then(function (res) {
+        $scope.forumComments = []
+        res.forEach(function (comment) {
+          var userFullName = comment.get('user').get('fullName')
+          var date = (comment.createdAt.getMonth() + 1) + '/' + comment.createdAt.getDate() + '/' + comment.createdAt.getFullYear()
+          var avatar = comment.get('user').get('avatarUrl')
+          var content = comment.get('content')
+          var userId = comment.get('user').id
+          var projectId = comment.get('project').id
+          var commentId = comment.id
+          var productImage = comment.get('project').get('image')
 
-                    $scope.$apply();
-                });
+          var productImageUrl
+          if (productImage) {
+            productImageUrl = productImage.thumbnailURL(60, 60)
+          } else {
+            productImageUrl = 'img/LogoHoopa.png'
+          }
 
-                $scope.loading = false;
-                $scope.$apply();
+          $scope.forumComments.push({
+            userFullName: userFullName,
+            userAvatar: avatar,
+            date: date,
+            content: content,
+            userId: userId,
+            projectId: projectId,
+            id: commentId,
+            productImageUrl: productImageUrl
+          })
 
-            }).catch(function (error) {
+          $scope.$apply()
+        })
 
-                $scope.loading = false;
-                $scope.$apply();
-                // alert(JSON.stringify(error));
-            });
-        }
-    };
+        $scope.loading = false
+        $scope.$apply()
+      }).catch(function (error) {
+        $scope.loading = false
+        $scope.$apply()
+      // alert(JSON.stringify(error))
+      })
+    }
+  }
 
-    $scope.init();
+  $scope.previous = function () {
+    if ($scope.skip >= 10) {
+      var currentUser = AV.User.current()
+      if (currentUser) {
+        $scope.loading = true
 
-    $scope.deleteComment = function (id) {
-        var comment = AV.Object.createWithoutData('ForumComment', id);
-        comment.destroy().then(function (comment) {
-            $scope.init();
-        }).catch(function (error) {
-            // alert(JSON.stringify(error));
-        });
-    };
+        $scope.skip -= 10
+        var queryComment = new AV.Query('ForumComment')
+        queryComment.include('user')
+        queryComment.include('project')
+        queryComment.descending('createdAt')
+        queryComment.limit(10)
+        queryComment.skip($scope.skip)
+        queryComment.find().then(function (res) {
+          $scope.forumComments = []
+          res.forEach(function (comment) {
+            var userFullName = comment.get('user').get('fullName')
+            var date = (comment.createdAt.getMonth() + 1) + '/' + comment.createdAt.getDate() + '/' + comment.createdAt.getFullYear()
+            var avatar = comment.get('user').get('avatarUrl')
+            var content = comment.get('content')
+            var userId = comment.get('user').id
+            var projectId = comment.get('project').id
+            var commentId = comment.id
+            var productImage = comment.get('project').get('image')
 
-    $scope.next = function () {
-        var currentUser = AV.User.current();
-        if (currentUser) {
-
-            $scope.loading = true;
-
-            $scope.skip += 10;
-            var queryComment = new AV.Query('ForumComment');
-            queryComment.include('user');
-            queryComment.include('project');
-            queryComment.descending('createdAt');
-            queryComment.limit(10);
-            queryComment.skip($scope.skip);
-            queryComment.find().then(function (res) {
-                $scope.forumComments = [];
-                res.forEach(function (comment) {
-                    var userFullName = comment.get('user').get('fullName');
-                    var date = (comment.createdAt.getMonth() + 1) + '/' + comment.createdAt.getDate() + '/' + comment.createdAt.getFullYear();
-                    var avatar = comment.get('user').get('avatarUrl');
-                    var content = comment.get('content');
-                    var userId = comment.get('user').id;
-                    var projectId = comment.get('project').id;
-                    var commentId = comment.id;
-                    var productImage = comment.get('project').get('image');
-
-                    var productImageUrl;
-                    if (productImage) {
-                        productImageUrl = productImage.thumbnailURL(60, 60);
-                    } else {
-                        productImageUrl = 'img/LogoHoopa.png';
-                    }
-
-                    $scope.forumComments.push({
-                        userFullName: userFullName,
-                        userAvatar: avatar,
-                        date: date,
-                        content: content,
-                        userId: userId,
-                        projectId: projectId,
-                        id: commentId,
-                        productImageUrl: productImageUrl,
-                    })
-
-                    $scope.$apply();
-                });
-
-                $scope.loading = false;
-                $scope.$apply();
-
-            }).catch(function (error) {
-
-                $scope.loading = false;
-                $scope.$apply();
-                // alert(JSON.stringify(error));
-            });
-        }
-    };
-
-    $scope.previous = function () {
-        if ($scope.skip >= 10) {
-            var currentUser = AV.User.current();
-            if (currentUser) {
-
-                $scope.loading = true;
-
-                $scope.skip -= 10;
-                var queryComment = new AV.Query('ForumComment');
-                queryComment.include('user');
-                queryComment.include('project');
-                queryComment.descending('createdAt');
-                queryComment.limit(10);
-                queryComment.skip($scope.skip);
-                queryComment.find().then(function (res) {
-                    $scope.forumComments = [];
-                    res.forEach(function (comment) {
-                        var userFullName = comment.get('user').get('fullName');
-                        var date = (comment.createdAt.getMonth() + 1) + '/' + comment.createdAt.getDate() + '/' + comment.createdAt.getFullYear();
-                        var avatar = comment.get('user').get('avatarUrl');
-                        var content = comment.get('content');
-                        var userId = comment.get('user').id;
-                        var projectId = comment.get('project').id;
-                        var commentId = comment.id;
-                        var productImage = comment.get('project').get('image');
-
-                        var productImageUrl;
-                        if (productImage) {
-                            productImageUrl = productImage.thumbnailURL(60, 60);
-                        } else {
-                            productImageUrl = 'img/LogoHoopa.png';
-                        }
-
-                        $scope.forumComments.push({
-                            userFullName: userFullName,
-                            userAvatar: avatar,
-                            date: date,
-                            content: content,
-                            userId: userId,
-                            projectId: projectId,
-                            id: commentId,
-                            productImageUrl: productImageUrl,
-                        })
-
-                        $scope.$apply();
-                    });
-
-                    $scope.loading = false;
-                    $scope.$apply();
-
-                }).catch(function (error) {
-
-                $scope.loading = false;
-                $scope.$apply();
-                // alert(JSON.stringify(error));
-            });
+            var productImageUrl
+            if (productImage) {
+              productImageUrl = productImage.thumbnailURL(60, 60)
+            } else {
+              productImageUrl = 'img/LogoHoopa.png'
             }
-        }
-    };
 
-    $scope.goToProject = function (id) {
-        localStorageService.cookie.set('projectId', id);
-        $state.go('view-project');
-    };
+            $scope.forumComments.push({
+              userFullName: userFullName,
+              userAvatar: avatar,
+              date: date,
+              content: content,
+              userId: userId,
+              projectId: projectId,
+              id: commentId,
+              productImageUrl: productImageUrl
+            })
+
+            $scope.$apply()
+          })
+
+          $scope.loading = false
+          $scope.$apply()
+        }).catch(function (error) {
+          $scope.loading = false
+          $scope.$apply()
+        // alert(JSON.stringify(error))
+        })
+      }
+    }
+  }
+
+  $scope.goToProject = function (id) {
+    localStorageService.cookie.set('projectId', id)
+    $state.go('view-project')
+  }
 }

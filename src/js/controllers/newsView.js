@@ -1,27 +1,26 @@
-app.controller('NewsViewCtrl', ['$scope', '$rootScope', '$window', '$timeout', 'localStorageService', NewsViewCtrl]);
+app.controller('NewsViewCtrl', ['$scope', '$rootScope', '$window', '$timeout', 'localStorageService', NewsViewCtrl])
 
-function NewsViewCtrl($scope, $rootScope, $window, $timeout, localStorageService) {
+function NewsViewCtrl ($scope, $rootScope, $window, $timeout, localStorageService) {
+  $scope.new = {}
+  $scope.newsMedia = []
 
-    $scope.new = {};
-    $scope.newsMedia = [];    
+  $scope.init = function () {
+    var id = localStorageService.cookie.get('newsId')
 
-    $scope.init = function(){
-        var id = localStorageService.cookie.get('newsId');
-        
-        var query = new AV.Query("News")
-        query.get(id).then(function(n){
-            $scope.new = n;
+    var query = new AV.Query('News')
+    query.get(id).then(function (n) {
+      $scope.new = n
 
-            var queryMedias = new AV.Query("NewsMedia")
-            queryMedias.equalTo('news', n)
-            queryMedias.find().then(function(mediasObject){
-                $scope.newsMedia = mediasObject;
-                $scope.$apply();
-            })
-            
-            $scope.$apply();
-        })
-    };
+      var queryMedias = new AV.Query('NewsMedia')
+      queryMedias.equalTo('news', n)
+      queryMedias.find().then(function (mediasObject) {
+        $scope.newsMedia = mediasObject
+        $scope.$apply()
+      })
 
-    $scope.init();
+      $scope.$apply()
+    })
+  }
+
+  $scope.init()
 }

@@ -1,65 +1,63 @@
-app.controller('OffersCtrl', ['$scope','$state', '$rootScope', '$window', '$timeout', 'localStorageService', OffersCtrl]);
+app.controller('OffersCtrl', ['$scope', '$state', '$rootScope', '$window', '$timeout', 'localStorageService', OffersCtrl])
 
-function OffersCtrl($scope, $state, $rootScope, $window, $timeout, localStorageService) {
+function OffersCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageService) {
+  $rootScope.activeList = 'offers'
 
-  $rootScope.activeList = 'offers';
+  $scope.loading = false
 
-  $scope.loading = false;
-
-  $scope.offers = [];
-  $scope.skip = 0;
+  $scope.offers = []
+  $scope.skip = 0
 
   $scope.initSocket = function () {
-    var querySocketOffer = new AV.Query('Offert');
+    var querySocketOffer = new AV.Query('Offert')
     querySocketOffer.subscribe().then(function (liveQuery) {
       liveQuery.on('create', function (offer) {
-        $scope.listAllOffers();
+        $scope.listAllOffers()
       })
     })
   }
 
-  $scope.initSocket();
+  $scope.initSocket()
 
   $scope.listAllOffers = function () {
-    $scope.offers = [];
-    $scope.openOffer = false;
+    $scope.offers = []
+    $scope.openOffer = false
 
-    var currentUser = AV.User.current();
+    var currentUser = AV.User.current()
 
     if (currentUser) {
+      $scope.loading = true
 
-      $scope.loading = true;
-
-      var query = new AV.Query('Offert');
-      query.include('user');
-      query.include('project');
-      query.descending('createdAt');
-      query.limit(7);
+      var query = new AV.Query('Offert')
+      query.include('user')
+      query.include('project')
+      query.descending('createdAt')
+      query.limit(7)
       query.find().then(function (offers) {
-        $scope.offers = [];
+        $scope.offers = []
         offers.forEach(function (offer) {
-          var offerId = offer.id;
-          var amount = offer.get('amount');
-          var userFullName = offer.get('user').get('fullName');
-          var date = (offer.createdAt.getMonth() + 1) + '/' + offer.createdAt.getDate() + '/' + offer.createdAt.getFullYear();
-          var avatar = offer.get('user').get('avatarUrl');
-          var content = offer.get('description');
-          var open = false;
-          var pending = offer.get('pending');
-          var userId = offer.get('user').id;
-          var projectId = offer.get('project').id;
-          var projectTitle = offer.get('project').get('title');
-          var projectDescription = offer.get('project').get('description');
+          var offerId = offer.id
+          var amount = offer.get('amount')
+          var userFullName = offer.get('user').get('fullName')
+          var date = (offer.createdAt.getMonth() + 1) + '/' + offer.createdAt.getDate() + '/' + offer.createdAt.getFullYear()
+          var avatar = offer.get('user').get('avatarUrl')
+          var content = offer.get('description')
+          var open = false
+          var pending = offer.get('pending')
+          var userId = offer.get('user').id
+          var projectId = offer.get('project').id
+          var projectTitle = offer.get('project').get('title')
+          var projectDescription = offer.get('project').get('description')
 
-          var p = projectDescription;
+          var p = projectDescription
           if (projectDescription.length > 50) {
-            p = '';
+            p = ''
             for (var i = 0; i < 50; i++) {
-              p += projectDescription[i];
+              p += projectDescription[i]
             }
           }
 
-          projectDescription = p;
+          projectDescription = p
 
           // handlebars context
           $scope.offers.push({
@@ -76,109 +74,102 @@ function OffersCtrl($scope, $state, $rootScope, $window, $timeout, localStorageS
             projectTitle: projectTitle,
             projectDescription: projectDescription
           })
-          $scope.$apply();
-        });
+          $scope.$apply()
+        })
 
-        $scope.loading = false;
-        $scope.$apply();
-
+        $scope.loading = false
+        $scope.$apply()
       }).catch(function (error) {
-        $scope.loading = false;
-        $scope.$apply();
-        // alert(JSON.stringify(error));
-      });
-
+        $scope.loading = false
+        $scope.$apply()
+      // alert(JSON.stringify(error))
+      })
     } else {
-      $window.location.href = '#/login';
+      $window.location.href = '#/login'
     }
-  };
+  }
 
-  $scope.listAllOffers();
+  $scope.listAllOffers()
 
   $scope.openOfferFunction = function (id) {
     $scope.offers.forEach(function (offer) {
       if (offer.offerId == id) {
-        offer.open = !offer.open;
+        offer.open = !offer.open
       } else {
-        offer.open = false;
+        offer.open = false
       }
     })
-  };
-
+  }
 
   $scope.sendOfferNotification = function (id, userId, projectId, content) {
-    var currentUser = AV.User.current();
+    var currentUser = AV.User.current()
 
     if (currentUser) {
       if (content != '') {
-        var Notification = AV.Object.extend('OfferNotification');
-        var notification = new Notification();
-        notification.set('content', content);
-        notification.set('readed', false);
+        var Notification = AV.Object.extend('OfferNotification')
+        var notification = new Notification()
+        notification.set('content', content)
+        notification.set('readed', false)
 
-        var offerMaker = AV.Object.createWithoutData('_User', userId);
-        var involvedProject = AV.Object.createWithoutData('Project', projectId);
+        var offerMaker = AV.Object.createWithoutData('_User', userId)
+        var involvedProject = AV.Object.createWithoutData('Project', projectId)
 
-        notification.set('user', offerMaker);
-        notification.set('project', involvedProject);
+        notification.set('user', offerMaker)
+        notification.set('project', involvedProject)
 
         notification.save().then(function (obj) {
-          var offer = AV.Object.createWithoutData('Offert', id);
-          offer.set('pending', false);
+          var offer = AV.Object.createWithoutData('Offert', id)
+          offer.set('pending', false)
           offer.save().then(function (obj) {
-
-            $scope.listAllOffers();
-
+            $scope.listAllOffers()
           }, function (error) {
-            // $scope.loading = false;
-            // alert(JSON.stringify(error));
-          });
-
+            // $scope.loading = false
+            // alert(JSON.stringify(error))
+          })
         }, function (error) {
-          // $scope.loading = false;
-          // alert(JSON.stringify(error));
-        });
-
+          // $scope.loading = false
+          // alert(JSON.stringify(error))
+        })
       }
     }
-  };
+  }
 
   $scope.next = function () {
-    var currentUser = AV.User.current();
+    var currentUser = AV.User.current()
     if (currentUser) {
-      $scope.loading = true;
-      $scope.skip += 7;
-      var query = new AV.Query('Offert');
-      query.include('user');
-      query.include('project');
-      query.descending('createdAt');
-      query.limit(7);
-      query.skip($scope.skip);
+      $scope.loading = true
+      $scope.skip += 7
+      var query = new AV.Query('Offert')
+      query.include('user')
+      query.include('project')
+      query.descending('createdAt')
+      query.limit(7)
+      query.skip($scope.skip)
       query.find().then(function (offers) {
-        $scope.offers = [];
+        $scope.offers = []
         offers.forEach(function (offer) {
-          var offerId = offer.id;
-          var amount = offer.get('amount');
-          var userFullName = offer.get('user').get('fullName');
-          var date = (offer.createdAt.getMonth() + 1) + '/' + offer.createdAt.getDate() + '/' + offer.createdAt.getFullYear();
-          var avatar = offer.get('user').get('avatarUrl');
-          var content = offer.get('description');
-          var open = false;
-          var pending = offer.get('pending');
-          var userId = offer.get('user').id;
-          var projectId = offer.get('project').id;
-          var projectTitle = offer.get('project').get('title');
-          var projectDescription = offer.get('project').get('description');
+          var offerId = offer.id
+          var amount = offer.get('amount')
+          var userFullName = offer.get('user').get('fullName')
+          var date = (offer.createdAt.getMonth() + 1) + '/' + offer.createdAt.getDate() + '/' + offer.createdAt.getFullYear()
+          var avatar = offer.get('user').get('avatarUrl')
+          var content = offer.get('description')
+          var open = false
+          var pending = offer.get('pending')
+          var userId = offer.get('user').id
+          var projectId = offer.get('project').id
+          var projectTitle = offer.get('project').get('title')
+          var projectDescription = offer.get('project').get('description')
 
-          var p = projectDescription;
+          var p = projectDescription
           if (projectDescription.length > 50) {
-            p = '';
+            p = ''
             for (var i = 0; i < 50; i++) {
-              p += projectDescription[i];
+              p += projectDescription[i]
             }
           }
 
-          projectDescription = p;
+          projectDescription = p
 
           // handlebars context
           $scope.offers.push({
@@ -195,60 +186,58 @@ function OffersCtrl($scope, $state, $rootScope, $window, $timeout, localStorageS
             projectTitle: projectTitle,
             projectDescription: projectDescription
           })
-          $scope.$apply();
-        });
+          $scope.$apply()
+        })
 
-        $scope.loading = false;
-        $scope.$apply();
-
+        $scope.loading = false
+        $scope.$apply()
       }).catch(function (error) {
-        $scope.loading = false;
-        $scope.$apply();
-        // alert(JSON.stringify(error));
-      });
-
+        $scope.loading = false
+        $scope.$apply()
+      // alert(JSON.stringify(error))
+      })
     } else {
-      $window.location.href = '#/login';
+      $window.location.href = '#/login'
     }
-  };
+  }
 
   $scope.previous = function () {
     if ($scope.skip >= 7) {
-      var currentUser = AV.User.current();
+      var currentUser = AV.User.current()
       if (currentUser) {
-        $scope.loading = true;
-        $scope.skip -= 7;
-        var query = new AV.Query('Offert');
-        query.include('user');
-        query.include('project');
-        query.descending('createdAt');
-        query.limit(7);
-        query.skip($scope.skip);
+        $scope.loading = true
+        $scope.skip -= 7
+        var query = new AV.Query('Offert')
+        query.include('user')
+        query.include('project')
+        query.descending('createdAt')
+        query.limit(7)
+        query.skip($scope.skip)
         query.find().then(function (offers) {
-          $scope.offers = [];
+          $scope.offers = []
           offers.forEach(function (offer) {
-            var offerId = offer.id;
-            var amount = offer.get('amount');
-            var userFullName = offer.get('user').get('fullName');
-            var date = (offer.createdAt.getMonth() + 1) + '/' + offer.createdAt.getDate() + '/' + offer.createdAt.getFullYear();
-            var avatar = offer.get('user').get('avatarUrl');
-            var content = offer.get('description');
-            var open = false;
-            var pending = offer.get('pending');
-            var userId = offer.get('user').id;
-            var projectId = offer.get('project').id;
-            var projectTitle = offer.get('project').get('title');
-            var projectDescription = offer.get('project').get('description');
+            var offerId = offer.id
+            var amount = offer.get('amount')
+            var userFullName = offer.get('user').get('fullName')
+            var date = (offer.createdAt.getMonth() + 1) + '/' + offer.createdAt.getDate() + '/' + offer.createdAt.getFullYear()
+            var avatar = offer.get('user').get('avatarUrl')
+            var content = offer.get('description')
+            var open = false
+            var pending = offer.get('pending')
+            var userId = offer.get('user').id
+            var projectId = offer.get('project').id
+            var projectTitle = offer.get('project').get('title')
+            var projectDescription = offer.get('project').get('description')
 
-            var p = projectDescription;
+            var p = projectDescription
             if (projectDescription.length > 50) {
-              p = '';
+              p = ''
               for (var i = 0; i < 50; i++) {
-                p += projectDescription[i];
+                p += projectDescription[i]
               }
             }
 
-            projectDescription = p;
+            projectDescription = p
 
             // handlebars context
             $scope.offers.push({
@@ -265,26 +254,24 @@ function OffersCtrl($scope, $state, $rootScope, $window, $timeout, localStorageS
               projectTitle: projectTitle,
               projectDescription: projectDescription
             })
-            $scope.$apply();
-          });
+            $scope.$apply()
+          })
 
-          $scope.loading = false;
-          $scope.$apply();
-
+          $scope.loading = false
+          $scope.$apply()
         }).catch(function (error) {
-          $scope.loading = false;
-          $scope.$apply();
-          // alert(JSON.stringify(error));
-        });
-
+          $scope.loading = false
+          $scope.$apply()
+        // alert(JSON.stringify(error))
+        })
       } else {
-        $window.location.href = '#/login';
+        $window.location.href = '#/login'
       }
     }
-  };
+  }
 
   $scope.goToProject = function (id) {
-    localStorageService.cookie.set('projectId', id);
-    $state.go('view-project');
-  };
+    localStorageService.cookie.set('projectId', id)
+    $state.go('view-project')
+  }
 }

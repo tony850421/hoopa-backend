@@ -17,9 +17,10 @@ function HoopaBranchesCtrl ($scope, $rootScope, $translate) {
 
     $scope.arrayBranchs = []
     var Branchs = new AV.Query('Branch')
+    Branchs.ascending('Order')
     Branchs.find().then(function (res) {
       res.forEach(function (element) {
-        var id = element.id
+        var id = element.get('objectId')
         var address = element.get('address')
         var order = element.get('Order')
         var name = element.get('name')
@@ -142,7 +143,7 @@ function HoopaBranchesCtrl ($scope, $rootScope, $translate) {
     $(id4).removeClass('ng-hide')
   }
 
-  $scope.saveCityName = function (index, id) {
+  $scope.saveBranchName = function (index, id) {
     id1 = '#branchName_' + index
     id2 = '#updateBranchName_' + index
     id3 = '#editBranchName_' + index
@@ -188,7 +189,7 @@ function HoopaBranchesCtrl ($scope, $rootScope, $translate) {
     $(id4).removeClass('ng-hide')
   }
 
-  $scope.saveCityName = function (index, id) {
+  $scope.saveBranchAddress = function (index, id) {
     id1 = '#branchAddress_' + index
     id2 = '#updateBranchAddress_' + index
     id3 = '#editBranchAddress_' + index
@@ -212,13 +213,139 @@ function HoopaBranchesCtrl ($scope, $rootScope, $translate) {
     }
   }
 
-//   $scope.updateBranchName = function (index) {
-//     id = '#updateBranchName_' + index
-//     $scope.nameUpdateBranch = $(id).val()
-//   }
+  $scope.updateBranchPhone = function (index) {
+    id = '#updateBranchPhone_' + index
+    $scope.phoneUpdateBranch = $(id).val()
+  }
 
-//   $scope.updateBranchName = function (index) {
-//     id = '#updateBranchName_' + index
-//     $scope.nameUpdateBranch = $(id).val()
-//   }
+  $scope.editBranchPhone = function (index, name) {
+    $scope.phoneUpdateBranch = name
+    id1 = '#branchPhone_' + index
+    id2 = '#updateBranchPhone_' + index
+    id3 = '#editBranchPhone_' + index
+    id4 = '#saveBranchPhone_' + index
+    $(id1).addClass('ng-hide')
+    $(id2).removeClass('ng-hide')
+    $(id3).addClass('ng-hide')
+    $(id4).removeClass('ng-hide')
+  }
+
+  $scope.saveBranchPhone = function (index, id) {
+    id1 = '#branchPhone_' + index
+    id2 = '#updateBranchPhone_' + index
+    id3 = '#editBranchPhone_' + index
+    id4 = '#saveBranchPhone_' + index
+    $(id1).removeClass('ng-hide')
+    $(id2).addClass('ng-hide')
+    $(id3).removeClass('ng-hide')
+    $(id4).addClass('ng-hide')
+
+    for (var i = 0; i < $scope.arrayBranchs.length; i++) {
+      if ($scope.arrayBranchs[i].id == id) {
+        $scope.arrayBranchs[i].phone = $scope.phoneUpdateBranch
+        break
+      }
+    }
+
+    if ($scope.phoneUpdateBranch != '') {
+      var city = AV.Object.createWithoutData('Branch', id)
+      city.set('phone', $scope.phoneUpdateBranch)
+      city.save()
+    }
+  }
+
+  $scope.updateBranchPosition = function (index) {
+    id = '#updateBranchPosition_' + index
+    $scope.positionUpdateBranch = $(id).val()
+  }
+
+  $scope.editBranchPosition = function (index, longitude, latitude) {
+    $scope.positionUpdateBranch = longitude + "," + latitude
+    id1 = '#branchPosition_' + index
+    id2 = '#updateBranchPosition_' + index
+    id3 = '#editBranchPosition_' + index
+    id4 = '#saveBranchPosition_' + index
+    $(id1).addClass('ng-hide')
+    $(id2).removeClass('ng-hide')
+    $(id3).addClass('ng-hide')
+    $(id4).removeClass('ng-hide')
+  }
+
+  $scope.saveBranchPosition = function (index, id) {
+    id1 = '#branchPosition_' + index
+    id2 = '#updateBranchPosition_' + index
+    id3 = '#editBranchPosition_' + index
+    id4 = '#saveBranchPosition_' + index
+    $(id1).removeClass('ng-hide')
+    $(id2).addClass('ng-hide')
+    $(id3).removeClass('ng-hide')
+    $(id4).addClass('ng-hide')
+
+    var ltarray = $scope.positionUpdateBranch.split(',')
+    if (ltarray.length == 2) {
+      var latitude = ltarray[1]
+      var longitude = ltarray[0]
+
+      for (var i = 0; i < $scope.arrayBranchs.length; i++) {
+        if ($scope.arrayBranchs[i].id == id) {
+          $scope.arrayBranchs[i].latitude = latitude
+          $scope.arrayBranchs[i].longitude = longitude
+          break
+        }
+      }
+  
+      if ($scope.positionUpdateBranch != '') {
+        var city = AV.Object.createWithoutData('Branch', id)
+        city.set('latitude', latitude)
+        city.set('longitude', longitude)
+        city.save()
+      }
+    }    
+  }
+
+  $scope.orderUp = function (index) {
+    if (index > 0){
+      console.log($scope.arrayBranchs[index].order)
+      console.log($scope.arrayBranchs[index-1].order)
+
+      var orderOld = $scope.arrayBranchs[index].order
+      $scope.arrayBranchs[index].order = $scope.arrayBranchs[index-1].order
+      $scope.arrayBranchs[index-1].order = orderOld
+
+      console.log($scope.arrayBranchs[index].order)
+      console.log($scope.arrayBranchs[index-1].order)
+
+      var city = AV.Object.createWithoutData('Branch', $scope.arrayBranchs[index].id)     
+      city.set('Order', $scope.arrayBranchs[index].order)
+      city.save()
+
+      var city_Other = AV.Object.createWithoutData('Branch', $scope.arrayBranchs[index-1].id)     
+      city_Other.set('Order', $scope.arrayBranchs[index-1].order)
+      city_Other.save()
+
+      var objectAux = $scope.arrayBranchs[index]
+      $scope.arrayBranchs[index] = $scope.arrayBranchs[index-1]
+      $scope.arrayBranchs[index-1] = objectAux
+    }
+  }
+
+  $scope.orderDown = function (index) {
+    if (index < $scope.arrayBranchs.length - 1){
+      var orderOld = $scope.arrayBranchs[index].order
+      $scope.arrayBranchs[index].order = $scope.arrayBranchs[index+1].order
+      $scope.arrayBranchs[index+1].order = orderOld
+
+      var city = AV.Object.createWithoutData('Branch', $scope.arrayBranchs[index].id)     
+      city.set('Order', $scope.arrayBranchs[index].order)
+      city.save()
+
+      var city_Other = AV.Object.createWithoutData('Branch', $scope.arrayBranchs[index+1].id)     
+      city_Other.set('Order', $scope.arrayBranchs[index+1].order)
+      city_Other.save()      
+
+      var objectAux = $scope.arrayBranchs[index]
+      $scope.arrayBranchs[index] = $scope.arrayBranchs[index+1]
+      $scope.arrayBranchs[index+1] = objectAux
+    }
+  }
 }

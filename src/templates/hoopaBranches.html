@@ -40,44 +40,82 @@
             <div ng-repeat="b in arrayBranchs">
                 <div class="col-md-12 teamMemberItem">
                     <span class="fa fa-times spanCitiesClose" ng-click="deleteBranchs(b.id)"></span>
-                    <div class="updateCityNameClass">
-                        <label translate="HBNAME"></label>
-                        <label class="margin-bottom-0" id="branchName_{{$index}}">{{b.name}}</label>
-                        <input id="updateBranchName_{{$index}}" ng-change="updateBranchName($index)" class="ng-hide" type="text" ng-model="nameUpdateBranch"></input>
-                        <div id="editBranchName_{{$index}}" class="buttonEditHidden">
-                            <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editBranchName($index, b.name)">
-                                <span class="fa fa-edit"></span>
-                            </a>
+                    <div class="branchItemRow">
+                        <div class="branchItemColumn">
+                            <div class="updateCityNameClass">
+                                <label translate="HBNAME"></label>
+                                <label class="margin-bottom-0" id="branchName_{{$index}}">{{b.name}}</label>
+                                <input id="updateBranchName_{{$index}}" ng-change="updateBranchName($index)" class="ng-hide" type="text" ng-model="nameUpdateBranch"></input>
+                                <div id="editBranchName_{{$index}}" class="buttonEditHidden">
+                                    <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editBranchName($index, b.name)">
+                                        <span class="fa fa-edit"></span>
+                                    </a>
+                                </div>
+                                <div id="saveBranchName_{{$index}}" class="ng-hide">
+                                    <a type="button" class="btn btnEditCityName buttonEditSave" ng-click="saveBranchName($index, b.id)">
+                                        <span class="fa fa-save"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="updateCityNameClass">
+                                <label translate="HBADDRESS"></label>
+                                <label class="margin-bottom-0" id="branchAddress_{{$index}}">{{b.address}}</label>
+                                <input id="updateBranchAddress_{{$index}}" ng-change="updateBranchAddress($index)" class="ng-hide" type="text" ng-model="addressUpdateBranch"></input>
+                                <div id="editBranchAddress_{{$index}}" class="buttonEditHidden">
+                                    <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editBranchAddress($index, b.address)">
+                                        <span class="fa fa-edit"></span>
+                                    </a>
+                                </div>
+                                <div id="saveBranchAddress_{{$index}}" class="ng-hide">
+                                    <a type="button" class="btn btnEditCityName buttonEditSave" ng-click="saveBranchAddress($index, b.id)">
+                                        <span class="fa fa-save"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="updateCityNameClass">
+                                <label translate="HBPHONE"></label>
+                                <label class="margin-bottom-0" id="branchPhone_{{$index}}">{{b.phone}}</label>
+                                <input id="updateBranchPhone_{{$index}}" ng-change="updateBranchPhone($index)" class="ng-hide" type="text" ng-model="phoneUpdateBranch"></input>
+                                <div id="editBranchPhone_{{$index}}" class="buttonEditHidden">
+                                    <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editBranchPhone($index, b.phone)">
+                                        <span class="fa fa-edit"></span>
+                                    </a>
+                                </div>
+                                <div id="saveBranchPhone_{{$index}}" class="ng-hide">
+                                    <a type="button" class="btn btnEditCityName buttonEditSave" ng-click="saveBranchPhone($index, b.id)">
+                                        <span class="fa fa-save"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="updateCityNameClass">
+                                <label translate="HBLATITUDE"></label>
+                                <label class="margin-bottom-0" id="branchPosition_{{$index}}">{{b.longitude}},{{b.latitude}}</label>
+                                <input id="updateBranchPosition_{{$index}}" ng-change="updateBranchPosition($index)" class="ng-hide" type="text" ng-model="positionUpdateBranch"></input>
+                                <div id="editBranchPosition_{{$index}}" class="buttonEditHidden">
+                                    <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editBranchPosition($index, b.longitude, b.latitude)">
+                                        <span class="fa fa-edit"></span>
+                                    </a>
+                                </div>
+                                <div id="saveBranchPosition_{{$index}}" class="ng-hide">
+                                    <a type="button" class="btn btnEditCityName buttonEditSave" ng-click="saveBranchPosition($index, b.id)">
+                                        <span class="fa fa-save"></span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div id="saveBranchName_{{$index}}" class="ng-hide">
-                            <a type="button" class="btn btnEditBranchName buttonEditSave" ng-click="saveBranchName($index, b.id)">
-                                <span class="fa fa-save"></span>
-                            </a>
+                        <div class="marginSpanButtonBox">
+                            <div class="buttonsOrder">
+                                <a class="buttonOrderSpan">
+                                    <span class="fa fa-angle-up styleAngleOrder" ng-show="$index != '0'" ng-click="orderUp($index)"></span>
+                                    <span class="fa fa-angle-up styleAngleOrderDisabled" ng-show="$index == '0'"></span>
+                                </a>
+                                <a class="buttonOrderSpan">
+                                    <span class="fa fa-angle-down styleAngleOrder" ng-show="$index != (arrayCities.length-1)" ng-click="orderDown($index)"></span>
+                                    <span class="fa fa-angle-down styleAngleOrderDisabled" ng-show="$index == (arrayCities.length-1)"></span>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="updateCityNameClass">
-                        <label translate="HBADDRESS"></label>
-                        <label class="margin-bottom-0" id="branchAddress_{{$index}}">{{b.address}}</label>
-                        <input id="updateBranchAddress_{{$index}}" ng-change="updateBranchAddress($index)" class="ng-hide" type="text" ng-model="addressUpdateBranch"></input>
-                        <div id="editBranchAddress_{{$index}}" class="buttonEditHidden">
-                            <a type="button" class="btn btnEditCityAddress buttonEdit" ng-click="editBranchAddress($index, b.address)">
-                                <span class="fa fa-edit"></span>
-                            </a>
-                        </div>
-                        <div id="saveBranchAddress_{{$index}}" class="ng-hide">
-                            <a type="button" class="btn btnEditBranchName buttonEditSave" ng-click="saveBranchAddress($index, b.id)">
-                                <span class="fa fa-save"></span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="updateCityNameClass">
-                        <label translate="HBPHONE"></label>
-                        <label class="margin-bottom-0" id="cityName_{{$index}}">{{b.phone}}</label>
-                    </div>
-                    <div class="updateCityNameClass">
-                        <label translate="HBLATITUDE"></label>
-                        <label class="margin-bottom-0" id="cityName_{{$index}}">{{b.longitude}},{{b.latitude}}</label>
-                    </div>                    
                 </div>
             </div>
         </div>

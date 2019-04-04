@@ -1,0 +1,34 @@
+<div class="row groupIntroductonStyle" ng-controller="GroupIntroductionCtrl">
+    <div class="pageHeader">
+        <label>Introduction</label>
+        <span class="fa fa-align-left spanModeView" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '1'}" ng-click="changeMode(1)"></span>
+        <span class="fa fa-align-right spanModeView" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '2'}" ng-click="changeMode(2)"></span>
+        <span class="fa fa-align-justify spanModeView" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '3'}" ng-click="changeMode(3)"></span>
+        <span class="fa fa-align-center spanModeView" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '4'}" ng-click="changeMode(4)"></span>
+    </div>
+    <div class="displayFlexColumn padding-30">
+        <div class="imageGroupIntroductionBox">
+            <label>Add Image</label>
+            <div class="addImageBox">
+                <span ng-show="!imageGroupIntroductionFlag" class="fa fa-picture-o spanImageAdd"></span>
+                <img class="imageGroup" src="{{imageGroupIntroduction}}" ng-show="imageGroupIntroductionFlag" id="imageGroupIntroduction">
+            </div>
+            <input type="file" class="custom-file-input inputGruopIntroductionImage"
+                id="groupIntroductionPicture"
+                onchange="angular.element(this).scope().changeImageGroupIntroduction()">
+            
+        </div>
+        <div class="imageGroupIntroductionBox marginTop10">
+            <label>Add Text</label>
+            <div class="addTextBox" ng-click="changeTextGroupState()" ng-show="!textGroupIntroductionFlag">
+                <span class="fa fa-font spanTextAdd"></span>
+            </div>
+            <textarea id="textGroupIntroductionArea" class="textAreaGroupIntroduction" ng-show="textGroupIntroductionFlag" ng-model="textGroupIntroduction"></textarea>
+        </div>
+        <div class="marginTop10">
+            <a type="button" class="btn btn-default buttonSaveGroupIntroduction" ng-click="saveInformation()">
+                <span>Submit</span>
+            </a>
+        </div>
+    </div>
+</div>
