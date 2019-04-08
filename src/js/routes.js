@@ -105,6 +105,9 @@ app.config(['$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider
       }).state('honor', {
         url: '/honor',
         templateUrl: 'templates/honor.html'
+      }).state('history', {
+        url: '/history',
+        templateUrl: 'templates/history.html'
       })
     }
 ])

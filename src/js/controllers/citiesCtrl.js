@@ -127,7 +127,7 @@ function CitiesCtrl ($scope, $rootScope, $translate) {
         if ($scope.arrayCities.length > 0)
           city.set('Order', $scope.arrayCities[$scope.arrayCities.length - 1].order + 1)
         else
-          b.set('Order', 1)
+          city.set('Order', 1)
         city.set('show', $scope.cityVisibilityNew)
         city.set('image', avFile)
         city.save().then(function (res) {

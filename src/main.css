@@ -1678,8 +1678,8 @@ tr {
 .inputGruopIntroductionImage {
   position: absolute;
   margin-top: -360px;
-  height: 360px;
-  width: 78%;
+  height: 360px !important;
+  width: 78% !important;
 }
 
 .inputServicesProcessImage {
@@ -1841,4 +1841,10 @@ span.fa-angle-down:hover, span.fa-angle-up:hover {
 
 .width90P{
   width: 90% !important;
+}
+
+.inputDateHistory{
+  width: 80px !important;
+  margin-left: 5px;
+  background-color: #ebebeb;
 }

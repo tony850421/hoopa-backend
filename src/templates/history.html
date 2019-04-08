@@ -1,0 +1,105 @@
+<div class="row groupIntroductonStyle" ng-controller="HistoryCtrl">
+    <div class="pageHeader">
+        <label>History</label>
+        <span class="fa fa-align-left spanModeView" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '1'}" ng-click="changeMode(1)"></span>
+        <span class="fa fa-align-right spanModeView" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '2'}" ng-click="changeMode(2)"></span>
+    </div>
+    <div class="displayFlexColumn padding-30">
+        <div class="imageGroupIntroductionBox">
+            <label>Add Image</label>
+            <div class="addImageBox">
+                <span ng-show="!imageGroupIntroductionFlag" class="fa fa-picture-o spanImageAdd"></span>
+                <img class="imageGroup" src="{{imageGroupIntroduction}}" ng-show="imageGroupIntroductionFlag" id="imageGroupIntroduction">
+            </div>
+            <input type="file" class="custom-file-input inputGruopIntroductionImage form-control"
+                id="groupIntroductionPicture" onchange="angular.element(this).scope().changeImageGroupIntroduction()">            
+        </div>
+        <div class="imageGroupIntroductionBox marginTop10" ng-repeat="i in timelineArray" ng-show="i.id != '5caaf0120237d70068f85323'">
+            <span class="fa fa-times spanCitiesClose" ng-click="deleteMember(i.id)"></span>
+            <div class="displayFlexColumn">
+                <div class="displayFlexRow">
+                    <label class="margin-bottom-0" id="timelineDate_{{$index}}">年{{i.date.getFullYear()}} 月{{i.date.getMonth()+1}} 日{{i.date.getDate()}}</label>
+                    <div class="ng-hide displayFlexRow" id="updateTimelineDate_{{$index}}">
+                        <label class="margin-left-10 margin-top-5">年</label>
+                        <input type="text" ng-model="year" class="form-control inputDateHistory" ng-change="updateTimelineYear($index)" id="timelineYear_{{$index}}" ng-model="timelineYear">
+                        <label class="margin-left-10 margin-top-5">月</label>
+                        <select ng-model="month" class="form-control inputDateHistory" ng-change="updateTimelineMonth($index)" id="timelineMonth_{{$index}}" ng-model="timelineMonth">
+                            <option value="0">1月</option>
+                            <option value="1">2月</option>
+                            <option value="2">3月</option>
+                            <option value="3">4月</option>
+                            <option value="4">5月</option>
+                            <option value="5">6月</option>
+                            <option value="6">7月</option>
+                            <option value="7">8月</option>
+                            <option value="8">9月</option>
+                            <option value="9">10月</option>
+                            <option value="10">11月</option>
+                            <option value="11">12月</option>
+                        </select>
+                        <label class="margin-left-10 margin-top-5">日</label>
+                        <input type="text" ng-model="day" class="form-control inputDateHistory" ng-change="updateTimelineDay($index)" id="timelineDay_{{$index}}" ng-model="timelineDay">
+                    </div>                    
+                    <div id="editTimelineDate_{{$index}}" class="buttonEditHidden">
+                        <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editTimelineDate($index)">
+                            <span class="fa fa-edit"></span>
+                        </a>
+                    </div>
+                    <div id="saveTimelineDate_{{$index}}" class="ng-hide">
+                        <a type="button" class="btn btnEditCityName buttonEditSave" ng-click="saveTimelineDate($index, i.id)">
+                            <span class="fa fa-save"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="displayFlexRow">
+                    <label class="margin-bottom-0" id="timelineDescription_{{$index}}">{{i.description}}</label>
+                    <textarea id="updateTimelineDescription__{{$index}}" ng-change="updateTimelineDescription($index)" class="ng-hide textAreaGroupIntroduction form-control" type="text" ng-model="timelineDescription"></textarea>
+                    <div id="editTimelineDescription_{{$index}}" class="buttonEditHidden">
+                        <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editTimelineDescription($index, i.description)">
+                            <span class="fa fa-edit"></span>
+                        </a>
+                    </div>
+                    <div id="saveTimelineDescription_{{$index}}" class="ng-hide">
+                        <a type="button" class="btn btnEditCityName buttonEditSave" ng-click="saveTimelineDescription($index, i.id)">
+                            <span class="fa fa-save"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="imageGroupIntroductionBox marginTop10">
+            <label>Date</label>
+            <div class="displayFlexRow">
+                <label class="margin-left-10 margin-top-5">年</label>
+                <input type="text" ng-model="year" class="form-control inputDateHistory">
+                <label class="margin-left-10 margin-top-5">月</label>
+                <select ng-model="month" class="form-control inputDateHistory">
+                    <option value="0">1月</option>
+                    <option value="1">2月</option>
+                    <option value="2">3月</option>
+                    <option value="3">4月</option>
+                    <option value="4">5月</option>
+                    <option value="5">6月</option>
+                    <option value="6">7月</option>
+                    <option value="7">8月</option>
+                    <option value="8">9月</option>
+                    <option value="9">10月</option>
+                    <option value="10">11月</option>
+                    <option value="11">12月</option>
+                </select>
+                <label class="margin-left-10 margin-top-5">日</label>
+                <input type="text" ng-model="day" class="form-control inputDateHistory">
+            </div>
+            <label>Description</label>
+            <div class="addTextBox" ng-click="changeTextGroupState()" ng-show="!textGroupIntroductionFlag">
+                <span class="fa fa-font spanTextAdd"></span>
+            </div>
+            <textarea id="textGroupIntroductionArea" class="textAreaGroupIntroduction form-control" ng-show="textGroupIntroductionFlag" ng-model="textGroupIntroduction"></textarea>
+        </div>
+        <div class="marginTop10">
+            <a type="button" class="btn btn-default buttonSaveGroupIntroduction" ng-click="saveInformation()">
+                <span>Submit</span>
+            </a>
+        </div>
+    </div>
+</div>
