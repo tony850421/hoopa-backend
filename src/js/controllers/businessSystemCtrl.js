@@ -118,11 +118,11 @@ function BusinessSystemCtrl ($scope, $rootScope) {
       $scope.businessSystemArray[index + 1].order = orderOld
 
       var city = AV.Object.createWithoutData('BusinessSystem', $scope.businessSystemArray[index].id)
-      city.set('Order', $scope.businessSystemArray[index].order)
+      city.set('order', $scope.businessSystemArray[index].order)
       city.save()
 
       var city_Other = AV.Object.createWithoutData('BusinessSystem', $scope.businessSystemArray[index + 1].id)
-      city_Other.set('Order', $scope.businessSystemArray[index + 1].order)
+      city_Other.set('order', $scope.businessSystemArray[index + 1].order)
       city_Other.save()
 
       var objectAux = $scope.businessSystemArray[index]

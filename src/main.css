@@ -742,8 +742,6 @@ ul.sidebar .sidebar-list a:hover {
   margin-bottom: 10px;
 }
 
-
-
 .marginBottom20 {
   margin-bottom: 20px;
 }
@@ -1586,13 +1584,13 @@ tr {
   padding: 10px;
 }
 
-.imageServicesProcessBox{
+.imageServicesProcessBox {
   background-color: white;
   padding: 10px;
   width: 25%;
 }
 
-.textServicesProcessBox{
+.textServicesProcessBox {
   background-color: white;
   padding: 10px;
   width: 73%;
@@ -1733,6 +1731,13 @@ tr {
   border: 1px solid #ebebeb;
 }
 
+.textAreaHonor {
+  width: 100%;
+  height: 200px !important;
+  resize: none;
+  border: 1px solid #ebebeb;
+}
+
 .spanModeViewOpacity {
   opacity: 0.5;
 }
@@ -1744,7 +1749,15 @@ tr {
   font-size: 30px!important;
 }
 
-.bussinesSystemDelete:hover {
+.servicesProcessDelete {
+  position: absolute;
+  right: 120px;
+  margin-top: 95px;
+  font-size: 30px!important;
+}
+
+.bussinesSystemDelete:hover,
+.servicesProcessDelete:hover {
   color: #f44336;
   cursor: pointer;
 }
@@ -1764,12 +1777,28 @@ tr {
   align-items: center;
 }
 
+.spanOrderBoxServicesProcess {
+  height: 108px;
+  background-color: #ebebeb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .spanOrderBoxUp {
   background-color: #ebebeb;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 160px;
+}
+
+.spanOrderBoxServicesProcess {
+  background-color: #ebebeb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 220px;
 }
 
 .spanOrderBox:hover, .spanOrderBoxUp:hover {
@@ -1791,14 +1820,25 @@ span.fa-angle-down:hover, span.fa-angle-up:hover {
   height: 160px;
 }
 
-.backgroundWhite{
+.backgroundWhite {
   background-color: white;
 }
 
-.buttonAddServicesProcess{
+.buttonAddServicesProcess {
   height: 60px;
 }
 
-.marginBottom5{
+.marginBottom5 {
   margin-bottom: 5px;
+}
+
+.itemServicesProcess {
+  padding: 15px;
+  border: 1px solid #ebebeb;
+  box-shadow: 1px 1px 1px #ebebeb;
+  background-color: white;
+}
+
+.width90P{
+  width: 90% !important;
 }

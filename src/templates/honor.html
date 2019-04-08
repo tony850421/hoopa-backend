@@ -1,4 +1,4 @@
-<div class="row groupIntroductonStyle" ng-controller="ServicesProcessCtrl">
+<div class="row groupIntroductonStyle" ng-controller="HonorCtrl">
     <div class="pageHeader">
         <label>Introduction</label>
         <span class="fa fa-align-left spanModeView"
@@ -18,25 +18,10 @@
                 <input type="file" class="custom-file-input inputServicesProcessImage" id="updateServicesProcessPicture_{{$index}}"
                     onchange="angular.element(this).scope().changeImageServicesProcess(angular.element(this).scope().$index)">
             </div>
-            <div class="textServicesProcessBox">
-                <div class="updateCityNameClass">
-                    <label class="margin-bottom-0" id="serviceTitle_{{$index}}">{{s.title}}</label>
-                    <input id="updateServiceTitle_{{$index}}" ng-change="updateServiceTitle($index)" class="ng-hide form-control margin-top-5 width90P" 
-                    type="text" ng-model="serviceTitle"></input>
-                    <div id="editServiceTitle_{{$index}}" class="buttonEditHidden">
-                        <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editServiceTitle($index, s.title)">
-                            <span class="fa fa-edit"></span>
-                        </a>
-                    </div>
-                    <div id="saveServiceTitle_{{$index}}" class="ng-hide">
-                        <a type="button" class="btn btnEditCityName buttonEditSave" ng-click="saveServiceTitle($index, s.id)">
-                            <span class="fa fa-save"></span>
-                        </a>
-                    </div>
-                </div>
+            <div class="textServicesProcessBox">                
                 <div class="updateCityNameClass">
                     <label class="margin-bottom-0" id="serviceDescription_{{$index}}">{{s.description}}</label>
-                    <textarea id="updateServiceDescription_{{$index}}" ng-change="updateServiceDescription($index)" class="ng-hide form-control textAreaServicesProcess 
+                    <textarea id="updateServiceDescription_{{$index}}" ng-change="updateServiceDescription($index)" class="ng-hide form-control textAreaHonor 
                     margin-top-5 width90P" type="text" ng-model="serviceDescription"></textarea>
                     <div id="editServiceDescription_{{$index}}" class="buttonEditHidden">
                         <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editServiceDescription($index, s.description)">
@@ -84,8 +69,7 @@
                     ng-show="!textGroupIntroductionFlag">
                     <span class="fa fa-font spanServicesProcessTextAdd"></span>
                 </div>
-                <input type="text" class="form-control marginBottom5" ng-show="textGroupIntroductionFlag" ng-model="titleGroupIntroduction">
-                <textarea id="textGroupIntroductionArea" class="textAreaServicesProcess form-control" ng-show="textGroupIntroductionFlag"
+                <textarea id="textGroupIntroductionArea" class="textAreaHonor form-control" ng-show="textGroupIntroductionFlag"
                     ng-model="textGroupIntroduction"></textarea>
             </div>
         </div>

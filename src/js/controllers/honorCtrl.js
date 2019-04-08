@@ -1,13 +1,12 @@
-app.controller('ServicesProcessCtrl', ['$scope', '$rootScope', ServicesProcessCtrl])
+app.controller('HonorCtrl', ['$scope', '$rootScope', HonorCtrl])
 
-function ServicesProcessCtrl ($scope, $rootScope) {
+function HonorCtrl ($scope, $rootScope) {
   $rootScope.activeList = 'services'
 
   $scope.imageGroupIntroduction = ''
   $scope.imageGroupIntroductionFlag = false
   $scope.textGroupIntroductionFlag = false
   $scope.textGroupIntroduction = ''
-  $scope.titleGroupIntroduction = ''
   $scope.modeGroupIntroduction = 1
 
   $scope.servicesProcessArray = []
@@ -51,7 +50,7 @@ function ServicesProcessCtrl ($scope, $rootScope) {
 
       for (var i = 0; i < $scope.servicesProcessArray.length; i++) {
         if (i == index) {
-          var service = AV.Object.createWithoutData('ServicesProcess', $scope.servicesProcessArray[i].id)
+          var service = AV.Object.createWithoutData('Honor', $scope.servicesProcessArray[i].id)
           service.set('image', avFile)
           service.save().then(function (res) {
             $scope.init()
@@ -74,12 +73,11 @@ function ServicesProcessCtrl ($scope, $rootScope) {
       var name = file.name
       var avFile = new AV.File(name, file)
 
-      if ($scope.textGroupIntroduction != '' && $scope.titleGroupIntroduction != '') {
-        var Services = AV.Object.extend('ServicesProcess')
+      if ($scope.textGroupIntroduction != '') {
+        var Services = AV.Object.extend('Honor')
         var service = new Services()
         service.set('image', avFile)
         service.set('description', $scope.textGroupIntroduction)
-        service.set('title', $scope.titleGroupIntroduction)
         service.set('mode', $scope.modeGroupIntroduction)
         if ($scope.servicesProcessArray.length > 0)
           service.set('order', $scope.servicesProcessArray[$scope.servicesProcessArray.length - 1].order + 1)
@@ -100,13 +98,12 @@ function ServicesProcessCtrl ($scope, $rootScope) {
   $scope.init = function () {
     $scope.servicesProcessArray = []
 
-    var query = new AV.Query('ServicesProcess')
+    var query = new AV.Query('Honor')
     query.ascending('order')
     query.find().then(function (data) {
       data.forEach(function (element) {
         var id = element.get('objectId')
         var mode = element.get('mode')
-        var title = element.get('title')
         var description = element.get('description')
         var order = element.get('order')
         var image = element.get('image').get('url')
@@ -114,7 +111,6 @@ function ServicesProcessCtrl ($scope, $rootScope) {
         var process = {
           id: id,
           mode: mode,
-          title: title,
           description: description,
           order: order,
           image: image
@@ -132,46 +128,6 @@ function ServicesProcessCtrl ($scope, $rootScope) {
     $scope.modeGroupIntroduction = num
   }
 
-  $scope.updateServiceTitle = function (index) {
-    id = '#updateServiceTitle_' + index
-    $scope.serviceTitle = $(id).val()
-  }
-
-  $scope.editServiceTitle = function (index, name) {
-    $scope.serviceTitle = name
-    id1 = '#serviceTitle_' + index
-    id2 = '#updateServiceTitle_' + index
-    id3 = '#editServiceTitle_' + index
-    id4 = '#saveServiceTitle_' + index
-    $(id1).addClass('ng-hide')
-    $(id2).removeClass('ng-hide')
-    $(id3).addClass('ng-hide')
-    $(id4).removeClass('ng-hide')
-  }
-
-  $scope.saveServiceTitle = function (index, id) {
-    id1 = '#serviceTitle_' + index
-    id2 = '#updateServiceTitle_' + index
-    id3 = '#editServiceTitle_' + index
-    id4 = '#saveServiceTitle_' + index
-    $(id1).removeClass('ng-hide')
-    $(id2).addClass('ng-hide')
-    $(id3).removeClass('ng-hide')
-    $(id4).addClass('ng-hide')
-
-    for (var i = 0; i < $scope.servicesProcessArray.length; i++) {
-      if ($scope.servicesProcessArray[i].id == id) {
-        $scope.servicesProcessArray[i].title = $scope.serviceTitle
-        break
-      }
-    }
-
-    if ($scope.serviceTitle != '') {
-      var service = AV.Object.createWithoutData('ServicesProcess', id)
-      service.set('title', $scope.serviceTitle)
-      service.save()
-    }
-  }
 
   $scope.updateServiceDescription = function (index) {
     id = '#updateServiceDescription_' + index
@@ -208,7 +164,7 @@ function ServicesProcessCtrl ($scope, $rootScope) {
     }
 
     if ($scope.serviceDescription != '') {
-      var service = AV.Object.createWithoutData('ServicesProcess', id)
+      var service = AV.Object.createWithoutData('Honor', id)
       service.set('description', $scope.serviceDescription)
       service.save()
     }
@@ -220,11 +176,11 @@ function ServicesProcessCtrl ($scope, $rootScope) {
       $scope.servicesProcessArray[index].order = $scope.servicesProcessArray[index - 1].order
       $scope.servicesProcessArray[index - 1].order = orderOld
 
-      var city = AV.Object.createWithoutData('ServicesProcess', $scope.servicesProcessArray[index].id)
+      var city = AV.Object.createWithoutData('Honor', $scope.servicesProcessArray[index].id)
       city.set('order', $scope.servicesProcessArray[index].order)
       city.save()
 
-      var city_Other = AV.Object.createWithoutData('ServicesProcess', $scope.servicesProcessArray[index - 1].id)
+      var city_Other = AV.Object.createWithoutData('Honor', $scope.servicesProcessArray[index - 1].id)
       city_Other.set('order', $scope.servicesProcessArray[index - 1].order)
       city_Other.save()
 
@@ -240,11 +196,11 @@ function ServicesProcessCtrl ($scope, $rootScope) {
       $scope.servicesProcessArray[index].order = $scope.servicesProcessArray[index + 1].order
       $scope.servicesProcessArray[index + 1].order = orderOld
 
-      var city = AV.Object.createWithoutData('ServicesProcess', $scope.servicesProcessArray[index].id)
+      var city = AV.Object.createWithoutData('Honor', $scope.servicesProcessArray[index].id)
       city.set('order', $scope.servicesProcessArray[index].order)
       city.save()
 
-      var city_Other = AV.Object.createWithoutData('ServicesProcess', $scope.servicesProcessArray[index + 1].id)
+      var city_Other = AV.Object.createWithoutData('Honor', $scope.servicesProcessArray[index + 1].id)
       city_Other.set('order', $scope.servicesProcessArray[index + 1].order)
       city_Other.save()
 
@@ -255,7 +211,7 @@ function ServicesProcessCtrl ($scope, $rootScope) {
   }
 
   $scope.deleteServicesProcess = function (id, index) {
-    var member = AV.Object.createWithoutData('ServicesProcess', id)
+    var member = AV.Object.createWithoutData('Honor', id)
     member.destroy().then(function (n) {
       $scope.init()
     })

@@ -181,7 +181,8 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "INTRODUCE": "Introduce",
         "STRUCTURE": "Structure",
         "BUSINESSSYSTEM": "Business System",
-        "SERVICESPROCESSS": "Services Process"
+        "SERVICESPROCESSS": "Services Process",
+        "HONOR": "Honor"
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -360,7 +361,8 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "INTRODUCE": "介绍",
         "STRUCTURE": "结构",
         "BUSINESSSYSTEM": "业务系统",
-        "SERVICESPROCESSS": "服务流程"
+        "SERVICESPROCESSS": "服务流程",
+        "HONOR": "资质荣誉"
     });
     $translateProvider.preferredLanguage('ch_CH');
 }]);
