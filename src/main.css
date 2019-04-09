@@ -1581,12 +1581,12 @@ tr {
 
 .imageGroupIntroductionBox {
   background-color: white;
-  padding: 10px;
+  padding: 20px;
 }
 
 .imageServicesProcessBox {
   background-color: white;
-  padding: 10px;
+  padding: 20px;
   width: 25%;
 }
 
@@ -1646,10 +1646,6 @@ tr {
 
 .spanServicesProcessTextAdd {
   margin-top: 7%;
-}
-
-.spanTextAdd {
-  margin-top: 5%;
 }
 
 .pageHeader {
@@ -1756,8 +1752,7 @@ tr {
   font-size: 30px!important;
 }
 
-.bussinesSystemDelete:hover,
-.servicesProcessDelete:hover {
+.bussinesSystemDelete:hover, .servicesProcessDelete:hover {
   color: #f44336;
   cursor: pointer;
 }
@@ -1839,12 +1834,91 @@ span.fa-angle-down:hover, span.fa-angle-up:hover {
   background-color: white;
 }
 
-.width90P{
+.width90P {
   width: 90% !important;
 }
 
-.inputDateHistory{
+.inputDateHistory {
   width: 80px !important;
   margin-left: 5px;
   background-color: #ebebeb;
+}
+
+@media(min-width: 320px) {
+  .spanTextAdd {
+    margin-top: 3%;
+  }
+}
+
+@media(min-width: 360px) {
+  .spanTextAdd {
+    margin-top: 3%;
+  }
+}
+
+@media(min-width: 375px) {
+  .spanTextAdd {
+    margin-top: 3%;
+  }
+}
+
+@media(min-width: 420px) {
+  .spanTextAdd {
+    margin-top: 3%;
+  }
+}
+
+@media(min-width: 480px) {
+  .spanTextAdd {
+    margin-top: 3%;
+  }
+}
+
+@media(min-width: 768px) {
+  .spanTextAdd {
+    margin-top: 3%;
+  }
+}
+
+@media(min-width: 992px) {
+  .spanTextAdd {
+    margin-top: 7%;
+  }
+}
+
+@media(min-width: 1080px) {
+  .spanTextAdd {
+    margin-top: 6%;
+  }
+}
+
+@media(min-width: 1200px) {
+  .spanTextAdd {
+    margin-top: 5%;
+  }
+}
+
+@media(min-width: 1366px) {
+  .spanTextAdd {
+    margin-top: 5%;
+  }
+}
+
+@media(min-width: 1600px) {
+  .spanTextAdd {
+    margin-top: 3%;
+  }
+}
+
+.subheader {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.subheaderPage {
+  font-size: 16px;
+}
+
+.width95P{
+  width: 95px;
 }

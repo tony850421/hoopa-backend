@@ -59,11 +59,7 @@ function HistoryCtrl ($scope, $rootScope) {
       item.set('description', $scope.textGroupIntroduction)
       item.set('mode', $scope.modeGroupIntroduction)
       var date = new Date(parseInt($scope.year), parseInt($scope.month), parseInt($scope.day))
-      item.set('date', date)
-      if ($scope.timelineArray.length > 0)
-        item.set('order', $scope.timelineArray[$scope.timelineArray.length - 1].order + 1)
-      else
-        item.set('order', 1)
+      item.set('date', date)      
       item.save().then(function () {
         $scope.year = ''
         $scope.month = ''
@@ -79,7 +75,7 @@ function HistoryCtrl ($scope, $rootScope) {
   $scope.init = function () {
     $scope.timelineArray = []
     var query = new AV.Query('Timeline')
-    query.ascending('order')
+    query.descending('date')
     query.find().then(function (data) {
       data.forEach(function (element) {
         if (element.get('objectId') == '5caaf0120237d70068f85323') {
@@ -93,13 +89,11 @@ function HistoryCtrl ($scope, $rootScope) {
           $scope.modeGroupIntroduction = 1
         }
         var date = element.get('date')
-        var order = element.get('order')
         var description = element.get('description')
         var id = element.get('objectId')
 
         var item = {
           date: date,
-          order: order,
           description: description,
           id: id
         }

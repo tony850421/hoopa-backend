@@ -90,6 +90,7 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "BSHOW": " Show",
         "NEWS": 'News',
         "NEWNEWS": 'Add News',
+        "ADDIMAGE": 'Add Image',
         "CAPTION": 'Image subtitle',
         "SEND": "Send",
         "UNNAMED": 'Unnamed',
@@ -183,7 +184,13 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "BUSINESSSYSTEM": "Business System",
         "SERVICESPROCESSS": "Services Process",
         "HONOR": "Honor",
-        "HISTORY": "History"
+        "HISTORY": "History",
+        "YEAR": "Year",
+        "MONTH": "Month",
+        "MONTHSELECT": "",
+        "DAY": "Day",
+        "SAVEMILESTONE": "Save milestone",
+        "DATE": "Date"
     });
     // Adding a translation table for the Chinise language
     $translateProvider.translations('ch_CH', {
@@ -271,6 +278,7 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "BSHOW": " 显示",
         "NEWS": '新闻',
         "NEWNEWS": '添加新闻',
+        "ADDIMAGE": '添加图像',
         "CAPTION": '图像副标题',
         "SEND": "发送",
         "UNNAMED": '无名',
@@ -364,7 +372,13 @@ angular.module('RDash').config(['$translateProvider', function ($translateProvid
         "BUSINESSSYSTEM": "业务系统",
         "SERVICESPROCESSS": "服务流程",
         "HONOR": "资质荣誉",
-        "HISTORY": "发展历程"
+        "HISTORY": "发展历程",
+        "YEAR": "年",
+        "MONTH": "月",
+        "MONTHSELECT": "月",
+        "DAY": "日",
+        "SAVEMILESTONE": "保存里程碑",
+        "DATE": "日期"
     });
     $translateProvider.preferredLanguage('ch_CH');
 }]);

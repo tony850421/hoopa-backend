@@ -1,11 +1,9 @@
 <div class="row groupIntroductonStyle" ng-controller="ServicesProcessCtrl">
     <div class="pageHeader">
         <label>Services Process</label>
-        <span class="fa fa-align-left spanModeView"
-            ng-class="{spanModeViewOpacity: modeGroupIntroduction != '1'}"
+        <span class="fa fa-align-left spanModeView" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '1'}"
             ng-click="changeMode(1)"></span>
-        <span class="fa fa-align-right spanModeView"
-            ng-class="{spanModeViewOpacity: modeGroupIntroduction != '2'}"
+        <span class="fa fa-align-right spanModeView" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '2'}"
             ng-click="changeMode(2)"></span>
     </div>
     <div class="padding-30 margin-bottom-0">
@@ -51,7 +49,7 @@
                 </div>
             </div>
             <div class="orderBox">
-                <div class="spanOrderBoxServicesProcess" ng-show="$index != 0 && $index != servicesProcessArray.length -1" ng-click="orderUp($index)">
+                <div class="spanOrderBoxServices" ng-show="$index != 0 && $index != servicesProcessArray.length -1" ng-click="orderUp($index)">
                     <span class="fa fa-angle-up" ng-click="orderUp($index)"></span>
                 </div>
                 <div class="spanOrderBox marginTop4" ng-show="$index != 0 && $index != servicesProcessArray.length -1" ng-click="orderDown($index)">
