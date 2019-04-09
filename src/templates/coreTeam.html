@@ -1,106 +1,110 @@
-<div class="row" ng-controller="CoreTeamCtrl">
-    <button class="btn btn-lg btn-primary colorBlue buttonAddCity" ng-click="addMemberFuntion()">
-        <span class="fa fa-plus"></span>
-        <label class="margin-bottom-0 fontSize13" translate="ADDTEAMMEMBER"></label>
-    </button>
+<div class="row groupIntroductonStyle" ng-controller="CoreTeamCtrl">    
+    <div ng-if="loading">
+        <rd-loading></rd-loading>
+    </div>
+
     <div id="addTeamMemberBox">
-        <div class="BranchesViewAdd col-md-12">
-            <div class="form-row col-md-12 marginTop20">
-                <div class="form-group col-md-6 padding-left-0">
-                    <div class="form-group col-md-5 padding-left-0">
-                        <label for="coreTeamName" translate="CTNAME"></label>
-                        <input ng-model="coreTeamName" type="title" id="coreTeamName" class="form-control backgroundGray"
-                            required autofocus>
-                    </div>
-                    <div class="form-group col-md-9 padding-left-0">
-                        <label for="coreTeamCharge" translate="CCHARGE"></label>
-                        <input ng-model="coreTeamCharge" type="title" id="coreTeamCharge"
-                            class="form-control backgroundGray" required autofocus>
-                    </div>
-                </div>
-                <div class="form-group col-md-6">
+        <div class="BranchesViewAdd">
+            <div class="displayFlexRow">
+                <div class="form-group">
                     <img class="imageMainTeam" id="mainTeamImage" src="img/user.png">
-                    <input type="file" class="custom-file-input imageInput" id="teamMemberPicture" onchange="angular.element(this).scope().changeValueMainImageTeamMember()">
+                    <input type="file" class="custom-file-input imageInputCoreTeam" id="teamMemberPicture" onchange="angular.element(this).scope().changeValueMainImageTeamMember()">
+                </div>
+                <div class="displayFlexColumn width100 margin-left-10">
+                    <div class="displayFlexRow width100">
+                        <div class="form-group padding-left-0 width30">
+                            <label for="coreTeamName" translate="CTNAME"></label>
+                            <input ng-model="coreTeamName" type="title" id="coreTeamName" class="form-control backgroundGray" required autofocus>
+                        </div>
+                        <div class="form-group padding-left-0 width70 margin-left-10">
+                            <label for="coreTeamCharge" translate="CCHARGE"></label>
+                            <input ng-model="coreTeamCharge" type="title" id="coreTeamCharge" class="form-control backgroundGray" required autofocus>
+                        </div>            
+                    </div>
+                    <div class="form-group">
+                        <label for="coreTeamDescription" translate="CDESCRIPTION"></label>
+                        <textarea ng-model="coreTeamDescription" type="title" id="coreTeamDescription" class="textAreaCoreTeam form-control backgroundGray" required autofocus>
+                    </div>
                 </div>
             </div>
-            <div class="form-group col-md-12">
-                <label for="coreTeamDescription" translate="CDESCRIPTION"></label>
-                <textarea ng-model="coreTeamDescription" type="title" id="coreTeamDescription"class="textAreaCoreTeam form-control backgroundGray" required autofocus>
-            </div>
-            <div class="form-group col-md-12">
-                <button class="btn btn-lg btn-primary colorBlue buttonAddTeamMember"  ng-click="addMember()">
-                    <span class="fa fa-plus"></span>
-                    <label class="margin-bottom-0 fontSize13" translate="ADDTEAMMEMBER"></label>
+            <div class="form-group">
+                <button class="btn btn-lg buttonAddTeamMember" ng-click="addMember()">
+                    <span class="fa fa-plus cursorPointer"></span>
+                    <label class="margin-bottom-0 fontSize13 cursorPointer" translate="ADDTEAMMEMBER"></label>
                 </button>
             </div>
         </div>
     </div>
-    <form class="col-md-12" ng-show="arrayMembers.length> 0">
-        <div class="form-row col-md-12 noPadding">
-            <div ng-repeat="member in arrayMembers">
-                <div class="col-md-12 teamMemberItem">
-                    <span class="fa fa-times spanCitiesClose" ng-click="deleteMember(member.id)"></span>
-                    <div class="col-md-2">
-                        <img class="imageCoreTeam" src="{{member.mainImage}}">
-                        <input type="file" class="custom-file-input updateCityImageImput" id="updateMemberPicture_{{$index}}" 
-                        onchange="angular.element(this).scope().changeValueMainImage(angular.element(this).scope().$index)">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="updateCityNameClass">
-                            <label class="margin-bottom-0" id="memberCharge_{{$index}}">{{member.charge}}</label>
-                            <input id="updateMemberCharge__{{$index}}" ng-change="updateMemberCharge($index)" class="ng-hide" type="text" ng-model="memberCharge"></input>
-                            <div id="editMemberCharge_{{$index}}" class="buttonEditHidden">
-                                <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editMemberCharge($index, member.charge)">
-                                    <span class="fa fa-edit"></span>
-                                </a>
-                            </div>
-                            <div id="saveMemberCharge_{{$index}}" class="ng-hide">
-                                <a type="button" class="btn btnEditCityName buttonEditSave" ng-click="saveMemberCharge($index, member.id)">
-                                    <span class="fa fa-save"></span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="updateCityNameClass">
-                            <label class="margin-bottom-0" id="memberName_{{$index}}">{{member.name}}</label>
-                            <input id="updateMemberName__{{$index}}" ng-change="updateMemberName($index)" class="ng-hide" type="text" ng-model="memberName"></input>
-                            <div id="editMemberName_{{$index}}" class="buttonEditHidden">
-                                <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editMemberName($index, member.name)">
-                                    <span class="fa fa-edit"></span>
-                                </a>
-                            </div>
-                            <div id="saveMemberName_{{$index}}" class="ng-hide">
-                                <a type="button" class="btn btnEditCityName buttonEditSave" ng-click="saveMemberName($index, member.id)">
-                                    <span class="fa fa-save"></span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="updateCityNameClass">
-                            <label class="margin-bottom-0" id="memberDescription_{{$index}}">{{member.description}}</label>
-                            <textarea id="updateMemberDescription__{{$index}}" ng-change="updateMemberDescription($index)" class="ng-hide coreTeamTextAreaStyle" type="text" ng-model="memberDescription"></textarea>
-                            <div id="editMemberDescription_{{$index}}" class="buttonEditHidden">
-                                <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editMemberDescription($index, member.description)">
-                                    <span class="fa fa-edit"></span>
-                                </a>
-                            </div>
-                            <div id="saveMemberDescription_{{$index}}" class="ng-hide">
-                                <a type="button" class="btn btnEditCityName buttonEditSave" ng-click="saveMemberDescription($index, member.id)">
-                                    <span class="fa fa-save"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-1 marginSpanButtonBox">
-                        <div class="buttonsOrder">
-                            <a class="buttonOrderSpan">
-                                <span class="fa fa-angle-up styleAngleOrder" ng-show="$index != '0'" ng-click="orderUp($index)"></span>
-                                <span class="fa fa-angle-up styleAngleOrderDisabled" ng-show="$index == '0'"></span>
+    <button class="btn btn-lg buttonAddMember" ng-click="addMemberFuntion()" ng-if="!loading">
+        <span class="fa fa-plus cursorPointer fontSize24"></span>
+        <label class="margin-bottom-0 fontSize13 cursorPointer fontSize24" translate="ADDTEAMMEMBER"></label>
+    </button>
+    <div class="coreTeamList" ng-show="arrayMembers.length> 0" ng-if="!loading">
+        <div class="coreTeamItem" ng-repeat="member in arrayMembers">          
+            <div class="backgroundWhite displayFlexRow padding-15 width100">
+                <div>
+                    <img class="imageCoreTeam" src="{{member.mainImage}}">
+                    <input type="file" class="custom-file-input updateCityImageImput" id="updateMemberPicture_{{$index}}" 
+                    onchange="angular.element(this).scope().changeValueMainImage(angular.element(this).scope().$index)">
+                </div>
+                <div class="displayFlexColumn margin-left-10 width100">
+                    <div class="updateCityNameClass">
+                        <label class="margin-bottom-0" id="memberCharge_{{$index}}">{{member.charge}}</label>
+                        <input id="updateMemberCharge__{{$index}}" ng-change="updateMemberCharge($index)" class="ng-hide width100" type="text" ng-model="memberCharge"></input>
+                        <div id="editMemberCharge_{{$index}}" class="buttonEditHidden">
+                            <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editMemberCharge($index, member.charge)">
+                                <span class="fa fa-edit"></span>
                             </a>
-                            <a class="buttonOrderSpan">
-                                <span class="fa fa-angle-down styleAngleOrder" ng-show="$index != (arrayMembers.length-1)" ng-click="orderDown($index)"></span>
-                                <span class="fa fa-angle-down styleAngleOrderDisabled" ng-show="$index == (arrayMembers.length-1)"></span>
+                        </div>
+                        <div id="saveMemberCharge_{{$index}}" class="ng-hide">
+                            <a type="button" class="btn btnEditCityName buttonEditSave" ng-click="saveMemberCharge($index, member.id)">
+                                <span class="fa fa-save"></span>
                             </a>
                         </div>
                     </div>
+                    <div class="updateCityNameClass">
+                        <label class="margin-bottom-0" id="memberName_{{$index}}">{{member.name}}</label>
+                        <input id="updateMemberName__{{$index}}" ng-change="updateMemberName($index)" class="ng-hide width100" type="text" ng-model="memberName"></input>
+                        <div id="editMemberName_{{$index}}" class="buttonEditHidden">
+                            <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editMemberName($index, member.name)">
+                                <span class="fa fa-edit"></span>
+                            </a>
+                        </div>
+                        <div id="saveMemberName_{{$index}}" class="ng-hide">
+                            <a type="button" class="btn btnEditCityName buttonEditSave" ng-click="saveMemberName($index, member.id)">
+                                <span class="fa fa-save"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="updateCityNameClass">
+                        <label class="margin-bottom-0" id="memberDescription_{{$index}}">{{member.description}}</label>
+                        <textarea id="updateMemberDescription__{{$index}}" ng-change="updateMemberDescription($index)" class="ng-hide coreTeamTextAreaStyle" type="text" ng-model="memberDescription"></textarea>
+                        <div id="editMemberDescription_{{$index}}" class="buttonEditHidden">
+                            <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editMemberDescription($index, member.description)">
+                                <span class="fa fa-edit"></span>
+                            </a>
+                        </div>
+                        <div id="saveMemberDescription_{{$index}}" class="ng-hide">
+                            <a type="button" class="btn btnEditCityName buttonEditSave" ng-click="saveMemberDescription($index, member.id)">
+                                <span class="fa fa-save"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <span class="fa fa-trash CoreTeamDelete" ng-click="deleteMember(member.id)"></span>
+            </div>
+            <div class="orderBox">
+                <div class="spanOrderBoxCoreTeam" ng-show="$index != 0 && $index != arrayMembers.length -1" ng-click="orderUp($index)">
+                    <span class="fa fa-angle-up" ng-click="orderUp($index)"></span>
+                </div>
+                <div class="spanOrderBoxCoreTeam marginTop6" ng-show="$index != 0 && $index != arrayMembers.length -1" ng-click="orderDown($index)">
+                    <span class="fa fa-angle-down" ng-click="orderDown($index)"></span>
+                </div>
+                <div class="spanOrderBoxCoreTeamUp" ng-show="$index == 0 && $index != arrayMembers.length -1" ng-click="orderDown($index)">
+                    <span class="fa fa-angle-down" ng-click="orderDown($index)"></span>
+                </div>
+                <div class="spanOrderBoxCoreTeamUp" ng-show="$index != 0 && $index == arrayMembers.length -1" ng-click="orderUp($index)">
+                    <span class="fa fa-angle-up" ng-click="orderUp($index)"></span>
                 </div>
             </div>
         </div>

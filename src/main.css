@@ -180,7 +180,7 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
   width: 320px;
   margin-left: 36%;
   margin-top: 10%;
-  border: 1px #d6dadb solid;
+  border: 1px #EFEFEF solid;
   border-radius: 5px;
 }
 
@@ -198,7 +198,7 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
   width: 350px;
   margin-left: 36%;
   margin-top: 10%;
-  border: 1px #d6dadb solid;
+  border: 1px #EFEFEF solid;
   border-radius: 5px;
 }
 
@@ -209,7 +209,7 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
   margin-top: 2%;
   margin-bottom: 2%;
   margin-right: 3%;
-  border: 1px #d6dadb solid;
+  border: 1px #EFEFEF solid;
   border-radius: 5px;
 }
 
@@ -249,7 +249,7 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-tabs {
-  border-bottom: 1px solid #dee2e6 !important;
+  border-bottom: 1px solid #EFEFEF !important;
 }
 
 .nav-tabs .nav-item {
@@ -263,7 +263,7 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
-  border-color: #e9ecef #e9ecef #dee2e6 !important;
+  border-color: #e9ecef #e9ecef #EFEFEF !important;
 }
 
 .nav-tabs .nav-link.disabled {
@@ -275,7 +275,7 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
   color: #495057 !important;
   background-color: #fff !important;
-  border-color: #dee2e6 #dee2e6 #fff !important;
+  border-color: #EFEFEF #EFEFEF #fff !important;
 }
 
 .nav-tabs .dropdown-menu {
@@ -290,7 +290,7 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
   color: #fff !important;
-  background-color: #007bff !important;
+  background-color: #F36C28 !important;
 }
 
 .nav-fill .nav-item {
@@ -319,7 +319,7 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
 
 .messagesInbox {
   background-color: white;
-  border-bottom: 1px #d6dadb solid;
+  border-bottom: 1px #EFEFEF solid;
   display: flex;
   flex-direction: row;
   padding-top: 10px;
@@ -337,7 +337,7 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: white;
-  border: 1px #d6dadb solid;
+  border: 1px #EFEFEF solid;
   align-items: center;
   margin-top: 10px;
 }
@@ -348,7 +348,7 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: white;
-  border: 1px #d6dadb solid;
+  border: 1px #EFEFEF solid;
   align-items: center;
   margin-bottom: 10px;
 }
@@ -370,7 +370,7 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
   margin-bottom: 5px;
   height: 1px;
   width: 100%;
-  border-top: 1px solid #d6dadb;
+  border-top: 1px solid #EFEFEF;
 }
 
 .form-signin-heading, .form-signup-heading {
@@ -382,11 +382,11 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
 }
 
 #page-wrapper:not(.open) ul.sidebar .sidebar-title.separator, .sidebar-footer, ul.sidebar .sidebar-list a:hover, ul.sidebar .sidebar-main a {
-  background: #151922 !important;
+  background: #2A2F34 !important;
 }
 
 #sidebar-wrapper {
-  background: #29313b !important;
+  background: #2A2F34 !important;
 }
 
 ul.sidebar .sidebar-title {
@@ -395,7 +395,7 @@ ul.sidebar .sidebar-title {
 }
 
 ul.sidebar .sidebar-list a:hover {
-  border-left: 3px solid #5867dd !important;
+  border-left: 3px solid #232426 !important;
 }
 
 .iconDashboard {
@@ -415,14 +415,14 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .colorBlue {
-  background-color: #5867dd;
+  background-color: #F36C28;
 }
 
 .media {
   background-color: white !important;
   padding: 10px !important;
   border-radius: 5px !important;
-  border: 1px #d6dadb solid !important;
+  border: 1px #EFEFEF solid !important;
 }
 
 .padding-0 {
@@ -450,7 +450,8 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .colorListActive {
-  background-color: #5867dd !important;
+  background-color: #30353B !important;
+  color: #F36C28 !important;
 }
 
 .media-heading {
@@ -467,14 +468,14 @@ ul.sidebar .sidebar-list a:hover {
 
 .buttonDelete {
   color: white !important;
-  background-color: #ff851b !important;
+  background-color: #F36C28 !important;
   width: 80px;
   margin-top: 5px;
 }
 
 .buttonUpdate {
   color: white !important;
-  background-color: #5867dd !important;
+  background-color: #F36C28 !important;
   width: 80px;
   margin-top: 5px;
 }
@@ -505,7 +506,7 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .backgroundMessage {
-  background-color: #ffffff80;
+  background-color: #EFEFEF;
 }
 
 .buttonProjects {
@@ -533,6 +534,22 @@ ul.sidebar .sidebar-list a:hover {
   width: 100%;
 }
 
+.width30 {
+  width: 30%;
+}
+
+.width40 {
+  width: 40%;
+}
+
+.width60 {
+  width: 60%;
+}
+
+.width70 {
+  width: 70%;
+}
+
 .MessagesUser {
   max-width: 400px;
   min-width: 300px;
@@ -541,7 +558,7 @@ ul.sidebar .sidebar-list a:hover {
   margin-left: 1%;
   border-radius: 5px;
   color: #000 !important;
-  border: 1px solid #5867dd;
+  border: 1px solid #F36C28;
 }
 
 .MessagesAdmin {
@@ -552,7 +569,7 @@ ul.sidebar .sidebar-list a:hover {
   margin-right: 1%;
   border-radius: 5px;
   color: black;
-  border: 1px solid #ff851b;
+  border: 1px solid #F36C28;
 }
 
 .messageBox {
@@ -562,7 +579,7 @@ ul.sidebar .sidebar-list a:hover {
 .sendBox {
   width: 100%;
   padding: 5px;
-  border-top: 1px #d6dadb solid;
+  border-top: 1px #EFEFEF solid;
   display: flex;
   flex-direction: row;
 }
@@ -649,7 +666,7 @@ ul.sidebar .sidebar-list a:hover {
 .mediaListBox {
   display: flex;
   flex-direction: column;
-  border: 1px #d6dadb solid;
+  border: 1px #EFEFEF solid;
   border-radius: 5px;
   padding: 15px;
 }
@@ -703,9 +720,8 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .imageMainTeam {
-  width: 130px;
-  height: 130px;
-  float: right;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
 }
 
@@ -738,6 +754,10 @@ ul.sidebar .sidebar-list a:hover {
   margin-top: 10px;
 }
 
+.marginTop15 {
+  margin-top: 15px;
+}
+
 .marginBottom10 {
   margin-bottom: 10px;
 }
@@ -747,7 +767,7 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .scrollbarUser {
-  background-color: #ffffff80;
+  background-color: #EFEFEF;
 }
 
 .groupUserRow {
@@ -769,7 +789,7 @@ ul.sidebar .sidebar-list a:hover {
   position: absolute !important;
   z-index: 5;
   margin-left: 3%;
-  background-color: #f44336;
+  background-color: #F36C28;
   font-size: 13px !important;
 }
 
@@ -791,7 +811,7 @@ ul.sidebar .sidebar-list a:hover {
   display: flex;
   flex-direction: row;
   background-color: white;
-  border-bottom: 1px solid #d6dadb;
+  border-bottom: 1px solid #EFEFEF;
 }
 
 .textAreaOfferResponse {
@@ -799,7 +819,7 @@ ul.sidebar .sidebar-list a:hover {
   width: 100%;
   border: none;
   padding: 10px;
-  border: 1px solid #d6dadb;
+  border: 1px solid #EFEFEF;
 }
 
 .textAreaOffer {
@@ -826,7 +846,7 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .colorMoney {
-  color: #ff851b;
+  color: #F36C28;
 }
 
 .iconClasBar {
@@ -849,7 +869,7 @@ ul.sidebar .sidebar-list a:hover {
 
 .badgeMessage {
   position: absolute !important;
-  background-color: #5867dd;
+  background-color: #F36C28;
   z-index: 2;
   width: 10px;
   height: 10px;
@@ -859,35 +879,39 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .badgeMessageActive {
-  background-color: #f44336 !important;
+  background-color: #F36C28 !important;
 }
 
 .cursorPointer {
   cursor: pointer !important;
 }
 
+.cursorPointer:hover {
+  cursor: pointer !important;
+}
+
 #page-wrapper:not(.open) ul.sidebar .sidebar-list a:hover span {
-  border-left: 3px solid #5867dd !important;
+  border-left: 3px solid #F36C28;
 }
 
 ul.sidebar .sidebar-title:hover {
-  color: #1e81d3 !important;
+  color: #1e81d3;
 }
 
 ul.sidebar .sidebar-list a {
-  color: white !important;
+  color: white;
 }
 
 ul.sidebar .sidebar-list a:hover {
-  color: #1e81d3 !important;
+  color: #1e81d3;
 }
 
 .btn-primary {
-  background-color: #5867dd !important;
+  background-color: #F36C28 !important;
 }
 
 .widget-iconUser {
-  background-color: #5867dd !important;
+  background-color: #F36C28 !important;
 }
 
 .widget-iconProjects {
@@ -899,11 +923,11 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .widget-iconOffers {
-  background-color: #ff851b !important;
+  background-color: #F36C28 !important;
 }
 
 .widget-bodyUser {
-  background-color: #5867dd !important;
+  background-color: #F36C28 !important;
   color: white !important;
 }
 
@@ -918,7 +942,7 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .widget-bodyOffers {
-  background-color: #ff851b !important;
+  background-color: #F36C28 !important;
   color: white !important;
 }
 
@@ -944,7 +968,7 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .backgroundListTable {
-  background-color: #04c1c41a !important;
+  background-color: #2A2F34 !important;
 }
 
 tr {
@@ -969,7 +993,7 @@ tr {
 
 .styleViewProject {
   background-color: white;
-  border: 1px solid #d6dadb;
+  border: 1px solid #EFEFEF;
   padding: 15px;
 }
 
@@ -979,12 +1003,12 @@ tr {
 
 .ProjectsData {
   padding: 15px;
-  border: 1px solid #d6dadb;
+  border: 1px solid #EFEFEF;
 }
 
 .ManagerData {
   padding: 15px;
-  border: 1px solid #d6dadb;
+  border: 1px solid #EFEFEF;
 }
 
 .widgetBorrower {
@@ -999,7 +1023,7 @@ tr {
 
 .tags {
   margin-top: 10px;
-  border: 1px solid #d6dadb;
+  border: 1px solid #EFEFEF;
 }
 
 .padding-15 {
@@ -1011,7 +1035,7 @@ tr {
 }
 
 .Gallery {
-  border: 1px solid #d6dadb;
+  border: 1px solid #EFEFEF;
 }
 
 .imageModalProjects {
@@ -1089,7 +1113,7 @@ tr {
 }
 
 .AreYouSure {
-  border-bottom: 1px solid #d6dadb;
+  border-bottom: 1px solid #EFEFEF;
   margin-bottom: 10px;
 }
 
@@ -1108,11 +1132,11 @@ tr {
 }
 
 .addListStyleBorder {
-  border: 1px solid #d6dadb;
+  border: 1px solid #EFEFEF;
 }
 
 .borderColorRed {
-  border: 2px solid #f44336 !important;
+  border: 2px solid #F36C28 !important;
 }
 
 .padding-top-5 {
@@ -1134,7 +1158,7 @@ tr {
 }
 
 .listNewsGroup {
-  border: 1px solid #d6dadb !important;
+  border: 1px solid #EFEFEF !important;
   padding: 15px !important;
 }
 
@@ -1171,11 +1195,11 @@ tr {
 .NoComments {
   text-align: center;
   margin-top: 20%;
-  color: #c8c8c8;
+  color: #F5F5F5;
 }
 
 .inputSearch {
-  border: 1px solid #d6dadb;
+  border: 1px solid #EFEFEF;
   border-radius: 5px;
   width: 250px;
   height: 30px;
@@ -1241,13 +1265,15 @@ tr {
 .buttonAddTeamMember {
   float: right;
   width: 160px;
+  background-color: #F36C28;
+  color: white;
 }
 
 .BranchesView {
   background-color: #fff;
   padding-top: 15px;
   margin: 2% 3%;
-  border: 1px solid #d6dadb;
+  border: 1px solid #EFEFEF;
   border-radius: 5px;
   width: 94%;
 }
@@ -1256,7 +1282,7 @@ tr {
   background-color: #fff;
   padding-top: 15px;
   margin: 2% 3%;
-  border: 1px solid #d6dadb;
+  border: 1px solid #EFEFEF;
   border-radius: 5px;
   width: 94% !important;
 }
@@ -1267,30 +1293,43 @@ tr {
 
 .BranchesViewAdd {
   background-color: #fff;
-  padding-top: 15px;
+  padding: 15px;
   margin: 2% 3%;
-  border: 1px solid #d6dadb;
+  border: 1px solid #EFEFEF;
   border-radius: 5px;
   width: 94% !important;
+  display: flex;
+  flex-direction: column;
 }
 
 .BranchesViewUpdate {
   background-color: #fff;
   padding-top: 15px;
   margin: 2% 3%;
-  border: 1px solid #d6dadb;
+  border: 1px solid #EFEFEF;
   border-radius: 5px;
   width: 94%;
 }
 
 .textAreaCoreTeam {
   height: 100px !important;
+  resize: none !important;
 }
 
 .teamMemberItem {
   padding-top: 10px;
   padding-bottom: 10px;
-  border: 1px solid #c8c8c8;
+  border: 1px solid #F5F5F5;
+  margin-top: 5px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+}
+
+.cityItem {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid #F5F5F5;
   margin-top: 5px;
   border-radius: 8px;
 }
@@ -1308,16 +1347,17 @@ tr {
 }
 
 .imageCoreTeam {
-  max-width: 100px !important;
-  max-height: 100px !important;
-  min-width: 100px !important;
-  min-height: 100px !important;
+  max-width: 200px !important;
+  max-height: 200px !important;
+  min-width: 200px !important;
+  min-height: 200px !important;
   object-fit: cover;
 }
 
 .coreTeamTextAreaStyle {
-  width: 100%;
+  width: 90%;
   resize: none;
+  height: 150px;
 }
 
 .imageCities {
@@ -1369,7 +1409,11 @@ tr {
 }
 
 .fontSize13, .btn .fa, .btn.btn-md .fa {
-  font-size: 13px !important;
+  font-size: 13px;
+}
+
+.fontSize24 {
+  font-size: 24px !important;
 }
 
 .listFirstLevel {
@@ -1439,7 +1483,7 @@ tr {
 
 .spanCitiesClose {
   float: right;
-  border: 1px solid #ebebeb;
+  border: 1px solid #F5F5F5;
   border-radius: 20px;
   padding-left: 5px;
   padding-right: 5px;
@@ -1449,7 +1493,7 @@ tr {
 
 .spanCitiesClose:hover {
   cursor: pointer;
-  background-color: #007bff !important;
+  background-color: #F36C28 !important;
   color: white !important;
 }
 
@@ -1510,7 +1554,15 @@ tr {
   right: 15px;
 }
 
-.imageInput:hover {
+.imageInputCoreTeam {
+  position: absolute;
+  z-index: 100;
+  width: 200px;
+  height: 200px;
+  top: 115px;
+}
+
+.imageInput:hover, .imageInputCoreTeam:hover {
   cursor: pointer;
 }
 
@@ -1600,7 +1652,7 @@ tr {
 }
 
 .addImageBox {
-  background-color: #ebebeb;
+  background-color: #F5F5F5;
   width: 100%;
   height: 360px;
   text-align: center;
@@ -1608,7 +1660,7 @@ tr {
 }
 
 .addImageServicesProcessBox {
-  background-color: #ebebeb;
+  background-color: #F5F5F5;
   width: 100%;
   height: 200px;
   text-align: center;
@@ -1625,7 +1677,7 @@ tr {
 }
 
 .addTextBox {
-  background-color: #ebebeb;
+  background-color: #F5F5F5;
   width: 100%;
   height: 200px;
   text-align: center;
@@ -1633,7 +1685,7 @@ tr {
 }
 
 .groupIntroductonStyle {
-  background-color: #ebebeb;
+  background-color: #F5F5F5 !important;
 }
 
 .spanImageAdd {
@@ -1657,7 +1709,7 @@ tr {
 }
 
 .headerBarStyle {
-  box-shadow: 2px 2px 2px #ebebeb;
+  box-shadow: 2px 2px 2px #F5F5F5;
 }
 
 .spanModeView {
@@ -1667,7 +1719,7 @@ tr {
   font-size: 20px !important;
 }
 
-.spanModeView {
+.spanModeView:hover {
   cursor: pointer;
 }
 
@@ -1706,7 +1758,7 @@ tr {
 
 .buttonSaveGroupIntroduction {
   float: right;
-  background-color: rgb(255, 153, 0) !important;
+  background-color: #F36C28 !important;
   width: 160px;
   height: 50px;
   font-size: 16px !important;
@@ -1717,21 +1769,21 @@ tr {
   width: 100%;
   height: 200px !important;
   resize: none;
-  border: 1px solid #ebebeb;
+  border: 1px solid #F5F5F5;
 }
 
 .textAreaServicesProcess {
   width: 100%;
   height: 160px !important;
   resize: none;
-  border: 1px solid #ebebeb;
+  border: 1px solid #F5F5F5;
 }
 
 .textAreaHonor {
   width: 100%;
   height: 200px !important;
   resize: none;
-  border: 1px solid #ebebeb;
+  border: 1px solid #F5F5F5;
 }
 
 .spanModeViewOpacity {
@@ -1745,6 +1797,16 @@ tr {
   font-size: 30px!important;
 }
 
+.bussinesSystemDelete:hover, .CoreTeamDelete:hover {
+  cursor: pointer;
+}
+
+.CoreTeamDelete {
+  margin-top: 85px;
+  font-size: 30px!important;
+  color: #F5F5F5;
+}
+
 .servicesProcessDelete {
   position: absolute;
   right: 120px;
@@ -1753,7 +1815,7 @@ tr {
 }
 
 .bussinesSystemDelete:hover, .servicesProcessDelete:hover {
-  color: #f44336;
+  color: #F36C28;
   cursor: pointer;
 }
 
@@ -1766,7 +1828,7 @@ tr {
 
 .spanOrderBox {
   height: 78px;
-  background-color: #ebebeb;
+  background-color: #F5F5F5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1774,22 +1836,46 @@ tr {
 
 .spanOrderBoxServicesProcess {
   height: 108px;
-  background-color: #ebebeb;
+  background-color: #F5F5F5;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .spanOrderBoxUp {
-  background-color: #ebebeb;
+  background-color: #F5F5F5;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 160px;
 }
 
+.spanOrderBoxCoreTeam {
+  height: 112px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  background-color: white;
+  padding: 10px;
+}
+
+.spanOrderBoxCoreTeamUp {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 230px;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+.spanOrderBoxCoreTeam:hover, .spanOrderBoxCoreTeamUp:hover {
+  cursor: pointer;
+}
+
 .spanOrderBoxServicesProcess {
-  background-color: #ebebeb;
+  background-color: #F5F5F5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1802,6 +1888,10 @@ tr {
 
 .marginTop4 {
   margin-top: 4px;
+}
+
+.marginTop6 {
+  margin-top: 6px;
 }
 
 span.fa-angle-down:hover, span.fa-angle-up:hover {
@@ -1829,8 +1919,8 @@ span.fa-angle-down:hover, span.fa-angle-up:hover {
 
 .itemServicesProcess {
   padding: 15px;
-  border: 1px solid #ebebeb;
-  box-shadow: 1px 1px 1px #ebebeb;
+  border: 1px solid #F5F5F5;
+  box-shadow: 1px 1px 1px #F5F5F5;
   background-color: white;
 }
 
@@ -1841,7 +1931,7 @@ span.fa-angle-down:hover, span.fa-angle-up:hover {
 .inputDateHistory {
   width: 80px !important;
   margin-left: 5px;
-  background-color: #ebebeb;
+  background-color: #F5F5F5;
 }
 
 @media(min-width: 320px) {
@@ -1919,6 +2009,38 @@ span.fa-angle-down:hover, span.fa-angle-up:hover {
   font-size: 16px;
 }
 
-.width95P{
+.width95P {
   width: 95px;
+}
+
+.buttonAddMember {
+  background-color: white !important;
+  color: #3333337a !important;
+  border: 1px solid #F5F5F5 !important;
+  border-radius: 0 !important;
+  width: 95%;
+  height: 100px;
+  margin-left: 30px;
+}
+
+.buttonAddMember:hover {
+  cursor: pointer;
+}
+
+.coreTeamList {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.coreTeamItem {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #F5F5F5;
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 1px #F5F5F5;
+}
+
+.row.header {
+  margin-bottom: 0 !important;
 }

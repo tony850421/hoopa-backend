@@ -3,6 +3,7 @@ app.controller('CoreTeamCtrl', ['$scope', '$rootScope', '$translate', CoreTeamCt
 function CoreTeamCtrl ($scope, $rootScope, $translate) {
   $scope.arrayMembers = []
   $rootScope.activeList = 'coreTeam'
+  $scope.loading = false
 
   $scope.coreTeamCharge = ''
   $scope.coreTeamName = ''
@@ -13,7 +14,7 @@ function CoreTeamCtrl ($scope, $rootScope, $translate) {
   $scope.coreTeamDescriptionUpdate = ''
   $scope.coreTeamImageUpdate = ''
 
-  $scope.memberUpdateId = -1
+  $scope.showAddBoxFlag = false
 
   $scope.changeValueMainImage = function (index) {
     var id = '#updateMemberPicture_' + index
@@ -25,14 +26,15 @@ function CoreTeamCtrl ($scope, $rootScope, $translate) {
   }
 
   $scope.init = function () {
+    $scope.loading = true
     $('#addTeamMemberBox').addClass('ng-hide')
 
     $scope.arrayMembers = []
     var coreTeam = new AV.Query('CoreTeam')
-    coreTeam.descending('Order')
+    coreTeam.ascending('Order')
     coreTeam.find().then(function (res) {
       res.forEach(function (element) {
-        var mainImage = element.get('image').thumbnailURL(100, 100)
+        var mainImage = element.get('image').thumbnailURL(200, 200)
         var charge = element.get('charge')
         var id = element.id
         var order = element.get('Order')
@@ -47,6 +49,7 @@ function CoreTeamCtrl ($scope, $rootScope, $translate) {
           order: order,
           description: description
         })
+        $scope.loading = false
         $scope.$apply()
       })
     })
@@ -55,6 +58,7 @@ function CoreTeamCtrl ($scope, $rootScope, $translate) {
   $scope.init()
 
   function readURL (input, index) {
+    $scope.loading = true
     var id = '#updateMemberPicture_' + index
     if (input.files && input.files[0]) {
       var reader = new FileReader()
@@ -68,6 +72,7 @@ function CoreTeamCtrl ($scope, $rootScope, $translate) {
           var city = AV.Object.createWithoutData('CoreTeam', $scope.arrayMembers[i].id)
           city.set('image', avFile)
           city.save().then(function (res) {
+            $scope.loading = false
             $scope.init()
           })
         }
@@ -91,14 +96,17 @@ function CoreTeamCtrl ($scope, $rootScope, $translate) {
   }
 
   $scope.deleteMember = function (id) {
+    $scope.loading = true
     $('#updateMemberBox').addClass('ng-hide')
     var member = AV.Object.createWithoutData('CoreTeam', id)
     member.destroy().then(function (n) {
+      $scope.loading = false
       $scope.init()
     })
   }
 
   $scope.saveMember = function () {
+    $scope.loading = true
     $('#updateMemberBox').addClass('ng-hide')
     var member = AV.Object.createWithoutData('CoreTeam', $scope.coreTeamIdUpdate)
     member.set('name', $scope.coreTeamNameUpdate)
@@ -125,14 +133,24 @@ function CoreTeamCtrl ($scope, $rootScope, $translate) {
       $scope.arrayMembers[pos].mainImage = $scope.coreTeamImageUpdate
     }
 
-    member.save()
+    member.save().then(function(res){
+      $scope.loading = false
+    })
   }
 
   $scope.addMemberFuntion = function () {
-    $('#addTeamMemberBox').removeClass('ng-hide')
+    if (!$scope.showAddBoxFlag){
+      $('#addTeamMemberBox').removeClass('ng-hide')
+      $scope.showAddBoxFlag = true
+    }
+    else {
+      $('#addTeamMemberBox').addClass('ng-hide')
+      $scope.showAddBoxFlag = false
+    }
   }
 
   $scope.addMember = function () {
+    $scope.loading = true
     var file = $('#teamMemberPicture')[0].files[0]
     if (file) {
       var name = file.name
@@ -150,6 +168,7 @@ function CoreTeamCtrl ($scope, $rootScope, $translate) {
           member.set('Order', 1)
         member.set('image', avFile)
         member.save().then(function (res) {
+          $scope.loading = false
           $scope.init()
         }, function (error) {})
       } else {

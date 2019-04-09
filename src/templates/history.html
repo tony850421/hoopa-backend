@@ -1,5 +1,10 @@
 <div class="row groupIntroductonStyle" ng-controller="HistoryCtrl">
-    <div class="pageHeader">
+
+    <div ng-if="loading">
+        <rd-loading></rd-loading>
+    </div>
+
+    <div class="pageHeader"  ng-if="!loading">
         <label class="subheaderPage">{{'HISTORY' | translate}}</label>
         <span class="fa fa-align-left spanModeView"
             ng-class="{spanModeViewOpacity: modeGroupIntroduction != '1'}"
@@ -8,7 +13,7 @@
             ng-class="{spanModeViewOpacity: modeGroupIntroduction != '2'}"
             ng-click="changeMode(2)"></span>
     </div>
-    <div class="displayFlexColumn padding-30">
+    <div class="displayFlexColumn padding-30"  ng-if="!loading">
         <div class="imageGroupIntroductionBox">
             <label class="subheader">{{'ADDIMAGE' | translate}}</label>
             <div class="addImageBox">

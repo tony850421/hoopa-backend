@@ -9,6 +9,9 @@ function NewsCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageSe
   $rootScope.activeList = 'news'
   $scope.skip = 0
 
+  $scope.showAddBoxFlag = false
+  $('#addNewsBox').addClass('ng-hide')
+
   $scope.loading = false
 
   $scope.init = function () {
@@ -131,5 +134,16 @@ function NewsCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageSe
     news.destroy().then(function (n) {
       $scope.init()
     })
+  }
+
+  $scope.addNewsFunction = function () {
+    if (!$scope.showAddBoxFlag){
+      $('#addNewsBox').removeClass('ng-hide')
+      $scope.showAddBoxFlag = true
+    }
+    else {
+      $('#addNewsBox').addClass('ng-hide')
+      $scope.showAddBoxFlag = false
+    }
   }
 }
