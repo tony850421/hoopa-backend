@@ -5,6 +5,15 @@
 app.controller('ProjectListCtrl', ['$scope', '$rootScope', '$window', '$timeout', 'localStorageService', '$state', ProjectListCtrl])
 
 function ProjectListCtrl ($scope, $rootScope, $window, $timeout, localStorageService, $state) {
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+  
   $scope.loading = false
 
   $rootScope.activeList = 'projects'

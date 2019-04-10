@@ -1,6 +1,15 @@
 app.controller('BusinessSystemCtrl', ['$scope', '$rootScope', BusinessSystemCtrl])
 
 function BusinessSystemCtrl ($scope, $rootScope) {
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+  
   $rootScope.activeList = 'business'
 
   $scope.imageGroupIntroduction = ''

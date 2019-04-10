@@ -1,6 +1,15 @@
 app.controller('HistoryCtrl', ['$scope', '$rootScope', HistoryCtrl])
 
 function HistoryCtrl ($scope, $rootScope) {
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+  
   $rootScope.activeList = 'history'
   $scope.loading = false
 

@@ -14,68 +14,52 @@ app.config(['$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider
       .state('index', {
         url: '/',
         templateUrl: 'templates/dashboard.html'
-      })
-      .state('tables', {
+      }).state('tables', {
         url: '/dashboard',
         templateUrl: 'templates/dashboard.html'
-      })
-      .state('new-project', {
+      }).state('new-project', {
         url: '/new-project',
         templateUrl: 'templates/new-project.html'
-      })
-      .state('project-list', {
+      }).state('project-list', {
         url: '/project-list',
         templateUrl: 'templates/project-list.html'
-      })
-      .state('offers', {
+      }).state('offers', {
         url: '/offers',
         templateUrl: 'templates/offers.html'
-      })
-      .state('login', {
+      }).state('login', {
         url: '/login',
         templateUrl: 'templates/login.html'
-      })
-      .state('signup', {
+      }).state('signup', {
         url: '/signup',
         templateUrl: 'templates/signup.html'
-      })
-      .state('inbox', {
+      }).state('inbox', {
         url: '/inbox',
         templateUrl: 'templates/inbox.html'
-      })
-      .state('update', {
+      }).state('update', {
         url: '/update',
         templateUrl: 'templates/update-project.html'
-      })
-      .state('messages', {
+      }).state('messages', {
         url: '/messages',
         templateUrl: 'templates/messages.html'
-      })
-      .state('new-news', {
+      }).state('new-news', {
         url: '/new-news',
         templateUrl: 'templates/new-news.html'
-      })
-      .state('news', {
+      }).state('news', {
         url: '/news',
         templateUrl: 'templates/news.html'
-      })
-      .state('forum', {
+      }).state('forum', {
         url: '/forum',
         templateUrl: 'templates/forum.html'
-      })
-      .state('view-project', {
+      }).state('view-project', {
         url: '/view-project',
         templateUrl: 'templates/view-project.html'
-      })
-      .state('newsView', {
+      }).state('newsView', {
         url: '/newsView',
         templateUrl: 'templates/newsView.html'
-      })
-      .state('slider', {
+      }).state('slider', {
         url: '/slider',
         templateUrl: 'templates/sliderConfig.html'
-      })
-      .state('usersView', {
+      }).state('usersView', {
         url: '/usersView',
         templateUrl: 'templates/usersView.html'
       }).state('advView', {
@@ -110,7 +94,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider
         templateUrl: 'templates/history.html'
       })
     }
-])
+  ])
 
 app.config(['localStorageServiceProvider', function (localStorageServiceProvider) {
   localStorageServiceProvider

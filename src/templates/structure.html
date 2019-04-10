@@ -1,10 +1,10 @@
 <div class="row groupIntroductonStyle" ng-controller="StructureCtrl">
     <div class="pageHeader">
-        <label>Structure</label>
+        <label class="subheaderPage">{{'STRUCTURE' | translate }}</label>
     </div>
     <div class="displayFlexColumn padding-30">
         <div class="imageGroupIntroductionBox">
-            <label>Add Image</label>
+            <label  class="subheader">{{'ADDIMAGE' | translate}}</label>
             <div class="addImageBox">
                 <span ng-show="!imageGroupIntroductionFlag" class="fa fa-picture-o spanImageAdd"></span>
                 <img class="imageGroup" src="{{imageGroupIntroduction}}" ng-show="imageGroupIntroductionFlag" id="imageGroupIntroduction">
@@ -16,7 +16,7 @@
         </div>
         <div class="marginTop10">
             <a type="button" class="btn btn-default buttonSaveGroupIntroduction" ng-click="saveInformation()">
-                <span>Submit</span>
+                <span class="fa fa-save"> {{ 'SAVEEST' | translate }}</span>
             </a>
         </div>
     </div>

@@ -5,6 +5,15 @@
 app.controller('NewNewsCtrl', ['$scope', '$state', '$rootScope', '$window', '$timeout', NewNewsCtrl])
 
 function NewNewsCtrl ($scope, $state, $rootScope, $window, $timeout) {
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+  
   $scope.newsMedias = []
   $rootScope.activeList = 'newnews'
 

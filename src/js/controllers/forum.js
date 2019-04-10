@@ -1,6 +1,15 @@
 app.controller('ForumCtrl', ['$scope', '$state', '$rootScope', '$window', '$timeout', 'localStorageService', ForumCtrl])
 
 function ForumCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageService) {
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+  
   $scope.forumComments = []
   $rootScope.activeList = 'forum'
   $scope.skip = 0

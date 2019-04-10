@@ -6,7 +6,7 @@ app.controller('LoginCtrl', ['$scope', '$state', '$rootScope', '$window', '$tran
 
 function LoginCtrl ($scope, $state, $rootScope, $window, $translate) {
   $scope.ptitle = $translate.instant('PTITLE')
-  $rootScope.activeList = 'dashboard'
+  $rootScope.activeList = 'login'
   $scope.username = ''
   $scope.password = ''
   $scope.email = ''
@@ -19,6 +19,13 @@ function LoginCtrl ($scope, $state, $rootScope, $window, $translate) {
 
   $scope.alertsLogin = []
   $scope.registered = false
+
+  $scope.loginHeight = 0
+  $scope.getHeight = function () {
+    $scope.loginHeight = window.innerHeight - 75
+  }
+
+  $scope.getHeight()
 
   $scope.closeAlertLogin = function (index) {
     $scope.alertsLogin.splice(index, 1)

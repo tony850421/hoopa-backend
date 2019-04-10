@@ -1,6 +1,15 @@
 app.controller('InboxCtrl', ['$scope', '$rootScope', '$state', '$window', '$timeout', 'localStorageService', InboxCtrl])
 
 function InboxCtrl ($scope, $rootScope, $state, $window, $timeout, localStorageService) {
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+  
   $scope.inbox = []
   $rootScope.activeList = 'inbox'
   $scope.usersAux = []

@@ -5,6 +5,15 @@
 app.controller('NewsCtrl', ['$scope', '$state', '$rootScope', '$window', '$timeout', 'localStorageService', NewsCtrl])
 
 function NewsCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageService) {
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+  
   $scope.news = []
   $rootScope.activeList = 'news'
   $scope.skip = 0

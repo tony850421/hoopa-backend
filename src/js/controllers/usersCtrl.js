@@ -1,6 +1,15 @@
 app.controller('UsersCtrl', ['$scope', '$state', '$rootScope', '$window', '$translate', 'localStorageService', UsersCtrl])
 
 function UsersCtrl ($scope, $state, $rootScope, $window, $translate, localStorageService) {
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+  
   $scope.users = []
   $scope.skip = 0
 

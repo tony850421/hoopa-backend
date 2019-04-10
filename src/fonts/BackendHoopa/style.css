@@ -1,0 +1,217 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?rgoew5');
+  src:  url('fonts/icomoon.eot?rgoew5#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?rgoew5') format('truetype'),
+    url('fonts/icomoon.woff?rgoew5') format('woff'),
+    url('fonts/icomoon.svg?rgoew5#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-01:before {
+  content: "\e900";
+}
+.icon-02:before {
+  content: "\e901";
+}
+.icon-03:before {
+  content: "\e902";
+}
+.icon-04:before {
+  content: "\e903";
+}
+.icon-add:before {
+  content: "\e904";
+}
+.icon-assets:before {
+  content: "\e905";
+}
+.icon-contenido_abajo:before {
+  content: "\e906";
+}
+.icon-contenido_bloque:before {
+  content: "\e907";
+}
+.icon-email:before {
+  content: "\e908";
+}
+.icon-fecha:before {
+  content: "\e909";
+}
+.icon-idioma:before {
+  content: "\e90a";
+}
+.icon-Image:before {
+  content: "\e90b";
+}
+.icon-image_derecha:before {
+  content: "\e90c";
+}
+.icon-image_izquierda:before {
+  content: "\e90d";
+}
+.icon-image_top:before {
+  content: "\e90e";
+}
+.icon-logo_hoopa .path1:before {
+  content: "\e90f";
+  color: rgb(255, 103, 0);
+}
+.icon-logo_hoopa .path2:before {
+  content: "\e910";
+  margin-left: -2.009765625em;
+  color: rgb(255, 103, 0);
+}
+.icon-logo_hoopa .path3:before {
+  content: "\e911";
+  margin-left: -2.009765625em;
+  color: rgb(255, 103, 0);
+}
+.icon-logo_hoopa .path4:before {
+  content: "\e912";
+  margin-left: -2.009765625em;
+  color: rgb(255, 103, 0);
+}
+.icon-logo_hoopa .path5:before {
+  content: "\e913";
+  margin-left: -2.009765625em;
+  color: rgb(255, 103, 0);
+}
+.icon-logo_hoopa .path6:before {
+  content: "\e914";
+  margin-left: -2.009765625em;
+  color: rgb(255, 103, 0);
+}
+.icon-logo_hoopa .path7:before {
+  content: "\e915";
+  margin-left: -2.009765625em;
+  color: rgb(255, 103, 0);
+}
+.icon-logo_hoopa .path8:before {
+  content: "\e916";
+  margin-left: -2.009765625em;
+  color: rgb(255, 103, 0);
+}
+.icon-logo_hoopa .path9:before {
+  content: "\e917";
+  margin-left: -2.009765625em;
+  color: rgb(255, 103, 0);
+}
+.icon-logo_hoopa .path10:before {
+  content: "\e918";
+  margin-left: -2.009765625em;
+  color: rgb(255, 103, 0);
+}
+.icon-logo_hoopa .path11:before {
+  content: "\e919";
+  margin-left: -2.009765625em;
+  color: rgb(255, 103, 0);
+}
+.icon-logo_hoopa .path12:before {
+  content: "\e91a";
+  margin-left: -2.009765625em;
+  color: rgb(255, 103, 0);
+}
+.icon-logo_hoopa .path13:before {
+  content: "\e91b";
+  margin-left: -2.009765625em;
+  color: rgb(255, 103, 0);
+}
+.icon-logo_hoopa .path14:before {
+  content: "\e91c";
+  margin-left: -2.009765625em;
+  color: rgb(0, 0, 0);
+}
+.icon-logo_hoopa .path15:before {
+  content: "\e91d";
+  margin-left: -2.009765625em;
+  color: rgb(0, 0, 0);
+}
+.icon-logo_hoopa .path16:before {
+  content: "\e91e";
+  margin-left: -2.009765625em;
+  color: rgb(0, 0, 0);
+}
+.icon-logo_hoopa .path17:before {
+  content: "\e91f";
+  margin-left: -2.009765625em;
+  color: rgb(0, 0, 0);
+}
+.icon-logo_hoopa .path18:before {
+  content: "\e920";
+  margin-left: -2.009765625em;
+  color: rgb(0, 0, 0);
+}
+.icon-logo_hoopa .path19:before {
+  content: "\e921";
+  margin-left: -2.009765625em;
+  color: rgb(0, 0, 0);
+}
+.icon-logo_hoopa .path20:before {
+  content: "\e922";
+  margin-left: -2.009765625em;
+  color: rgb(0, 0, 0);
+}
+.icon-logo_hoopa .path21:before {
+  content: "\e923";
+  margin-left: -2.009765625em;
+  color: rgb(0, 0, 0);
+}
+.icon-logo_hoopa .path22:before {
+  content: "\e924";
+  margin-left: -2.009765625em;
+  color: rgb(255, 103, 0);
+}
+.icon-logo_hoopa .path23:before {
+  content: "\e925";
+  margin-left: -2.009765625em;
+  color: rgb(0, 0, 0);
+}
+.icon-logo_hoopa .path24:before {
+  content: "\e926";
+  margin-left: -2.009765625em;
+  color: rgb(0, 0, 0);
+}
+.icon-menu:before {
+  content: "\e927";
+}
+.icon-news:before {
+  content: "\e928";
+}
+.icon-notifications:before {
+  content: "\e929";
+}
+.icon-pass:before {
+  content: "\e92a";
+}
+.icon-select:before {
+  content: "\e92b";
+}
+.icon-texto:before {
+  content: "\e92c";
+}
+.icon-unlogin:before {
+  content: "\e92d";
+}
+.icon-user:before {
+  content: "\e92e";
+}
+.icon-view:before {
+  content: "\e92f";
+}

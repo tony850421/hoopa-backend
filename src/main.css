@@ -175,13 +175,8 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
 }
 
 .loginBox {
-  background-color: #EFEFEF;
-  padding: 15px;
-  width: 320px;
-  margin-left: 36%;
-  margin-top: 10%;
-  border: 1px #EFEFEF solid;
-  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .margin-top-0 {
@@ -462,6 +457,10 @@ ul.sidebar .sidebar-list a:hover {
   font-size: 16px !important;
 }
 
+.fontSize40 {
+  font-size: 40px !important;
+}
+
 .font-weight-unset {
   font-weight: unset !important;
 }
@@ -482,7 +481,7 @@ ul.sidebar .sidebar-list a:hover {
 
 .buttonShow {
   color: white !important;
-  background-color: #00a65a !important;
+  background-color: #F36C28 !important;
   width: 80px;
 }
 
@@ -908,42 +907,43 @@ ul.sidebar .sidebar-list a:hover {
 
 .btn-primary {
   background-color: #F36C28 !important;
+  border-color: #F36C28 !important;
 }
 
 .widget-iconUser {
-  background-color: #F36C28 !important;
+  background-color: white !important;
 }
 
 .widget-iconProjects {
-  background-color: #00a65a !important;
+  background-color: white !important;
 }
 
 .widget-iconVisits {
-  background-color: #04c1c4 !important;
+  background-color: white !important;
 }
 
 .widget-iconOffers {
-  background-color: #F36C28 !important;
+  background-color: white !important;
 }
 
 .widget-bodyUser {
-  background-color: #F36C28 !important;
-  color: white !important;
+  background-color: white !important;
+  color: #F36C28 !important;
 }
 
 .widget-bodyProjects {
-  background-color: #00a65a !important;
-  color: white !important;
+  background-color: white !important;
+  color: #F36C28 !important;
 }
 
 .widget-bodyVisits {
-  background-color: #04c1c4 !important;
-  color: white !important;
+  background-color: white !important;
+  color: #F36C28 !important;
 }
 
 .widget-bodyOffers {
-  background-color: #F36C28 !important;
-  color: white !important;
+  background-color: white !important;
+  color: #F36C28 !important;
 }
 
 .widget {
@@ -951,7 +951,7 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .widget-icon {
-  border: 2px solid white;
+  border: 2px solid #F36C28;
 }
 
 .listUnstyled {
@@ -968,7 +968,7 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .backgroundListTable {
-  background-color: #2A2F34 !important;
+  background-color: #F5F5F5 !important;
 }
 
 tr {
@@ -1408,8 +1408,12 @@ tr {
   margin-left: 5px;
 }
 
-.fontSize13, .btn .fa, .btn.btn-md .fa {
+.btn .fa, .btn.btn-md .fa {
   font-size: 13px;
+}
+
+.fontSize13 {
+  font-size: 13px !important;
 }
 
 .fontSize24 {
@@ -1644,7 +1648,7 @@ tr {
 
 .textServicesProcessBox {
   background-color: white;
-  padding: 10px;
+  padding: 20px;
   width: 73%;
   margin-left: 2%;
   display: flex;
@@ -1684,10 +1688,6 @@ tr {
   font-size: 100px;
 }
 
-.groupIntroductonStyle {
-  background-color: #F5F5F5 !important;
-}
-
 .spanImageAdd {
   margin-top: 13%;
 }
@@ -1703,7 +1703,7 @@ tr {
 .pageHeader {
   background-color: white;
   height: 50px;
-  padding-top: 10px;
+  padding-top: 15px;
   padding-left: 30px;
   padding-right: 30px;
 }
@@ -1760,8 +1760,8 @@ tr {
   float: right;
   background-color: #F36C28 !important;
   width: 160px;
-  height: 50px;
-  font-size: 16px !important;
+  height: 45px;
+  font-size: 13px !important;
   padding: 13px !important;
 }
 
@@ -1795,9 +1795,10 @@ tr {
   right: 120px;
   margin-top: 60px;
   font-size: 30px!important;
+  color: #D2D2D2 !important;
 }
 
-.bussinesSystemDelete:hover, .CoreTeamDelete:hover {
+.bussinesSystemDelete:hover, .CoreTeamDelete:hover, .servicesProcessDelete:hover {
   cursor: pointer;
 }
 
@@ -1812,11 +1813,6 @@ tr {
   right: 120px;
   margin-top: 95px;
   font-size: 30px!important;
-}
-
-.bussinesSystemDelete:hover, .servicesProcessDelete:hover {
-  color: #F36C28;
-  cursor: pointer;
 }
 
 .orderBox {
@@ -2021,6 +2017,10 @@ span.fa-angle-down:hover, span.fa-angle-up:hover {
   width: 95%;
   height: 100px;
   margin-left: 30px;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
 }
 
 .buttonAddMember:hover {
@@ -2043,4 +2043,67 @@ span.fa-angle-down:hover, span.fa-angle-up:hover {
 
 .row.header {
   margin-bottom: 0 !important;
+}
+
+.iconDashboardMain {
+  font-size: 60px;
+  margin-right: 10px;
+}
+
+.bannerDashboard {
+  object-fit: cover;
+  height: 260px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.groupIntroductonStyle {
+  background-color: #F5F5F5 !important;
+}
+
+.loginBoxInside {
+  display: flex;
+  flex-direction: row;
+  width: 700px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 1px 1px 1px #d2d2d2;
+  margin-top: 20%;
+  border: 1px solid #d2d2d2;
+}
+
+.imgLogin {
+  object-fit: contain;
+  width: 300px;
+}
+
+.loginData {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding: 30px;
+}
+
+.inputLogin {
+  margin-left: 3px;
+  width: 98% !important;
+}
+
+.imgLoginLogo {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.labelLogin {
+  margin-left: 3px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.height40 {
+  height: 40px !important;
 }

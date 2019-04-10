@@ -1,7 +1,16 @@
 app.controller('HonorCtrl', ['$scope', '$rootScope', HonorCtrl])
 
 function HonorCtrl ($scope, $rootScope) {
-  $rootScope.activeList = 'services'
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+  
+  $rootScope.activeList = 'honor'
 
   $scope.imageGroupIntroduction = ''
   $scope.imageGroupIntroductionFlag = false

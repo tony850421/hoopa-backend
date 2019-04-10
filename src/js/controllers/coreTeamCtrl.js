@@ -1,6 +1,15 @@
 app.controller('CoreTeamCtrl', ['$scope', '$rootScope', '$translate', CoreTeamCtrl])
 
 function CoreTeamCtrl ($scope, $rootScope, $translate) {
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+  
   $scope.arrayMembers = []
   $rootScope.activeList = 'coreTeam'
   $scope.loading = false

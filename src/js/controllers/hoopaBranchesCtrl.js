@@ -1,6 +1,15 @@
 app.controller('HoopaBranchesCtrl', ['$scope', '$rootScope', '$translate', HoopaBranchesCtrl])
 
 function HoopaBranchesCtrl ($scope, $rootScope, $translate) {
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+  
   $scope.brancheName = ''
   $scope.brancheAddress = ''
   $scope.branchePhone = ''

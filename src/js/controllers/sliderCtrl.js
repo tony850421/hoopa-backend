@@ -5,6 +5,15 @@
 app.controller('SliderConfigCtrl', ['$scope', '$state', '$rootScope', '$window', '$timeout', 'localStorageService', SliderConfigCtrl])
 
 function SliderConfigCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageService) {
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+  
   $scope.slides = []
   $scope.type = ''
   $scope.typesArray = ['推荐', '热门资产', '高性价比住宅', '江浙沪地区优质厂房', '热推商铺土地全包资产']

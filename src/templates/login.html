@@ -1,35 +1,43 @@
-<div class="row" ng-controller="LoginCtrl">
-    <div class="header clearfix">
+<div class="row groupIntroductonStyle" ng-controller="LoginCtrl">
+    <!-- <div class="header clearfix">
         <nav>
             <ul class="nav nav-tabs pull-right">
                 <li role="presentation" class="active">
-                    <a href="#login" translate="LOGIN">Login登录</a>
+                    <a href="#login" translate="LOGIN"></a>
                 </li>
                 <li role="presentation">
-                    <a href="#signup" translate="SIGNUP">Sign Up登记</a>
+                    <a href="#signup" translate="SIGNUP"></a>
                 </li>
             </ul>
         </nav>
-        <!-- <h3 class="text-muted">宝贝出售</h3> -->
-    </div>
-
-    <div class="loginBox">
-        
+    </div> -->
+    <div class="loginBox" style="height:{{loginHeight}}px">
         <div class="row alerts-container" data-ng-show="alertsLogin.length">
             <div class="col-xs-12">
-                <uib-alert data-ng-repeat="alert in alertsLogin" type="{{alert.type}}" close="closeAlertLogin($index)">{{alert.msg}}</uib-alert>
+                <uib-alert data-ng-repeat="alert in alertsLogin"
+                    type="{{alert.type}}" close="closeAlertLogin($index)">{{alert.msg}}</uib-alert>
             </div>
         </div>
 
-        <form class="form-signin">
-            <h2 class="form-signin-heading margin-top-0" translate="LOGIN">Login 登录</h2>
-            <label for="inputUsername" translate="USERNAME">用户</label>
+        <!-- <form class="form-signin">
+            <h2 class="form-signin-heading margin-top-0" translate="LOGIN"></h2>
+            <label for="inputUsername" translate="USERNAME"></label>
             <input ng-model="username" type="username" id="inputUsername" class="form-control" required autofocus>
-            <label for="inputPassword" translate="PASSWORD">密码</label>
+            <label for="inputPassword" translate="PASSWORD"></label>
             <input ng-model="password" type="password" id="inputPassword" class="form-control" required>
-            <button class="btn btn-lg btn-primary btn-block buttonLogin" ng-click="login()" translate="LOGIN">登录</button>
-        </form>
+            <button class="btn btn-lg btn-primary btn-block buttonLogin fontSize13" ng-click="login()" translate="LOGIN"></button>
+        </form> -->
+        <div class="loginBoxInside">
+            <div class="displayFlexColumn">
+                <img src="./img/LogoHoopaColor.png" class="imgLoginLogo">
+                <img src="./img/login.png" class="imgLogin">
+            </div>
+            <div class="loginData">
+                <label class="margin-bottom-0 labelLogin" translate="LOGIN"></label>
+                <input ng-model="username" type="username" id="inputUsername" class="form-control marginTop10 inputLogin height40" required autofocus>
+                <input ng-model="password" type="password" id="inputPassword" class="form-control marginTop10 inputLogin height40" required>
+                <button class="btn btn-primary buttonLogin fontSize13 marginTop10 height40" ng-click="login()" translate="LOGIN"></button>
+            </div>
+        </div>
     </div>
-    
 </div>
-<!-- /container -->

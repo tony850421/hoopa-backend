@@ -1,6 +1,15 @@
 app.controller('ServicesProcessCtrl', ['$scope', '$rootScope', ServicesProcessCtrl])
 
 function ServicesProcessCtrl ($scope, $rootScope) {
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+  
   $rootScope.activeList = 'services'
 
   $scope.imageGroupIntroduction = ''

@@ -1,6 +1,15 @@
 app.controller('AdvCtrl', ['$scope', '$rootScope', AdvCtrl])
 
 function AdvCtrl ($scope, $rootScope) {
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+
   $rootScope.activeList = 'adv'
   $scope.showAdv
 

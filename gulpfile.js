@@ -19,7 +19,8 @@ var paths = {
   index: 'src/index.html',
   font_awesome_fonts: 'node_modules/font-awesome/**/*.*',
   bootstrap_fonts: 'node_modules/bootstrap/**/*.*',
-  microsoftyahei_fonts: 'src/fonts/MicrosoftYaHei/*.*'
+  microsoftyahei_fonts: 'src/fonts/MicrosoftYaHei/*.*',
+  backendHoopa_fonts: 'src/fonts/BackendHoopa/**/*.*'
 }
 
 /**
@@ -52,6 +53,11 @@ gulp.task('copy-bootstrap_fonts', function () {
 gulp.task('copy-microsoftyahei_fonts', function () {
   return gulp.src(paths.microsoftyahei_fonts)
     .pipe(gulp.dest('dist/lib/fonts/MicrosoftYaHei'))
+})
+
+gulp.task('copy-microsoftyahei_fonts', function () {
+  return gulp.src(paths.backendHoopa_fonts)
+    .pipe(gulp.dest('dist/lib/fonts/BackendHoopa'))
 })
 
 /**

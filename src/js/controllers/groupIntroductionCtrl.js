@@ -1,6 +1,15 @@
 app.controller('GroupIntroductionCtrl', ['$scope', '$rootScope', GroupIntroductionCtrl])
 
 function GroupIntroductionCtrl ($scope, $rootScope) {
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+  
   $rootScope.activeList = 'group'
 
   $scope.imageGroupIntroduction = ''

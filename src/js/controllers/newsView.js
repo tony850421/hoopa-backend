@@ -1,6 +1,15 @@
 app.controller('NewsViewCtrl', ['$scope', '$rootScope', '$window', '$timeout', 'localStorageService', NewsViewCtrl])
 
 function NewsViewCtrl ($scope, $rootScope, $window, $timeout, localStorageService) {
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+  
   $scope.new = {}
   $scope.newsMedia = []
 

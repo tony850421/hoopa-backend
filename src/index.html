@@ -15,6 +15,7 @@
   <!-- endbuild -->
   <!-- custom css -->
   <link rel="stylesheet" type="text/css" href="lib/fonts/MicrosoftYaHei/styles.css">
+  <link rel="stylesheet" type="text/css" href="lib/fonts/BackendHoopa/style.css">
   <link rel="stylesheet" type="text/css" href="lib/fonts/FontAwesome/css/font-awesome.css">
   <link rel="stylesheet" type="text/css" href="lib/fonts/Bootstrap/dist/css/bootstrap.css">
 
@@ -38,7 +39,7 @@
 </head>
 
 <body ng-controller="MasterCtrl">
-  <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
+  <div id="page-wrapper" ng-class="{'open': toggle}">
 
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
@@ -287,29 +288,27 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li class="dropdown-header dropdown-user" ng-if="getUser() != ' '">
-                    <i class="fa fa-user marginLeft lineHeight"></i>{{getUser()}}
+                    <i class="fa fa-user marginLeft lineHeight"></i> {{getUser()}}
                   </li>
                   <li class="divider" ng-if="getUser() != ' '"></li>
                   <li class="dropdown-header dropdown-user" ng-if="getUser() != ' '">
                     <a href="#new-project" class="padding-0 font-size-16">
-                      <i class="fa fa-briefcase marginLeft lineHeight"></i>{{'NEWPACKAGE' | translate}}
+                      <i class="fa fa-briefcase marginLeft lineHeight"></i> {{'NEWPACKAGE' | translate}}
                     </a>
                   </li>
                   <li class="dropdown-header dropdown-user" ng-if="getUser() != ' '">
                     <a href="#new-news" class="padding-0 font-size-16">
-                      <i class="fa fa-file marginLeft lineHeight"></i>{{'NEWNEWS' | translate}}
+                      <i class="fa fa-file marginLeft lineHeight"></i> {{'NEWNEWS' | translate}}
                     </a>
                   </li>
                   <li class="dropdown-header dropdown-user" ng-if="getUser() != ' '">
                     <a href="#" class="no-padding font-size-16" ng-click="logout()">
-                      <i class="fa fa-sign-out lineHeight"></i>
-                      {{'LOGOUT' | translate}}
+                      <i class="fa fa-sign-out lineHeight"></i> {{'LOGOUT' | translate}}
                     </a>
                   </li>
                   <li class="dropdown-header dropdown-user" ng-if="getUser() == ' '">
                     <a href="#login" class="no-padding font-size-16">
-                      <i class="fa fa-sign-in lineHeight"></i>
-                      {{'LOGIN' | translate}}
+                      <i class="fa fa-sign-in lineHeight"></i> {{'LOGIN' | translate}}
                     </a>
                   </li>
                 </ul>

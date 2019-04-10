@@ -1,6 +1,15 @@
 app.controller('OffersCtrl', ['$scope', '$state', '$rootScope', '$window', '$timeout', 'localStorageService', OffersCtrl])
 
 function OffersCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageService) {
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+  
   $rootScope.activeList = 'offers'
 
   $scope.loading = false

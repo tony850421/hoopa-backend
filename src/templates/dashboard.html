@@ -1,15 +1,17 @@
-<div id="dashboard" class="row" ng-controller="DashBoardCtrl">
+<div id="dashboard" class="row groupIntroductonStyle" ng-controller="DashBoardCtrl">
 	<div ng-if="loading">
 		<rd-loading></rd-loading>
 	</div>
+
+	<img ng-if="!loading" ng-src="./img/banner01.png" class="bannerDashboard">
 
 	<div class="row" ng-if="!loading">
 		<div class="col-lg-3 col-md-6 col-xs-12">
 			<div class="widget-bodyUser">
 				<rd-widget>
 					<rd-widget-body class="widget-bodyUser">
-						<div class="widget-icon widget-iconUser pull-left">
-							<img class="iconDashboard" ng-src="./img/users.png" />
+						<div class="widget-iconUser pull-left">
+							<span class="icon-01 iconDashboardMain"></span>
 						</div>
 						<div class="title">{{userCount}}</div>
 						<div class="comment" translate="USERS"></div>
@@ -21,8 +23,8 @@
 			<div class="widget-bodyProjects">
 				<rd-widget>
 					<rd-widget-body class="widget-bodyProjects">
-						<div class="widget-icon widget-iconProjects pull-left cursorPointer">
-							<img class="iconDashboardProjects cursorPointer" ng-src="./img/projects.png" />
+						<div class="widget-iconProjects pull-left cursorPointer">
+							<span class="icon-02 iconDashboardMain"></span>
 						</div>
 						<div class="title cursorPointer">{{packageCount}}</div>
 						<div class="comment cursorPointer" translate="PACKAGES"></div>
@@ -34,8 +36,8 @@
 			<div class="widget-bodyVisits">
 				<rd-widget>
 					<rd-widget-body class="widget-bodyVisits">
-						<div class="widget-icon widget-iconVisits pull-left">
-							<img class="iconDashboardProjects" ng-src="./img/visits.png" />
+						<div class="widget-iconVisits pull-left">
+							<span class="icon-03 iconDashboardMain"></span>
 						</div>
 						<div class="title">{{visitCount}}</div>
 						<div class="comment" translate="VISITS"></div>
@@ -47,8 +49,8 @@
 			<div class="widget-bodyOffers">
 				<rd-widget>
 					<rd-widget-body>
-						<div class="widget-icon widget-iconOffers pull-left cursorPointer">
-							<img class="iconDashboardOffers cursorPointer" ng-src="./img/offers.png" />
+						<div class="widget-iconOffers pull-left cursorPointer">
+							<span class="icon-04 iconDashboardMain"></span>
 						</div>
 						<div class="title cursorPointer">{{offerCount}}</div>
 						<div class="comment cursorPointer" translate="OFFERS"></div>

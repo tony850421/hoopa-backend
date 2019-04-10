@@ -5,6 +5,15 @@
 app.controller('ProjectCtrl', ['$scope', '$rootScope', '$window', '$translate', ProjectCtrl])
 
 function ProjectCtrl ($scope, $rootScope, $window, $translate) {
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+  
   $scope.loading = false
   $rootScope.activeList = 'newprojects'
   $scope.project = {}

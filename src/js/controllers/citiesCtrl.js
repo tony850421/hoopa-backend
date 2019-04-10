@@ -1,6 +1,15 @@
 app.controller('CitiesCtrl', ['$scope', '$rootScope', '$translate', CitiesCtrl])
 
 function CitiesCtrl ($scope, $rootScope, $translate) {
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+  
   $scope.arrayCities = []
   $rootScope.activeList = 'cities'
 

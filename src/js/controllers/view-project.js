@@ -1,6 +1,15 @@
 app.controller('ViewProjectCtrl', ['$scope', '$state', '$rootScope', '$window', '$translate', 'localStorageService', ViewProjectCtrl])
 
 function ViewProjectCtrl ($scope, $state, $rootScope, $window, $translate, localStorageService) {
+  $scope.getUser = function () {
+    var currentUser = AV.User.current()
+    if (!currentUser) {
+      $state.go('login')
+    }
+  }
+
+  $scope.getUser()
+  
   $scope.typeArrivalArray = ['住宅', '商铺', '写字楼', '厂房', '在建工程', '机械设备，存货，原材料', '土地（无厂房',
     '林权', '海城使用权', '商住', '无抵押', '其他'
   ]
