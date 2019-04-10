@@ -1,34 +1,27 @@
-<div class="row" ng-controller="CitiesCtrl">
-    <h4 class="cityInformation" translate="CITYINFORMATION"></h4>
-    <button class="btn btn-lg btn-primary colorBlue buttonAddCity"
-        ng-click="addCityFuntion()">
-        <span class="fa fa-plus"></span>
-        <label class="margin-bottom-0 fontSize13" translate="ADDCITY"></label>
-    </button>
+<div class="row groupIntroductonStyle" ng-controller="CitiesCtrl">
+    <!-- <h4 class="cityInformation marginTop10" translate="CITYINFORMATION"></h4> -->
     <div id="addCityBox">
-        <div class="BranchesViewAdd col-md-12">
-            <div class="col-md-12 marginTop20">
-                <div class="col-md-6 padding-left-0">
-                    <div class="col-md-5 padding-left-0">
-                        <label for="cityName" translate="CITYNAME"></label>
-                        <input ng-model="cityNameNew" type="title" id="cityName"
-                            class="form-control backgroundGray"
-                            required autofocus>
+        <div class="BranchesViewAdd">
+            <div class="cityDataBox">                
+                <div class="">
+                    <img class="imageMainTeam" id="cityImage" src="img/branch.png">
+                    <input type="file" class="custom-file-input imageInput" id="cityPicture" onchange="angular.element(this).scope().changeValueMainImageCity()">
+                </div>
+                <div class="displayFlexColumn">
+                    <div class="displayFlexRow">
+                        <div class="marginRight15">
+                            <label for="cityName" translate="CITYNAME"></label>
+                            <input ng-model="cityNameNew" type="title" id="cityName" class="form-control backgroundGray" required autofocus>
+                        </div>
+                        <div class="">
+                            <label for="cityPrice" translate="CITYPRICE"></label>
+                            <input ng-model="cityPriceNew" type="title" id="cityPrice" class="form-control backgroundGray" required autofocus>
+                        </div>
                     </div>
-                    <div class="col-md-5 padding-left-0">
-                        <label for="cityPrice" translate="CITYPRICE"></label>
-                        <input ng-model="cityPriceNew" type="title" id="cityPrice"
-                            class="form-control backgroundGray"
-                            required autofocus>
-                    </div>
-                    <div class="col-md-8 padding-left-0 marginTop20">
+                    <div class="marginTop20">
                         <input type="checkbox" ng-model="cityVisibilityNew">
                         {{'SHOWCITYTEXT' | translate}}
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <img class="imageMainTeam" id="cityImage" src="img/branch.png">
-                    <input type="file" class="custom-file-input imageInput" id="cityPicture" onchange="angular.element(this).scope().changeValueMainImageCity()">
                 </div>
             </div>
             <div class="col-md-12 marginTop10 marginBottom10">
@@ -40,76 +33,86 @@
             </div>
         </div>
     </div>
+    <button class="btn btn-lg buttonAddMember" ng-click="addCityFuntion()" ng-if="!loading">
+        <span class="icon-add cursorPointer fontSize40"></span>
+        <label class="margin-bottom-0 cursorPointer fontSize24" translate="ADDCITY"></label>
+    </button>
+
     <form class="padding20" ng-show="arrayCities.length> 0">
-        <div class="form-row col-md-12 noPadding">
+        <div class="form-row">
             <div ng-repeat="member in arrayCities">
-                <div class="col-md-12 cityItem">
-                    <span class="fa fa-times spanCitiesClose" ng-click="deleteMember(member.id)"></span>
-                    <div class="col-md-2">
-                        <img class="imageCities" ng-src="{{member.mainImage}}">
-                        <input type="file" class="custom-file-input updateCityImageImput" id="updateCityPicture_{{$index}}" 
-                        onchange="angular.element(this).scope().changeValueMainImage(angular.element(this).scope().$index)">
+                <div class="cityItem">
+                    <!-- <span class="fa fa-times spanCitiesClose" ng-click="deleteMember(member.id)"></span> -->                    
+                    <div class="citiesItemData">
+                        <div>
+                            <img class="imageCities" ng-src="{{member.mainImage}}">
+                            <input type="file" class="custom-file-input updateCityImageImput" id="updateCityPicture_{{$index}}" 
+                            onchange="angular.element(this).scope().changeValueMainImage(angular.element(this).scope().$index)">
+                        </div>
+                        <div class="width100">
+                            <div class="updateCityNameClass">
+                                <label class="margin-bottom-0" id="cityName_{{$index}}">{{member.name}}</label>
+                                <input id="updateCityName_{{$index}}" ng-change="updateCityName($index)" class="ng-hide" type="text" ng-model="nameUpdateCity"></input>                            
+                                <div id="editCityName_{{$index}}" class="buttonEditHidden">
+                                    <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editCityName($index, member.name)">
+                                        <span class="fa fa-edit"></span>
+                                    </a>
+                                </div>
+                                <div id="saveCityName_{{$index}}" class="ng-hide">
+                                    <a type="button" class="btn btnEditCityName buttonEditSave" ng-click="saveCityName($index, member.id)">
+                                        <span class="fa fa-save"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="updateCityNameClass">
+                                <h5><strong>{{'CITYPRICE' | translate}}:</strong></h5>
+                                <label class="margin-bottom-0 labelPriceCityUpdate" id="cityPrice_{{$index}}">{{member.price}}</label>
+                                <input id="updateCityPrice_{{$index}}" ng-change="updateCityPrice($index)" class="ng-hide" type="text" ng-model="priceUpdateCity"></input>
+                                <div id="editCityPrice_{{$index}}" class="buttonEditHidden">
+                                    <a type="button" class="btn btnEditCityPrice buttonEdit" ng-click="editCityPrice($index, member.price)">
+                                        <span class="fa fa-edit"></span>
+                                    </a>
+                                </div>
+                                <div id="saveCityPrice_{{$index}}" class="ng-hide">
+                                    <a type="button" class="btn btnEditCityPrice buttonEditSave" ng-click="saveCityPrice($index, member.id)">
+                                        <span class="fa fa-save"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="updateCityNameClass">
+                                <label class="margin-bottom-0"><strong>{{'SHOWCITYTEXT' | translate}}:</strong></label>
+                                <label id="cityVisibilityYes_{{$index}}" class="margin-bottom-0 visibilityCity" ng-show="member.show">{{'YES' | translate}}</label>
+                                <label id="cityVisibilityNo_{{$index}}" class="margin-bottom-0 visibilityCity" ng-show="!member.show">{{'NO' | translate}}</label>
+                                <select id="updateCityVisibility_{{$index}}" class="custom-select ng-hide" ng-change="updateCityVisibility($index)" ng-model="visibilityUpdateCity">
+                                    <option value="0">{{'YES' | translate}}</option>
+                                    <option value="1">{{'NO' | translate}}</option>
+                                </select>
+                                <div id="editCityVisibility_{{$index}}" class="buttonEditHidden">
+                                    <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editCityVisibility($index, member.price)">
+                                        <span class="fa fa-edit"></span>
+                                    </a>
+                                </div>
+                                <div id="saveCityVisibility_{{$index}}" class="ng-hide">
+                                    <a type="button" class="btn btnEditCityName buttonEditSave" ng-click="saveCityVisibility($index, member.id)">
+                                        <span class="fa fa-save"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="fa fa-trash CityDelete" ng-click="deleteMember(member.id)"></span>
                     </div>
-                    <div class="col-md-8">
-                        <div class="updateCityNameClass">
-                            <label class="margin-bottom-0" id="cityName_{{$index}}">{{member.name}}</label>
-                            <input id="updateCityName_{{$index}}" ng-change="updateCityName($index)" class="ng-hide" type="text" ng-model="nameUpdateCity"></input>                            
-                            <div id="editCityName_{{$index}}" class="buttonEditHidden">
-                                <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editCityName($index, member.name)">
-                                    <span class="fa fa-edit"></span>
-                                </a>
-                            </div>
-                            <div id="saveCityName_{{$index}}" class="ng-hide">
-                                <a type="button" class="btn btnEditCityName buttonEditSave" ng-click="saveCityName($index, member.id)">
-                                    <span class="fa fa-save"></span>
-                                </a>
-                            </div>
+                    <div class="orderBox">
+                        <div class="spanOrderBoxCities" ng-show="$index != 0 && $index != arrayCities.length -1">
+                            <span class="fa fa-angle-up" ng-click="orderUp($index)"></span>
                         </div>
-                        <div class="updateCityNameClass">
-                            <h5><strong>{{'CITYPRICE' | translate}}:</strong></h5>
-                            <label class="margin-bottom-0 labelPriceCityUpdate" id="cityPrice_{{$index}}">{{member.price}}</label>
-                            <input id="updateCityPrice_{{$index}}" ng-change="updateCityPrice($index)" class="ng-hide" type="text" ng-model="priceUpdateCity"></input>
-                            <div id="editCityPrice_{{$index}}" class="buttonEditHidden">
-                                <a type="button" class="btn btnEditCityPrice buttonEdit" ng-click="editCityPrice($index, member.price)">
-                                    <span class="fa fa-edit"></span>
-                                </a>
-                            </div>
-                            <div id="saveCityPrice_{{$index}}" class="ng-hide">
-                                <a type="button" class="btn btnEditCityPrice buttonEditSave" ng-click="saveCityPrice($index, member.id)">
-                                    <span class="fa fa-save"></span>
-                                </a>
-                            </div>
+                        <div class="spanOrderBoxCities marginTop4" ng-show="$index != 0 && $index != arrayCities.length -1">
+                            <span class="fa fa-angle-down" ng-click="orderDown($index)"></span>
                         </div>
-                        <div class="updateCityNameClass">
-                            <label class="margin-bottom-0"><strong>{{'SHOWCITYTEXT' | translate}}:</strong></label>
-                            <label id="cityVisibilityYes_{{$index}}" class="margin-bottom-0 visibilityCity" ng-show="member.show">{{'YES' | translate}}</label>
-                            <label id="cityVisibilityNo_{{$index}}" class="margin-bottom-0 visibilityCity" ng-show="!member.show">{{'NO' | translate}}</label>
-                            <select id="updateCityVisibility_{{$index}}" class="custom-select ng-hide" ng-change="updateCityVisibility($index)" ng-model="visibilityUpdateCity">
-                                <option value="0">{{'YES' | translate}}</option>
-                                <option value="1">{{'NO' | translate}}</option>
-                            </select>
-                            <div id="editCityVisibility_{{$index}}" class="buttonEditHidden">
-                                <a type="button" class="btn btnEditCityName buttonEdit" ng-click="editCityVisibility($index, member.price)">
-                                    <span class="fa fa-edit"></span>
-                                </a>
-                            </div>
-                            <div id="saveCityVisibility_{{$index}}" class="ng-hide">
-                                <a type="button" class="btn btnEditCityName buttonEditSave" ng-click="saveCityVisibility($index, member.id)">
-                                    <span class="fa fa-save"></span>
-                                </a>
-                            </div>
+                        <div class="spanOrderBoxCitiesUp" ng-show="$index == 0 && $index != arrayCities.length -1">
+                            <span class="fa fa-angle-down" ng-click="orderDown($index)"></span>
                         </div>
-                    </div>
-                    <div class="col-md-1 marginSpanButtonBox">
-                        <div class="buttonsOrder">
-                            <a class="buttonOrderSpan">
-                                <span class="fa fa-angle-up styleAngleOrder" ng-show="$index != '0'" ng-click="orderUp($index)"></span>
-                                <span class="fa fa-angle-up styleAngleOrderDisabled" ng-show="$index == '0'"></span>
-                            </a>
-                            <a class="buttonOrderSpan">
-                                <span class="fa fa-angle-down styleAngleOrder" ng-show="$index != (arrayCities.length-1)" ng-click="orderDown($index)"></span>
-                                <span class="fa fa-angle-down styleAngleOrderDisabled" ng-show="$index == (arrayCities.length-1)"></span>
-                            </a>
+                        <div class="spanOrderBoxCitiesUp" ng-show="$index != 0 && $index == arrayCities.length -1">
+                            <span class="fa fa-angle-up" ng-click="orderUp($index)"></span>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
-app.controller('CitiesCtrl', ['$scope', '$rootScope', '$translate', CitiesCtrl])
+app.controller('CitiesCtrl', ['$scope', '$rootScope', '$translate', '$state', CitiesCtrl])
 
-function CitiesCtrl ($scope, $rootScope, $translate) {
+function CitiesCtrl ($scope, $rootScope, $translate, $state) {
   $scope.getUser = function () {
     var currentUser = AV.User.current()
     if (!currentUser) {
@@ -31,6 +31,8 @@ function CitiesCtrl ($scope, $rootScope, $translate) {
 
   $scope.memberUpdateId = -1
 
+  $scope.showAddBoxFlag = false
+
   $scope.changeValueMainImage = function (index) {
     var id = '#updateCityPicture_' + index
     readURL($(id)[0], index)
@@ -46,13 +48,13 @@ function CitiesCtrl ($scope, $rootScope, $translate) {
 
     $scope.arrayCities = []
     var cities = new AV.Query('Cities')
-    cities.ascending('Order')
+    cities.ascending('order')
     cities.find().then(function (res) {
       res.forEach(function (element) {
         var mainImage = element.get('image').thumbnailURL(240, 240)
         var price = element.get('price')
-        var order = element.get('Order')
-        var id = element.id
+        var order = element.get('order')
+        var id = element.get('objectId')
         var name = element.get('name')
         var description = element.get('description')
         var show = element.get('show')
@@ -117,7 +119,14 @@ function CitiesCtrl ($scope, $rootScope, $translate) {
   }
 
   $scope.addCityFuntion = function () {
-    $('#addCityBox').removeClass('ng-hide')
+    if (!$scope.showAddBoxFlag){
+      $('#addCityBox').removeClass('ng-hide')
+      $scope.showAddBoxFlag = true
+    }
+    else {
+      $('#addCityBox').addClass('ng-hide')
+      $scope.showAddBoxFlag = false
+    }
   }
 
   $scope.addCity = function () {
@@ -133,10 +142,12 @@ function CitiesCtrl ($scope, $rootScope, $translate) {
         city.set('name', $scope.cityNameNew)
         city.set('description', $scope.cityDescriptionNew)
         city.set('price', $scope.cityPriceNew)
+
         if ($scope.arrayCities.length > 0)
-          city.set('Order', $scope.arrayCities[$scope.arrayCities.length - 1].order + 1)
+          city.set('order', $scope.arrayCities[$scope.arrayCities.length - 1].order + 1)
         else
-          city.set('Order', 1)
+          city.set('order', 1)
+
         city.set('show', $scope.cityVisibilityNew)
         city.set('image', avFile)
         city.save().then(function (res) {
@@ -302,11 +313,11 @@ function CitiesCtrl ($scope, $rootScope, $translate) {
       $scope.arrayCities[index - 1].order = orderOld
 
       var city = AV.Object.createWithoutData('Cities', $scope.arrayCities[index].id)
-      city.set('Order', $scope.arrayCities[index].order)
+      city.set('order', $scope.arrayCities[index].order)
       city.save()
 
       var city_Other = AV.Object.createWithoutData('Cities', $scope.arrayCities[index - 1].id)
-      city_Other.set('Order', $scope.arrayCities[index - 1].order)
+      city_Other.set('order', $scope.arrayCities[index - 1].order)
       city_Other.save()
 
       var objectAux = $scope.arrayCities[index]
@@ -322,11 +333,11 @@ function CitiesCtrl ($scope, $rootScope, $translate) {
       $scope.arrayCities[index + 1].order = orderOld
 
       var city = AV.Object.createWithoutData('Cities', $scope.arrayCities[index].id)
-      city.set('Order', $scope.arrayCities[index].order)
+      city.set('order', $scope.arrayCities[index].order)
       city.save()
 
       var city_Other = AV.Object.createWithoutData('Cities', $scope.arrayCities[index + 1].id)
-      city_Other.set('Order', $scope.arrayCities[index + 1].order)
+      city_Other.set('order', $scope.arrayCities[index + 1].order)
       city_Other.save()
 
       var objectAux = $scope.arrayCities[index]

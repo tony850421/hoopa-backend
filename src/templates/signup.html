@@ -1,36 +1,56 @@
-<div class="row" ng-controller="LoginCtrl">
-  <div class="header clearfix">
-    <nav>
-      <ul class="nav nav-tabs pull-right">
-        <li role="presentation">
-          <a href="#login" translate="LOGIN">登录</a>
-        </li>
-        <li role="presentation" class="active">
-          <a href="#" translate="SIGNUP">登记</a>
-        </li>
-      </ul>
-    </nav>
-    <!-- <h3 class="text-muted">宝贝出售</h3> -->
-  </div>
-
-  <div class="registerBox">
-
-      <div class="row alerts-container" data-ng-show="alertsLogin.length">
-          <div class="col-xs-12">
-              <uib-alert data-ng-repeat="alert in alertsLogin" type="{{alert.type}}" close="closeAlertLogin($index)">{{alert.msg}}</uib-alert>
-          </div>
+<div class="row" ng-controller="SignUpCtrl">
+  <!-- <div class="registerBox">
+    <div class="row alerts-container" data-ng-show="alertsLogin.length">
+      <div class="col-xs-12">
+        <uib-alert data-ng-repeat="alert in alertsLogin" type="{{alert.type}}"
+          close="closeAlertLogin($index)">{{alert.msg}}</uib-alert>
       </div>
+    </div>
 
     <form class="form-signup" ng-show="!registered">
-        <h2 class="form-signup-heading margin-top-0" translate="SIGNUP">登记</h2>
-        <label for="inputUsername" translate="USERNAME">用户</label>
-        <input ng-model="username" type="username" id="inputUsername" class="form-control" required autofocus>
-        <label for="inputPassword" translate="PASSWORD">密码</label>
-        <input ng-model="password" type="password" id="inputPassword" class="form-control" required>
-        <label for="inputEmail" translate="EMAIL">电子邮件</label>
-        <input ng-model="email" type="email" id="inputEmail" class="form-control" required>
-        <button class="btn btn-lg btn-primary btn-block buttonSignUp" ng-click="signup()" translate="SIGNUP">登记</button>
-      </form>
-  </div>  
+      <h2 class="form-signup-heading margin-top-0" translate="SIGNUP">登记</h2>
+      <label for="inputUsername" translate="USERNAME">用户</label>
+      <input ng-model="username" type="username" id="inputUsername"
+        class="form-control" required autofocus>
+      <label for="inputPassword" translate="PASSWORD">密码</label>
+      <input ng-model="password" type="password" id="inputPassword"
+        class="form-control" required>
+      <label for="inputEmail" translate="EMAIL">电子邮件</label>
+      <input ng-model="email" type="email" id="inputEmail" class="form-control"
+        required>
+      <button class="btn btn-lg btn-primary btn-block buttonSignUp"
+        ng-click="signup()" translate="SIGNUP">登记</button>
+    </form>
+  </div> -->
+
+  <div class="loginBox" style="height:{{loginHeight}}px">
+      <div class="row alerts-container" data-ng-show="alertsLogin.length">
+          <div class="col-xs-12">
+              <uib-alert data-ng-repeat="alert in alertsLogin"
+                  type="{{alert.type}}" close="closeAlertLogin($index)">{{alert.msg}}</uib-alert>
+          </div>
+      </div>
+      <div class="loginBoxInside">
+          <div class="displayFlexColumn">
+              <img src="./img/LogoHoopaColor.png" class="imgLoginLogo">
+              <img src="./img/login.png" class="imgLogin">
+          </div>
+          <div class="signUpData">
+              <label class="margin-bottom-0 labelLogin" translate="SIGNUP"></label>
+              <div>
+                <i class="icon-user iconUsernameLogin"></i>
+                <input placeholder="{{'USERNAME' | translate}}" ng-model="username" type="username" id="inputUsername" class="form-control marginTop10 inputLogin height40" required autofocus>
+              </div>
+              <div>
+                <i class="icon-pass iconUsernameLogin"></i>
+                <input placeholder="{{'PASSWORD' | translate}}" ng-model="password" type="password" id="inputPassword" class="form-control marginTop10 inputLogin height40" required>
+              </div>
+              <div>
+                <i class="icon-email iconUsernameLogin"></i>
+                <input placeholder="{{'EMAIL' | translate}}" ng-model="email" type="email" id="inputEmail" class="form-control marginTop10 inputLogin height40" required>
+              </div>
+              <button class="btn btn-primary buttonLogin fontSize13 marginTop10 height40" ng-click="signup()" translate="SIGNUP"></button>
+          </div>
+      </div>
+  </div>
 </div>
-<!-- /container -->
