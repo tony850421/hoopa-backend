@@ -1,12 +1,38 @@
 <div class="row" ng-controller="NewsViewCtrl">
-  <form class="formNewNews col-md-12">
-      <h4>{{new.get('title')}}</h4>
-      <img class="imageNew" ng-src="{{new.get('image').get('url')}}"/>
-      <h5>{{new.get('content')}}</h5>
-      <div class="medias" ng-repeat="m in newsMedia">
-        <img class="imageNew" ng-src="{{m.get('image').get('url')}}"/>
-        <h5>{{m.get('caption')}}</h5>
-        <h5>{{m.get('content')}}</h5>
-      </div>
+  <form class="formNewNews">
+    <div class="displayFlexRow">
+        <h4 id="newsTitle">{{newsTitle}}</h4>
+        <textarea id="updateNewsTitle" ng-change="updateNewsTitle()" class="ng-hide textAreaNewsTitle" type="text" ng-model="newsTitle"></textarea>
+        <div id="editNewsTitle" class="buttonEditHidden">
+            <a type="button" class="btn btnEditCityPrice buttonEdit" ng-click="editNewsTitle(newsTitle)">
+                <span class="fa fa-edit"></span>
+            </a>
+        </div>
+        <div id="saveNewsTitle" class="ng-hide">
+            <a type="button" class="btn btnEditCityPrice buttonEditSave" ng-click="saveNewsTitle(newsId)">
+                <span class="fa fa-save"></span>
+            </a>
+        </div>
+    </div>
+    <img class="imageNew" ng-src="{{mainImage}}"/>
+    <div class="displayFlexRow">
+      <h5 id="newsContent">{{newsContent}}</h5>
+      <textarea id="updateNewsContent" ng-change="updateNewsContent()" class="ng-hide textAreaNewsTitle" type="text" ng-model="newsContent"></textarea>
+        <div id="editNewsContent" class="buttonEditHidden">
+            <a type="button" class="btn btnEditCityPrice buttonEdit" ng-click="editNewsContent(newsContent)">
+                <span class="fa fa-edit"></span>
+            </a>
+        </div>
+        <div id="saveNewsContent" class="ng-hide">
+            <a type="button" class="btn btnEditCityPrice buttonEditSave" ng-click="saveNewsContent(newsId)">
+                <span class="fa fa-save"></span>
+            </a>
+        </div>
+    </div>
+    <div class="medias" ng-repeat="m in newsMedia">
+      <img class="imageNew" ng-src="{{m.get('image').get('url')}}"/>
+      <h5>{{m.get('caption')}}</h5>
+      <h5>{{m.get('content')}}</h5>
+    </div>
   </form>
 </div>

@@ -20,7 +20,8 @@ var paths = {
   font_awesome_fonts: 'node_modules/font-awesome/**/*.*',
   bootstrap_fonts: 'node_modules/bootstrap/**/*.*',
   microsoftyahei_fonts: 'src/fonts/MicrosoftYaHei/*.*',
-  backendHoopa_fonts: 'src/fonts/BackendHoopa/**/*.*'
+  backendHoopa_fonts: 'src/fonts/BackendHoopa/**/*.*',
+  backendHoopaMenu_fonts: 'src/fonts/BackendHoopaMenu/**/*.*'
 }
 
 /**
@@ -38,7 +39,7 @@ gulp.task('usemin', function () {
 /**
  * Copy assets
  */
-gulp.task('build-assets', ['copy-fontawesome_fonts', 'copy-bootstrap_fonts', 'copy-microsoftyahei_fonts'])
+gulp.task('build-assets', ['copy-fontawesome_fonts', 'copy-bootstrap_fonts', 'copy-microsoftyahei_fonts', 'copy-mBackendHoopa_fonts', 'copy-BackendHoopaMenu_fonts'])
 
 gulp.task('copy-fontawesome_fonts', function () {
   return gulp.src(paths.font_awesome_fonts)
@@ -55,9 +56,14 @@ gulp.task('copy-microsoftyahei_fonts', function () {
     .pipe(gulp.dest('dist/lib/fonts/MicrosoftYaHei'))
 })
 
-gulp.task('copy-microsoftyahei_fonts', function () {
+gulp.task('copy-mBackendHoopa_fonts', function () {
   return gulp.src(paths.backendHoopa_fonts)
     .pipe(gulp.dest('dist/lib/fonts/BackendHoopa'))
+})
+
+gulp.task('copy-BackendHoopaMenu_fonts', function () {
+  return gulp.src(paths.backendHoopaMenu_fonts)
+    .pipe(gulp.dest('dist/lib/fonts/BackendHoopaMenu'))
 })
 
 /**

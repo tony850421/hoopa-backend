@@ -141,6 +141,13 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
   object-fit: cover;
 }
 
+.news-image {
+  height: 120px !important;
+  width: 150px !important;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
 .forum-image {
   height: 80px !important;
   width: 80px !important;
@@ -534,7 +541,7 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .width30 {
-  width: 30%;
+  width: 30% !important;
 }
 
 .width40 {
@@ -683,9 +690,9 @@ ul.sidebar .sidebar-list a:hover {
 .formNewNews {
   padding: 30px;
   background-color: #fff;
-  margin: 2% 3%;
   border-radius: 5px;
-  width: 94% !important;
+  display: flex;
+  flex-direction: column;
 }
 
 .imageGroupBox {
@@ -721,6 +728,13 @@ ul.sidebar .sidebar-list a:hover {
 .imageMainTeam {
   width: 100px;
   height: 100px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.mainNewsImage {
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   margin-right: 15px;
 }
@@ -1303,6 +1317,13 @@ tr {
   flex-direction: column;
 }
 
+.NewsViewAdd {
+  padding: 30px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
 .BranchesViewUpdate {
   background-color: #fff;
   padding-top: 15px;
@@ -1313,7 +1334,12 @@ tr {
 }
 
 .textAreaCoreTeam {
-  height: 100px !important;
+  height: 120px !important;
+  resize: none !important;
+}
+
+.textAreaCoreTeamArray {
+  height: 90px !important;
   resize: none !important;
 }
 
@@ -1335,6 +1361,16 @@ tr {
   border-radius: 8px;
   display: flex;
   flex-direction: row;
+}
+
+.newsItem {
+  padding: 15px;
+  border: 1px solid #F5F5F5;
+  margin-top: 5px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
 }
 
 .noPadding {
@@ -1446,6 +1482,10 @@ tr {
 
 .marginLeft-5 {
   margin-left: -5px !important;
+}
+
+.marginLeft15 {
+  margin-left: 15px !important;
 }
 
 .updateCityNameClass {
@@ -1565,12 +1605,28 @@ tr {
 .imageInputCoreTeam {
   position: absolute;
   z-index: 100;
-  width: 200px;
-  height: 200px;
-  top: 115px;
+  width: 150px;
+  height: 150px;
+  top: 170px;
 }
 
-.imageInput:hover, .imageInputCoreTeam:hover {
+.imageInputNews {
+  position: absolute;
+  z-index: 100;
+  width: 150px;
+  height: 150px;
+  top: 210px;
+}
+
+.imageInputCoreTeamArray {
+  position: absolute;
+  z-index: 100;
+  width: 150px;
+  height: 150px;
+  margin-top: -150px;
+}
+
+.imageInput:hover, .imageInputCoreTeam:hover, .imageInputCoreTeamArray:hover {
   cursor: pointer;
 }
 
@@ -1621,12 +1677,13 @@ tr {
 .branchItemRow {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 
 .branchItemColumn {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
 }
 
 .displayFlexRow {
@@ -1802,8 +1859,9 @@ tr {
   color: #d2d2d2 !important;
 }
 
-.bussinesSystemDelete:hover, .CoreTeamDelete:hover, .servicesProcessDelete:hover, .CityDelete:hover {
+.bussinesSystemDelete:hover, .CoreTeamDelete:hover, .servicesProcessDelete:hover, .CityDelete:hover, .newsDelete:hover {
   cursor: pointer;
+  color: #F36C28;
 }
 
 .CoreTeamDelete {
@@ -1814,6 +1872,12 @@ tr {
 
 .CityDelete {
   margin-top: 30px;
+  font-size: 30px!important;
+  color: #d2d2d2;
+}
+
+.newsDelete {
+  margin-top: 45px;
   font-size: 30px!important;
   color: #d2d2d2;
 }
@@ -1834,7 +1898,7 @@ tr {
 
 .spanOrderBox {
   height: 78px;
-  background-color: #d2d2d2;
+  background-color: #f5f5f5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1866,16 +1930,6 @@ tr {
   padding: 10px;
 }
 
-.spanOrderBoxCities {
-  height: 58px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 10px;
-  background-color: white;
-  padding: 10px;
-}
-
 .spanOrderBoxCoreTeamUp {
   background-color: white;
   display: flex;
@@ -1883,6 +1937,16 @@ tr {
   align-items: center;
   height: 230px;
   margin-left: 10px;
+  padding: 10px;
+}
+
+.spanOrderBoxCities {
+  height: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  background-color: white;
   padding: 10px;
 }
 
@@ -1896,7 +1960,47 @@ tr {
   padding: 10px;
 }
 
-.spanOrderBoxCoreTeam:hover, .spanOrderBoxCoreTeamUp:hover {
+.spanOrderBoxNews {
+  height: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  background-color: #F5F5F5;
+  padding: 10px;
+}
+
+.spanOrderBoxNewsUp {
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+.spanOrderBoxBranchUp {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 130px;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+.spanOrderBoxBranch {
+  height: 63px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  background-color: white;
+  padding: 10px;
+}
+
+.spanOrderBoxCoreTeam:hover, .spanOrderBoxCoreTeamUp:hover, .spanOrderBox:hover, .spanOrderBoxUp:hover, .spanOrderBoxBranch:hover, .spanOrderBoxBranchUp:hover {
   cursor: pointer;
 }
 
@@ -1906,10 +2010,6 @@ tr {
   justify-content: center;
   align-items: center;
   height: 220px;
-}
-
-.spanOrderBox:hover, .spanOrderBoxUp:hover {
-  cursor: pointer;
 }
 
 .marginTop4 {
@@ -2053,6 +2153,19 @@ span.fa-angle-down:hover, span.fa-angle-up:hover {
   align-content: center;
 }
 
+.buttonAddMediaNews {
+  background-color: white !important;
+  color: #3333337a !important;
+  border: 1px solid #F5F5F5 !important;
+  border-radius: 0 !important;
+  width: 100%;
+  height: 100px;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+
 .buttonAddMember:hover {
   cursor: pointer;
 }
@@ -2158,15 +2271,51 @@ span.fa-angle-down:hover, span.fa-angle-up:hover {
   text-align: center;
 }
 
-.cityDataBox{
+.cityDataBox {
   display: flex;
   flex-direction: row;
 }
 
-.citiesItemData{
+.citiesItemData {
   display: flex;
   flex-direction: row;
   padding: 15px;
   background-color: white;
   width: 100%;
+}
+
+.borderBox {
+  border: 1px solid #d2d2d2;
+  padding: 15px;
+}
+
+.backgroundColorField {
+  background-color: #f5f5f5 !important;
+}
+
+.spanImageMainNews {
+  font-size: 120px;
+}
+
+.borderHoverColor:hover{
+  border: 1px solid #F36C28 !important;
+  cursor: pointer !important;
+}
+
+.btnPagination{
+  background-color: white !important;
+  color: black !important;
+  width: 80px;
+  height: 30px;
+}
+
+.btnPagination:hover{
+  border: 1px solid #F36C28 !important;
+  color: #F36C28 !important;
+}
+
+.textAreaNewsTitle{
+  width: 100%;
+  margin-bottom: 5px;
+  resize: none;
 }

@@ -1,21 +1,20 @@
-<div class="row groupIntroductonStyle" ng-controller="CitiesCtrl">
-    <!-- <h4 class="cityInformation marginTop10" translate="CITYINFORMATION"></h4> -->
+<div class="row groupIntroductonStyle padding-30" ng-controller="CitiesCtrl">
     <div id="addCityBox">
         <div class="BranchesViewAdd">
             <div class="cityDataBox">                
                 <div class="">
                     <img class="imageMainTeam" id="cityImage" src="img/branch.png">
-                    <input type="file" class="custom-file-input imageInput" id="cityPicture" onchange="angular.element(this).scope().changeValueMainImageCity()">
+                    <input type="file" class="custom-file-input imageInput backgroundColorField" id="cityPicture" onchange="angular.element(this).scope().changeValueMainImageCity()">
                 </div>
                 <div class="displayFlexColumn">
                     <div class="displayFlexRow">
                         <div class="marginRight15">
                             <label for="cityName" translate="CITYNAME"></label>
-                            <input ng-model="cityNameNew" type="title" id="cityName" class="form-control backgroundGray" required autofocus>
+                            <input ng-model="cityNameNew" type="title" id="cityName" class="form-control backgroundColorField" required autofocus>
                         </div>
                         <div class="">
                             <label for="cityPrice" translate="CITYPRICE"></label>
-                            <input ng-model="cityPriceNew" type="title" id="cityPrice" class="form-control backgroundGray" required autofocus>
+                            <input ng-model="cityPriceNew" type="title" id="cityPrice" class="form-control backgroundColorField" required autofocus>
                         </div>
                     </div>
                     <div class="marginTop20">

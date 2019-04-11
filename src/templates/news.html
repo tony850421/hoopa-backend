@@ -1,81 +1,143 @@
-<div class="row" ng-controller="NewsCtrl">
+<div class="row groupIntroductonStyle padding-30" ng-controller="NewsCtrl">
 
     <div ng-if="loading">
         <rd-loading></rd-loading>
     </div>
 
-    <!-- <div id="addNewsBox">
-        <div class="BranchesViewAdd">
-            <div class="displayFlexRow">
-                <div class="form-group">
-                    <img class="imageMainTeam" id="mainTeamImage" src="img/user.png">
-                    <input type="file" class="custom-file-input imageInputCoreTeam" id="teamMemberPicture" onchange="angular.element(this).scope().changeValueMainImageTeamMember()">
-                </div>
-                <div class="displayFlexColumn width100 margin-left-10">
+    <div id="addNewsBox">
+        <div class="NewsViewAdd">
+            <div class="displayFlexColumn borderBox backgroundWhite">
+                <div class="displayFlexRow">
                     <div class="form-group padding-left-0 width30">
-                        <label for="coreTeamName" translate="TITLE"></label>
-                        <input ng-model="newsTitle" type="title" id="coreTeamName" class="form-control backgroundGray" required autofocus>
+                        <label translate="ISINDUSTRY"></label>
+                        <select class="form-control marginRight15 backgroundColorField" ng-model="isIndustry">
+                            <option value="0" selected>Industry</option>
+                            <option value="1">Company</option>
+                        </select>
                     </div>
-                    <div class="form-group">
-                        <label for="coreTeamDescription" translate="SHORTDESCRIPTION"></label>
-                        <textarea ng-model="newsShortDescription" type="title" id="coreTeamDescription" class="textAreaCoreTeam form-control backgroundGray" required autofocus>
+                    <div class="form-group width70 marginLeft15">
+                        <label for="coreTeamName" translate="TITLE"></label>
+                        <input ng-model="title" type="title" id="coreTeamName" class="form-control backgroundColorField" required autofocus>
                     </div>
                 </div>
-            </div>            
-            <div class="form-group">
-                <button class="btn btn-lg buttonAddTeamMember" ng-click="addMember()">
+                <div class="displayFlexRow">                
+                    <div class="form-group">
+                        <img class="mainNewsImage" id="mainNewsImage" ng-show="coreTeamImageUpdate.length > 0">
+                        <div class="padding20">
+                            <span class="spanImageMainNews icon-add" ng-show="coreTeamImageUpdate.length == 0"></span>
+                        </div>
+                        <input type="file" class="custom-file-input imageInputNews backgroundColorField" id="newsPicture" onchange="angular.element(this).scope().changeValueNewsImage()">
+                    </div>
+                    <div class="displayFlexColumn width100 margin-left-10">                    
+                        <div class="form-group">
+                            <label for="coreTeamDescription" translate="SHORTDESCRIPTION"></label>
+                            <textarea ng-model="newsContent" type="title" id="coreTeamDescription" class="textAreaCoreTeam form-control backgroundColorField" required autofocus>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="displayFlexColumn borderBox backgroundWhite marginTop15">
+                <div ng-repeat="member in newsMedias">
+                    <div class="newsItem">
+                        <div class="citiesItemData">
+                            <div>
+                                <img class="imageCities" ng-src="{{member.get('imageUrl')}}">
+                            </div>
+                            <div class="width100">
+                                <div class="updateCityNameClass">
+                                    <label class="margin-bottom-0" id="newsCaption_{{$index}}">{{member.get('caption')}}</label>
+                                </div>
+                                <div class="updateCityNameClass">
+                                    <label class="margin-bottom-0" id="newsContent_{{$index}}">{{member.get('content')}}</label>
+                                </div>                                
+                            </div>
+                            <span class="fa fa-trash CityDelete" ng-click="deleteNewsMedia($index)"></span>
+                        </div>
+                        <div class="orderBox">
+                            <div class="spanOrderBoxNews" ng-show="$index != 0 && $index != arrayCities.length -1">
+                                <span class="fa fa-angle-up" ng-click="orderUp($index)"></span>
+                            </div>
+                            <div class="spanOrderBoxNews marginTop4" ng-show="$index != 0 && $index != arrayCities.length -1">
+                                <span class="fa fa-angle-down" ng-click="orderDown($index)"></span>
+                            </div>
+                            <div class="spanOrderBoxNewsUp" ng-show="$index == 0 && $index != arrayCities.length -1">
+                                <span class="fa fa-angle-down" ng-click="orderDown($index)"></span>
+                            </div>
+                            <div class="spanOrderBoxNewsUp" ng-show="$index != 0 && $index == arrayCities.length -1">
+                                <span class="fa fa-angle-up" ng-click="orderUp($index)"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="displayFlexRow">
+                    <div class="form-group">
+                        <img class="mainNewsImage" id="mainNewsImageArray" ng-show="coreTeamImageUpdateArray.length > 0">
+                        <div class="padding20">
+                            <span class="spanImageMainNews icon-add" ng-show="coreTeamImageUpdateArray.length == 0"></span>
+                        </div>
+                        <input type="file" class="custom-file-input imageInputCoreTeamArray backgroundColorField" id="newsPictureArray" onchange="angular.element(this).scope().changeValueNewsImageArray()">
+                    </div>
+                    <div class="displayFlexColumn width100 margin-left-10">                    
+                        <div class="form-group">
+                            <label for="coreTeamDescription" translate="CAPTION"></label>
+                            <input ng-model="captionContent" type="title" class="form-control backgroundColorField" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="coreTeamDescription" translate="SHORTDESCRIPTION"></label>
+                            <textarea ng-model="textContent" type="title" class="textAreaCoreTeamArray form-control backgroundColorField" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttonAddNewsContent">
+                    <button class="btn btn-lg buttonAddMediaNews" ng-click="addNewsMedia()">
+                        <span class="icon-add cursorPointer fontSize40"></span>
+                        <label class="margin-bottom-0 fontSize13 cursorPointer fontSize24" translate="BADD"></label>
+                    </button>
+                </div>                
+            </div>
+
+            <div class="form-group borderBox backgroundWhite marginTop15">
+                <button class="btn btn-lg buttonAddTeamMember" ng-click="publishNews()">
                     <span class="fa fa-plus cursorPointer"></span>
-                    <label class="margin-bottom-0 fontSize13 cursorPointer" translate="ADDTEAMMEMBER"></label>
+                    <label class="margin-bottom-0 fontSize13 cursorPointer" translate="PPUBLISH"></label>
                 </button>
             </div>
-        </div>
+        </div>        
     </div>
 
     <button class="btn btn-lg buttonAddMember" ng-click="addNewsFunction()" ng-if="!loading">
-        <span class="fa fa-plus cursorPointer fontSize24"></span>
+        <span class="icon-add cursorPointer fontSize40"></span>
         <label class="margin-bottom-0 fontSize13 cursorPointer fontSize24" translate="ADDTEAMMEMBER"></label>
-    </button> -->
+    </button>
 
-    <ul class="media-list custom-media-list" ng-repeat="f in news" ng-if="!loading">
-        <li class="media">
-            <div class="media-left">
-                <a>
-                    <img class="media-object notification-image" ng-src="{{f.mainImage}}">
+    <div class="padding-30" ng-if="!loading">
+        <ul class="media-list" ng-repeat="f in newsArray">
+            <li class="media displayFlexRow borderHoverColor">
+                <a ng-click="goToNews($index)">
+                    <img class="media-object news-image" ng-src="{{f.mainImage}}">
                 </a>
-            </div>
-            <div class="media-body">
-                <div class="row">
-                    <div class="col-md-10">
-                        <h4 class="media-heading"> {{f.title}} </h4>
-                        <h5>{{f.content}}</h5>
+                <div class="displayFlexColumn marginRight15">
+                    <h4 class="media-heading" ng-click="goToNews($index)"> {{f.title}} </h4>
+                    <h5 ng-click="goToNews($index)">{{f.content  | cut:true:200:' ...'}}</h5>
+                </div>
+                <span class="fa fa-trash newsDelete" g-click="deleteNews(f.id)"></span>
+            </li>
+        </ul>
+        <div class="paginationBox" ng-hide="news.length < 10 && skip == 0">
+            <nav aria-label="Page navigation">
+                <div class="col-md-12">
+                    <div class="col-md-5 padding-15">
+                        <a ng-hide="skip < 10" class="btn btn-default btnPagination pull-right" translate="PREVIOUS" ng-click="previous()"></a>
                     </div>
-                    <div class="col-lg-1 col-lg-offset-1 col-md-2 margin-bottom-0">
-                        <a class="btn btn-secundary pull-right buttonShow padding-left-0 padding-right-0" ng-click="goToNews($index)">
-                            <span class="fa fa-eye"></span>
-                            <label class="margin-bottom-0 fontSize13" translate="BSHOW"></label>
-                        </a>
-                        <a class="btn btn-secundary pull-right buttonDelete padding-left-0 padding-right-0" ng-click="deleteNews(f.id)">
-                            <span class="fa fa-times"></span>
-                            <label class="margin-bottom-0 fontSize13" translate="BDELETE"></label>
-                        </a>
+                    <div class="col-md-5 col-md-offset-2 padding-15">
+                        <a ng-hide="news.length < 10" class="btn btn-default btnPagination" translate="NEXT" ng-click="next()"></a>
                     </div>
                 </div>
-            </div>
-        </li>
-    </ul>
-    <div class="paginationBox" ng-hide="news.length <10 && skip == 0">
-        <nav aria-label="Page navigation">
-            <div class="col-md-12">
-                <div class="col-md-5 padding-15">
-                    <a ng-hide="skip < 10" class="btn btn-default pull-right" translate="PREVIOUS" ng-click="previous()"></a>
-                </div>
-                <div class="col-md-5 col-md-offset-2 padding-15">
-                    <a ng-hide="news.length < 10" class="btn btn-default" translate="NEXT" ng-click="next()"></a>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <div class="NoComments" ng-show="news.length == 0">
-        <h1 translate="NONEWS"></h1>
+            </nav>
+        </div>
+        <div class="NoComments" ng-show="news.length == 0">
+            <h1 translate="NONEWS"></h1>
+        </div>
     </div>
 </div>

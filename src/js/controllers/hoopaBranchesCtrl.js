@@ -1,6 +1,6 @@
-app.controller('HoopaBranchesCtrl', ['$scope', '$rootScope', '$translate', HoopaBranchesCtrl])
+app.controller('HoopaBranchesCtrl', ['$scope', '$rootScope', '$translate', '$state', HoopaBranchesCtrl])
 
-function HoopaBranchesCtrl ($scope, $rootScope, $translate) {
+function HoopaBranchesCtrl ($scope, $rootScope, $translate, $state) {
   $scope.getUser = function () {
     var currentUser = AV.User.current()
     if (!currentUser) {
@@ -20,6 +20,8 @@ function HoopaBranchesCtrl ($scope, $rootScope, $translate) {
   $scope.arrayBranchs = []
 
   $scope.branchUpdateId = -1
+
+  $scope.showAddBoxFlag = false
 
   $scope.init = function () {
     $('#addBrancheBox').addClass('ng-hide')
@@ -113,7 +115,14 @@ function HoopaBranchesCtrl ($scope, $rootScope, $translate) {
   }
 
   $scope.addBrancheFuntion = function () {
-    $('#addBrancheBox').removeClass('ng-hide')
+    if (!$scope.showAddBoxFlag){
+      $('#addBrancheBox').removeClass('ng-hide')
+      $scope.showAddBoxFlag = true
+    }
+    else {
+      $('#addBrancheBox').addClass('ng-hide')
+      $scope.showAddBoxFlag = false
+    }
   }
 
   $scope.addBranchs = function () {

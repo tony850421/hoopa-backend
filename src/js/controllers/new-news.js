@@ -62,9 +62,6 @@ function NewNewsCtrl ($scope, $state, $rootScope, $window, $timeout) {
       $scope.content = $scope.caption = ''
     } else {
       console.log('bad news...')
-    // var alert = $translate.instant('ALERT5')
-    // // alert(alert)
-    // $scope.alerts.push({type: 'danger', msg: alert})
     }
   }
 

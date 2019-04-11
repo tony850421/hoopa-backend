@@ -219,15 +219,7 @@
               <a href="#news" ng-click="changeActiveList('news')" ng-class="{'colorListActive': activeList == 'news'}">
                 <span class="menu-icon fa fa-file"></span>
                 <label class="listSecondLevel margin-bottom-0">{{'NEWS' | translate}}</label>
-              </a>
-              <ul class="padding-0 width100 listUnstyled" ng-class="{'hiddeNewProjectButton': activeList != 'news' && activeList != 'newnews'}">
-                <li>
-                  <a href="#new-news" style="padding-left: 10%;" ng-class="{'colorListActive': activeList == 'newnews'}">
-                    <span class="fa fa-plus menu-icon"></span>
-                    <label class="listThirdLevel margin-bottom-0">{{'NEWNEWS' | translate}}</label>
-                  </a>
-                </li>
-              </ul>
+              </a>              
             </li>
           </ul>
         </li>
@@ -294,11 +286,6 @@
                   <li class="dropdown-header dropdown-user" ng-if="getUser() != ' '">
                     <a href="#new-project" class="padding-0 font-size-16">
                       <i class="fa fa-briefcase marginLeft lineHeight"></i> {{'NEWPACKAGE' | translate}}
-                    </a>
-                  </li>
-                  <li class="dropdown-header dropdown-user" ng-if="getUser() != ' '">
-                    <a href="#new-news" class="padding-0 font-size-16">
-                      <i class="fa fa-file marginLeft lineHeight"></i> {{'NEWNEWS' | translate}}
                     </a>
                   </li>
                   <li class="dropdown-header dropdown-user" ng-if="getUser() != ' '">
