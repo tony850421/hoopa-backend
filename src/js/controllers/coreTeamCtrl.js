@@ -1,6 +1,6 @@
-app.controller('CoreTeamCtrl', ['$scope', '$rootScope', '$translate', CoreTeamCtrl])
+app.controller('CoreTeamCtrl', ['$scope', '$rootScope', '$translate', '$state', CoreTeamCtrl])
 
-function CoreTeamCtrl ($scope, $rootScope, $translate) {
+function CoreTeamCtrl ($scope, $rootScope, $translate, $state) {
   $scope.getUser = function () {
     var currentUser = AV.User.current()
     if (!currentUser) {

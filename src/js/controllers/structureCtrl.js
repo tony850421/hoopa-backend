@@ -1,6 +1,6 @@
-app.controller('StructureCtrl', ['$scope', '$rootScope', StructureCtrl])
+app.controller('StructureCtrl', ['$scope', '$rootScope', '$state', StructureCtrl])
 
-function StructureCtrl ($scope, $rootScope) {
+function StructureCtrl ($scope, $rootScope, $state) {
   $scope.getUser = function () {
     var currentUser = AV.User.current()
     if (!currentUser) {

@@ -1,6 +1,6 @@
-app.controller('ServicesProcessCtrl', ['$scope', '$rootScope', ServicesProcessCtrl])
+app.controller('ServicesProcessCtrl', ['$scope', '$rootScope', '$state', ServicesProcessCtrl])
 
-function ServicesProcessCtrl ($scope, $rootScope) {
+function ServicesProcessCtrl ($scope, $rootScope, $state) {
   $scope.getUser = function () {
     var currentUser = AV.User.current()
     if (!currentUser) {

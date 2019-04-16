@@ -1,6 +1,6 @@
-app.controller('HonorCtrl', ['$scope', '$rootScope', HonorCtrl])
+app.controller('HonorCtrl', ['$scope', '$rootScope', '$state', HonorCtrl])
 
-function HonorCtrl ($scope, $rootScope) {
+function HonorCtrl ($scope, $rootScope, $state) {
   $scope.getUser = function () {
     var currentUser = AV.User.current()
     if (!currentUser) {

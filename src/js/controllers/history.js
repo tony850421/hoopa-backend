@@ -1,6 +1,6 @@
-app.controller('HistoryCtrl', ['$scope', '$rootScope', HistoryCtrl])
+app.controller('HistoryCtrl', ['$scope', '$rootScope', '$state', HistoryCtrl])
 
-function HistoryCtrl ($scope, $rootScope) {
+function HistoryCtrl ($scope, $rootScope, $state) {
   $scope.getUser = function () {
     var currentUser = AV.User.current()
     if (!currentUser) {

@@ -1,9 +1,9 @@
 /**
  * Master Controller
  */
-app.controller('MasterCtrl', ['$scope', '$rootScope', '$cookieStore', '$translate', MasterCtrl])
+app.controller('MasterCtrl', ['$scope', '$rootScope', '$cookieStore', '$translate', '$state', MasterCtrl])
 
-function MasterCtrl ($scope, $rootScope, $cookieStore, $translate) {
+function MasterCtrl ($scope, $rootScope, $cookieStore, $translate, $state) {
   $rootScope.activeList = 'dashboard'
   $rootScope.notificationsMessages = false
   $rootScope.notificationsOffers = false

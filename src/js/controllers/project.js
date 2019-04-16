@@ -2,9 +2,9 @@
  * Login and signup Controller
  */
 
-app.controller('ProjectCtrl', ['$scope', '$rootScope', '$window', '$translate', ProjectCtrl])
+app.controller('ProjectCtrl', ['$scope', '$rootScope', '$window', '$translate', '$state', ProjectCtrl])
 
-function ProjectCtrl ($scope, $rootScope, $window, $translate) {
+function ProjectCtrl ($scope, $rootScope, $window, $translate, $state) {
   $scope.getUser = function () {
     var currentUser = AV.User.current()
     if (!currentUser) {

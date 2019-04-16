@@ -1,4 +1,4 @@
-app.controller('GroupIntroductionCtrl', ['$scope', '$rootScope', GroupIntroductionCtrl])
+app.controller('GroupIntroductionCtrl', ['$scope', '$rootScope', '$state', GroupIntroductionCtrl])
 
 function GroupIntroductionCtrl ($scope, $rootScope) {
   $scope.getUser = function () {
