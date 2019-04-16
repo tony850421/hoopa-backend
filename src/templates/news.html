@@ -106,10 +106,12 @@
         </div>        
     </div>
 
-    <button class="btn btn-lg buttonAddMember" ng-click="addNewsFunction()" ng-if="!loading">
-        <span class="icon-add cursorPointer fontSize40"></span>
-        <label class="margin-bottom-0 fontSize13 cursorPointer fontSize24" translate="ADDTEAMMEMBER"></label>
-    </button>
+    <div class="padding-30">
+        <button class="btn btn-lg buttonAddMember" ng-click="addNewsFunction()" ng-if="!loading">
+            <span class="icon-add cursorPointer fontSize40"></span>
+            <label class="margin-bottom-0 fontSize13 cursorPointer fontSize24" translate="ADDTEAMMEMBER"></label>
+        </button>
+    </div>
 
     <div class="padding-30" ng-if="!loading">
         <ul class="media-list" ng-repeat="f in newsArray">

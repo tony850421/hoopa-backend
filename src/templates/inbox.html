@@ -1,10 +1,10 @@
-<div class="row" ng-controller="InboxCtrl">
+<div class="row groupIntroductonStyle paddingInboxBox" ng-controller="InboxCtrl">
 
     <div ng-if="loading">
         <rd-loading></rd-loading>
     </div>
 
-    <div ng-if="!loading" ng-hide="inbox.length == 0" class="col-md-3 padding-0 marginTopInbox margin-bottom-0 scrollbarUser" style="overflow-y: scroll; height: {{height-60}}px;">
+    <div ng-if="!loading" ng-hide="inbox.length == 0" class="col-md-3 padding-0 marginTopInbox margin-bottom-0 scrollbarUser" style="overflow-y: scroll; height: {{height-120}}px;">
         <div ng-repeat="i in inbox" class="messagesInbox cursorPointer" ng-class="{'colorListActive': i.senderId == senderId}">
             <div ng-click="goToConversation(i)" class="col-md-12 padding-0 groupUserRow">
                 <div class="marginAvatar">
@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="col-md-9 marginTopInbox margin-bottom-0 padding-0 backgroundMessage" ng-hide="inbox.length == 0">
-        <div id="messagesCamp" class="messageBox margin-bottom-0" style="overflow-y: scroll; height: {{height-150}}px;">
+        <div id="messagesCamp" class="messageBox margin-bottom-0" style="overflow-y: scroll; height: {{height-210}}px;">
             <div ng-repeat="i in Messages">
                 <div class="senderGroup col-md-12" ng-if="i.type == 'sender'" id="{{i.id}}">
                     <label class="labelDateSender">{{i.releaseTime}}</label>

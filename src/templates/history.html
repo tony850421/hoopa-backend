@@ -1,19 +1,11 @@
 <div class="row groupIntroductonStyle" ng-controller="HistoryCtrl">
-
-    <div ng-if="loading">
-        <rd-loading></rd-loading>
-    </div>
-
-    <div class="pageHeader" ng-if="!loading">
+    <div class="pageHeader">
         <label class="subheaderPage">{{'HISTORY' | translate}}</label>
-        <span class="fa fa-align-left spanModeView"
-            ng-class="{spanModeViewOpacity: modeGroupIntroduction != '1'}"
+        <span class="fa fa-align-left spanModeView marginRight30" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '1'}"
             ng-click="changeMode(1)"></span>
-        <span class="fa fa-align-right spanModeView"
-            ng-class="{spanModeViewOpacity: modeGroupIntroduction != '2'}"
-            ng-click="changeMode(2)"></span>
+        <span class="icon-contenido_abajo spanModeView marginRight15" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '2'}"></span>
     </div>
-    <div class="displayFlexColumn padding-30"  ng-if="!loading">
+    <div class="displayFlexColumn padding-60">
         <div class="imageGroupIntroductionBox">
             <label class="subheader">{{'ADDIMAGE' | translate}}</label>
             <div class="addImageBox">
@@ -23,13 +15,10 @@
                     ng-show="imageGroupIntroductionFlag"
                     id="imageGroupIntroduction">
             </div>
-            <input type="file" class="custom-file-input
-                inputGruopIntroductionImage form-control"
-                id="groupIntroductionPicture"
+            <input type="file" class="custom-file-input inputGruopIntroductionImage form-control" id="groupIntroductionPicture"
                 onchange="angular.element(this).scope().changeImageGroupIntroduction()">
         </div>
-        <div class="imageGroupIntroductionBox marginTop10" ng-repeat="i in
-            timelineArray" ng-show="i.id != '5caaf0120237d70068f85323'">
+        <div class="imageGroupIntroductionBox marginTop10" ng-repeat="i in timelineArray" ng-show="i.id != '5caaf0120237d70068f85323'">
             <span class="fa fa-times spanCitiesClose" ng-click="deleteMember(i.id)"></span>
             <div class="displayFlexColumn">
                 <div class="displayFlexRow">

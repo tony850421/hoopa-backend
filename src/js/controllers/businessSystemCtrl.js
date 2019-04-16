@@ -1,6 +1,6 @@
-app.controller('BusinessSystemCtrl', ['$scope', '$rootScope', BusinessSystemCtrl])
+app.controller('BusinessSystemCtrl', ['$scope', '$rootScope', '$state', BusinessSystemCtrl])
 
-function BusinessSystemCtrl ($scope, $rootScope) {
+function BusinessSystemCtrl ($scope, $rootScope, $state) {
   $scope.getUser = function () {
     var currentUser = AV.User.current()
     if (!currentUser) {
@@ -9,7 +9,7 @@ function BusinessSystemCtrl ($scope, $rootScope) {
   }
 
   $scope.getUser()
-  
+
   $rootScope.activeList = 'business'
 
   $scope.imageGroupIntroduction = ''
@@ -142,10 +142,10 @@ function BusinessSystemCtrl ($scope, $rootScope) {
 
   $scope.changeValueMainImage = function (index) {
     var id = '#updateBusinessImage_' + index
-    readURL($(id)[0], index)
+    readURLArray($(id)[0], index)
   }
 
-  function readURL (input, index) {
+  function readURLArray (input, index) {
     var id = '#updateBusinessImage_' + index
     if (input.files && input.files[0]) {
       var reader = new FileReader()

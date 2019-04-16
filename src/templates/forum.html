@@ -1,36 +1,27 @@
-<div class="col-lg-12" ng-controller="ForumCtrl">
+<div class="row groupIntroductonStyle padding-60" ng-controller="ForumCtrl">
 
     <div ng-if="loading">
         <rd-loading></rd-loading>
     </div>
 
     <div class="inboxBox" ng-hide="forumComments.length == 0" ng-if="!loading">
-        <div ng-repeat="comment in forumComments" class="OfferBox">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12
-                forumContentGroup">
-                <div class="col-md-1">
-                    <img class="imgAvatarForum" ng-src="{{comment.userAvatar}}"
-                        />
+        <div ng-repeat="comment in forumComments" class="mediaOffers padding20 borderHoverColor">
+            <div class="forumContentGroup">
+                <div class="displayFlexColumn width10">
+                    <img class="imgAvatarForum" ng-src="{{comment.userAvatar}}" />
                 </div>
-                <div class="offerContent col-md-8">
+                <div class="displayFlexColumn width60">
                     <h5>{{comment.userFullName}}</h5>
                     <h5>{{comment.content}}</h5>
                 </div>
-                <div class="col-md-2">
-                    <img ng-click="goToProject(comment.projectId)"
-                        class="media-object forum-image pull-right
-                        cursorPointer" ng-src="{{comment.productImageUrl}}">
+                <div class="displayFlexColumn width10">
+                    <img ng-click="goToProject(comment.projectId)" class="media-object forum-image pull-right cursorPointer" ng-src="{{comment.productImageUrl}}">
                 </div>
-                <div class="col-md-1 margin-bottom-0 offerDate">
-                    <span class="fa fa-clock-o pull-right margin-right-10">
-                        {{comment.date}}</span>
-                    <a class="btn btn-secundary pull-right
-                        buttonDelete buttonDeleteForum"
-                        ng-click="deleteComment(comment.id)">
-                        <span class="fa fa-times"></span>
-                        <label class="margin-bottom-0 fontSize13"
-                            translate="BDELETE"></label>
-                    </a>
+                <div class="displayFlexColumn width10">
+                    <span class="icon-fecha pull-right margin-right-10"> {{comment.date}}</span>
+                </div>
+                <div class="displayFlexColumn width10">
+                    <span class="fa fa-trash iconDeleteForum" ng-click="deleteComment(comment.id)"></span>
                 </div>
             </div>
         </div>
@@ -39,12 +30,10 @@
         <nav aria-label="Page navigation">
             <div class="col-md-12">
                 <div class="col-md-5 padding-15">
-                    <a ng-hide="skip <10" class="btn btn-default pull-right"
-                        translate="PREVIOUS" ng-click="previous()"></a>
+                    <a ng-hide="skip <10" class="btn btn-default pull-right btnPagination" translate="PREVIOUS" ng-click="previous()"></a>
                 </div>
                 <div class="col-md-5 col-md-offset-2 padding-15">
-                    <a ng-hide="forumComments.length <10" class="btn
-                        btn-default" translate="NEXT" ng-click="next()"></a>
+                    <a ng-hide="forumComments.length <10" class="btn btn-default btnPagination" translate="NEXT" ng-click="next()"></a>
                 </div>
             </div>
         </nav>

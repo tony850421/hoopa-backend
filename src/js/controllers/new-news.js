@@ -93,10 +93,8 @@ function NewNewsCtrl ($scope, $state, $rootScope, $window, $timeout) {
 
         $scope.news.save().then(function (news) {
           $scope.recursiveMediaSave($scope.newsMedias, 0)
-          $scope.loading = false
           $state.go('news')
         }, function (error) {
-          // $scope.loading = false
           alert(JSON.stringify(error))
         })
       } else {

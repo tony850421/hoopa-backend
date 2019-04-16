@@ -28,15 +28,26 @@ function ForumCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageS
       queryComment.limit(10)
       queryComment.find().then(function (res) {
         $scope.forumComments = []
+        console.log(res)
         res.forEach(function (comment) {
-          var userFullName = comment.get('user').get('fullName')
+          console.log(comment)
+          var userFullName = comment.get('user')
+          // var userFullName = comment.get('user').get('fullName')
+          console.log(userFullName)
           var date = (comment.createdAt.getMonth() + 1) + '/' + comment.createdAt.getDate() + '/' + comment.createdAt.getFullYear()
+          console.log(date)
           var avatar = comment.get('user').get('avatarUrl')
+          console.log(avatar)
           var content = comment.get('content')
+          console.log(content)
           var userId = comment.get('user').id
+          console.log(userId)
           var projectId = comment.get('project').id
+          console.log(projectId)
           var commentId = comment.id
+          console.log(commentId)
           var productImage = comment.get('project').get('image')
+          console.log(productImage)
 
           var productImageUrl
           if (productImage) {
@@ -55,6 +66,8 @@ function ForumCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageS
             id: commentId,
             productImageUrl: productImageUrl
           })
+
+          console.log($scope.forumComments)
 
           $scope.$apply()
         })

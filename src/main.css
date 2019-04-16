@@ -136,8 +136,8 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
 }
 
 .notification-image {
-  height: 100px !important;
-  width: 100px !important;
+  width: 150px !important;
+  height: 120px !important;
   object-fit: cover;
 }
 
@@ -178,7 +178,11 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
 }
 
 .marginRight15 {
-  margin-right: 15px;
+  margin-right: 15px !important;
+}
+
+.marginRight30 {
+  margin-right: 30px !important;
 }
 
 .loginBox {
@@ -205,7 +209,7 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
 }
 
 .newProject {
-  background-color: white;
+  background-color: #fff;
   padding: 15px;
   margin-left: 3%;
   margin-top: 2%;
@@ -217,10 +221,6 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
 
 .no-resize {
   resize: none !important;
-}
-
-.page {
-  cursor: pointer;
 }
 
 .imgLogo {
@@ -320,7 +320,7 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
 }
 
 .messagesInbox {
-  background-color: white;
+  background-color: #fff;
   border-bottom: 1px #EFEFEF solid;
   display: flex;
   flex-direction: row;
@@ -328,31 +328,11 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
   padding-bottom: 10px;
 }
 
-.OfferBox {
-  display: flex;
-  flex-direction: column;
-}
-
-.offerContentGroup {
-  display: flex;
-  flex-direction: row;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: white;
-  border: 1px #EFEFEF solid;
-  align-items: center;
-  margin-top: 10px;
-}
-
 .forumContentGroup {
   display: flex;
   flex-direction: row;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: white;
-  border: 1px #EFEFEF solid;
   align-items: center;
-  margin-bottom: 10px;
+  width: 100%;
 }
 
 .imgAvatar {
@@ -392,7 +372,7 @@ html, body, button, div, section, a, h1, h2, h3, h4, h5, h6 {
 }
 
 ul.sidebar .sidebar-title {
-  color: white !important;
+  color: #fff !important;
   font-size: 16px !important;
 }
 
@@ -421,10 +401,21 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .media {
-  background-color: white !important;
+  background-color: #fff !important;
   padding: 10px !important;
   border-radius: 5px !important;
   border: 1px #EFEFEF solid !important;
+  display: flex;
+  flex-direction: row;
+}
+
+.mediaOffers {
+  background-color: #fff !important;
+  padding: 10px !important;
+  border-radius: 5px !important;
+  border: 1px #EFEFEF solid !important;
+  display: flex;
+  flex-direction: row;
 }
 
 .padding-0 {
@@ -473,21 +464,21 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .buttonDelete {
-  color: white !important;
+  color: #fff !important;
   background-color: #F36C28 !important;
   width: 80px;
   margin-top: 5px;
 }
 
 .buttonUpdate {
-  color: white !important;
+  color: #fff !important;
   background-color: #F36C28 !important;
   width: 80px;
   margin-top: 5px;
 }
 
 .buttonShow {
-  color: white !important;
+  color: #fff !important;
   background-color: #F36C28 !important;
   width: 80px;
 }
@@ -508,7 +499,7 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .backgroundGray {
-  background-color: #ecf0f5;
+  background-color: #f5f5f5;
 }
 
 .backgroundMessage {
@@ -540,6 +531,38 @@ ul.sidebar .sidebar-list a:hover {
   width: 100%;
 }
 
+.width7 {
+  width: 7% !important;
+}
+
+.width8 {
+  width: 8% !important;
+}
+
+.width9 {
+  width: 9% !important;
+}
+
+.width10 {
+  width: 10% !important;
+}
+
+.width20 {
+  width: 20% !important;
+}
+
+.width11 {
+  width: 11% !important;
+}
+
+.width12 {
+  width: 12% !important;
+}
+
+.width13 {
+  width: 13% !important;
+}
+
 .width30 {
   width: 30% !important;
 }
@@ -548,12 +571,24 @@ ul.sidebar .sidebar-list a:hover {
   width: 40%;
 }
 
+.width45 {
+  width: 45%;
+}
+
+.width50 {
+  width: 50%;
+}
+
 .width60 {
   width: 60%;
 }
 
 .width70 {
   width: 70%;
+}
+
+.height120 {
+  height: 120px;
 }
 
 .MessagesUser {
@@ -568,7 +603,7 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .MessagesAdmin {
-  background-color: white;
+  background-color: #fff;
   max-width: 400px;
   min-width: 300px;
   padding: 15px;
@@ -732,6 +767,13 @@ ul.sidebar .sidebar-list a:hover {
   margin-right: 15px;
 }
 
+.imageMainCities {
+  width: 120px;
+  height: 90px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
 .mainNewsImage {
   width: 150px;
   height: 150px;
@@ -803,13 +845,14 @@ ul.sidebar .sidebar-list a:hover {
   position: absolute !important;
   z-index: 5;
   margin-left: 3%;
-  background-color: #F36C28;
+  background-color: #F36C28 !important;
   font-size: 13px !important;
 }
 
 .offerContent {
   display: flex;
   flex-direction: column;
+  align-self: center;
 }
 
 .angles {
@@ -824,8 +867,7 @@ ul.sidebar .sidebar-list a:hover {
 .offerResponse {
   display: flex;
   flex-direction: row;
-  background-color: white;
-  border-bottom: 1px solid #EFEFEF;
+  background-color: #fff;
 }
 
 .textAreaOfferResponse {
@@ -854,11 +896,6 @@ ul.sidebar .sidebar-list a:hover {
   align-items: center;
 }
 
-.sendButtonOffer {
-  width: 100%;
-  padding-top: 30px;
-}
-
 .colorMoney {
   color: #F36C28;
 }
@@ -866,6 +903,7 @@ ul.sidebar .sidebar-list a:hover {
 .iconClasBar {
   font-size: 35px !important;
   margin-top: 5px;
+  color: #d2d2d2 !important;
 }
 
 .badgeNotifications {
@@ -879,11 +917,12 @@ ul.sidebar .sidebar-list a:hover {
   padding-right: 0px !important;
   padding-bottom: 0px !important;
   padding-left: 0px !important;
+  background-color: #F36C28 !important;
 }
 
 .badgeMessage {
   position: absolute !important;
-  background-color: #F36C28;
+  background-color: #F36C28 !important;
   z-index: 2;
   width: 10px;
   height: 10px;
@@ -913,7 +952,8 @@ ul.sidebar .sidebar-title:hover {
 }
 
 ul.sidebar .sidebar-list a {
-  color: white;
+  color: #fff;
+  line-height: 50px !important;
 }
 
 ul.sidebar .sidebar-list a:hover {
@@ -926,38 +966,38 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 .widget-iconUser {
-  background-color: white !important;
+  background-color: #fff !important;
 }
 
 .widget-iconProjects {
-  background-color: white !important;
+  background-color: #fff !important;
 }
 
 .widget-iconVisits {
-  background-color: white !important;
+  background-color: #fff !important;
 }
 
 .widget-iconOffers {
-  background-color: white !important;
+  background-color: #fff !important;
 }
 
 .widget-bodyUser {
-  background-color: white !important;
+  background-color: #fff !important;
   color: #F36C28 !important;
 }
 
 .widget-bodyProjects {
-  background-color: white !important;
+  background-color: #fff !important;
   color: #F36C28 !important;
 }
 
 .widget-bodyVisits {
-  background-color: white !important;
+  background-color: #fff !important;
   color: #F36C28 !important;
 }
 
 .widget-bodyOffers {
-  background-color: white !important;
+  background-color: #fff !important;
   color: #F36C28 !important;
 }
 
@@ -975,11 +1015,11 @@ ul.sidebar .sidebar-list a:hover {
 
 .table {
   margin-bottom: 0px !important;
-  background-color: white !important;
+  background-color: #fff !important;
 }
 
 .widget-header {
-  background-color: white !important;
+  background-color: #fff !important;
 }
 
 .backgroundListTable {
@@ -987,7 +1027,7 @@ ul.sidebar .sidebar-list a:hover {
 }
 
 tr {
-  background-color: white !important;
+  background-color: #fff !important;
 }
 
 .VisitTitle {
@@ -1007,9 +1047,7 @@ tr {
 }
 
 .styleViewProject {
-  background-color: white;
-  border: 1px solid #EFEFEF;
-  padding: 15px;
+  background-color: #F5F5F5;
 }
 
 .paddingView {
@@ -1065,7 +1103,7 @@ tr {
   z-index: 10;
   margin-top: 30%;
   font-size: 60px;
-  color: white;
+  color: #fff;
   margin-left: 2%;
 }
 
@@ -1076,7 +1114,7 @@ tr {
   z-index: 10;
   margin-top: 30%;
   font-size: 60px;
-  color: white;
+  color: #fff;
   margin-left: 94%;
 }
 
@@ -1091,8 +1129,7 @@ tr {
 }
 
 .titleProjectStyle {
-  display: flex;
-  flex-direction: row;
+  width: 60%;
 }
 
 .editTitleBox {
@@ -1170,6 +1207,8 @@ tr {
 .facts {
   padding: 10px !important;
   height: 40px;
+  border-bottom: 1px solid #f5f5f5 !important;
+  margin-bottom: 10px;
 }
 
 .listNewsGroup {
@@ -1186,7 +1225,7 @@ tr {
 }
 
 .buttonPagination {
-  background-color: white;
+  background-color: #fff;
 }
 
 .margin-top--10 {
@@ -1195,6 +1234,7 @@ tr {
 
 .imageNew {
   width: 100%;
+  object-fit: cover;
 }
 
 .textEnd {
@@ -1228,7 +1268,7 @@ tr {
 }
 
 .divUser {
-  background-color: white;
+  background-color: #fff;
   border: 1px solid #d6d6d6;
   margin-top: 10px;
   padding: 5px;
@@ -1265,6 +1305,7 @@ tr {
 .offerDate {
   padding-left: 5px !important;
   padding-right: 5px !important;
+  align-self: center;
 }
 
 .buttonDeleteForum {
@@ -1281,7 +1322,7 @@ tr {
   float: right;
   width: 160px;
   background-color: #F36C28;
-  color: white;
+  color: #fff;
 }
 
 .BranchesView {
@@ -1309,10 +1350,9 @@ tr {
 .BranchesViewAdd {
   background-color: #fff;
   padding: 15px;
-  margin: 2% 3%;
   border: 1px solid #EFEFEF;
   border-radius: 5px;
-  width: 94% !important;
+  width: 100% !important;
   display: flex;
   flex-direction: column;
 }
@@ -1476,10 +1516,6 @@ tr {
   margin-left: 0px !important;
 }
 
-.listFirstLevel:hover, .listThirdLevel:hover, .listSecondLevel:hover, .listFourLevel:hover {
-  cursor: pointer;
-}
-
 .marginLeft-5 {
   margin-left: -5px !important;
 }
@@ -1542,7 +1578,7 @@ tr {
 .spanCitiesClose:hover {
   cursor: pointer;
   background-color: #F36C28 !important;
-  color: white !important;
+  color: #fff !important;
 }
 
 /* style for unput type file image */
@@ -1602,6 +1638,15 @@ tr {
   right: 15px;
 }
 
+.imageInputCities {
+  position: absolute;
+  z-index: 7;
+  width: 130px;
+  height: 130px;
+  margin-top: -115px;
+  margin-left: -15px;
+}
+
 .imageInputCoreTeam {
   position: absolute;
   z-index: 100;
@@ -1626,10 +1671,6 @@ tr {
   margin-top: -150px;
 }
 
-.imageInput:hover, .imageInputCoreTeam:hover, .imageInputCoreTeamArray:hover {
-  cursor: pointer;
-}
-
 .updateCityImageImput {
   position: absolute;
   top: 0;
@@ -1638,8 +1679,19 @@ tr {
   z-index: 100;
 }
 
-.updateCityImageImput:hover {
-  cursor: pointer;
+.updateNewsImageImput {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  z-index: 100;
+}
+
+.iconAddImage {
+  z-index: 1;
+  position: absolute;
+  font-size: 40px;
+  padding: 15px;
+  color: #fff;
 }
 
 .buttonsOrder {
@@ -1659,10 +1711,6 @@ tr {
 
 .styleAngleOrderDisabled:hover {
   cursor: not-allowed !important;
-}
-
-.styleAngleOrder:hover {
-  cursor: pointer !important;
 }
 
 .buttonOrderSpan {
@@ -1697,18 +1745,18 @@ tr {
 }
 
 .imageGroupIntroductionBox {
-  background-color: white;
+  background-color: #fff;
   padding: 20px;
 }
 
 .imageServicesProcessBox {
-  background-color: white;
+  background-color: #fff;
   padding: 20px;
   width: 25%;
 }
 
 .textServicesProcessBox {
-  background-color: white;
+  background-color: #fff;
   padding: 20px;
   width: 73%;
   margin-left: 2%;
@@ -1733,7 +1781,7 @@ tr {
 }
 
 .businessSystemImageBox {
-  background-color: white;
+  background-color: #fff;
   width: 100%;
   height: 160px;
   margin-top: 10px;
@@ -1762,7 +1810,7 @@ tr {
 }
 
 .pageHeader {
-  background-color: white;
+  background-color: #fff;
   height: 50px;
   padding-top: 15px;
   padding-left: 30px;
@@ -1778,10 +1826,6 @@ tr {
   margin-left: 5px;
   margin-right: 5px;
   font-size: 20px !important;
-}
-
-.spanModeView:hover {
-  cursor: pointer;
 }
 
 .inputGruopIntroductionImage {
@@ -1926,12 +1970,12 @@ tr {
   justify-content: center;
   align-items: center;
   margin-left: 10px;
-  background-color: white;
+  background-color: #fff;
   padding: 10px;
 }
 
 .spanOrderBoxCoreTeamUp {
-  background-color: white;
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1946,12 +1990,12 @@ tr {
   justify-content: center;
   align-items: center;
   margin-left: 10px;
-  background-color: white;
+  background-color: #fff;
   padding: 10px;
 }
 
 .spanOrderBoxCitiesUp {
-  background-color: white;
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1981,7 +2025,7 @@ tr {
 }
 
 .spanOrderBoxBranchUp {
-  background-color: white;
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1996,11 +2040,11 @@ tr {
   justify-content: center;
   align-items: center;
   margin-left: 10px;
-  background-color: white;
+  background-color: #fff;
   padding: 10px;
 }
 
-.spanOrderBoxCoreTeam:hover, .spanOrderBoxCoreTeamUp:hover, .spanOrderBox:hover, .spanOrderBoxUp:hover, .spanOrderBoxBranch:hover, .spanOrderBoxBranchUp:hover {
+.spanOrderBoxCoreTeam:hover, .spanOrderBoxCoreTeamUp:hover, .spanOrderBox:hover, .spanOrderBoxUp:hover, .spanOrderBoxBranch:hover, .spanOrderBoxBranchUp:hover, .spanModeView:hover, .listFirstLevel:hover, .listThirdLevel:hover, .listSecondLevel:hover, .listFourLevel:hover, span.fa-angle-down:hover, span.fa-angle-up:hover, .buttonAddMember:hover, .page, .imageInput:hover, .imageInputCoreTeam:hover, .imageInputCoreTeamArray:hover, .updateCityImageImput:hover, .styleAngleOrder:hover, .iconAddImage:hover, .updateNewsImageImput:hover, .imageInputCities:hover, .spanCitiesUpdate:hover, .imageMainCities:hover {
   cursor: pointer;
 }
 
@@ -2020,19 +2064,15 @@ tr {
   margin-top: 6px;
 }
 
-span.fa-angle-down:hover, span.fa-angle-up:hover {
-  cursor: pointer;
-}
-
 .inputChangePictureBusinessSystem {
   position: absolute;
-  width: 68%;
+  width: 65%;
   z-index: 100;
   height: 160px;
 }
 
 .backgroundWhite {
-  background-color: white;
+  background-color: #fff !important;
 }
 
 .buttonAddServicesProcess {
@@ -2047,7 +2087,7 @@ span.fa-angle-down:hover, span.fa-angle-up:hover {
   padding: 15px;
   border: 1px solid #F5F5F5;
   box-shadow: 1px 1px 1px #F5F5F5;
-  background-color: white;
+  background-color: #fff;
 }
 
 .width90P {
@@ -2100,11 +2140,17 @@ span.fa-angle-down:hover, span.fa-angle-up:hover {
   .spanTextAdd {
     margin-top: 7%;
   }
+  .loginBoxInside{
+    margin-top: 28%;
+  }
 }
 
 @media(min-width: 1080px) {
   .spanTextAdd {
     margin-top: 6%;
+  }  
+  .loginBoxInside{
+    margin-top: 28%;
   }
 }
 
@@ -2112,17 +2158,32 @@ span.fa-angle-down:hover, span.fa-angle-up:hover {
   .spanTextAdd {
     margin-top: 5%;
   }
+  .loginBoxInside{
+    margin-top: 25%;
+  }
 }
 
 @media(min-width: 1366px) {
   .spanTextAdd {
     margin-top: 5%;
   }
+  .loginBoxInside{
+    margin-top: 21%;
+  }
 }
 
 @media(min-width: 1600px) {
   .spanTextAdd {
     margin-top: 3%;
+  }
+  .loginBoxInside{
+    margin-top: 20%;
+  }
+}
+
+@media(min-width: 1800px) {  
+  .loginBoxInside{
+    margin-top: 15%;
   }
 }
 
@@ -2140,21 +2201,7 @@ span.fa-angle-down:hover, span.fa-angle-up:hover {
 }
 
 .buttonAddMember {
-  background-color: white !important;
-  color: #3333337a !important;
-  border: 1px solid #F5F5F5 !important;
-  border-radius: 0 !important;
-  width: 95%;
-  height: 100px;
-  margin-left: 30px;
-  display: flex !important;
-  flex-direction: column;
-  align-items: center;
-  align-content: center;
-}
-
-.buttonAddMediaNews {
-  background-color: white !important;
+  background-color: #fff !important;
   color: #3333337a !important;
   border: 1px solid #F5F5F5 !important;
   border-radius: 0 !important;
@@ -2166,14 +2213,24 @@ span.fa-angle-down:hover, span.fa-angle-up:hover {
   align-content: center;
 }
 
-.buttonAddMember:hover {
-  cursor: pointer;
+.buttonAddMediaNews {
+  background-color: #fff !important;
+  color: #3333337a !important;
+  border: 1px solid #F5F5F5 !important;
+  border-radius: 0 !important;
+  width: 100%;
+  height: 100px;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
 }
 
 .coreTeamList {
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .coreTeamItem {
@@ -2212,9 +2269,8 @@ span.fa-angle-down:hover, span.fa-angle-up:hover {
   margin-left: auto;
   margin-right: auto;
   padding: 15px;
-  background-color: white;
+  background-color: #fff;
   box-shadow: 1px 1px 1px #d2d2d2;
-  margin-top: 20%;
   border: 1px solid #d2d2d2;
 }
 
@@ -2280,7 +2336,7 @@ span.fa-angle-down:hover, span.fa-angle-up:hover {
   display: flex;
   flex-direction: row;
   padding: 15px;
-  background-color: white;
+  background-color: #fff;
   width: 100%;
 }
 
@@ -2297,25 +2353,97 @@ span.fa-angle-down:hover, span.fa-angle-up:hover {
   font-size: 120px;
 }
 
-.borderHoverColor:hover{
+.borderHoverColor:hover {
   border: 1px solid #F36C28 !important;
   cursor: pointer !important;
 }
 
-.btnPagination{
-  background-color: white !important;
+.btnPagination {
+  background-color: #fff !important;
   color: black !important;
   width: 80px;
   height: 30px;
 }
 
-.btnPagination:hover{
+.btnPagination:hover {
   border: 1px solid #F36C28 !important;
   color: #F36C28 !important;
 }
 
-.textAreaNewsTitle{
+.textAreaNewsTitle {
   width: 100%;
+  min-height: 120px;
   margin-bottom: 5px;
   resize: none;
+}
+
+.alignVerticalMiddle {
+  align-self: center;
+  text-align: center;
+}
+
+.iconDeleteProject {
+  color: #F36C28;
+  font-size: 30px !important;
+}
+
+.iconDeleteForum {
+  font-size: 26px !important;
+  color: #F36C28;
+  text-align: center;
+}
+
+.iconShowProject {
+  color: #4AD991;
+  font-size: 24px;
+  margin-top: 3px;
+}
+
+.sendButtonOffer {
+  margin: 0px !important;
+  font-size: 26px !important;
+  padding-top: 30px !important;
+  width: 100%;
+}
+
+.iconClasBar:hover {
+  text-decoration: none !important;
+}
+
+#addCityBox {
+  padding: 20px !important;
+  margin-bottom: 0px !important;
+}
+
+.imageUpdateCitiBox {
+  padding: 20px;
+}
+
+.spanCitiesUpdate {
+  font-size: 100px;
+}
+
+.paddingInboxBox {
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
+
+.textPrice {
+  color: #F36C28 !important;
+}
+
+.stateStyle {
+  background-color: #4AD991;
+  border-radius: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.paddingGroupIntroduction{
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  padding-top: 0px;
 }

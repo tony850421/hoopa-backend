@@ -14,7 +14,12 @@
             </a>
         </div>
     </div>
-    <img class="imageNew" ng-src="{{mainImage}}"/>
+    <div class="displayFlexRow">
+        <img class="imageNew" id="mainImageNews" ng-src="{{mainImage}}"/>
+        <input type="file" class="custom-file-input updateNewsImageImput" id="updateMainImageNews" 
+                            onchange="angular.element(this).scope().changeValueMainImage()">
+        <span class="icon-add iconAddImage"></span>
+    </div>
     <div class="displayFlexRow">
       <h5 id="newsContent">{{newsContent}}</h5>
       <textarea id="updateNewsContent" ng-change="updateNewsContent()" class="ng-hide textAreaNewsTitle" type="text" ng-model="newsContent"></textarea>
@@ -29,10 +34,41 @@
             </a>
         </div>
     </div>
-    <div class="medias" ng-repeat="m in newsMedia">
-      <img class="imageNew" ng-src="{{m.get('image').get('url')}}"/>
-      <h5>{{m.get('caption')}}</h5>
-      <h5>{{m.get('content')}}</h5>
+    <div class="medias marginTop15" ng-repeat="m in newsMedia">
+        <div class="displayFlexRow">
+            <img class="imageNew" id="imageNewsContent_{{$index}}" ng-src="{{m.get('image').get('url')}}"/>
+            <input type="file" class="custom-file-input updateNewsImageImput" id="updateImageNewsContent_{{$index}}" 
+                            onchange="angular.element(this).scope().changeValueContentImage(angular.element(this).scope().$index)">
+            <span class="icon-add iconAddImage"></span>
+        </div>
+        <div class="displayFlexRow" ng-show="m.get('caption').length > 0">
+            <h5 id="newsCaption_{{$index}}">{{m.get('caption')}}</h5>
+            <textarea id="updateNewsCaption_{{$index}}" ng-change="updateNewsCaptionList($index)" class="ng-hide textAreaNewsTitle" type="text" ng-model="newsCaptionList"></textarea>
+            <div id="editNewsCaption_{{$index}}" class="buttonEditHidden">
+                <a type="button" class="btn btnEditCityPrice buttonEdit" ng-click="editNewsCaptionList($index,m.get('caption'))">
+                    <span class="fa fa-edit"></span>
+                </a>
+            </div>
+            <div id="saveNewsCaption_{{$index}}" class="ng-hide">
+                <a type="button" class="btn btnEditCityPrice buttonEditSave" ng-click="saveNewsCaptionList($index, newsMedia.get('objectId'))">
+                    <span class="fa fa-save"></span>
+                </a>
+            </div>
+        </div>
+        <div class="displayFlexRow" ng-show="m.get('content').length > 0">
+            <h5 id="newsContent_{{$index}}">{{m.get('content')}}</h5>
+            <textarea id="updateNewsContent_{{$index}}" ng-change="updateNewsContentList($index)" class="ng-hide textAreaNewsTitle" type="text" ng-model="newsContentList"></textarea>
+            <div id="editNewsContent_{{$index}}" class="buttonEditHidden">
+                <a type="button" class="btn btnEditCityPrice buttonEdit" ng-click="editNewsContentList($index,m.get('content'))">
+                    <span class="fa fa-edit"></span>
+                </a>
+            </div>
+            <div id="saveNewsContent_{{$index}}" class="ng-hide">
+                <a type="button" class="btn btnEditCityPrice buttonEditSave" ng-click="saveNewsContentList($index, newsMedia.get('objectId'))">
+                    <span class="fa fa-save"></span>
+                </a>
+            </div>
+        </div>
     </div>
   </form>
 </div>

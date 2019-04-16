@@ -23,9 +23,6 @@ function CitiesCtrl ($scope, $rootScope, $translate, $state) {
   $scope.cityDescriptionNew = ''
   $scope.cityVisibilityNew = false
 
-  $scope.priceUpdate = ''
-  $scope.nameUpdate = ''
-  $scope.descriptionUpdate = ''
   $scope.imageUpdate = ''
   $scope.cityVisibilityUpdate = ''
 
@@ -44,13 +41,14 @@ function CitiesCtrl ($scope, $rootScope, $translate, $state) {
 
   $scope.init = function () {
     $('#updateMemberBox').addClass('ng-hide')
-    $('#addCityBox').addClass('ng-hide')
 
     $scope.arrayCities = []
     var cities = new AV.Query('Cities')
     cities.ascending('order')
     cities.find().then(function (res) {
       res.forEach(function (element) {
+        $scope.imageUpdate = ''
+
         var mainImage = element.get('image').thumbnailURL(240, 240)
         var price = element.get('price')
         var order = element.get('order')
@@ -104,6 +102,8 @@ function CitiesCtrl ($scope, $rootScope, $translate, $state) {
 
       reader.onload = function (e) {
         $('#cityImage').attr('src', e.target.result)
+        $scope.imageUpdate = e.target.result
+        $scope.$apply()
       }
 
       reader.readAsDataURL(input.files[0])
@@ -118,19 +118,7 @@ function CitiesCtrl ($scope, $rootScope, $translate, $state) {
     })
   }
 
-  $scope.addCityFuntion = function () {
-    if (!$scope.showAddBoxFlag){
-      $('#addCityBox').removeClass('ng-hide')
-      $scope.showAddBoxFlag = true
-    }
-    else {
-      $('#addCityBox').addClass('ng-hide')
-      $scope.showAddBoxFlag = false
-    }
-  }
-
   $scope.addCity = function () {
-    $('#addCityBox').addClass('ng-hide')
     var file = $('#cityPicture')[0].files[0]
     if (file) {
       var name = file.name

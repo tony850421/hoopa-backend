@@ -1,12 +1,11 @@
 <div class="row groupIntroductonStyle" ng-controller="BusinessSystemCtrl">
     <div class="pageHeader">
         <label class="subheaderPage">{{ 'BUSINESSSYSTEM' | translate }}</label>
-        <span class="fa fa-align-left spanModeView" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '1'}"
+        <span class="icon-contenido_abajo spanModeView marginRight30" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '1'}"
             ng-click="changeMode(1)"></span>
-        <span class="fa fa-align-right spanModeView" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '2'}"
-            ng-click="changeMode(2)"></span>
+        <span class="icon-contenido_bloque spanModeView marginRight15" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '2'}"></span>
     </div>
-    <div class="displayFlexColumn padding-30" ng-show="businessSystemArray.length> 0">
+    <div class="displayFlexColumn padding-60" ng-show="businessSystemArray.length> 0">
         <div class="imageGroupIntroductionBox">
             <div class="businessSystemImageBox" ng-repeat="b in businessSystemArray">
                 <img class="imagebusinessSystem" ng-src="{{b.image}}" id="imageGroupIntroduction_{{$index}}">

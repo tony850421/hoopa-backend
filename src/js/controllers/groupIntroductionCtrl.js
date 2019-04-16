@@ -18,14 +18,11 @@ function GroupIntroductionCtrl ($scope, $rootScope) {
   $scope.textGroupIntroduction = ''
   $scope.modeGroupIntroduction = 1
 
-  $scope.loading = false
-
   $scope.changeImageGroupIntroduction = function () {
     readURL($('#groupIntroductionPicture')[0])
   }
 
   function readURL (input) {
-    $scope.loading = true
     if (input.files && input.files[0]) {
       var reader = new FileReader()
 
@@ -36,7 +33,6 @@ function GroupIntroductionCtrl ($scope, $rootScope) {
           $scope.imageGroupIntroductionFlag = true
         else
           $scope.imageGroupIntroductionFlag = false
-        $scope.loading = false
         $scope.$apply()
       }
 
@@ -50,32 +46,25 @@ function GroupIntroductionCtrl ($scope, $rootScope) {
   }
 
   $scope.saveInformation = function () {
-    $scope.loading = true
     var file = $('#groupIntroductionPicture')[0].files[0]
     if (file) {
       var name = file.name
       var avFile = new AV.File(name, file)
 
       if ($scope.textGroupIntroduction != '') {
-        var query = AV.Object.createWithoutData('GroupIntroduction', '5ca4629a0237d7006895ef4f')
+        var query = AV.Object.createWithoutData('GroupIntroduction', '5cb533bea3180b78325e175a')
         query.set('image', avFile)
         query.set('text', $scope.textGroupIntroduction)
         query.set('mode', $scope.modeGroupIntroduction)
-        query.save().then(function(result){
-          $scope.loading = false
-        })
+        query.save()
       }
     }
   }
 
-  $scope.init = function () {
-    // $scope.loading = true
-    
+  $scope.init = function () {    
     var query = new AV.Query('GroupIntroduction')
-    query.equalTo('objectId', '5ca4629a0237d7006895ef4f')
+    query.equalTo('objectId', '5cb533bea3180b78325e175a')
     query.find().then(function (data) {
-      
-      $scope.loading = false
 
       $scope.imageGroupIntroduction = data[0].get('image').get('url')
       if ($scope.imageGroupIntroduction != '')

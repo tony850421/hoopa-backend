@@ -76,15 +76,7 @@ function ProjectListCtrl ($scope, $rootScope, $window, $timeout, localStorageSer
           var productId = product.id
           var productTitle = product.get('title')
           var productDescription = product.get('description')
-          var productDesc = productDescription
-          if (productDescription.length > 170) {
-            productDesc = ''
-            for (var i = 0; i < 170; i++) {
-              productDesc += productDescription[i]
-            }
-            productDesc += '...'
-          }
-          productDescription = productDesc
+          var credits = product.get('creditHighlights')
 
           var releaseTime = (product.createdAt.getMonth() + 1) + '/' + product.createdAt.getDate() + '/' + product.createdAt.getFullYear()
           var ownerUsername = product.get('creator').get('username')
@@ -93,7 +85,7 @@ function ProjectListCtrl ($scope, $rootScope, $window, $timeout, localStorageSer
           var productAddress = product.get('plainAddress')
           var productImageUrl
           if (productImage) {
-            productImageUrl = productImage.thumbnailURL(100, 150)
+            productImageUrl = productImage.thumbnailURL(200, 200)
           } else {
             productImageUrl = 'img/LogoHoopa.png'
           }
@@ -103,6 +95,7 @@ function ProjectListCtrl ($scope, $rootScope, $window, $timeout, localStorageSer
             imageUrl: productImageUrl,
             title: productTitle,
             description: productDescription,
+            credits: credits,
             debitAmount: productAmount,
             plainAddress: productAddress,
             ownerUsername: ownerUsername,

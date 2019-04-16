@@ -96,7 +96,7 @@ function ViewProjectCtrl ($scope, $state, $rootScope, $window, $translate, local
       $scope.projectCompany = p.get('companyName')
       $scope.projectDescription = p.get('description')
       $scope.projectDebitAmount = p.get('debitAmount')
-      $scope.projectPrincipal = p.get('debitPricipalInterest')
+      $scope.projectPrincipal = parseInt(p.get('debitPricipalInterest'))
       $scope.projectComeFrom = p.get('comefrom')
       $scope.projectProvince = p.get('province')
       $scope.projectAddress = p.get('plainAddress')

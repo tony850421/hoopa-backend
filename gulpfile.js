@@ -39,7 +39,7 @@ gulp.task('usemin', function () {
 /**
  * Copy assets
  */
-gulp.task('build-assets', ['copy-fontawesome_fonts', 'copy-bootstrap_fonts', 'copy-microsoftyahei_fonts', 'copy-mBackendHoopa_fonts', 'copy-BackendHoopaMenu_fonts'])
+gulp.task('build-assets', ['copy-fontawesome_fonts', 'copy-bootstrap_fonts', 'copy-microsoftyahei_fonts', 'copy-BackendHoopa_fonts', 'copy-BackendHoopaMenu_fonts'])
 
 gulp.task('copy-fontawesome_fonts', function () {
   return gulp.src(paths.font_awesome_fonts)
@@ -56,7 +56,7 @@ gulp.task('copy-microsoftyahei_fonts', function () {
     .pipe(gulp.dest('dist/lib/fonts/MicrosoftYaHei'))
 })
 
-gulp.task('copy-mBackendHoopa_fonts', function () {
+gulp.task('copy-BackendHoopa_fonts', function () {
   return gulp.src(paths.backendHoopa_fonts)
     .pipe(gulp.dest('dist/lib/fonts/BackendHoopa'))
 })

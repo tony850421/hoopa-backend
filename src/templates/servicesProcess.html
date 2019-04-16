@@ -1,12 +1,11 @@
 <div class="row groupIntroductonStyle" ng-controller="ServicesProcessCtrl">
     <div class="pageHeader">
         <label class="subheaderPage">{{ 'SERVICESPROCESSS' | translate }} </label>
-        <span class="fa fa-align-left spanModeView" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '1'}"
+        <span class="icon-contenido_abajo spanModeView marginRight30" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '1'}"></span>
+        <span class="icon-contenido_bloque spanModeView marginRight15" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '2'}"
             ng-click="changeMode(1)"></span>
-        <span class="fa fa-align-right spanModeView" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '2'}"
-            ng-click="changeMode(2)"></span>
     </div>
-    <div class="padding-30 margin-bottom-0" ng-show="servicesProcessArray.length > 0">
+    <div class="padding-60 margin-bottom-0" ng-show="servicesProcessArray.length > 0">
         <div class="itemServicesProcess displayFlexRow" ng-repeat="s in servicesProcessArray">
             <span class="fa fa-trash servicesProcessDelete" ng-click="deleteServicesProcess(s.id, $index)"></span>
             <div class="imageServicesProcessBox">
@@ -64,7 +63,7 @@
             </div>
         </div>
     </div>
-    <div class="padding-30 margin-bottom-0">
+    <div class="padding-60 margin-bottom-0">
         <div class="backgroundWhite displayFlexRow">            
             <div class="imageServicesProcessBox">
                 <div class="addImageServicesProcessBox">

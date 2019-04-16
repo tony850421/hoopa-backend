@@ -1,47 +1,13 @@
 <div class="row groupIntroductonStyle padding-30" ng-controller="CitiesCtrl">
-    <div id="addCityBox">
-        <div class="BranchesViewAdd">
-            <div class="cityDataBox">                
-                <div class="">
-                    <img class="imageMainTeam" id="cityImage" src="img/branch.png">
-                    <input type="file" class="custom-file-input imageInput backgroundColorField" id="cityPicture" onchange="angular.element(this).scope().changeValueMainImageCity()">
-                </div>
-                <div class="displayFlexColumn">
-                    <div class="displayFlexRow">
-                        <div class="marginRight15">
-                            <label for="cityName" translate="CITYNAME"></label>
-                            <input ng-model="cityNameNew" type="title" id="cityName" class="form-control backgroundColorField" required autofocus>
-                        </div>
-                        <div class="">
-                            <label for="cityPrice" translate="CITYPRICE"></label>
-                            <input ng-model="cityPriceNew" type="title" id="cityPrice" class="form-control backgroundColorField" required autofocus>
-                        </div>
-                    </div>
-                    <div class="marginTop20">
-                        <input type="checkbox" ng-model="cityVisibilityNew">
-                        {{'SHOWCITYTEXT' | translate}}
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 marginTop10 marginBottom10">
-                <button class="btn btn-lg btn-primary colorBlue buttonAddBranche marginRight15" ng-click="addCity()">
-                    <span class="fa fa-plus"></span>
-                    <label class="margin-bottom-0 fontSize13"
-                        translate="SAVECITY"></label>
-                </button>
-            </div>
-        </div>
-    </div>
-    <button class="btn btn-lg buttonAddMember" ng-click="addCityFuntion()" ng-if="!loading">
-        <span class="icon-add cursorPointer fontSize40"></span>
-        <label class="margin-bottom-0 cursorPointer fontSize24" translate="ADDCITY"></label>
-    </button>
 
-    <form class="padding20" ng-show="arrayCities.length> 0">
+    <div ng-if="loading">
+        <rd-loading></rd-loading>
+    </div>
+
+    <form class="padding20" ng-show="arrayCities.length> 0 && !loading">
         <div class="form-row">
             <div ng-repeat="member in arrayCities">
-                <div class="cityItem">
-                    <!-- <span class="fa fa-times spanCitiesClose" ng-click="deleteMember(member.id)"></span> -->                    
+                <div class="cityItem">                 
                     <div class="citiesItemData">
                         <div>
                             <img class="imageCities" ng-src="{{member.mainImage}}">
@@ -117,5 +83,39 @@
                 </div>
             </div>
         </div>
-    </form>    
+    </form>
+
+    <div id="addCityBox" ng-show="!loading">
+        <div class="BranchesViewAdd">
+            <div class="cityDataBox">                
+                <div class="imageUpdateCitiBox">
+                    <img class="imageMainCities" id="cityImage" ng-show="imageUpdate != ''">
+                    <span class="icon-Image spanCitiesUpdate" ng-show="imageUpdate == ''"></span>
+                    <input type="file" class="custom-file-input imageInputCities backgroundColorField" id="cityPicture" onchange="angular.element(this).scope().changeValueMainImageCity()">
+                </div>
+                <div class="displayFlexColumn width100">
+                    <div class="displayFlexRow">
+                        <div class="marginRight15 width45">
+                            <label for="cityName" translate="CITYNAME"></label>
+                            <input ng-model="cityNameNew" type="title" id="cityName" class="form-control backgroundColorField" required autofocus>
+                        </div>
+                        <div class="width50">
+                            <label for="cityPrice" translate="CITYPRICE"></label>
+                            <input ng-model="cityPriceNew" type="title" id="cityPrice" class="form-control backgroundColorField" required autofocus>
+                        </div>
+                    </div>
+                    <div class="marginTop20">
+                        <input type="checkbox" ng-model="cityVisibilityNew">
+                        {{'SHOWCITYTEXT' | translate}}
+                    </div>
+                </div>
+            </div>            
+        </div>
+        <div class="marginTop10 marginBottom10">
+            <button class="btn btn-lg btn-primary colorBlue buttonAddBranche marginRight15" ng-click="addCity()">
+                <span class="fa fa-plus"></span>
+                <label class="margin-bottom-0 fontSize13" translate="SAVECITY"></label>
+            </button>
+        </div>
+    </div>
 </div>

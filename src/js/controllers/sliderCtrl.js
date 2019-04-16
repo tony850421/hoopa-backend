@@ -12,6 +12,8 @@ function SliderConfigCtrl ($scope, $state, $rootScope, $window, $timeout, localS
     }
   }
 
+  $rootScope.activeList = 'slider'
+
   $scope.getUser()
   
   $scope.slides = []

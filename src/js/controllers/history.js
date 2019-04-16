@@ -11,7 +11,6 @@ function HistoryCtrl ($scope, $rootScope) {
   $scope.getUser()
   
   $rootScope.activeList = 'history'
-  $scope.loading = false
 
   $scope.imageGroupIntroduction = ''
   $scope.imageGroupIntroductionFlag = false
@@ -83,7 +82,6 @@ function HistoryCtrl ($scope, $rootScope) {
   }
 
   $scope.init = function () {
-    $scope.loading = true
     $scope.timelineArray = []
     var query = new AV.Query('Timeline')
     query.descending('date')
@@ -111,7 +109,6 @@ function HistoryCtrl ($scope, $rootScope) {
 
         $scope.timelineArray.push(item)
       })
-      $scope.loading = false
       $scope.$apply()
     })
   }
@@ -123,10 +120,8 @@ function HistoryCtrl ($scope, $rootScope) {
   }
 
   $scope.deleteMember = function (id) {
-    $scope.loading = true
     var member = AV.Object.createWithoutData('Timeline', id)
     member.destroy().then(function (n) {
-      $scope.loading = false
       $scope.init()
     })
   }
@@ -149,7 +144,6 @@ function HistoryCtrl ($scope, $rootScope) {
   }
 
   $scope.saveTimelineDescription = function (index, id) {
-    $scope.loading = true
     id1 = '#timelineDescription_' + index
     id2 = '#updateTimelineDescription__' + index
     id3 = '#editTimelineDescription_' + index
@@ -170,7 +164,6 @@ function HistoryCtrl ($scope, $rootScope) {
       var member = AV.Object.createWithoutData('Timeline', id)
       member.set('description', $scope.timelineDescription)
       member.save().then(function (result) {
-        $scope.loading = false
         $scope.$apply()
       })
     }
@@ -203,7 +196,6 @@ function HistoryCtrl ($scope, $rootScope) {
   }
 
   $scope.saveTimelineDate = function (index, id) {
-    $scope.loading = true
     id1 = '#timelineDate_' + index
     id2 = '#updateTimelineDate_' + index
     id3 = '#editTimelineDate_' + index
@@ -226,7 +218,6 @@ function HistoryCtrl ($scope, $rootScope) {
       var member = AV.Object.createWithoutData('Timeline', id)
       member.set('date', date)
       member.save().then(function (result) {
-        $scope.loading = false
         $scope.$apply()
       })
     }

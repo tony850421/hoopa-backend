@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Hoopa Backend</title>
+  <title>行政管理系统</title>
   <!-- STYLES -->
   <!-- build:css lib/css/main.min.css -->
-  <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.css">
+  <!-- <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.css"> -->
   <link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.min.css">
   <link rel="stylesheet" type="text/css" href="../node_modules/mdbootstrap/css/mdb.css">
   <link rel="stylesheet" type="text/css" href="main.css">
@@ -87,13 +87,13 @@
                   </li>
                 </ul>
               </li>
-              <li class="sidebar-list" ng-if="getUser() != ' '">
+              <!-- <li class="sidebar-list" ng-if="getUser() != ' '">
                 <a href="#inbox" ng-click="changeActiveList('inbox')" ng-class="{'colorListActive': activeList == 'inbox'}">
                     <span class="menu-icon fa fa-envelope"></span>
                     <span ng-show="notificationsMessages" class="badgeMessage" ng-class="{'badgeMessageActive': activeList == 'inbox'}"></span>
                     <label class="listSecondLevel margin-bottom-0">{{'MESSAGES' | translate}}</label>
                 </a>
-              </li>
+              </li> -->
               <li class="sidebar-list" ng-if="getUser() != ' '">
                   <a href="#offers" ng-click="changeActiveList('offers')" ng-class="{'colorListActive': activeList == 'offers'}">
                     <span class="menu-icon fa fa-money"></span>
@@ -101,12 +101,12 @@
                     <label class="listSecondLevel margin-bottom-0">{{'OFFERS' | translate}}</label>
                   </a>
               </li>
-              <li class="sidebar-list" ng-if="getUser() != ' '">
+              <!-- <li class="sidebar-list" ng-if="getUser() != ' '">
                   <a href="#forum" ng-click="changeActiveList('forum')" ng-class="{'colorListActive': activeList == 'forum'}">
                     <span class="menu-icon fa fa-list"></span>
                     <label class="listSecondLevel margin-bottom-0">{{'FORUM' | translate}}</label>
                   </a>
-              </li>
+              </li> -->
               <li class="sidebar-list" ng-if="getUser() != ' '">
                   <a href="#cities" ng-click="changeActiveList('cities')" ng-class="{'colorListActive': activeList == 'cities'}">
                     <span class="menu-icon fa fa-building"></span>
@@ -260,7 +260,7 @@
             <div class="user pull-right">
               <div class="item dropdown" uib-dropdown>
                 <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
-                  <i class="fa fa-language iconClasBar"></i>
+                  <i class="icon-idioma iconClasBar"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li ng-click="changeLanguage('ch_CH')">
@@ -303,7 +303,7 @@
 
               <div class="item dropdown cursorPointer" uib-dropdown ng-if="getUser() != ' '">
                 <a ng-click="goToNotifications()" class="dropdown-toggle" uib-dropdown-toggle>
-                  <i class="fa fa-bell-o iconClasBar cursorPointer"></i>
+                  <i class="icon-notifications iconClasBar cursorPointer"></i>
                   <span ng-show="notificationsGeneral" class="badge badgeNotifications cursorPointer">{{notificationsOffersCount}}</span>
                 </a>
               </div>

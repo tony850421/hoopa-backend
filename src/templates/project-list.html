@@ -1,51 +1,41 @@
-<div class="row" ng-controller="ProjectListCtrl">
+<div class="row groupIntroductonStyle padding-60" ng-controller="ProjectListCtrl">
 
   <div ng-if="loading">
     <rd-loading></rd-loading>
   </div>
 
-  <ul class="media-list custom-media-list" ng-repeat="project in products"
-    ng-hide="products.length == 0" ng-if="!loading">
-    <li class="media">
-      <div class="media-left">
+  <ul class="media-list" ng-repeat="project in products" ng-hide="products.length == 0" ng-if="!loading">
+    <li class="media borderHoverColor">
+      <div class="media-left padding-0">
         <a ng-click="goToProject(project.id)">
-          <img class="media-object notification-image"
-            ng-src="{{project.imageUrl}}">
+          <img class="media-object notification-image" ng-src="{{project.imageUrl}}">
         </a>
       </div>
       <div class="media-body">
-        <div class="row">
-          <div class="col-md-9">
+        <div class="displayFlexRow height120">
+          <div class="displayFlexColumn marginLeft15 titleProjectStyle">
             <a>
-              <h4 ng-click="goToProject(project.id)" class="media-heading">
-                {{project.title}}</h4>
+              <h4 ng-click="goToProject(project.id)" class="media-heading">{{project.title | cut:true:45:' ...'}}</h4>
             </a>
-            <h5>{{project.description}}</h5>
+            <h5 ng-click="goToProject(project.id)">{{project.credits | cut:true:120:' ...'}}</h5>
           </div>
-          <div class="col-md-2">
-            <h5 class="media-heading font-weight-unset">
-              <i class="fa fa-user-secret" aria-hidden="true"> </i>
+          <div class="displayFlexColumn marginLeft15 alignVerticalMiddle width11">
+            <h4 class="media-heading font-weight-unset">
+              <i class="icon-user" aria-hidden="true"> </i>
               {{project.ownerUsername}}
-            </h5>
-            <h5 class="media-heading font-weight-unset marginTop10">
-              <i class="fa fa-clock-o" aria-hidden="true"> </i>
-              {{project.releaseTime}}
-            </h5>
+            </h4>            
           </div>
-          <div class="col-md-1 margin-bottom-0">
-            <a class="btn btn-secundary pull-right buttonShow
-              padding-left-0 padding-right-0"
-              ng-click="goToProject(project.id)">
-              <span class="fa fa-eye"></span>
-              <label class="margin-bottom-0 fontSize13" translate="BSHOW"></label>
-            </a>
-            <!-- <a class="btn btn-secundary fa fa-edit pull-right buttonUpdate" ng-disabled="true" ng-click="" translate="BUPDATE"></a> -->
-            <a ng-show="project.imCreator == true" class="btn btn-secundary
-              pull-right buttonDelete padding-left-0 padding-right-0"
-              ng-click="deleteProduct(project.id)">
-              <span class="fa fa-times"></span>
-              <label class="margin-bottom-0 fontSize13" translate="BDELETE"></label>
-            </a>
+          <div class="displayFlexColumn marginLeft15 alignVerticalMiddle width13">
+            <h4 class="media-heading font-weight-unset marginTop10">
+              <i class="icon-fecha" aria-hidden="true"> </i>
+              {{project.releaseTime}}
+            </h4>
+          </div>
+          <div class="displayFlexColumn marginLeft15 alignVerticalMiddle width8">
+              <span class="icon-view iconShowProject" ng-click="goToProject(project.id)"></span>
+          </div>
+          <div class="displayFlexColumn marginLeft15 alignVerticalMiddle width8">
+              <span class="fa fa-trash iconDeleteProject" ng-click="deleteProduct(project.id)"></span>
           </div>
         </div>
       </div>
@@ -55,12 +45,10 @@
     <nav aria-label="Page navigation">
       <div class="col-md-12">
         <div class="col-md-5 padding-15">
-          <a ng-hide="skip <10" class="btn btn-default pull-right"
-            translate="PREVIOUS" ng-click="previous()"></a>
+          <a ng-hide="skip <10" class="btn btn-default pull-right btnPagination" translate="PREVIOUS" ng-click="previous()"></a>
         </div>
         <div class="col-md-5 col-md-offset-2 padding-15">
-          <a ng-hide="products.length <10" class="btn btn-default"
-            translate="NEXT" ng-click="next()"></a>
+          <a ng-hide="products.length <10" class="btn btn-default btnPagination" translate="NEXT" ng-click="next()"></a>
         </div>
       </div>
     </nav>

@@ -1,20 +1,17 @@
-<div class="row paddingView" ng-controller="ViewProjectCtrl">
-    <div class="facts styleViewProject">
-        <label translate="STATE"></label>
-        <label>: {{projectFinished}}</label>
-        <label class="pull-right margin-right-10">{{countOffers}}</label>
-        <img class="imageFact pull-right margin-right-10"
-            ng-src="./img/offersFact.png" />
-        <label class="pull-right margin-right-10">{{countShopCar}}</label>
-        <img class="imageFact pull-right margin-right-10" ng-src="./img/shopCar.png"
-            />
-        <label class="pull-right margin-right-10">{{countVisit}}</label>
-        <img class="imageFact pull-right margin-right-10"
-            ng-src="./img/projectFact.png" />
-    </div>
+<div class="row paddingView groupIntroductonStyle" ng-controller="ViewProjectCtrl">    
     <div class="row styleViewProject">
-        <div class="ProjectsData col-md-12">
-            <div class="col-md-12 titleProjectStyle">
+        <div class="ProjectsData col-md-12 backgroundWhite">
+            <div class="facts backgroundWhite">
+                <label translate="STATE"></label>
+                <label class="stateStyle"> {{projectFinished}}</label>
+                <label class="pull-right margin-right-10">{{countOffers}}</label>
+                <img class="imageFact pull-right margin-right-10" ng-src="./img/offersFact.png" />
+                <label class="pull-right margin-right-10">{{countShopCar}}</label>
+                <img class="imageFact pull-right margin-right-10" ng-src="./img/shopCar.png" />
+                <label class="pull-right margin-right-10">{{countVisit}}</label>
+                <img class="imageFact pull-right margin-right-10" ng-src="./img/projectFact.png" />
+            </div>
+            <div class="col-md-12 displayFlexRow">
                 <label class="font-weight-unset margin-right-10"
                     translate="PUTITLE"></label>
                 <label ng-show="!projectTitleEdited" class="font-weight-unset">{{projectTitle}}</label>
@@ -30,7 +27,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-12 titleProjectStyle">
+            <div class="col-md-12 displayFlexRow">
                 <label class="font-weight-unset margin-right-10" translate="PUCOMPANY"></label>
                 <label ng-show="!projectCompanyEdited" class="font-weight-unset">{{projectCompany}}</label>
                 <div class="buttonEditHidden buttonEditHiddenCompany" ng-show="!projectCompanyEdited">
@@ -47,7 +44,7 @@
             </div>
             <div class="col-md-12">
                 <label class="font-weight-unset margin-right-10" translate="PUDESC"></label>
-                <div class="titleProjectStyle" ng-show="!projectDescriptionEdited">
+                <div class="displayFlexRow" ng-show="!projectDescriptionEdited">
                     <label class="font-weight-unset">{{projectDescription}}</label>
                     <div class="buttonEditHidden buttonEditHiddenDescription">
                         <a id="buttonEditDescription" type="button" class="btn btn-default btnEditCityName buttonEdit" ng-click="editProjectDescription()">
@@ -55,16 +52,16 @@
                         </a>
                     </div>
                 </div>
-                <div class="titleProjectStyle" ng-show="projectDescriptionEdited">
+                <div class="displayFlexRow" ng-show="projectDescriptionEdited">
                     <textarea class="textareaProjectDescription" ng-model="projectDescription" value="{{projectDescription}}"></textarea>
                     <a type="button" class="btn btn-default fa fa-save btnEditCityName buttonEditSave" ng-click="editProjectDescription()">
                         <span class="fa fa-save"></span>
                     </a>
                 </div>
             </div>
-            <div class="col-md-12 titleProjectStyle">
+            <div class="col-md-12 displayFlexRow">
                 <label class="font-weight-unset margin-right-10" translate="DUAMOUNT"></label>
-                <label ng-show="!projectDebitAmountEdited" class="font-weight-unset">¥{{projectDebitAmount}}万</label>
+                <label ng-show="!projectDebitAmountEdited" class="font-weight-unset textPrice">¥{{projectDebitAmount}}万</label>
                 <div class="buttonEditHidden buttonEditHiddenDebitAmount" ng-show="!projectDebitAmountEdited">
                     <a id="buttonEditDebitAmount" type="button" class="btn btn-default btnEditCityName buttonEdit" ng-click="editProjectDebitAmount()">
                         <span class="fa fa-edit"></span>
@@ -77,9 +74,9 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-12 titleProjectStyle">
+            <div class="col-md-12 displayFlexRow">
                 <label class="font-weight-unset margin-right-10" translate="DUPRINCIPALI"></label>
-                <label ng-show="!projectPrincipalEdited" class="font-weight-unset">{{projectPrincipal}}</label>
+                <label ng-show="!projectPrincipalEdited" class="font-weight-unset textPrice">¥{{projectPrincipal}}万</label>
                 <div class="buttonEditHidden buttonEditHiddenPrincipal" ng-show="!projectPrincipalEdited">
                     <a id="buttonEditPrincipal" type="button" class="btn btn-default btnEditCityName buttonEdit" ng-click="editProjectPrincipal()">
                         <span class="fa fa-edit"></span>
@@ -93,7 +90,7 @@
                 </div>
             </div>
             <div class="col-md-12">
-                <div class="col-md-6 no-padding titleProjectStyle">
+                <div class="col-md-6 no-padding displayFlexRow">
                     <label class="font-weight-unset margin-right-10" translate="CUFROM"></label>
                     <label ng-show="!projectComeFromEdited" class="font-weight-unset">{{projectComeFrom}}</label>
                     <div class="buttonEditHidden buttonEditHiddenComeFrom" ng-show="!projectComeFromEdited">
@@ -108,7 +105,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-6 no-padding titleProjectStyle">
+                <div class="col-md-6 no-padding displayFlexRow">
                     <label class="font-weight-unset margin-right-10" translate="PUPROVINCE"></label>
                     <label ng-show="!projectProvinceEdited" class="font-weight-unset">{{projectProvince}}</label>
                     <div class="buttonEditHidden buttonEditHiddenProvince" ng-show="!projectProvinceEdited">
@@ -124,7 +121,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12 titleProjectStyle">
+            <div class="col-md-12 displayFlexRow">
                 <label class="font-weight-unset margin-right-10" translate="PUADDRESS"></label>
                 <label ng-show="!projectAddressEdited"
                     class="font-weight-unset">{{projectAddress}}</label>
@@ -142,7 +139,7 @@
             </div>
             <div class="col-md-12">
                 <label class="font-weight-unset" translate="PUCHIGHL"></label>
-                <div ng-show="!projectCreditsEdited" class="titleProjectStyle">
+                <div ng-show="!projectCreditsEdited" class="displayFlexRow">
                     <label class="font-weight-unset">{{projectCredits}}</label>
                     <div class="buttonEditHidden buttonEditHiddenCredits">
                         <a id="buttonEditCredits" type="button" class="btn btn-default btnEditCityName buttonEdit" ng-click="editProjectCredits()">
@@ -150,7 +147,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="titleProjectStyle" ng-show="projectCreditsEdited">
+                <div class="displayFlexRow" ng-show="projectCreditsEdited">
                     <textarea class="textareaProjectDescription" ng-model="projectCredits" value="{{projectCredits}}"></textarea>
                     <a type="button" class="btn btn-default btnEditCityName buttonEditSave" ng-click="editProjectCredits()">
                         <span class="fa fa-save"></span>
@@ -158,7 +155,7 @@
                 </div>
             </div>
         </div>
-        <div class="ManagerData col-md-12">
+        <div class="ManagerData col-md-12 backgroundWhite">
             <div class="col-md-12">
                 <label class="font-weight-unset" translate="MANAGERINFO"></label>
                 <label class="bs-switch pull-right margin-left-5 margin-top--8">
@@ -167,7 +164,7 @@
                 </label>
                 <label class="pull-right" translate="SHOWMANAGERPHONE"></label>
             </div>
-            <div class="col-md-6 titleProjectStyle">
+            <div class="col-md-6 displayFlexRow">
                 <label class="font-weight-unset margin-right-10" translate="PUMANAGERNAME"></label>
                 <label ng-show="!projectManagerNameEdited" class="font-weight-unset">{{projectManagerName}}</label>
                 <div class="buttonEditHidden buttonEditHiddenManagerName" ng-show="!projectManagerNameEdited">
@@ -182,7 +179,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-6 titleProjectStyle">
+            <div class="col-md-6 displayFlexRow">
                 <label class="font-weight-unset" translate="PUMANAGERPHONE"></label>
                 <label ng-show="!projectManagerPhoneEdited"
                     class="font-weight-unset">{{projectManagerPhone}}</label>
@@ -199,8 +196,7 @@
                 </div>
             </div>
         </div>
-        <div class="BorrowerData col-md-12 no-padding"
-            ng-show="borrowerList.length> 0">
+        <div class="BorrowerData col-md-12 no-padding backgroundWhite" ng-show="borrowerList.length> 0">
             <rd-widget>
                 <rd-widget-header icon="fa-user" title="{{'BORROWERS' | translate}}">
                 </rd-widget-header>
@@ -232,7 +228,7 @@
                 </rd-widget-body>
             </rd-widget>
         </div>
-        <div class="col-md-12 no-padding">
+        <div class="col-md-12 no-padding backgroundWhite">
             <div class="col-md-12 no-padding addListStyleBorder padding-left-30
                 padding-top-5" ng-click="showAddBorrower()">
                 <label class="font-weight-unset" translate="ADDBORROWER"></label>
@@ -262,7 +258,7 @@
                 </div>
             </div>
         </div>
-        <div class="AssetsData col-md-12 no-padding" ng-show="assetsList.length > 0">
+        <div class="AssetsData col-md-12 no-padding backgroundWhite" ng-show="assetsList.length > 0">
             <rd-widget class="padding-15">
                 <rd-widget-header icon="fa-building-o" title="{{'ASSETS' | translate}}">
                 </rd-widget-header>
@@ -302,7 +298,7 @@
                 </rd-widget-body>
             </rd-widget>
         </div>
-        <div class="col-md-12 no-padding">
+        <div class="col-md-12 no-padding backgroundWhite">
             <div class="col-md-12 no-padding addListStyleBorder padding-left-30
                 padding-top-5" ng-click="showAddAsset()">
                 <label class="font-weight-unset" translate="ADDASSET"></label>
@@ -350,7 +346,7 @@
                 </div>
             </div>
         </div>
-        <div class="AssetsData col-md-12 no-padding"
+        <div class="AssetsData col-md-12 no-padding backgroundWhite"
             ng-show="sponsorsList.length> 0">
             <rd-widget class="padding-15">
                 <rd-widget-header icon="fa-money" title="{{'SPONSORS' |
@@ -384,7 +380,7 @@
                 </rd-widget-body>
             </rd-widget>
         </div>
-        <div class="col-md-12 no-padding">
+        <div class="col-md-12 no-padding backgroundWhite">
             <div class="col-md-12 no-padding addListStyleBorder padding-left-30
                 padding-top-5" ng-click="showAddSponsors()">
                 <label class="font-weight-unset" translate="ADDSPONSOR"></label>
@@ -413,8 +409,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-12 tags padding-15">
-            <div class="col-md-12 no-padding titleProjectStyle">
+        <div class="col-md-12 tags padding-15 backgroundWhite">
+            <div class="col-md-12 no-padding displayFlexRow">
                 <label class="font-weight-unset" translate="FILTERS"></label>
                 <div class="buttonEditHidden buttonEditHiddenTags" ng-show="!projectTagsEdited">
                     <a id="buttonEditTags" type="button" class="btn btn-default btnEditCityName buttonEdit" ng-click="editProjectTags()">
@@ -441,7 +437,7 @@
             <input class="margin-right-10" ng-show="projectTagsEdited" type="checkbox" value="projectShop" ng-model="projectShop">
             <label ng-show="projectShop || projectTagsEdited" class="font-weight-unset margin-right-10" translate="SHOP"></label>
         </div>
-        <div class="col-md-12 Gallery padding-15">
+        <div class="col-md-12 Gallery padding-15 backgroundWhite">
             <label class="col-md-12 no-padding font-weight-unset" translate="GALLERY"></label>
             <div ng-repeat="i in imageList">
                 <div class="col-md-3 marginTop10" ng-mouseenter="mouseEnter($index)" ng-mouseleave="mouseLeave($index)">
@@ -461,7 +457,7 @@
                 </div>
             </div>
         </div>
-        <div class="closeProjectBox" ng-show="projectFinished == '积极'">
+        <div class="closeProjectBox backgroundWhite" ng-show="projectFinished == '积极'">
             <button class="buttonCloseProject" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" translate="CLOSEPROJECTBUTTON">
             </button>
             <div class="collapse" id="collapseExample">
