@@ -2,9 +2,9 @@
  * Login and signup Controller
  */
 
-app.controller('NewsCtrl', ['$scope', '$state', '$rootScope', '$window', '$timeout', 'localStorageService', NewsCtrl])
+app.controller('NewsCtrl', ['$scope', '$state', '$rootScope', 'localStorageService', NewsCtrl])
 
-function NewsCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageService) {
+function NewsCtrl ($scope, $state, $rootScope, localStorageService) {
   $scope.getUser = function () {
     var currentUser = AV.User.current()
     if (!currentUser) {
@@ -31,8 +31,6 @@ function NewsCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageSe
   $scope.showAddBoxFlag = false
   $('#addNewsBox').addClass('ng-hide')
 
-  $scope.loading = false
-
   $scope.initNews = function () {
     var News = AV.Object.extend('News')
     $scope.news = new News()
@@ -41,15 +39,15 @@ function NewsCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageSe
   $scope.initNews()
 
   $scope.init = function () {
-    $scope.loading = true
-
     var queryNews = new AV.Query('News')
     queryNews.limit(10)
     queryNews.descending('createdAt')
     queryNews.find().then(function (res) {
       $scope.newsArray = []
       res.forEach(function (element) {
-        var mainImage = element.get('image').thumbnailURL(300, 240)
+        var mainImage = ''
+        if (element.get('image') != null && element.get('image') != undefined)
+          mainImage = element.get('image').thumbnailURL(300, 240)
         var title = element.get('title')
         var content = element.get('content')
         var id = element.get('objectId')
@@ -63,10 +61,8 @@ function NewsCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageSe
         $scope.$apply()
       })
 
-      $scope.loading = false
       $scope.$apply()
     }).catch(function (error) {
-      $scope.loading = false
       $scope.$apply()
       alert(JSON.stringify(error))
     })
@@ -77,7 +73,6 @@ function NewsCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageSe
   $scope.next = function () {
     var currentUser = AV.User.current()
     if (currentUser) {
-      $scope.loading = true
 
       $scope.skip += 10
       var queryNews = new AV.Query('News')
@@ -87,7 +82,9 @@ function NewsCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageSe
       queryNews.find().then(function (res) {
         $scope.newsArray = []
         res.forEach(function (element) {
-          var mainImage = element.get('image').thumbnailURL(300, 240)
+          var mainImage = ''
+          if (element.get('image') != null && element.get('image') != undefined)
+            mainImage = element.get('image').thumbnailURL(300, 240)
           var title = element.get('title')
           var content = element.get('content')
           var id = element.get('objectId')
@@ -101,10 +98,8 @@ function NewsCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageSe
           $scope.$apply()
         })
 
-        $scope.loading = false
         $scope.$apply()
       }).catch(function (error) {
-        $scope.loading = false
         $scope.$apply()
         alert(JSON.stringify(error))
       })
@@ -115,7 +110,6 @@ function NewsCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageSe
     if ($scope.skip >= 10) {
       var currentUser = AV.User.current()
       if (currentUser) {
-        $scope.loading = true
 
         $scope.skip -= 10
         var queryNews = new AV.Query('News')
@@ -125,7 +119,9 @@ function NewsCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageSe
         queryNews.find().then(function (res) {
           $scope.newsArray = []
           res.forEach(function (element) {
-            var mainImage = element.get('image').thumbnailURL(300, 240)
+            var mainImage = ''
+            if (element.get('image') != null && element.get('image') != undefined)
+              mainImage = element.get('image').thumbnailURL(300, 240)
             var title = element.get('title')
             var content = element.get('content')
             var id = element.get('objectId')
@@ -139,10 +135,8 @@ function NewsCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageSe
             $scope.$apply()
           })
 
-          $scope.loading = false
           $scope.$apply()
         }).catch(function (error) {
-          $scope.loading = false
           $scope.$apply()
           alert(JSON.stringify(error))
         })
@@ -264,7 +258,6 @@ function NewsCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageSe
       var currentUser = AV.User.current()
       if (currentUser) {
         $('#addNewsBox').addClass('ng-hide')
-        $scope.loading = true
         $scope.news.set('title', $scope.title)
         $scope.news.set('creator', currentUser)
 
@@ -273,27 +266,28 @@ function NewsCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageSe
           var name = file.name
           var avFile = new AV.File(name, file)
           $scope.news.set('image', avFile)
-        }
+        
 
-        $scope.news.set('content', $scope.newsContent)
+          $scope.news.set('content', $scope.newsContent)
 
-        if ($scope.isIndustry == 1) {
-          $scope.news.set('type', '1')
+          if ($scope.isIndustry == 1) {
+            $scope.news.set('type', '1')
+          } else {
+            $scope.news.set('type', '0')
+          }
+
+          $scope.news.save().then(function (news) {
+            $scope.recursiveMediaSave($scope.newsMedias, 0)
+            $scope.title = ''
+            $scope.newsMedias = []
+            $scope.textContent = ''
+            $scope.captionContent = ''
+          }, function (error) {            
+            alert(JSON.stringify(error))
+          })
         } else {
-          $scope.news.set('type', '0')
+          alert("你需要把一个主图像")
         }
-
-        $scope.news.save().then(function (news) {
-          $scope.recursiveMediaSave($scope.newsMedias, 0)
-          $scope.loading = false
-          $scope.title = ''
-          $scope.newsMedias = []
-          $scope.textContent = ''
-          $scope.captionContent = ''
-        }, function (error) {
-          $scope.loading = false
-          alert(JSON.stringify(error))
-        })
       } else {
         $window.location.href = '#/login'
       }
@@ -309,6 +303,22 @@ function NewsCtrl ($scope, $state, $rootScope, $window, $timeout, localStorageSe
       }, function (error) {
         console.log(JSON.stringify(error))
       })
+    }
+  }
+
+  $scope.orderUp = function (index) { 
+    if (index > 0) {
+      var objectAux = $scope.newsMedias[index]
+      $scope.newsMedias[index] = $scope.newsMedias[index - 1]
+      $scope.newsMedias[index - 1] = objectAux
+    }
+  }
+
+  $scope.orderDown = function (index) {
+    if (index < $scope.newsMedias.length - 1) {
+      var objectAux = $scope.newsMedias[index]
+      $scope.newsMedias[index] = $scope.newsMedias[index + 1]
+      $scope.newsMedias[index + 1] = objectAux
     }
   }
 }

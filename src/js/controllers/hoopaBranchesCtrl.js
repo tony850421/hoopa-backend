@@ -323,15 +323,10 @@ function HoopaBranchesCtrl ($scope, $rootScope, $translate, $state) {
 
   $scope.orderUp = function (index) {
     if (index > 0){
-      console.log($scope.arrayBranchs[index].order)
-      console.log($scope.arrayBranchs[index-1].order)
 
       var orderOld = $scope.arrayBranchs[index].order
       $scope.arrayBranchs[index].order = $scope.arrayBranchs[index-1].order
       $scope.arrayBranchs[index-1].order = orderOld
-
-      console.log($scope.arrayBranchs[index].order)
-      console.log($scope.arrayBranchs[index-1].order)
 
       var city = AV.Object.createWithoutData('Branch', $scope.arrayBranchs[index].id)     
       city.set('Order', $scope.arrayBranchs[index].order)

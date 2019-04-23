@@ -92,6 +92,12 @@ app.config(['$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider
     }).state('history', {
       url: '/history',
       templateUrl: 'templates/history.html'
+    }).state('cases', {
+      url: '/cases',
+      templateUrl: 'templates/featuredCase.html'
+    }).state('featuredcase', {
+      url: '/featuredcase',
+      templateUrl: 'templates/viewCase.html'
     })
   }
 ])

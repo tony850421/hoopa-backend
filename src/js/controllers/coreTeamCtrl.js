@@ -9,7 +9,7 @@ function CoreTeamCtrl ($scope, $rootScope, $translate, $state) {
   }
 
   $scope.getUser()
-  
+
   $scope.arrayMembers = []
   $rootScope.activeList = 'coreTeam'
 
@@ -138,11 +138,10 @@ function CoreTeamCtrl ($scope, $rootScope, $translate, $state) {
   }
 
   $scope.addMemberFuntion = function () {
-    if (!$scope.showAddBoxFlag){
+    if (!$scope.showAddBoxFlag) {
       $('#addTeamMemberBox').removeClass('ng-hide')
       $scope.showAddBoxFlag = true
-    }
-    else {
+    }else {
       $('#addTeamMemberBox').addClass('ng-hide')
       $scope.showAddBoxFlag = false
     }
@@ -176,7 +175,7 @@ function CoreTeamCtrl ($scope, $rootScope, $translate, $state) {
     }
   }
 
-  $scope.orderUp = function (index) {
+  $scope.orderUp = function (index) { 
     if (index > 0) {
       var orderOld = $scope.arrayMembers[index].order
       $scope.arrayMembers[index].order = $scope.arrayMembers[index - 1].order

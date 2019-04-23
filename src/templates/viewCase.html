@@ -1,0 +1,70 @@
+<div class="row groupIntroductonStyle" ng-controller="ViewCaseCtrl">
+    <div class="pageHeader">
+        <label class="subheaderPage">{{ 'CASES' | translate }}</label>
+    </div>
+
+    <div ng-if="loading">
+        <rd-loading></rd-loading>
+    </div>
+
+    <div class="padding-60" ng-show="!loading">
+        <form class="formNewNews">
+            <div class="displayFlexRow">
+                <h4 id="newsTitle">{{newsTitle}}</h4>
+                <textarea id="updateNewsTitle" ng-change="updateNewsTitle()" class="ng-hide textAreaNewsTitle" type="text" ng-model="newsTitle"></textarea>
+                <div id="editNewsTitle" class="buttonEditHidden">
+                    <a type="button" class="btn btnEditCityPrice buttonEdit" ng-click="editNewsTitle(newsTitle)">
+                        <span class="fa fa-edit"></span>
+                    </a>
+                </div>
+                <div id="saveNewsTitle" class="ng-hide">
+                    <a type="button" class="btn btnEditCityPrice buttonEditSave" ng-click="saveNewsTitle(newsId)">
+                        <span class="fa fa-save"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="displayFlexRow">
+                <img class="imageNew" id="mainImageNews" ng-src="{{mainImage}}"/>
+                <input type="file" class="custom-file-input updateNewsImageImput" id="updateMainImageNews" 
+                                    onchange="angular.element(this).scope().changeValueMainImage()">
+                <span class="icon-add iconAddImage"></span>
+            </div>            
+            <div class="medias marginTop15" ng-repeat="m in newsMedia">
+                <div class="displayFlexRow">
+                    <img class="imageNew" id="imageNewsContent_{{$index}}" ng-src="{{m.get('image').get('url')}}"/>
+                    <input type="file" class="custom-file-input updateNewsImageImput" id="updateImageNewsContent_{{$index}}" 
+                                    onchange="angular.element(this).scope().changeValueContentImage(angular.element(this).scope().$index)">
+                    <span class="icon-add iconAddImage"></span>
+                </div>
+                <div class="displayFlexRow" ng-show="m.get('caption').length > 0">
+                    <h5 id="newsCaption_{{$index}}">{{m.get('caption')}}</h5>
+                    <textarea id="updateNewsCaption_{{$index}}" ng-change="updateNewsCaptionList($index)" class="ng-hide textAreaNewsTitle" type="text" ng-model="newsCaptionList"></textarea>
+                    <div id="editNewsCaption_{{$index}}" class="buttonEditHidden">
+                        <a type="button" class="btn btnEditCityPrice buttonEdit" ng-click="editNewsCaptionList($index,m.get('caption'))">
+                            <span class="fa fa-edit"></span>
+                        </a>
+                    </div>
+                    <div id="saveNewsCaption_{{$index}}" class="ng-hide">
+                        <a type="button" class="btn btnEditCityPrice buttonEditSave" ng-click="saveNewsCaptionList($index, newsMedia.get('objectId'))">
+                            <span class="fa fa-save"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="displayFlexRow" ng-show="m.get('content').length > 0">
+                    <h5 id="newsContent_{{$index}}">{{m.get('content')}}</h5>
+                    <textarea id="updateNewsContent_{{$index}}" ng-change="updateNewsContentList($index)" class="ng-hide textAreaNewsTitle" type="text" ng-model="newsContentList"></textarea>
+                    <div id="editNewsContent_{{$index}}" class="buttonEditHidden">
+                        <a type="button" class="btn btnEditCityPrice buttonEdit" ng-click="editNewsContentList($index,m.get('content'))">
+                            <span class="fa fa-edit"></span>
+                        </a>
+                    </div>
+                    <div id="saveNewsContent_{{$index}}" class="ng-hide">
+                        <a type="button" class="btn btnEditCityPrice buttonEditSave" ng-click="saveNewsContentList($index, newsMedia.get('objectId'))">
+                            <span class="fa fa-save"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

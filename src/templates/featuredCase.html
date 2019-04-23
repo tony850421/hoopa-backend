@@ -1,0 +1,116 @@
+<div class="row groupIntroductonStyle" ng-controller="FeaturedCaseCtrl">
+    <div class="pageHeader">
+        <label class="subheaderPage">{{ 'CASES' | translate }}</label>
+    </div>
+
+    <div ng-if="loading">
+        <rd-loading></rd-loading>
+    </div>
+
+    <div class="padding-60" ng-show="!loading">
+        <div id="addNewsBox">
+            <div class="CasesAdd">
+                <div class="displayFlexColumn borderBox backgroundWhite">
+                    <div class="form-group width100">
+                        <label for="coreTeamName" translate="TITLE"></label>
+                        <input ng-model="title" type="title" id="coreTeamName" class="form-control backgroundColorField" required autofocus>
+                    </div>
+                    <div class="form-group">
+                        <img class="mainNewsCase" id="mainNewsImage" ng-show="coreTeamImageUpdate.length> 0">
+                        <div class="padding20 textCenter">
+                            <span class="spanImageMainNews icon-add" ng-show="coreTeamImageUpdate.length == 0"></span>
+                        </div>
+                        <input type="file" class="custom-file-input imageInputCase backgroundColorField" id="newsPicture"
+                            onchange="angular.element(this).scope().changeValueNewsImage()">
+                    </div>
+                </div>
+
+                <div class="displayFlexColumn borderBox backgroundWhite marginTop15">
+                    <div ng-repeat="member in newsCases">
+                        <div class="newsItem">
+                            <div class="citiesItemData">
+                                <div>
+                                    <img class="imageCities" ng-src="{{member.get('imageUrl')}}">
+                                </div>
+                                <div class="updateCityNameClass width100">
+                                    <label class="margin-bottom-0" id="newsCaption_{{$index}}">{{member.get('caption')}}</label>
+                                    <label class="margin-bottom-0 marginTop15" id="newsCaption_{{$index}}">{{member.get('content')}}</label>
+                                </div>
+                                <span class="fa fa-trash CityDelete" ng-click="deleteNewsMedia($index)"></span>
+                            </div>
+                            <div class="orderBox">
+                                <div class="spanOrderBoxNews" ng-show="$index != 0 && $index != arrayCities.length -1">
+                                    <span class="fa fa-angle-up" ng-click="orderUp($index)"></span>
+                                </div>
+                                <div class="spanOrderBoxNews marginTop4" ng-show="$index != 0 && $index != arrayCities.length -1">
+                                    <span class="fa fa-angle-down" ng-click="orderDown($index)"></span>
+                                </div>
+                                <div class="spanOrderBoxNewsUp" ng-show="$index == 0 && $index != arrayCities.length -1">
+                                    <span class="fa fa-angle-down" ng-click="orderDown($index)"></span>
+                                </div>
+                                <div class="spanOrderBoxNewsUp" ng-show="$index != 0 && $index == arrayCities.length -1">
+                                    <span class="fa fa-angle-up" ng-click="orderUp($index)"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="displayFlexColumn">
+                        <div class="displayFlexRow">
+                            <div class="form-group">
+                                <img class="mainNewsImage" id="mainNewsImageArray" ng-show="coreTeamImageUpdateArray.length> 0">
+                                <div class="padding20">
+                                    <span class="spanImageMainNews icon-add" ng-show="coreTeamImageUpdateArray.length == 0"></span>
+                                </div>
+                                <input type="file" class="custom-file-input imageInputCoreTeamArray backgroundColorField" id="newsPictureArray"
+                                    onchange="angular.element(this).scope().changeValueNewsImageArray()">
+                            </div>
+                            <div class="displayFlexColumn width100 margin-left-10">
+                                <div class="form-group">
+                                    <label for="coreTeamDescription" translate="CAPTION"></label>
+                                    <input ng-model="captionContent" type="title" class="form-control backgroundColorField" required autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <label for="coreTeamDescription" translate="SHORTDESCRIPTION"></label>
+                                    <textarea ng-model="textContent" type="title" class="textAreaCoreTeamArray form-control backgroundColorField" required autofocus></textarea>                                
+                                </div>
+                            </div>
+                        </div>
+                        <div class="buttonAddNewsContent">
+                            <button class="btn btn-lg buttonAddMediaNews" ng-click="addCasesMedia()">
+                                <span class="icon-add cursorPointer fontSize40"></span>
+                                <label class="margin-bottom-0 fontSize13 cursorPointer fontSize24" translate="BADD"></label>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group borderBox backgroundWhite marginTop15">
+                        <button class="btn btn-lg buttonAddTeamMember" ng-click="publishCases()">
+                            <span class="fa fa-plus cursorPointer"></span>
+                            <label class="margin-bottom-0 fontSize13 cursorPointer" translate="PPUBLISH"></label>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-lg buttonAddMember" ng-click="addNewsFunction()">
+            <span class="icon-add cursorPointer fontSize40"></span>
+            <label class="margin-bottom-0 fontSize13 cursorPointer fontSize24" translate="ADDCASE"></label>
+        </button>
+
+        <div class="marginTop15">
+            <ul class="media-list" ng-repeat="f in cases">
+                <li class="media displayFlexRow borderHoverColor">
+                    <a ng-click="goToCase($index)">
+                        <img class="media-object news-image" ng-src="{{f.mainImage}}">
+                    </a>
+                    <div class="displayFlexColumn marginRight15 width100">
+                        <h4 class="media-heading" ng-click="goToCase($index)"> {{f.title}} </h4>
+                        <h4 class="media-heading" ng-click="goToCase($index)"> {{f.content}} </h4>
+                    </div>
+                    <span class="fa fa-trash newsDelete" ng-click="deleteNews(f.id)"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

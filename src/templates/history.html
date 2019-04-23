@@ -9,8 +9,7 @@
         <div class="imageGroupIntroductionBox">
             <label class="subheader">{{'ADDIMAGE' | translate}}</label>
             <div class="addImageBox">
-                <span ng-show="!imageGroupIntroductionFlag" class="fa
-                    fa-picture-o spanImageAdd"></span>
+                <span ng-show="!imageGroupIntroductionFlag" class="fa fa-picture-o spanImageAdd"></span>
                 <img class="imageGroup" src="{{imageGroupIntroduction}}"
                     ng-show="imageGroupIntroductionFlag"
                     id="imageGroupIntroduction">
@@ -24,8 +23,7 @@
                 <div class="displayFlexRow">
                     <label class="margin-bottom-0"
                         id="timelineDate_{{$index}}">{{'YEAR' | translate}} {{i.date.getFullYear()}} {{'MONTH' | translate}} {{i.date.getMonth()+1}} {{'DAY' | translate}} {{i.date.getDate()}}</label>
-                    <div class="ng-hide displayFlexRow"
-                        id="updateTimelineDate_{{$index}}">
+                    <div class="ng-hide displayFlexRow" id="updateTimelineDate_{{$index}}">
                         <label class="margin-left-10 margin-top-5">{{'YEAR' | translate}} </label>
                         <input type="text" ng-model="year" class="form-control inputDateHistory"
                             ng-change="updateTimelineYear($index)" id="timelineYear_{{$index}}" ng-model="timelineYear">

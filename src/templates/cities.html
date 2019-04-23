@@ -15,7 +15,7 @@
                             onchange="angular.element(this).scope().changeValueMainImage(angular.element(this).scope().$index)">
                         </div>
                         <div class="width100">
-                            <div class="updateCityNameClass">
+                            <div class="displayFlexRow">
                                 <label class="margin-bottom-0" id="cityName_{{$index}}">{{member.name}}</label>
                                 <input id="updateCityName_{{$index}}" ng-change="updateCityName($index)" class="ng-hide" type="text" ng-model="nameUpdateCity"></input>                            
                                 <div id="editCityName_{{$index}}" class="buttonEditHidden">
@@ -29,7 +29,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="updateCityNameClass">
+                            <div class="displayFlexRow">
                                 <h5><strong>{{'CITYPRICE' | translate}}:</strong></h5>
                                 <label class="margin-bottom-0 labelPriceCityUpdate" id="cityPrice_{{$index}}">{{member.price}}</label>
                                 <input id="updateCityPrice_{{$index}}" ng-change="updateCityPrice($index)" class="ng-hide" type="text" ng-model="priceUpdateCity"></input>
@@ -44,7 +44,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="updateCityNameClass">
+                            <div class="displayFlexRow">
                                 <label class="margin-bottom-0"><strong>{{'SHOWCITYTEXT' | translate}}:</strong></label>
                                 <label id="cityVisibilityYes_{{$index}}" class="margin-bottom-0 visibilityCity" ng-show="member.show">{{'YES' | translate}}</label>
                                 <label id="cityVisibilityNo_{{$index}}" class="margin-bottom-0 visibilityCity" ng-show="!member.show">{{'NO' | translate}}</label>

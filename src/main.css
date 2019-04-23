@@ -781,6 +781,13 @@ ul.sidebar .sidebar-list a:hover {
   margin-right: 15px;
 }
 
+.mainNewsCase {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
 .newsImage {
   width: 100px;
   object-fit: cover;
@@ -1030,7 +1037,7 @@ tr {
   background-color: #fff !important;
 }
 
-.VisitTitle {
+.textCenter {
   text-align: center;
 }
 
@@ -1364,6 +1371,12 @@ tr {
   flex-direction: column;
 }
 
+.CasesAdd {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
 .BranchesViewUpdate {
   background-color: #fff;
   padding-top: 15px;
@@ -1526,7 +1539,7 @@ tr {
 
 .updateCityNameClass {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .btnEditCityName {
@@ -1661,6 +1674,14 @@ tr {
   width: 150px;
   height: 150px;
   top: 210px;
+}
+
+.imageInputCase {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 150px;
+  margin-top: -180px;
 }
 
 .imageInputCoreTeamArray {
@@ -1928,7 +1949,7 @@ tr {
 
 .servicesProcessDelete {
   position: absolute;
-  right: 120px;
+  right: 130px;
   margin-top: 95px;
   font-size: 30px!important;
 }
@@ -2048,7 +2069,7 @@ tr {
   cursor: pointer;
 }
 
-.spanOrderBoxServicesProcess {
+.spanOrderBoxServicesProcessUp {
   background-color: #F5F5F5;
   display: flex;
   justify-content: center;

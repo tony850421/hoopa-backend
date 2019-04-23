@@ -1,11 +1,14 @@
 <div class="row groupIntroductonStyle" ng-controller="ServicesProcessCtrl">
     <div class="pageHeader">
         <label class="subheaderPage">{{ 'SERVICESPROCESSS' | translate }} </label>
-        <span class="icon-contenido_abajo spanModeView marginRight30" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '1'}"></span>
+        <!-- <span class="icon-contenido_abajo spanModeView marginRight30" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '1'}"></span>
         <span class="icon-contenido_bloque spanModeView marginRight15" ng-class="{spanModeViewOpacity: modeGroupIntroduction != '2'}"
-            ng-click="changeMode(1)"></span>
+            ng-click="changeMode(1)"></span> -->
     </div>
-    <div class="padding-60 margin-bottom-0" ng-show="servicesProcessArray.length > 0">
+    <div ng-if="loading">
+        <rd-loading></rd-loading>
+    </div>
+    <div class="padding-60 margin-bottom-0" ng-show="servicesProcessArray.length > 0 && !loading">
         <div class="itemServicesProcess displayFlexRow" ng-repeat="s in servicesProcessArray">
             <span class="fa fa-trash servicesProcessDelete" ng-click="deleteServicesProcess(s.id, $index)"></span>
             <div class="imageServicesProcessBox">
@@ -16,7 +19,7 @@
                     onchange="angular.element(this).scope().changeImageServicesProcess(angular.element(this).scope().$index)">
             </div>
             <div class="textServicesProcessBox">
-                <div class="updateCityNameClass">
+                <div class="displayFlexRow">
                     <label class="margin-bottom-0" id="serviceTitle_{{$index}}">{{s.title}}</label>
                     <input id="updateServiceTitle_{{$index}}" ng-change="updateServiceTitle($index)" class="ng-hide form-control margin-top-5 width90P" 
                     type="text" ng-model="serviceTitle"></input>
@@ -31,7 +34,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="updateCityNameClass">
+                <div class="displayFlexRow">
                     <label class="margin-bottom-0" id="serviceDescription_{{$index}}">{{s.description}}</label>
                     <textarea id="updateServiceDescription_{{$index}}" ng-change="updateServiceDescription($index)" class="ng-hide form-control textAreaServicesProcess 
                     margin-top-5 width90P" type="text" ng-model="serviceDescription"></textarea>
@@ -48,32 +51,29 @@
                 </div>
             </div>
             <div class="orderBox">
-                <div class="spanOrderBoxServices" ng-show="$index != 0 && $index != servicesProcessArray.length -1" ng-click="orderUp($index)">
+                <div class="spanOrderBoxServicesProcess" ng-show="$index != 0 && $index != servicesProcessArray.length -1">
                     <span class="fa fa-angle-up" ng-click="orderUp($index)"></span>
                 </div>
-                <div class="spanOrderBox marginTop4" ng-show="$index != 0 && $index != servicesProcessArray.length -1" ng-click="orderDown($index)">
+                <div class="spanOrderBoxServicesProcess marginTop4" ng-show="$index != 0 && $index != servicesProcessArray.length -1">
                     <span class="fa fa-angle-down" ng-click="orderDown($index)"></span>
                 </div>
-                <div class="spanOrderBoxServicesProcess" ng-show="$index == 0 && $index != servicesProcessArray.length -1" ng-click="orderDown($index)">
+                <div class="spanOrderBoxServicesProcessUp" ng-show="$index == 0 && $index != servicesProcessArray.length -1">
                     <span class="fa fa-angle-down" ng-click="orderDown($index)"></span>
                 </div>
-                <div class="spanOrderBoxServicesProcess" ng-show="$index != 0 && $index == servicesProcessArray.length -1" ng-click="orderUp($index)">
+                <div class="spanOrderBoxServicesProcessUp" ng-show="$index != 0 && $index == servicesProcessArray.length -1">
                     <span class="fa fa-angle-up" ng-click="orderUp($index)"></span>
                 </div>
             </div>
         </div>
     </div>
-    <div class="padding-60 margin-bottom-0">
+    <div class="padding-60 margin-bottom-0" ng-show="!loading">
         <div class="backgroundWhite displayFlexRow">            
             <div class="imageServicesProcessBox">
                 <div class="addImageServicesProcessBox">
                     <span ng-show="!imageGroupIntroductionFlag" class="fa fa-picture-o spanServicesProcessImageAdd"></span>
-                    <img class="imageServicesProcess" src="{{imageGroupIntroduction}}" ng-show="imageGroupIntroductionFlag"
-                        id="imageGroupIntroduction">
+                    <img class="imageServicesProcess" src="{{imageGroupIntroduction}}" ng-show="imageGroupIntroductionFlag" id="imageGroupIntroduction">
                 </div>
-                <input type="file" class="custom-file-input
-                    inputServicesProcessImage"
-                    id="groupIntroductionPicture"
+                <input type="file" class="custom-file-input inputServicesProcessImage" id="groupIntroductionPicture"
                     onchange="angular.element(this).scope().changeImageGroupIntroduction()">
             </div>
             <div class="textServicesProcessBox">

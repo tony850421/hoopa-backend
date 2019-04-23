@@ -108,8 +108,8 @@ function HistoryCtrl ($scope, $rootScope, $state) {
         }
 
         $scope.timelineArray.push(item)
+        $scope.$apply()
       })
-      $scope.$apply()
     })
   }
 

@@ -17,9 +17,11 @@ function ServicesProcessCtrl ($scope, $rootScope, $state) {
   $scope.textGroupIntroductionFlag = false
   $scope.textGroupIntroduction = ''
   $scope.titleGroupIntroduction = ''
-  $scope.modeGroupIntroduction = 1
+  // $scope.modeGroupIntroduction = 1
 
   $scope.servicesProcessArray = []
+
+  $scope.loading = false
 
   $scope.changeImageGroupIntroduction = function () {
     readURL($('#groupIntroductionPicture')[0])
@@ -78,6 +80,7 @@ function ServicesProcessCtrl ($scope, $rootScope, $state) {
   }
 
   $scope.saveInformation = function () {
+    $scope.loading = true
     var file = $('#groupIntroductionPicture')[0].files[0]
     if (file) {
       var name = file.name
@@ -89,18 +92,24 @@ function ServicesProcessCtrl ($scope, $rootScope, $state) {
         service.set('image', avFile)
         service.set('description', $scope.textGroupIntroduction)
         service.set('title', $scope.titleGroupIntroduction)
-        service.set('mode', $scope.modeGroupIntroduction)
+        // service.set('mode', $scope.modeGroupIntroduction)
         if ($scope.servicesProcessArray.length > 0)
           service.set('order', $scope.servicesProcessArray[$scope.servicesProcessArray.length - 1].order + 1)
         else
           service.set('order', 1)
+
         service.save().then(function (res) {
+          $scope.loading = false
           $scope.textGroupIntroduction = ''
           $scope.textGroupIntroductionFlag = false
           $scope.titleGroupIntroduction = ''
           $scope.imageGroupIntroduction = ''
           $scope.imageGroupIntroductionFlag = false
           $scope.init()
+        }, function (error) {
+          $scope.loading = false
+          $scope.$apply()
+          alert(JSON.stringify(error))
         })
       }
     }
@@ -137,9 +146,9 @@ function ServicesProcessCtrl ($scope, $rootScope, $state) {
 
   $scope.init()
 
-  $scope.changeMode = function (num) {
-    $scope.modeGroupIntroduction = num
-  }
+  // $scope.changeMode = function (num) {
+  //   $scope.modeGroupIntroduction = num
+  // }
 
   $scope.updateServiceTitle = function (index) {
     id = '#updateServiceTitle_' + index

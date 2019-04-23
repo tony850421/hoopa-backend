@@ -118,22 +118,22 @@
         <li class="sidebar-list" ng-if="getUser() != ' '">
           <a ng-click="changeActiveList('company')">
               <span class="fa fa-angle-down menu-icon" ng-class="{'hiddeNewProjectButton': activeList != 'company' && activeList != 'coreTeam'
-                                                                    && activeList != 'hoopaBranchs'  && activeList != 'news' && activeList != 'newnews'
+                                                                    && activeList != 'hoopaBranchs'  && activeList != 'news'
                                                                     && activeList != 'group' && activeList != 'structure' && activeList != 'groupIntroduce' && 
                                                                     activeList != 'companyIntroduce' && activeList != 'business' && activeList != 'services'
-                                                                  && activeList != 'honor' && activeList != 'history'}"></span>
+                                                                  && activeList != 'honor' && activeList != 'history' && activeList != 'cases'}"></span>
               <span class="fa fa-angle-right menu-icon" ng-class="{'hiddeNewProjectButton': activeList == 'company' || activeList == 'coreTeam'
-                                                                    || activeList == 'hoopaBranchs'  || activeList == 'news' || activeList == 'newnews'
+                                                                    || activeList == 'hoopaBranchs'  || activeList == 'news'
                                                                     || activeList == 'group'|| activeList == 'structure' || activeList == 'groupIntroduce' ||
                                                                     activeList == 'companyIntroduce' || activeList == 'business' || activeList == 'services' 
-                                                                  || activeList == 'honor' || activeList == 'history'}"></span>
+                                                                  || activeList == 'honor' || activeList == 'history' || activeList == 'cases'}"></span>
               <label class="listFirstLevel margin-bottom-0">{{'COMPANY' | translate}}</label>
           </a>
           <ul class="padding-0 width100 listUnstyled" ng-class="{'hiddeNewProjectButton': activeList != 'company' && activeList != 'coreTeam'
-                                                      && activeList != 'hoopaBranchs'  && activeList != 'news' && activeList != 'newnews'
+                                                      && activeList != 'hoopaBranchs'  && activeList != 'news'
                                                       && activeList != 'group' && activeList != 'structure' && activeList != 'groupIntroduce' && 
                                                       activeList != 'companyIntroduce' && activeList != 'business' && activeList != 'services' && activeList != 'honor'
-                                                      && activeList != 'history'}">
+                                                      && activeList != 'history' && activeList != 'cases'}">
             <li class="sidebar-list" ng-if="getUser() != ' '">
               <a ng-click="changeActiveList('groupIntroduce')">
                   <span class="fa fa-angle-down menu-icon" ng-class="{'hiddeNewProjectButton': activeList != 'coreTeam' && activeList != 'group' 
@@ -143,26 +143,28 @@
                   <span class="fa fa-angle-right menu-icon" ng-class="{'hiddeNewProjectButton': activeList == 'coreTeam' || activeList == 'group' 
                                                                       || activeList == 'hoopaBranchs' || activeList == 'structure' || 
                                                                       activeList == 'companyIntroduce' || activeList == 'groupIntroduce' || activeList == 'business' ||
-                                                                      activeList == 'services' || activeList == 'honor' || activeList == 'history'}"></span>
+                                                                      activeList == 'services' || activeList == 'honor' || activeList == 'history' ||
+                                                                      activeList == 'cases'}"></span>
                 <label class="listSecondLevel margin-bottom-0">{{'GROUPINTRODUCE' | translate}}</label>
               </a>
               <ul class="padding-0 width100 listUnstyled" ng-class="{'hiddeNewProjectButton': activeList != 'coreTeam' && activeList != 'group'
                                                                       && activeList != 'hoopaBranchs' && activeList != 'companyIntroduce' && 
                                                                       activeList != 'groupIntroduce' && activeList != 'business' && activeList != 'structure' &&
-                                                                      activeList != 'services' && activeList != 'honor' && activeList != 'history'}">
+                                                                      activeList != 'services' && activeList != 'honor' && activeList != 'history' && 
+                                                                      activeList != 'cases'}">
                 <li class="sidebar-list" ng-if="getUser() != ' '">
                   <a ng-click="changeActiveList('companyIntroduce')">
                       <span class="fa fa-angle-down menu-icon" ng-class="{'hiddeNewProjectButton': activeList != 'group' && activeList != 'structure' && 
                                                                           activeList != 'companyIntroduce' && activeList != 'business' && activeList != 'services'
-                                                                        && activeList != 'honor'}"></span>
+                                                                        && activeList != 'honor' && activeList != 'cases'}"></span>
                       <span class="fa fa-angle-right menu-icon" ng-class="{'hiddeNewProjectButton': activeList == 'group' || activeList == 'structure' || 
                                                                           activeList == 'companyIntroduce' || activeList == 'business' || activeList == 'services'
-                                                                        || activeList == 'honor'}"></span>
+                                                                        || activeList == 'honor' || activeList == 'cases'}"></span>
                     <label class="listThirdLevel margin-bottom-0">{{'COMPANYINTRODUCE' | translate}}</label>
                   </a>
                   <ul class="padding-0 width100 listUnstyled" ng-class="{'hiddeNewProjectButton': activeList != 'group' && activeList != 'structure' && 
                                                                          activeList != 'companyIntroduce' && activeList != 'business' && activeList != 'services'
-                                                                        && activeList != 'honor'}">
+                                                                        && activeList != 'honor' && activeList != 'cases'}">
                     <li class="sidebar-list" ng-if="getUser() != ' '">
                         <a href="#group" ng-click="changeActiveList('group')" ng-class="{'colorListActive': activeList == 'group'}">
                             <span class="menu-icon fa fa-user-circle"></span>
@@ -191,6 +193,12 @@
                         <a href="#honor" ng-click="changeActiveList('honor')" ng-class="{'colorListActive': activeList == 'honor'}">
                             <span class="menu-icon fa fa-handshake-o"></span>
                             <label class="listFourLevel margin-bottom-0">{{'HONOR' | translate}}</label>
+                        </a>
+                    </li>
+                    <li class="sidebar-list" ng-if="getUser() != ' '">
+                        <a href="#cases" ng-click="changeActiveList('cases')" ng-class="{'colorListActive': activeList == 'cases'}">
+                            <span class="menu-icon fa fa-archive"></span>
+                            <label class="listFourLevel margin-bottom-0">{{'CASES' | translate}}</label>
                         </a>
                     </li>
                   </ul>
@@ -264,12 +272,10 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li ng-click="changeLanguage('ch_CH')">
-                    <!-- <img src="img/china_round_icon_64.png"> -->
                     <a ng-click="changeLanguage('ch_CH')">简化中国</a>
                   </li>
                   <li class="divider"></li>
                   <li ng-click="changeLanguage('en_US')">
-                    <!-- <img src="img/united_kingdom_round_icon_64.png"> -->
                     <a ng-click="changeLanguage('en_US')">English</a>
                   </li>
                 </ul>

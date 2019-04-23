@@ -47,7 +47,7 @@
                     <div class="branchItemRow">
                         <div class="citiesItemData">
                             <div class="branchItemColumn">
-                                <div class="updateCityNameClass">
+                                <div class="displayFlexRow">
                                     <label translate="HBNAME"></label>
                                     <label class="margin-bottom-0" id="branchName_{{$index}}">{{b.name}}</label>
                                     <input id="updateBranchName_{{$index}}" ng-change="updateBranchName($index)" class="ng-hide" type="text" ng-model="nameUpdateBranch"></input>
@@ -62,7 +62,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="updateCityNameClass">
+                                <div class="displayFlexRow">
                                     <label translate="HBADDRESS"></label>
                                     <label class="margin-bottom-0" id="branchAddress_{{$index}}">{{b.address}}</label>
                                     <input id="updateBranchAddress_{{$index}}" ng-change="updateBranchAddress($index)" class="ng-hide" type="text" ng-model="addressUpdateBranch"></input>
@@ -77,7 +77,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="updateCityNameClass">
+                                <div class="displayFlexRow">
                                     <label translate="HBPHONE"></label>
                                     <label class="margin-bottom-0" id="branchPhone_{{$index}}">{{b.phone}}</label>
                                     <input id="updateBranchPhone_{{$index}}" ng-change="updateBranchPhone($index)" class="ng-hide" type="text" ng-model="phoneUpdateBranch"></input>
@@ -92,7 +92,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="updateCityNameClass">
+                                <div class="displayFlexRow">
                                     <label translate="HBLATITUDE"></label>
                                     <label class="margin-bottom-0" id="branchPosition_{{$index}}">{{b.longitude}},{{b.latitude}}</label>
                                     <input id="updateBranchPosition_{{$index}}" ng-change="updateBranchPosition($index)" class="ng-hide" type="text" ng-model="positionUpdateBranch"></input>
