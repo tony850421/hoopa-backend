@@ -50,7 +50,7 @@ function CitiesCtrl ($scope, $rootScope, $translate, $state) {
         $scope.imageUpdate = ''
 
         var mainImage = element.get('image').thumbnailURL(240, 240)
-        var price = element.get('price')
+        // var price = element.get('price')
         var order = element.get('order')
         var id = element.get('objectId')
         var name = element.get('name')
@@ -59,7 +59,7 @@ function CitiesCtrl ($scope, $rootScope, $translate, $state) {
 
         $scope.arrayCities.push({
           id: id,
-          price: price,
+          // price: price,
           mainImage: mainImage,
           name: name,
           description: description,
@@ -124,12 +124,12 @@ function CitiesCtrl ($scope, $rootScope, $translate, $state) {
       var name = file.name
       var avFile = new AV.File(name, file)
 
-      if ($scope.cityNameNew != '' && $scope.cityPriceNew != '') {
+      if ($scope.cityNameNew != '') {
         var City = AV.Object.extend('Cities')
         var city = new City()
         city.set('name', $scope.cityNameNew)
         city.set('description', $scope.cityDescriptionNew)
-        city.set('price', $scope.cityPriceNew)
+        // city.set('price', $scope.cityPriceNew)
 
         if ($scope.arrayCities.length > 0)
           city.set('order', $scope.arrayCities[$scope.arrayCities.length - 1].order + 1)
@@ -239,7 +239,7 @@ function CitiesCtrl ($scope, $rootScope, $translate, $state) {
 
     if ($scope.priceUpdateCity != '') {
       var city = AV.Object.createWithoutData('Cities', id)
-      city.set('price', $scope.priceUpdateCity)
+      city.set('description', $scope.priceUpdateCity)
       city.save()
     }
   }

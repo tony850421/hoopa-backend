@@ -1594,7 +1594,7 @@ tr {
   color: #fff !important;
 }
 
-/* style for unput type file image */
+/* style for input type file image */
 
 .was-validated .custom-file-input:valid~.custom-file-label, .custom-file-input.is-valid~.custom-file-label {
   border-color: #28a745;
@@ -1694,7 +1694,7 @@ tr {
 
 .updateCityImageImput {
   position: absolute;
-  top: 0;
+  margin-top: -90px;
   width: 120px;
   height: 90px;
   z-index: 100;

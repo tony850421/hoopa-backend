@@ -31,7 +31,7 @@
                             </div>
                             <div class="displayFlexRow">
                                 <h5><strong>{{'CITYPRICE' | translate}}:</strong></h5>
-                                <label class="margin-bottom-0 labelPriceCityUpdate" id="cityPrice_{{$index}}">{{member.price}}</label>
+                                <label class="margin-bottom-0 labelPriceCityUpdate" id="cityPrice_{{$index}}">{{member.description}}</label>
                                 <input id="updateCityPrice_{{$index}}" ng-change="updateCityPrice($index)" class="ng-hide" type="text" ng-model="priceUpdateCity"></input>
                                 <div id="editCityPrice_{{$index}}" class="buttonEditHidden">
                                     <a type="button" class="btn btnEditCityPrice buttonEdit" ng-click="editCityPrice($index, member.price)">
@@ -100,8 +100,8 @@
                             <input ng-model="cityNameNew" type="title" id="cityName" class="form-control backgroundColorField" required autofocus>
                         </div>
                         <div class="width50">
-                            <label for="cityPrice" translate="CITYPRICE"></label>
-                            <input ng-model="cityPriceNew" type="title" id="cityPrice" class="form-control backgroundColorField" required autofocus>
+                            <label for="cityPrice" translate="CITYDESCRIPTION"></label>
+                            <input ng-model="cityDescriptionNew" type="title" id="cityPrice" class="form-control backgroundColorField" required autofocus>
                         </div>
                     </div>
                     <div class="marginTop20">
